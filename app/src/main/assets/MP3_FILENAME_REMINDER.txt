@@ -1,0 +1,28 @@
+MP3 FILE NAME REMINDER
+
+Place each MP3 file in the same folder as its matching HTML page.
+
+Directions page:
+directions.mp3
+
+Privacy Policy page:
+privacy.mp3
+
+Income & Expense Setup page:
+income.mp3
+
+401K Calculator page:
+calculator.mp3
+
+Retirement Chart page:
+retirement.mp3
+
+Retirement Expenses page:
+retirement_expenses.mp3
+
+Reports page:
+reports.mp3
+
+IMPORTANT:
+Use these exact lowercase filenames, including underscores and the .mp3 extension.
+Do not add spaces or change capitalization.

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Retirement Planning Tool — Loading</title>
+<style>
+:root{--red:#ef4444;--yellow:#f2cf4a;--green:#16a34a;--blue:#3b82f6;--cyan:#06b6d4;--orange:#f97316;--dark:#111827}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Arial,sans-serif;color:var(--dark);overflow:hidden;background:#0f172a}
+.splash{min-height:100%;display:flex;align-items:center;justify-content:center;padding:18px;position:relative;background:radial-gradient(circle at 15% 18%,rgba(239,68,68,.34),transparent 30%),radial-gradient(circle at 85% 18%,rgba(242,207,74,.35),transparent 31%),radial-gradient(circle at 20% 86%,rgba(22,163,74,.28),transparent 33%),radial-gradient(circle at 84% 82%,rgba(6,182,212,.25),transparent 32%),linear-gradient(135deg,#111827 0%,#1e293b 50%,#0f172a 100%)}
+.splash:before{content:"";position:absolute;inset:-20%;background:repeating-linear-gradient(115deg,transparent 0 44px,rgba(255,255,255,.035) 45px 47px),repeating-linear-gradient(25deg,transparent 0 70px,rgba(255,255,255,.026) 71px 73px);animation:drift 22s linear infinite;pointer-events:none}@keyframes drift{from{transform:translateX(-3%) rotate(0)}to{transform:translateX(3%) rotate(1deg)}}
+.card{width:min(1180px,100%);min-height:min(700px,92vh);border:1px solid rgba(255,255,255,.20);border-radius:30px;background:rgba(255,255,255,.93);box-shadow:0 28px 80px rgba(0,0,0,.45);backdrop-filter:blur(16px);position:relative;overflow:hidden;padding:28px;display:flex;flex-direction:column;align-items:center;text-align:center}.card:before{content:"";position:absolute;left:-110px;top:-110px;width:320px;height:320px;border-radius:50%;background:rgba(239,68,68,.12)}.card:after{content:"";position:absolute;right:-120px;bottom:-120px;width:360px;height:360px;border-radius:50%;background:rgba(242,207,74,.20)}
+.logo-row{position:relative;z-index:1;display:flex;align-items:center;gap:10px;margin-bottom:8px;font-weight:1000;font-size:13px;color:#475569;text-transform:uppercase;letter-spacing:.08em}.logo-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--red),var(--yellow));box-shadow:0 8px 20px rgba(239,68,68,.25);position:relative}.logo-mark:after{content:"";position:absolute;right:7px;bottom:7px;width:14px;height:14px;border-radius:50%;background:var(--green);border:3px solid #fff}
+h1{position:relative;z-index:1;font-size:clamp(34px,5vw,66px);line-height:.95;margin:0;font-weight:1000;letter-spacing:-.05em;color:#0f172a}.sub{position:relative;z-index:1;font-size:clamp(15px,2vw,20px);line-height:1.35;color:#334155;margin:12px auto 18px;font-weight:800;max-width:760px}.pill-row{position:relative;z-index:1;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:4px 0 18px}.pill{font-size:12px;font-weight:1000;border-radius:999px;padding:7px 11px;background:#fff;border:1px solid #e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,.06)}.pill.red{color:#b91c1c;background:#fff1f2}.pill.yellow{color:#92400e;background:#fffbeb}.pill.green{color:#166534;background:#f0fdf4}.pill.blue{color:#1d4ed8;background:#eff6ff}
+.clock-wrap{position:relative;z-index:1;width:min(1040px,96vw);height:min(330px,42vh);min-height:250px;border-radius:28px;background:linear-gradient(135deg,#fff,#f8fafc);border:1px solid #e2e8f0;box-shadow:0 14px 42px rgba(15,23,42,.14);overflow:hidden;display:flex;align-items:center;justify-content:center;margin:4px 0 18px}.clock-wrap:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 16% 25%,rgba(239,68,68,.14),transparent 30%),radial-gradient(circle at 84% 28%,rgba(242,207,74,.22),transparent 31%),radial-gradient(circle at 21% 82%,rgba(22,163,74,.11),transparent 34%),radial-gradient(circle at 80% 82%,rgba(6,182,212,.11),transparent 34%)}.clock-track{position:absolute;left:6%;right:6%;height:8px;border-radius:999px;background:#e5e7eb;top:50%;transform:translateY(-50%);overflow:hidden}.clock-track:after{content:"";display:block;height:100%;width:38%;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--yellow),var(--green),var(--blue),var(--cyan));animation:track 2.4s ease-in-out infinite}@keyframes track{0%{transform:translateX(-105%)}55%{width:70%}100%{transform:translateX(270%);width:38%}}
+.big-clock{position:relative;width:min(300px,42vw);height:min(300px,42vw);min-width:210px;min-height:210px;border-radius:50%;background:#fff;border:10px solid #111827;box-shadow:0 22px 48px rgba(15,23,42,.25);z-index:2}.big-clock:before{content:"";position:absolute;inset:16px;border-radius:50%;border:6px solid rgba(22,163,74,.17)}.big-clock:after{content:"";position:absolute;inset:-28px;border-radius:50%;border:12px solid rgba(242,207,74,.28);animation:ring 2s ease-in-out infinite}@keyframes ring{0%,100%{transform:scale(.94);opacity:.45}50%{transform:scale(1.04);opacity:.9}}
+.tick{position:absolute;left:50%;top:50%;width:6px;height:18px;border-radius:999px;background:#cbd5e1;transform-origin:50% calc(-1 * (min(130px,18vw)))}
+.tick:nth-child(1){transform:translate(-50%,130px) rotate(0deg)}.tick:nth-child(2){transform:translate(-50%,130px) rotate(30deg)}.tick:nth-child(3){transform:translate(-50%,130px) rotate(60deg)}.tick:nth-child(4){transform:translate(-50%,130px) rotate(90deg);background:var(--red)}.tick:nth-child(5){transform:translate(-50%,130px) rotate(120deg)}.tick:nth-child(6){transform:translate(-50%,130px) rotate(150deg)}.tick:nth-child(7){transform:translate(-50%,130px) rotate(180deg);background:var(--green)}.tick:nth-child(8){transform:translate(-50%,130px) rotate(210deg)}.tick:nth-child(9){transform:translate(-50%,130px) rotate(240deg)}.tick:nth-child(10){transform:translate(-50%,130px) rotate(270deg);background:var(--blue)}.tick:nth-child(11){transform:translate(-50%,130px) rotate(300deg)}.tick:nth-child(12){transform:translate(-50%,130px) rotate(330deg)}
+.hand{position:absolute;left:50%;top:50%;width:6px;height:40%;background:#ef4444;border-radius:999px;transform-origin:50% 100%;transform:translate(-50%,-100%);animation:spin 1.45s linear infinite;z-index:4}.hand.minute{height:46%;width:5px;background:#16a34a;animation-duration:4.4s}.center{position:absolute;left:50%;top:50%;width:22px;height:22px;border-radius:50%;background:#111827;transform:translate(-50%,-50%);z-index:5;box-shadow:0 0 0 8px rgba(17,24,39,.08)}@keyframes spin{from{transform:translate(-50%,-100%) rotate(0deg)}to{transform:translate(-50%,-100%) rotate(360deg)}}
+.clock-label{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;font-size:14px;font-weight:1000;color:#475569;background:rgba(255,255,255,.82);border:1px solid #e5e7eb;border-radius:999px;padding:9px 14px;box-shadow:0 8px 20px rgba(15,23,42,.08)}.loading-text{position:relative;z-index:1;font-weight:1000;color:#475569;font-size:14px;margin-bottom:14px}.dots span{animation:blink 1.1s infinite}.dots span:nth-child(2){animation-delay:.18s}.dots span:nth-child(3){animation-delay:.36s}@keyframes blink{0%,100%{opacity:.2}50%{opacity:1}}
+.actions{position:relative;z-index:1;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+.themed-splash-sliders{position:relative;z-index:1;width:100%;max-width:720px;display:flex;flex-direction:column;gap:14px;margin-top:2px}
+.splash-range{appearance:none;-webkit-appearance:none;width:100%;height:12px;border-radius:999px;background:#e5e7eb;outline:none;opacity:1}
+.splash-range::-webkit-slider-runnable-track{height:12px;border-radius:999px}
+.splash-range::-moz-range-track{height:12px;border-radius:999px}
+.splash-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:28px;height:28px;border-radius:50%;background:#fff;border:4px solid var(--range-color);box-shadow:0 3px 10px rgba(0,0,0,.28);margin-top:-8px}
+.splash-range::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid var(--range-color);box-shadow:0 3px 10px rgba(0,0,0,.28)}
+.splash-range.red{--range-color:#ef4444;background:linear-gradient(90deg,#ef4444 0%,#ef4444 72%,#e5e7eb 72%,#e5e7eb 100%)}
+.splash-range.yellow{--range-color:#b45309;background:linear-gradient(90deg,#f2cf4a 0%,#f2cf4a 48%,#e5e7eb 48%,#e5e7eb 100%)}
+.splash-range:disabled{cursor:default}
+.start-btn,.skip-btn{border:0;border-radius:13px;padding:12px 16px;font-size:13px;font-weight:1000;cursor:pointer}.start-btn{color:#fff;background:#16a34a;box-shadow:0 10px 22px rgba(22,163,74,.28)}.skip-btn{color:#111827;background:#fff;border:1px solid #d1d5db}.small-note{position:relative;z-index:1;font-size:11px;color:#64748b;font-weight:800;margin-top:10px}
+@media(max-width:680px){html,body{overflow:auto}.splash{min-height:100%;overflow:auto}.card{min-height:auto;border-radius:22px;padding:18px}.clock-wrap{height:300px;min-height:300px}.big-clock{width:220px;height:220px;min-width:220px;min-height:220px}.tick:nth-child(n){transform-origin:50% -96px}.tick:nth-child(1){transform:translate(-50%,96px) rotate(0deg)}.tick:nth-child(2){transform:translate(-50%,96px) rotate(30deg)}.tick:nth-child(3){transform:translate(-50%,96px) rotate(60deg)}.tick:nth-child(4){transform:translate(-50%,96px) rotate(90deg)}.tick:nth-child(5){transform:translate(-50%,96px) rotate(120deg)}.tick:nth-child(6){transform:translate(-50%,96px) rotate(150deg)}.tick:nth-child(7){transform:translate(-50%,96px) rotate(180deg)}.tick:nth-child(8){transform:translate(-50%,96px) rotate(210deg)}.tick:nth-child(9){transform:translate(-50%,96px) rotate(240deg)}.tick:nth-child(10){transform:translate(-50%,96px) rotate(270deg)}.tick:nth-child(11){transform:translate(-50%,96px) rotate(300deg)}.tick:nth-child(12){transform:translate(-50%,96px) rotate(330deg)}}
+@media (prefers-reduced-motion: reduce){*,*:before,*:after{animation-duration:.001ms !important;animation-iteration-count:1 !important;scroll-behavior:auto !important}}
+</style>
+
+<style id="v30-gold-readability-lock-position">
+/* v30: brighter readable gold text and a slightly farther-right paperclip lock. */
+:root{
+  --v30-gold-text:#ffd84a;
+  --v30-gold-border:#e0aa00;
+  --v30-gold-shadow:rgba(55,65,81,.48);
+}
+/* Gold/yellow text: brighter, with only a tiny gray definition shadow. */
+.yellow,.gold,.yellow-text,.gold-text,
+.page3-card-yellow .slider-label,.page3-card-yellow .slider-value,
+.page3-card-yellow .catchup-note,.page3-card-yellow summary,
+.roth-catchup-note,.roth-label,.roth-value,
+[class*="yellow"] .slider-label,[class*="gold"] .slider-label,
+[class*="yellow"] .slider-value,[class*="gold"] .slider-value{
+  color:var(--v30-gold-text)!important;
+  text-shadow:0 1px 1px var(--v30-gold-shadow)!important;
+}
+/* Keep gold-associated controls crisp and matched to their card. */
+.v25-yellow>button,
+.page3-card-yellow .v25-action-row>button,
+[class*="yellow"] .v25-action-row>button,
+[class*="gold"] .v25-action-row>button{
+  border-color:var(--v30-gold-border)!important;
+  color:#b77900!important;
+  text-shadow:none!important;
+}
+/* Nudge locks a few pixels farther right while keeping them inside the card/page. */
+.slider-lock-button,.stable-lock-button{
+  right:4px!important;
+}
+@media(max-width:420px){
+  .slider-lock-button,.stable-lock-button{right:3px!important}
+}
+</style>
+
+
+<style id="v31-orange-gold-lock-final">
+/* v31: crisp orange-gold text with no shadow; locks slightly higher and farther right. */
+:root{
+  --v31-gold-text:#ffad14;
+  --v31-gold-border:#f59e0b;
+  --v31-gold-button-text:#c56a00;
+}
+.yellow,.gold,.yellow-text,.gold-text,
+.page3-card-yellow .slider-label,.page3-card-yellow .slider-value,
+.page3-card-yellow .catchup-note,.page3-card-yellow summary,
+.roth-catchup-note,.roth-label,.roth-value,
+[class*="yellow"] .slider-label,[class*="gold"] .slider-label,
+[class*="yellow"] .slider-value,[class*="gold"] .slider-value{
+  color:var(--v31-gold-text)!important;
+  text-shadow:none!important;
+  -webkit-text-stroke:0!important;
+}
+.v25-yellow>button,
+.page3-card-yellow .v25-action-row>button,
+.page3-card-yellow .page2-step-controls>button,
+.page3-card-yellow .v29-action-row>button,
+[class*="yellow"] .v25-action-row>button,
+[class*="gold"] .v25-action-row>button,
+[class*="yellow"] .page2-step-controls>button,
+[class*="gold"] .page2-step-controls>button,
+[class*="yellow"] .v29-action-row>button,
+[class*="gold"] .v29-action-row>button{
+  border-color:var(--v31-gold-border)!important;
+  color:var(--v31-gold-button-text)!important;
+  text-shadow:none!important;
+}
+.v29-lock-card>.slider-lock-button,
+.v29-lock-card>.stable-lock-button,
+.v29-lock-card .slider-lock-button.stable-lock-button,
+.slider-lock-button,.stable-lock-button{
+  top:-14px!important;
+  right:1px!important;
+  left:auto!important;
+}
+@media(max-width:420px){
+  .v29-lock-card>.slider-lock-button,
+  .v29-lock-card>.stable-lock-button,
+  .v29-lock-card .slider-lock-button.stable-lock-button,
+  .slider-lock-button,.stable-lock-button{
+    top:-14px!important;
+    right:1px!important;
+  }
+}
+</style>
+
+
+<style id="v32-readable-amber-pill-text">
+/* v32: improve readability of Roth/gold pill labels without shadows. */
+:root{
+  --v32-amber-text:#8f4600;
+  --v32-amber-border:#f59e0b;
+  --v32-amber-bg:#fff4df;
+}
+.v25-yellow>button,
+.page3-card-yellow .v25-action-row>button,
+.page3-card-yellow .page2-step-controls>button,
+.page3-card-yellow .v29-action-row>button,
+[class*="yellow"] .v25-action-row>button,
+[class*="gold"] .v25-action-row>button,
+[class*="yellow"] .page2-step-controls>button,
+[class*="gold"] .page2-step-controls>button,
+[class*="yellow"] .v29-action-row>button,
+[class*="gold"] .v29-action-row>button,
+[class*="roth"] .v25-action-row>button,
+[class*="roth"] .page2-step-controls>button,
+[class*="roth"] .v29-action-row>button{
+  color:var(--v32-amber-text)!important;
+  border-color:var(--v32-amber-border)!important;
+  background:var(--v32-amber-bg)!important;
+  text-shadow:none!important;
+  -webkit-text-stroke:0!important;
+}
+.v25-yellow>button:active,
+.page3-card-yellow .v25-action-row>button:active,
+.page3-card-yellow .page2-step-controls>button:active,
+[class*="yellow"] .v25-action-row>button:active,
+[class*="gold"] .v25-action-row>button:active,
+[class*="roth"] .v25-action-row>button:active{
+  background:#ffe6bd!important;
+}
+</style>
+
+<style id="yellow-card-black-text-final">
+/* Final readability override: all text inside yellow/gold cards is black. */
+.page3-card-yellow, .page3-card-yellow *,
+[class*="yellow-card"], [class*="yellow-card"] *,
+[class*="card-yellow"], [class*="card-yellow"] *,
+[class*="gold-card"], [class*="gold-card"] *,
+[class*="card-gold"], [class*="card-gold"] *,
+.slider-block.yellow, .slider-block.yellow *,
+.slider-block.gold, .slider-block.gold *,
+.slider-block:has(#existing-roth-slider), .slider-block:has(#existing-roth-slider) *,
+.slider-block:has(#roth-slider), .slider-block:has(#roth-slider) * {
+  color:#000 !important;
+  text-shadow:none !important;
+}
+</style>
+
+<style id="example-consistent-card-layout-v1">
+/* Consistent mobile card treatment based on the approved example. */
+.ctrl,.slider-block,.slider-card,.page4-slider-card,.income-slider-card,.control-card,.range-card{
+  position:relative!important;
+  border-radius:14px!important;
+  box-shadow:0 2px 7px rgba(15,23,42,.12)!important;
+  overflow:visible!important;
+}
+/* Keep the Show first control in a dedicated top row so it never covers a title or slider. */
+.ctrl:has(.page4-show-first-label),
+.slider-block:has(.show-first-label),
+.slider-card:has(.show-first-label){padding-top:52px!important}
+.page4-show-first-label,.show-first-label{
+  position:absolute!important;
+  top:10px!important;
+  left:14px!important;
+  right:auto!important;
+  margin:0!important;
+  z-index:20!important;
+  min-height:32px!important;
+  padding:5px 10px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:7px!important;
+  border:1px solid #cbd5e1!important;
+  border-radius:10px!important;
+  background:#fff!important;
+  box-shadow:0 1px 4px rgba(15,23,42,.12)!important;
+  font-size:13px!important;
+  font-weight:800!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+}
+.page4-show-first-label input,.show-first-label input{width:20px!important;height:20px!important;margin:0!important}
+.page4-show-first-label:has(input:checked),.show-first-label:has(input:checked){background:#e0f2fe!important;border-color:#0284c7!important;color:#075985!important}
+/* One lock only, at the upper-right of each card. */
+.ctrl>.slider-lock-button,.ctrl>.stable-lock-button,
+.slider-block>.slider-lock-button,.slider-block>.stable-lock-button,
+.slider-card>.slider-lock-button,.slider-card>.stable-lock-button{
+  top:8px!important;right:12px!important;left:auto!important;z-index:21!important
+}
+@media(max-width:520px){
+  .ctrl:has(.page4-show-first-label),.slider-block:has(.show-first-label),.slider-card:has(.show-first-label){padding-top:50px!important}
+  .page4-show-first-label,.show-first-label{top:9px!important;left:12px!important}
+}
+</style>
+<script id="single-lock-deduper-v1">
+(function(){
+  function cardFor(el){return el.closest('.ctrl,.slider-block,.slider-card,.page4-slider-card,.income-slider-card,.control-card,.range-card,.card');}
+  function clean(){
+    var cards=new Set();
+    document.querySelectorAll('.slider-lock-button,.stable-lock-button').forEach(function(b){var c=cardFor(b);if(c)cards.add(c);});
+    cards.forEach(function(card){
+      var locks=Array.from(card.querySelectorAll('.slider-lock-button,.stable-lock-button')).filter(function(b){return cardFor(b)===card;});
+      if(locks.length>1){
+        var keep=locks.find(function(b){return b.classList.contains('slider-lock-button');})||locks[0];
+        locks.forEach(function(b){if(b!==keep)b.remove();});
+      }
+    });
+  }
+  function start(){clean();new MutationObserver(clean).observe(document.body,{childList:true,subtree:true});setTimeout(clean,250);setTimeout(clean,1000);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+})();
+</script>
+
+</head>
+<body>
+<div class="splash">
+<main aria-label="Retirement Planning Tool loading screen" class="card" role="main">
+<div class="logo-row"><span class="logo-mark"></span><span>Retirement Planning Tool</span></div>
+<h1>Time to build your retirement picture.</h1>
+<p class="sub">Loading income, 401K, Roth IRA, taxes, Social Security, and retirement chart tools into one colorful planning dashboard.</p>
+<div aria-label="Tool features" class="pill-row"><span class="pill red">401K / IRA</span><span class="pill yellow">Roth IRA</span><span class="pill green">Income</span><span class="pill blue">Taxes</span></div>
+<section aria-label="Large clock loading animation" class="clock-wrap">
+<div aria-hidden="true" class="clock-track"></div>
+<div aria-hidden="true" class="big-clock">
+<span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span><span class="tick"></span>
+<span class="hand minute"></span><span class="hand"></span><span class="center"></span>
+</div>
+<div class="clock-label">Planning tools loading...</div>
+</section>
+<div class="loading-text">Preparing your pages<span class="dots"><span>.</span><span>.</span><span>.</span></span></div>
+<div aria-label="Decorative retirement planning sliders" class="actions themed-splash-sliders">
+<input aria-label="401K themed loading slider" class="splash-range red" disabled="" max="100" min="0" type="range" value="72"/>
+<input aria-label="Roth IRA themed loading slider" class="splash-range yellow" disabled="" max="100" min="0" type="range" value="48"/>
+</div>
+<div class="small-note">Open this splash file first when placing the tool into a new folder.</div>
+</main>
+</div>
+<script>
+function goNext(){ window.location.href='01_Privacy_Policy.html'; }
+setTimeout(()=>{ try{ if(localStorage.getItem('splash_auto_advance')==='off') return; }catch(e){} goNext(); },2000);
+</script>
+
+
+<style id="directVerifiedSaveNavigationStyle">
+#verifiedSaveOverlay{position:fixed;inset:0;background:rgba(15,23,42,.78);display:none;align-items:center;justify-content:center;z-index:2147483647;padding:20px;box-sizing:border-box}
+#verifiedSaveOverlay.show{display:flex}
+#verifiedSaveOverlay .save-card{width:min(470px,92vw);background:#fff;padding:38px 28px;border-radius:24px;text-align:center;font-family:Arial,sans-serif;box-shadow:0 28px 80px rgba(0,0,0,.48);border:2px solid rgba(255,255,255,.9)}
+#verifiedSaveOverlay .save-icon{font-size:64px;line-height:1;margin-bottom:15px}
+#verifiedSaveOverlay .save-title{font-size:31px;line-height:1.08;font-weight:1000;color:#111827}
+#verifiedSaveOverlay .save-sub{font-size:18px;line-height:1.3;font-weight:800;color:#475569;margin-top:11px}
+</style>
+<div id="verifiedSaveOverlay" aria-live="assertive" aria-modal="true" role="dialog">
+  <div class="save-card">
+    <div class="save-icon" id="verifiedSaveIcon">💾</div>
+    <div class="save-title" id="verifiedSaveTitle">Saving Page...</div>
+    <div class="save-sub" id="verifiedSaveSub">Please wait</div>
+  </div>
+</div>
+<script id="direct-verified-save-navigation-v1">
+(function(){
+  'use strict';
+  if(window.__directVerifiedSaveNavigationV1) return;
+  window.__directVerifiedSaveNavigationV1=true;
+
+  var busy=false;
+  var sequence=[
+    'index.html','01_Privacy_Policy.html','01_Directions.html',
+    '02_Income_ExpenseSetup.html','03_401K_Calculator.html',
+    '04_Retirement_Chart.html','05_Retirement_Expenses.html','06_Reports.html'
+  ];
+
+  function currentFile(){
+    var p=(location.pathname.split('/').pop()||'index.html').split('?')[0].split('#')[0];
+    return p || 'index.html';
+  }
+
+  function directionOf(el){
+    var text=((el.textContent||'')+' '+(el.className||'')).toLowerCase();
+    if(/back|previous|prev|←/.test(text)) return -1;
+    if(/next|reports|continue|start|begin|home|→/.test(text)) return 1;
+    return 0;
+  }
+
+  function directDestination(el){
+    var file=currentFile();
+    var idx=sequence.indexOf(file);
+    var dir=directionOf(el);
+    var href=el && el.getAttribute ? (el.getAttribute('href')||'') : '';
+
+    if(href && href!=='#' && !/^javascript:/i.test(href)){
+      var clean=href.split('?')[0].split('#')[0];
+      if(sequence.indexOf(clean)>=0) return clean;
+    }
+    if(idx<0) idx=0;
+    if(dir<0) return sequence[Math.max(0,idx-1)];
+    if(dir>0) return sequence[Math.min(sequence.length-1,idx+1)];
+    return '';
+  }
+
+  function collectSnapshot(){
+    var data={page:currentFile(),savedAt:new Date().toISOString(),fields:{},sliders:{}};
+    document.querySelectorAll('input,select,textarea').forEach(function(el,i){
+      if(el.type==='button'||el.type==='submit'||el.type==='reset') return;
+      var key=el.id || el.name || ('field_'+i);
+      if(el.type==='checkbox'||el.type==='radio') data.fields[key]={value:el.value,checked:!!el.checked};
+      else data.fields[key]=el.value;
+    });
+    document.querySelectorAll('.noUi-target').forEach(function(el,i){
+      if(!el.noUiSlider) return;
+      var key=el.id || (el.closest('[data-key]')&&el.closest('[data-key]').getAttribute('data-key')) || ('slider_'+i);
+      var value=null, range=null;
+      try{ value=el.noUiSlider.get(); }catch(e){}
+      try{
+        var r=el.noUiSlider.options && el.noUiSlider.options.range;
+        if(r) range={min:r.min,max:r.max};
+      }catch(e){}
+      data.sliders[key]={value:value,range:range};
+    });
+    return data;
+  }
+
+  function saveVerified(){
+    try{ if(typeof window.forcePageSaveNow==='function') window.forcePageSaveNow(); }catch(e){}
+    try{ if(typeof window.savePageState==='function') window.savePageState(); }catch(e){}
+    try{ if(typeof window.saveNow==='function') window.saveNow(false); }catch(e){}
+    try{ window.dispatchEvent(new CustomEvent('planner-navigation-save')); }catch(e){}
+
+    var snapshot=collectSnapshot();
+    var key='retirement_verified_page_snapshot::'+snapshot.page;
+    localStorage.setItem(key,JSON.stringify(snapshot));
+    localStorage.setItem('retirement_last_verified_save_page',snapshot.page);
+    localStorage.setItem('retirement_last_verified_save_time',snapshot.savedAt);
+    var check=localStorage.getItem(key);
+    return !!check && check.indexOf(snapshot.savedAt)>=0;
+  }
+
+  function showSaving(){
+    var ov=document.getElementById('verifiedSaveOverlay');
+    document.getElementById('verifiedSaveIcon').textContent='💾';
+    document.getElementById('verifiedSaveTitle').textContent='Saving Page...';
+    document.getElementById('verifiedSaveSub').textContent='Please wait';
+    ov.classList.add('show');
+  }
+  function showSaved(ok){
+    document.getElementById('verifiedSaveIcon').textContent=ok?'✅':'⚠️';
+    document.getElementById('verifiedSaveTitle').textContent=ok?'Page Saved':'Save completed';
+    document.getElementById('verifiedSaveSub').textContent=ok?'Your changes are secure':'Continuing to the next page';
+  }
+
+  function isNavigationControl(el){
+    if(!el) return false;
+    if(el.closest && el.closest('.app-nav')) return true;
+    var text=((el.textContent||'')+' '+(el.className||'')).toLowerCase();
+    return /\b(next|back|previous|reports|home|continue|start|begin)\b/.test(text) || /←|→/.test(text);
+  }
+
+  document.addEventListener('click',function(e){
+    var el=e.target && e.target.closest ? e.target.closest('a,button') : null;
+    if(!el || busy || !isNavigationControl(el)) return;
+    var destination=directDestination(el);
+    if(!destination || destination===currentFile()) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+    busy=true;
+    showSaving();
+    var ok=false;
+    try{ ok=saveVerified(); }catch(err){ ok=false; }
+
+    setTimeout(function(){ showSaved(ok); },850);
+    setTimeout(function(){ location.href=destination; },1650);
+  },true);
+
+  window.addEventListener('pagehide',function(){
+    try{ saveVerified(); }catch(e){}
+  });
+})();
+</script>
+
+
+<style id="global-yellow-pill-solid-black-final">
+/* Final global contrast override for every yellow/gold range-control pill. */
+.slider-block.page3-card-yellow button,
+.slider-block.page3-card-yellow button *,
+.slider-block.page3-card-yellow button::before,
+.slider-block.page3-card-yellow button::after,
+.slider-block.page3-card-yellow button:hover,
+.slider-block.page3-card-yellow button:hover *,
+.slider-block.page3-card-yellow button:active,
+.slider-block.page3-card-yellow button:active *,
+.slider-block.page3-card-yellow button:focus,
+.slider-block.page3-card-yellow button:focus *,
+.slider-block.page3-card-yellow button:disabled,
+.slider-block.page3-card-yellow button:disabled *,
+.v25-yellow > button,
+.v25-yellow > button *,
+.v25-yellow > button::before,
+.v25-yellow > button::after,
+.v25-yellow > button:hover,
+.v25-yellow > button:hover *,
+.v25-yellow > button:active,
+.v25-yellow > button:active *,
+.v25-yellow > button:disabled,
+.v25-yellow > button:disabled *,
+[class*="yellow"] .v25-action-row > button,
+[class*="yellow"] .v25-action-row > button *,
+[class*="yellow"] .page2-step-controls > button,
+[class*="yellow"] .page2-step-controls > button *,
+[class*="yellow"] .v29-action-row > button,
+[class*="yellow"] .v29-action-row > button *,
+[class*="gold"] .v25-action-row > button,
+[class*="gold"] .v25-action-row > button *,
+[class*="gold"] .page2-step-controls > button,
+[class*="gold"] .page2-step-controls > button *,
+[class*="gold"] .v29-action-row > button,
+[class*="gold"] .v29-action-row > button *,
+[class*="roth"] .v25-action-row > button,
+[class*="roth"] .v25-action-row > button *,
+[class*="roth"] .page2-step-controls > button,
+[class*="roth"] .page2-step-controls > button *,
+[class*="roth"] .v29-action-row > button,
+[class*="roth"] .v29-action-row > button *,
+.page3-card-yellow .page3-range-shift-btn,
+.page3-card-yellow .page3-range-shift-btn *,
+.page3-card-yellow .clean-range-shift-btn,
+.page3-card-yellow .clean-range-shift-btn *,
+.page3-card-yellow .clean50-btn,
+.page3-card-yellow .clean50-btn *,
+.page3-card-yellow .range50-btn,
+.page3-card-yellow .range50-btn * {
+  color:#000 !important;
+  -webkit-text-fill-color:#000 !important;
+  text-shadow:none !important;
+}
+</style>
+<script src="app-auto-save.js"></script></body>
+</html>

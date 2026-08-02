@@ -1,0 +1,19 @@
+RETIREMENT PLANNING APP — GITHUB DESKTOP SETUP
+
+This project already has the correct Android folder structure.
+Do not upload its files through the GitHub website.
+
+1. Open GitHub Desktop and sign in.
+2. Choose File > Clone repository.
+3. Select your existing repository named Index and clone it.
+4. In File Explorer, open this extracted project folder.
+5. Copy EVERYTHING inside this folder, including the hidden .github folder.
+6. Paste those items into the cloned Index repository folder.
+7. In GitHub Desktop, enter this summary: Add complete Android project
+8. Click Commit to main.
+9. Click Push origin.
+10. On GitHub.com, open the Index repository and select Actions.
+11. Open Build Android APK and AAB, then choose Run workflow.
+12. When the run is complete, open it and download the APK artifact.
+
+Important: Windows may hide the .github folder. It will still copy when you use Ctrl+A.

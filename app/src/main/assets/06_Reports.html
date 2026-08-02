@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retirement Plan Report</title>
+<style>
+:root{--red:#ef4444;--green:#16a34a;--blue:#2563eb;--yellow:#f2cf4a;--dark:#111827;--muted:#64748b;--border:#dbe2ea}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f8fafc;color:var(--dark)}
+.app-nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #d1d5db;padding:8px 10px;display:flex;align-items:center;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.app-nav .title{flex:1;text-align:center;font-weight:900}.app-nav a{border-radius:8px;padding:9px 12px;color:#fff;font-size:12px;font-weight:900;text-decoration:none;min-width:82px;text-align:center}.back{background:var(--red)}.home{background:var(--green)}
+.page{max-width:1280px;margin:auto;padding:12px}.hero{background:#fff;border:1px solid var(--border);border-radius:18px;padding:16px;box-shadow:0 5px 18px rgba(15,23,42,.07)}h1{margin:0 0 5px;font-size:clamp(28px,5vw,48px)}.lead{margin:0;color:#475569;font-weight:800}
+.toolbar,.options{display:flex;gap:10px;flex-wrap:wrap;align-items:stretch;margin:12px 0}.toolbar button{border:0;border-radius:12px;padding:11px 14px;min-height:58px;min-width:180px;display:flex;align-items:center;gap:10px;text-align:left;font-weight:900;color:#fff;background:#111827;cursor:pointer;box-shadow:0 3px 9px rgba(15,23,42,.15);transition:transform .15s ease,box-shadow .15s ease}.toolbar button:hover{transform:translateY(-1px);box-shadow:0 5px 13px rgba(15,23,42,.2)}.toolbar button:active{transform:translateY(0)}.toolbar .action-icon{font-size:24px;line-height:1;flex:0 0 auto}.toolbar .action-copy{display:flex;flex-direction:column;gap:2px}.toolbar .action-title{font-size:14px;line-height:1.15}.toolbar .action-help{font-size:10px;line-height:1.25;font-weight:800;opacity:.88}.toolbar .print{background:var(--blue)}.toolbar .refresh{background:#0f766e}.toolbar .reload{background:#7c3aed}.toolbar .csv{background:#475569}
+.control{display:flex;flex-direction:column;gap:4px;min-width:145px}.control label{font-size:11px;font-weight:900;color:#475569}.control select{padding:9px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font-weight:800}.mode{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:8px 10px;background:#fff;border:1px solid var(--border);border-radius:10px}.mode label{font-weight:800;font-size:13px;white-space:nowrap}
+.notice{padding:10px 12px;border-radius:10px;font-weight:800;margin:8px 0}.good{background:#f0fdf4;border:1px solid #86efac;color:#166534}.warn{background:#fffbeb;border:1px solid #fcd34d;color:#92400e}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:8px;margin:10px 0}.metric{background:#fff;border:1px solid var(--border);border-radius:12px;padding:11px}.metric .label{font-size:11px;font-weight:900;color:var(--muted)}.metric .value{font-size:20px;font-weight:1000;margin-top:4px}
+.section{background:#fff;border:1px solid var(--border);border-radius:14px;padding:12px;margin-top:10px}.section h2{font-size:18px;margin:0 0 9px}.table-wrap{overflow:auto;border:1px solid var(--border);border-radius:10px}table{border-collapse:collapse;width:100%;min-width:1500px;font-size:11px}th,td{padding:7px 8px;border-bottom:1px solid #e5e7eb;text-align:right;white-space:nowrap}th{position:sticky;top:0;background:#111827;color:#fff;z-index:1}th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:center}tbody tr:nth-child(even){background:#f8fafc}.negative{color:#b91c1c;font-weight:900}.positive{color:#166534;font-weight:900}
+.steps{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.steps a{padding:8px 10px;border:1px solid var(--border);border-radius:8px;text-decoration:none;color:#111827;background:#fff;font-size:12px;font-weight:900}.note{font-size:12px;color:var(--muted);font-weight:800}
+
+.monte-carlo{background:#fff;border:1px solid var(--border);border-radius:14px;margin-top:10px;overflow:hidden}.monte-carlo>summary{cursor:pointer;list-style:none;padding:14px 16px;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:space-between;gap:12px}.monte-carlo>summary::-webkit-details-marker{display:none}.monte-carlo>summary::after{content:"▾";font-size:18px;transition:transform .2s ease}.monte-carlo[open]>summary::after{transform:rotate(180deg)}.mc-content{border-top:1px solid var(--border);padding:14px 16px}.mc-explain{margin:0 0 12px;color:#475569;font-weight:800;line-height:1.45}.mc-controls{display:grid;grid-template-columns:repeat(3,minmax(155px,1fr));gap:10px;align-items:end}.mc-control{display:flex;flex-direction:column;gap:5px}.mc-control label{font-size:11px;font-weight:900;color:#475569}.mc-control input,.mc-control select{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:9px;background:#fff;font-weight:800}.mc-run{border:0;border-radius:10px;padding:11px 14px;min-height:42px;background:var(--blue);color:#fff;font-weight:900;cursor:pointer}.mc-results{display:grid;grid-template-columns:repeat(4,minmax(135px,1fr));gap:8px;margin-top:12px}.mc-result{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:10px}.mc-result .label{font-size:11px;font-weight:900;color:var(--muted)}.mc-result .value{font-size:20px;font-weight:1000;margin-top:4px}.mc-message{margin:10px 0 0;font-size:12px;color:#475569;font-weight:800}.mc-disclaimer{margin:10px 0 0;font-size:11px;color:var(--muted);font-weight:800}
+@media(max-width:760px){.metrics{grid-template-columns:1fr 1fr}.control{min-width:130px;flex:1}.page{padding:8px}.toolbar button{flex:1 1 calc(50% - 10px);min-width:160px}}@media(max-width:760px){.mc-controls,.mc-results{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.mc-controls,.mc-results{grid-template-columns:1fr}.metrics{grid-template-columns:1fr}.app-nav a{min-width:68px;padding:8px}.toolbar{display:grid;grid-template-columns:1fr}.toolbar button{width:100%;min-width:0}.toolbar .action-title{font-size:15px}.toolbar .action-help{font-size:11px}}
+@media print{body{background:#fff}.app-nav,.toolbar,.options,.steps,.screen-only{display:none!important}.page{max-width:none;padding:0}.hero,.section,.metric{box-shadow:none;break-inside:avoid}.table-wrap{overflow:visible;border:0}table{min-width:0;font-size:8px}th{position:static}.section{border:0;padding:5px}.metrics{grid-template-columns:repeat(4,1fr)}@page{size:landscape;margin:.35in}}
+</style>
+
+<style id="page-audio-placeholder-style">
+.page-audio-button{
+  flex:0 0 auto;
+  width:38px;
+  height:38px;
+  min-width:38px!important;
+  padding:0!important;
+  border:2px solid #111827!important;
+  border-radius:999px!important;
+  background:#ffffff!important;
+  color:#111827!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:20px!important;
+  line-height:1!important;
+  cursor:pointer!important;
+  box-shadow:0 2px 7px rgba(15,23,42,.15)!important;
+  -webkit-tap-highlight-color:transparent;
+}
+.page-audio-button:active{transform:scale(.96)}
+.page-audio-button.is-playing{
+  background:#16a34a!important;
+  color:#ffffff!important;
+  border-color:#166534!important;
+}
+.page-audio-button.is-unavailable{
+  background:#fef2f2!important;
+  color:#b91c1c!important;
+  border-color:#ef4444!important;
+}
+.page-audio-status{
+  position:fixed;
+  top:56px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:2147483647;
+  max-width:min(92vw,520px);
+  padding:7px 11px;
+  border-radius:999px;
+  background:rgba(17,24,39,.96);
+  color:#ffffff;
+  font:900 12px/1.25 Arial,sans-serif;
+  text-align:center;
+  box-shadow:0 4px 15px rgba(0,0,0,.25);
+  display:none;
+  pointer-events:none;
+}
+.page-audio-status.show{display:block}
+@media(max-width:520px){
+  .page-audio-button{width:36px;height:36px;min-width:36px!important;font-size:19px!important}
+  .page-audio-status{top:52px;font-size:11px}
+}
+</style>
+
+</head>
+<body>
+<div class="app-nav">
+<a class="back" href="05_Retirement_Expenses.html">← Back</a><button class="page-audio-button" type="button" aria-label="Play page audio" title="Play page audio" data-audio-file="reports.mp3">
+  <span aria-hidden="true">🔊</span>
+</button>
+<audio class="page-audio-element" preload="none" src="reports.mp3"></audio>
+<div class="page-audio-status" role="status" aria-live="polite"></div>
+<div class="title">Retirement Plan Report</div><a class="home" href="index.html">Home</a></div>
+<main class="page">
+<section class="hero"><h1>Your Retirement Report</h1><p class="lead">Choose one year, a range, or the entire retirement projection. The printable table shows yearly balances, income, expenses, taxes, conversions, and annual changes.</p></section>
+<div class="toolbar" aria-label="Report actions">
+<button class="print" id="printBtn" type="button" aria-label="Print report or save it as a PDF">
+  <span class="action-icon" aria-hidden="true">🖨️</span><span class="action-copy"><span class="action-title">Print or Save as PDF</span><span class="action-help">Print a copy or choose Save as PDF</span></span>
+</button>
+<button class="refresh" id="refreshBtn" type="button" aria-label="Update the report with the latest saved retirement data">
+  <span class="action-icon" aria-hidden="true">🔄</span><span class="action-copy"><span class="action-title">Update Report</span><span class="action-help">Load your latest saved retirement numbers</span></span>
+</button>
+<button class="reload" id="reloadBtn" type="button" aria-label="Restart this reports page">
+  <span class="action-icon" aria-hidden="true">↻</span><span class="action-copy"><span class="action-title">Restart This Page</span><span class="action-help">Reload the reports screen</span></span>
+</button>
+<button class="csv" id="csvBtn" type="button" aria-label="Export the selected report as a spreadsheet for Excel, Google Sheets, or Apple Numbers">
+  <span class="action-icon" aria-hidden="true">📊</span><span class="action-copy"><span class="action-title">Export to Excel</span><span class="action-help">Also opens in Google Sheets and Apple Numbers</span></span>
+</button>
+</div>
+<div class="options">
+<div class="mode"><label><input type="radio" name="reportMode" value="selected"> Selected year</label><label><input type="radio" name="reportMode" value="range"> Year range</label><label><input type="radio" name="reportMode" value="all" checked> Entire retirement</label></div>
+<div class="control"><label for="singleYear">Selected year</label><select id="singleYear"></select></div>
+<div class="control"><label for="startYear">Start year</label><select id="startYear"></select></div>
+<div class="control"><label for="endYear">End year</label><select id="endYear"></select></div>
+</div>
+<div id="status" class="notice warn">Loading saved projection…</div>
+<section class="metrics">
+<div class="metric"><div class="label">Years included</div><div class="value" id="mYears">—</div></div>
+<div class="metric"><div class="label">Starting combined balance</div><div class="value" id="mStart">—</div></div>
+<div class="metric"><div class="label">Ending combined balance</div><div class="value" id="mEnd">—</div></div>
+<div class="metric"><div class="label">Total balance change</div><div class="value" id="mChange">—</div></div>
+<div class="metric"><div class="label">Total paid to yourself</div><div class="value" id="mPaycheck">—</div></div>
+<div class="metric"><div class="label">Total Social Security</div><div class="value" id="mSS">—</div></div>
+<div class="metric"><div class="label">Total estimated taxes</div><div class="value" id="mTaxes">—</div></div>
+<div class="metric"><div class="label">Total Roth conversions</div><div class="value" id="mConversions">—</div></div>
+</section>
+
+<details class="monte-carlo" id="monteCarloPanel">
+<summary>Monte Carlo Simulation</summary>
+<div class="mc-content">
+<p class="mc-explain"><strong>What is this?</strong> This historical Monte Carlo simulation uses actual annual S&amp;P 500 total returns—including dividends—from 1928 through 2025. It rearranges those real market years into thousands of possible retirement paths, so major gains, crashes, and recovery periods come from history rather than an assumed average return.</p>
+<div class="mc-controls">
+<div class="mc-control"><label for="mcRuns">Number of historical futures</label><input id="mcRuns" type="number" min="500" max="20000" step="500" value="5000"></div>
+<div class="mc-control"><label for="mcBlockYears">Keep historical years together</label><select id="mcBlockYears"><option value="1">No — sample individual years</option><option value="3">3-year market periods</option><option value="5" selected>5-year market periods</option><option value="10">10-year market periods</option></select></div>
+<button class="mc-run" id="mcRunBtn" type="button">Run Historical Simulation</button>
+</div>
+<div class="mc-results" aria-live="polite">
+<div class="mc-result"><div class="label">Plans that lasted</div><div class="value" id="mcSuccess">—</div></div>
+<div class="mc-result"><div class="label">Typical ending balance</div><div class="value" id="mcMedian">—</div></div>
+<div class="mc-result"><div class="label">Lower-range ending balance</div><div class="value" id="mcLow">—</div></div>
+<div class="mc-result"><div class="label">Upper-range ending balance</div><div class="value" id="mcHigh">—</div></div>
+</div>
+<p class="mc-message" id="mcMessage">Open this section and select “Run Historical Simulation” after your retirement projection has loaded.</p>
+<p class="mc-disclaimer"><strong>Historical data:</strong> S&amp;P 500 total returns including dividends, 1928–2025, compiled by Aswath Damodaran at NYU Stern. The simulation samples real historical returns but cannot predict future markets. Your plan's existing income, withdrawals, taxes, and expense assumptions are still used.</p>
+</div>
+</details>
+<section class="section"><h2 id="tableTitle">Full yearly projection</h2><div class="table-wrap"><table><thead><tr>
+<th>Year</th><th>Age</th><th>IRA / 401K</th><th>Annual change</th><th>Roth</th><th>Annual change</th><th>Combined</th><th>Combined change</th><th>Paid to yourself</th><th>Net Social Security</th><th>Pension</th><th>Rental / other</th><th>Usable monthly income</th><th>Monthly expenses</th><th>Monthly remaining</th><th>Federal tax</th><th>State tax</th><th>Total tax</th><th>Gross Roth conversion</th><th>Net Roth conversion</th><th>Conversion tax</th>
+</tr></thead><tbody id="reportBody"></tbody></table></div></section>
+<nav class="steps"><a href="01_Directions.html">Directions</a><a href="02_Income_ExpenseSetup.html">Income Setup</a><a href="03_401K_Calculator.html">401K Calculator</a><a href="04_Retirement_Chart.html">Retirement Chart</a><a href="05_Retirement_Expenses.html">Expenses</a></nav>
+<p class="note">Print or Save as PDF opens your device’s print window. To keep a digital copy, choose “Save as PDF.” Export to Excel creates a spreadsheet file that also opens in Google Sheets and Apple Numbers. This is an educational planning report, not financial, tax, or legal advice.</p>
+</main>
+<script>
+(function(){
+'use strict';
+var full=[], income=[], display=[];
+function n(v){v=Number(String(v==null?'':v).replace(/[^0-9.-]/g,''));return Number.isFinite(v)?v:0}
+function read(k,d){try{var x=JSON.parse(localStorage.getItem(k)||'null');return x==null?d:x}catch(e){return d}}
+function money(v){return n(v).toLocaleString(undefined,{style:'currency',currency:'USD',maximumFractionDigits:0})}
+function ageBase(){var keys=['retirement_retire_age','k401_retirement_age','retirement_age','page2_retirement_age','shared_retirement_age'];for(var i=0;i<keys.length;i++){var v=n(localStorage.getItem(keys[i]));if(v>0)return Math.round(v)}return 0}
+function expensesFor(index){
+ var rows=read('expense_page_rows',[]);if(!Array.isArray(rows))rows=[];
+ var inflation=(localStorage.getItem('retirement_expense_inflation_mode')==='off'||localStorage.getItem('page5_beginning_time_inflation_mode')==='off')?1:Math.pow(1.03,index);
+ return rows.reduce(function(sum,x){var name=String((x&&x.name)||'').toLowerCase();var fixed=(name.indexOf('mortgage')>=0&&!name.includes('rent/mortgage')&&!name.includes('rent / mortgage'))||name.includes('car payment')||name.includes('car loan')||name.includes('auto payment');return sum+n(x.amount||x.value||x.monthly)*(fixed?1:inflation)},0)
+}
+function merge(){
+ var len=Math.max(full.length,income.length);var baseAge=ageBase();var out=[];
+ for(var i=0;i<len;i++){
+  var f=full[i]||{},inc=income[i]||{};var yr=Math.round(n(f.Yr||inc.yr||i+1))||i+1;
+  var paycheck=n(f.Paycheck)||n(inc.paycheckMonth)*12;
+  var ss=n(f.NetSS)||n(inc.socialSecurityNetMonth)*12;
+  var pension=n(inc.employerPensionNetMonth||inc.pensionMonth)*12||Math.max(0,n(f.EmployerAnnual)-n(f.TaxEmployerFederal)-n(f.TaxEmployerState));
+  var rental=n(f.RentalAnnual)||n(inc.rentalMonth)*12;
+  var monthly=(paycheck+ss+pension+rental)/12;var exp=expensesFor(i);var ira=n(f.IRA),roth=n(f.Roth);
+  out.push({yr:yr,age:baseAge?baseAge+yr-1:'—',ira:ira,roth:roth,combined:ira+roth,paycheck:paycheck,ss:ss,pension:pension,rental:rental,monthly:monthly,expenses:exp,remaining:monthly-exp,fed:n(f.FederalTaxes),state:n(f.StateTaxes),tax:n(f.FederalTaxes)+n(f.StateTaxes),conversion:n(f.RothConversion),netConversion:n(f.RothNetConversion),conversionTax:n(f.RothConversionTax)});
+ }
+ for(var j=0;j<out.length;j++){var prev=j?out[j-1]:null;out[j].iraChange=prev?out[j].ira-prev.ira:0;out[j].rothChange=prev?out[j].roth-prev.roth:0;out[j].combinedChange=prev?out[j].combined-prev.combined:0}
+ return out;
+}
+function fillSelects(rows){['singleYear','startYear','endYear'].forEach(function(id){var s=document.getElementById(id),old=s.value;s.innerHTML='';rows.forEach(function(r,i){var o=document.createElement('option');o.value=i;o.textContent='Year '+r.yr+(r.age!=='—'?' (Age '+r.age+')':'');s.appendChild(o)});if(old&&Number(old)<rows.length)s.value=old});var idx=Math.max(0,Math.min(rows.length-1,Math.round(n(localStorage.getItem('page5_retirement_year_index')||localStorage.getItem('expense_selected_projection_index')))));document.getElementById('singleYear').value=idx;document.getElementById('endYear').value=Math.max(0,rows.length-1)}
+function selectedRows(){var mode=(document.querySelector('input[name=reportMode]:checked')||{}).value||'all';if(mode==='selected'){var x=n(document.getElementById('singleYear').value);return display.slice(x,x+1)}if(mode==='range'){var a=n(document.getElementById('startYear').value),b=n(document.getElementById('endYear').value);if(a>b){var t=a;a=b;b=t}return display.slice(a,b+1)}return display.slice()}
+function cls(v){return n(v)<0?'negative':n(v)>0?'positive':''}
+function render(){var rows=selectedRows(),body=document.getElementById('reportBody');body.innerHTML='';rows.forEach(function(r){var tr=document.createElement('tr');var vals=[r.yr,r.age,money(r.ira),money(r.iraChange),money(r.roth),money(r.rothChange),money(r.combined),money(r.combinedChange),money(r.paycheck),money(r.ss),money(r.pension),money(r.rental),money(r.monthly),money(r.expenses),money(r.remaining),money(r.fed),money(r.state),money(r.tax),money(r.conversion),money(r.netConversion),money(r.conversionTax)];vals.forEach(function(v,i){var td=document.createElement('td');td.textContent=v;if([3,5,7,14].includes(i))td.className=cls(String(v).replace(/[^0-9.-]/g,''));tr.appendChild(td)});body.appendChild(tr)});
+ var first=rows[0],last=rows[rows.length-1];document.getElementById('mYears').textContent=rows.length||0;document.getElementById('mStart').textContent=first?money(first.combined):'—';document.getElementById('mEnd').textContent=last?money(last.combined):'—';document.getElementById('mChange').textContent=first&&last?money(last.combined-first.combined):'—';document.getElementById('mPaycheck').textContent=money(rows.reduce((s,r)=>s+r.paycheck,0));document.getElementById('mSS').textContent=money(rows.reduce((s,r)=>s+r.ss,0));document.getElementById('mTaxes').textContent=money(rows.reduce((s,r)=>s+r.tax,0));document.getElementById('mConversions').textContent=money(rows.reduce((s,r)=>s+r.conversion,0));document.getElementById('tableTitle').textContent=rows.length===display.length?'Full yearly projection':rows.length===1?'Retirement Year '+rows[0].yr:'Retirement Years '+rows[0].yr+'–'+rows[rows.length-1].yr;
+}
+function load(){full=read('retirement_report_projection_rows',[]);income=read('expense_projection_years',[]);if(!Array.isArray(full))full=[];if(!Array.isArray(income))income=[];display=merge();var st=document.getElementById('status');if(!display.length){st.className='notice warn';st.textContent='No yearly projection is available. Open Page 4, let the chart calculate, and then return to Reports.';document.getElementById('reportBody').innerHTML='';return}fillSelects(display);render();st.className=full.length?'notice good':'notice warn';st.textContent=full.length?'Loaded '+display.length+' retirement years with balances, taxes, income, and conversion details.':'Loaded '+display.length+' income years, but the full Page 4 detail export is missing. Reopen Page 4 once, then return here for balances and tax columns.'}
+
+var HISTORICAL_MARKET_RETURNS=[{year:1928,rate:0.4381},{year:1929,rate:-0.0830},{year:1930,rate:-0.2512},{year:1931,rate:-0.4384},{year:1932,rate:-0.0864},{year:1933,rate:0.4998},{year:1934,rate:-0.0119},{year:1935,rate:0.4674},{year:1936,rate:0.3194},{year:1937,rate:-0.3534},{year:1938,rate:0.2928},{year:1939,rate:-0.0110},{year:1940,rate:-0.1067},{year:1941,rate:-0.1277},{year:1942,rate:0.1917},{year:1943,rate:0.2506},{year:1944,rate:0.1903},{year:1945,rate:0.3582},{year:1946,rate:-0.0843},{year:1947,rate:0.0520},{year:1948,rate:0.0570},{year:1949,rate:0.1830},{year:1950,rate:0.3081},{year:1951,rate:0.2368},{year:1952,rate:0.1815},{year:1953,rate:-0.0121},{year:1954,rate:0.5256},{year:1955,rate:0.3260},{year:1956,rate:0.0744},{year:1957,rate:-0.1046},{year:1958,rate:0.4372},{year:1959,rate:0.1206},{year:1960,rate:0.0034},{year:1961,rate:0.2664},{year:1962,rate:-0.0881},{year:1963,rate:0.2261},{year:1964,rate:0.1642},{year:1965,rate:0.1240},{year:1966,rate:-0.0997},{year:1967,rate:0.2380},{year:1968,rate:0.1081},{year:1969,rate:-0.0824},{year:1970,rate:0.0356},{year:1971,rate:0.1422},{year:1972,rate:0.1876},{year:1973,rate:-0.1431},{year:1974,rate:-0.2590},{year:1975,rate:0.3700},{year:1976,rate:0.2383},{year:1977,rate:-0.0698},{year:1978,rate:0.0651},{year:1979,rate:0.1852},{year:1980,rate:0.3174},{year:1981,rate:-0.0470},{year:1982,rate:0.2042},{year:1983,rate:0.2234},{year:1984,rate:0.0615},{year:1985,rate:0.3124},{year:1986,rate:0.1849},{year:1987,rate:0.0581},{year:1988,rate:0.1654},{year:1989,rate:0.3148},{year:1990,rate:-0.0306},{year:1991,rate:0.3023},{year:1992,rate:0.0749},{year:1993,rate:0.0997},{year:1994,rate:0.0133},{year:1995,rate:0.3720},{year:1996,rate:0.2268},{year:1997,rate:0.3310},{year:1998,rate:0.2834},{year:1999,rate:0.2089},{year:2000,rate:-0.0903},{year:2001,rate:-0.1185},{year:2002,rate:-0.2197},{year:2003,rate:0.2836},{year:2004,rate:0.1074},{year:2005,rate:0.0483},{year:2006,rate:0.1561},{year:2007,rate:0.0548},{year:2008,rate:-0.3655},{year:2009,rate:0.2594},{year:2010,rate:0.1482},{year:2011,rate:0.0210},{year:2012,rate:0.1589},{year:2013,rate:0.3215},{year:2014,rate:0.1352},{year:2015,rate:0.0138},{year:2016,rate:0.1177},{year:2017,rate:0.2161},{year:2018,rate:-0.0423},{year:2019,rate:0.3121},{year:2020,rate:0.1802},{year:2021,rate:0.2847},{year:2022,rate:-0.1804},{year:2023,rate:0.2606},{year:2024,rate:0.2488},{year:2025,rate:0.1778}];
+function percentile(sorted,p){if(!sorted.length)return 0;var i=(sorted.length-1)*p,lo=Math.floor(i),hi=Math.ceil(i);return sorted[lo]+(sorted[hi]-sorted[lo])*(i-lo)}
+function runMonteCarlo(){
+ var msg=document.getElementById('mcMessage');
+ if(!display.length){msg.textContent='No retirement projection is available yet. Open Page 4, let it calculate, and then return here.';return}
+ var runs=Math.max(500,Math.min(20000,Math.round(n(document.getElementById('mcRuns').value)||5000)));
+ var blockYears=Math.max(1,Math.round(n(document.getElementById('mcBlockYears').value)||5));
+ var start=Math.max(0,n(display[0].combined));
+ if(start<=0){msg.textContent='A positive starting combined balance is needed before the simulation can run.';return}
+ var endings=[],success=0,historyLength=HISTORICAL_MARKET_RETURNS.length;
+ for(var r=0;r<runs;r++){
+  var balance=start,lasted=true,blockStart=0,blockOffset=blockYears;
+  for(var y=0;y<display.length;y++){
+   if(blockOffset>=blockYears){blockStart=Math.floor(Math.random()*historyLength);blockOffset=0}
+   var historical=HISTORICAL_MARKET_RETURNS[(blockStart+blockOffset)%historyLength];
+   blockOffset++;
+   balance=balance*(1+historical.rate)-Math.max(0,n(display[y].paycheck));
+   if(balance<=0){balance=0;lasted=false;break}
+  }
+  if(lasted)success++;
+  endings.push(balance);
+ }
+ endings.sort(function(a,b){return a-b});
+ document.getElementById('mcSuccess').textContent=(success/runs*100).toFixed(1)+'%';
+ document.getElementById('mcMedian').textContent=money(percentile(endings,.5));
+ document.getElementById('mcLow').textContent=money(percentile(endings,.1));
+ document.getElementById('mcHigh').textContent=money(percentile(endings,.9));
+ var method=blockYears===1?'individual historical years':blockYears+'-year historical market periods';
+ msg.textContent='Based on '+runs.toLocaleString()+' possible paths built from '+HISTORICAL_MARKET_RETURNS.length+' actual annual S&P 500 total returns (1928–2025), sampling '+method+'. “Plans that lasted” means the simulated combined balance stayed above zero through the final retirement year.';
+}
+function csv(){var rows=selectedRows();if(!rows.length)return;var headers=['Year','Age','IRA/401K','IRA Change','Roth','Roth Change','Combined','Combined Change','Paid to Yourself','Net Social Security','Pension','Rental/Other','Usable Monthly Income','Monthly Expenses','Monthly Remaining','Federal Tax','State Tax','Total Tax','Gross Roth Conversion','Net Roth Conversion','Conversion Tax'];var keys=['yr','age','ira','iraChange','roth','rothChange','combined','combinedChange','paycheck','ss','pension','rental','monthly','expenses','remaining','fed','state','tax','conversion','netConversion','conversionTax'];var lines=[headers.join(',')].concat(rows.map(r=>keys.map(k=>'"'+String(r[k]).replace(/"/g,'""')+'"').join(',')));var blob=new Blob([lines.join('\n')],{type:'text/csv'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='retirement-report.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+document.getElementById('printBtn').addEventListener('click',function(){render();setTimeout(function(){window.print()},50)});document.getElementById('refreshBtn').addEventListener('click',load);document.getElementById('reloadBtn').addEventListener('click',function(){location.reload()});document.getElementById('csvBtn').addEventListener('click',csv);document.getElementById('mcRunBtn').addEventListener('click',runMonteCarlo);document.querySelectorAll('input[name=reportMode],select').forEach(function(e){e.addEventListener('change',render)});window.addEventListener('focus',load);window.addEventListener('pageshow',load);window.addEventListener('storage',load);document.addEventListener('DOMContentLoaded',load);
+})();
+</script>
+<script src="app-auto-save.js"></script>
+<script id="page-audio-placeholder-script">
+(function(){
+  'use strict';
+  function initPageAudio(){
+    var button=document.querySelector('.page-audio-button');
+    var audio=document.querySelector('.page-audio-element');
+    var status=document.querySelector('.page-audio-status');
+    if(!button||!audio||!status||button.dataset.audioReady==='yes')return;
+    button.dataset.audioReady='yes';
+    var hideTimer=0;
+    function showStatus(message){
+      status.textContent=message;
+      status.classList.add('show');
+      clearTimeout(hideTimer);
+      hideTimer=setTimeout(function(){status.classList.remove('show');},3200);
+    }
+    function setIdle(){
+      button.classList.remove('is-playing');
+      button.setAttribute('aria-label','Play page audio');
+      button.title='Play page audio';
+      var icon=button.querySelector('span');
+      if(icon)icon.textContent='🔊';
+    }
+    button.addEventListener('click',function(){
+      if(!audio.paused){
+        audio.pause();
+        setIdle();
+        showStatus('Audio paused.');
+        return;
+      }
+      button.classList.remove('is-unavailable');
+      var playPromise;
+      try{playPromise=audio.play();}catch(e){playPromise=Promise.reject(e);}
+      Promise.resolve(playPromise).then(function(){
+        button.classList.add('is-playing');
+        button.setAttribute('aria-label','Pause page audio');
+        button.title='Pause page audio';
+        var icon=button.querySelector('span');
+        if(icon)icon.textContent='⏸';
+        showStatus('Playing page audio.');
+      }).catch(function(){
+        setIdle();
+        button.classList.add('is-unavailable');
+        showStatus('Audio is not available yet. Add '+button.dataset.audioFile+' beside this HTML file.');
+      });
+    });
+    audio.addEventListener('ended',setIdle);
+    audio.addEventListener('pause',function(){if(!audio.ended)setIdle();});
+    audio.addEventListener('error',function(){
+      setIdle();
+      button.classList.add('is-unavailable');
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initPageAudio);
+  else initPageAudio();
+})();
+</script>
+
+
+<!-- Retirement suite finger-friendly scrolling -->
+<style id="retirement-suite-finger-friendly-scroll-v1">
+html,body{
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  -webkit-overflow-scrolling:touch!important;
+  overscroll-behavior-y:auto!important;
+  touch-action:pan-y pinch-zoom!important;
+}
+main,section,article,form,
+.card,.panel,.controls,#controls,.slider-block,.control-card,.slider-card,
+.k401-year-selector,.assumption-panel,.slider-max-panel,.rules-panel,
+.dropdown-row,.combined-radio-header,.expense-card,.income-card,.report-card{
+  touch-action:pan-y pinch-zoom!important;
+}
+.noUi-target,.noUi-base,.noUi-connects,.noUi-connect,.noUi-origin,
+.noUi-handle,.noUi-touch-area,input[type="range"],
+[class*="slider"],[id*="Slider"],[id*="slider"]{
+  touch-action:pan-y pinch-zoom!important;
+}
+button,[role="button"],label,select,input,summary,
+[class*="-btn"],[class*="button"]{
+  touch-action:pan-y manipulation!important;
+  -webkit-tap-highlight-color:transparent;
+}
+@media(pointer:coarse){
+  button,[role="button"],input[type="button"],input[type="submit"]{min-height:38px}
+  .noUi-touch-area{min-width:44px!important;min-height:44px!important}
+}
+</style>
+<script id="retirement-suite-finger-friendly-button-guard-v1">
+(function(){
+  'use strict';
+  if(window.__retirementFingerScrollGuardV1)return;
+  window.__retirementFingerScrollGuardV1=true;
+  var selector='button,[role="button"],input[type="button"],input[type="submit"],[class*="-btn"],[class*="button"]';
+  var active=null,startX=0,startY=0;
+  document.addEventListener('touchstart',function(e){
+    var t=e.target&&e.target.closest?e.target.closest(selector):null;
+    if(!t||!e.touches||!e.touches.length)return;
+    active=t;startX=e.touches[0].clientX;startY=e.touches[0].clientY;
+  },{passive:true,capture:true});
+  document.addEventListener('touchmove',function(e){
+    if(!active||!e.touches||!e.touches.length)return;
+    var dx=Math.abs(e.touches[0].clientX-startX),dy=Math.abs(e.touches[0].clientY-startY);
+    if(dy>7&&dy>dx)active.setAttribute('data-finger-scroll-cancel','1');
+  },{passive:true,capture:true});
+  document.addEventListener('touchend',function(){
+    var t=active;active=null;
+    if(t)setTimeout(function(){t.removeAttribute('data-finger-scroll-cancel')},450);
+  },{passive:true,capture:true});
+  document.addEventListener('touchcancel',function(){active=null},{passive:true,capture:true});
+  document.addEventListener('click',function(e){
+    var t=e.target&&e.target.closest?e.target.closest(selector):null;
+    if(t&&t.getAttribute('data-finger-scroll-cancel')==='1'){
+      e.preventDefault();e.stopPropagation();e.stopImmediatePropagation();
+      t.removeAttribute('data-finger-scroll-cancel');
+    }
+  },true);
+})();
+</script>
+
+</body></html>
