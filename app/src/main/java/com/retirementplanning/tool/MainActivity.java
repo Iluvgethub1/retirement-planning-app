@@ -14,6 +14,10 @@ import android.widget.Toast;
 
 import androidx.activity.ComponentActivity;
 import androidx.activity.OnBackPressedCallback;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.webkit.WebViewAssetLoader;
 
 /** Hosts the bundled retirement-planning website as an offline Android application. */
@@ -26,7 +30,24 @@ public final class MainActivity extends ComponentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Android 15+ draws apps edge-to-edge by default. We handle the system-bar
+        // insets explicitly so the website controls never sit under the status bar,
+        // camera cutout, gesture bar, or three-button navigation area.
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         setContentView(R.layout.activity_main);
+
+        View appRoot = findViewById(R.id.app_root);
+        ViewCompat.setOnApplyWindowInsetsListener(appRoot, (view, windowInsets) -> {
+            Insets bars = windowInsets.getInsets(
+                    WindowInsetsCompat.Type.systemBars()
+                            | WindowInsetsCompat.Type.displayCutout()
+            );
+            view.setPadding(bars.left, bars.top, bars.right, bars.bottom);
+            return windowInsets;
+        });
+        ViewCompat.requestApplyInsets(appRoot);
+
         webView = findViewById(R.id.web_view);
         configureWebView();
 
