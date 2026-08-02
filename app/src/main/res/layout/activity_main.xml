@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WebView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/web_view"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/app_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/navy"
-    android:clipToPadding="true"
-    android:overScrollMode="never" />
+    android:fitsSystemWindows="true"
+    android:background="@color/navy">
+
+    <WebView
+        android:id="@+id/web_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="#FFFFFF"
+        android:clipToPadding="true"
+        android:overScrollMode="never" />
+
+</FrameLayout>

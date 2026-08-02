@@ -1,8 +1,10 @@
 package com.retirementplanning.tool;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -14,10 +16,7 @@ import android.widget.Toast;
 
 import androidx.activity.ComponentActivity;
 import androidx.activity.OnBackPressedCallback;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.webkit.WebViewAssetLoader;
 
 /** Hosts the bundled retirement-planning website as an offline Android application. */
@@ -32,15 +31,18 @@ public final class MainActivity extends ComponentActivity {
         super.onCreate(savedInstanceState);
 
         /*
-         * Android 15+ uses edge-to-edge layouts by default. Keep system-bar
-         * insets available, then apply them as real padding to the WebView so
-         * the webpage never sits underneath the status or navigation bars.
+         * Strict non-edge-to-edge mode:
+         * Android reserves the status-bar and navigation-bar areas before
+         * measuring our content. The WebView therefore begins below the top
+         * system bar instead of being drawn underneath it.
          */
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        Window window = getWindow();
+        WindowCompat.setDecorFitsSystemWindows(window, true);
+        window.setStatusBarColor(Color.rgb(15, 23, 42));
+        window.setNavigationBarColor(Color.rgb(15, 23, 42));
 
         setContentView(R.layout.activity_main);
         webView = findViewById(R.id.web_view);
-        applySafeAreaInsets();
         configureWebView();
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
@@ -59,27 +61,6 @@ public final class MainActivity extends ComponentActivity {
         } else if (webView.restoreState(savedInstanceState) == null) {
             webView.loadUrl(START_URL);
         }
-    }
-
-    private void applySafeAreaInsets() {
-        ViewCompat.setOnApplyWindowInsetsListener(webView, (view, windowInsets) -> {
-            Insets systemBars = windowInsets.getInsets(
-                    WindowInsetsCompat.Type.statusBars()
-                            | WindowInsetsCompat.Type.navigationBars()
-                            | WindowInsetsCompat.Type.displayCutout()
-            );
-
-            view.setPadding(
-                    systemBars.left,
-                    systemBars.top,
-                    systemBars.right,
-                    systemBars.bottom
-            );
-
-            return windowInsets;
-        });
-
-        ViewCompat.requestApplyInsets(webView);
     }
 
     @SuppressLint("SetJavaScriptEnabled")
