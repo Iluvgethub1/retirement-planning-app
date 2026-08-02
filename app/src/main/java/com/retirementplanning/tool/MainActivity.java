@@ -14,6 +14,10 @@ import android.widget.Toast;
 
 import androidx.activity.ComponentActivity;
 import androidx.activity.OnBackPressedCallback;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.webkit.WebViewAssetLoader;
 
 /** Hosts the bundled retirement-planning website as an offline Android application. */
@@ -26,8 +30,17 @@ public final class MainActivity extends ComponentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /*
+         * Android 15+ uses edge-to-edge layouts by default. Keep system-bar
+         * insets available, then apply them as real padding to the WebView so
+         * the webpage never sits underneath the status or navigation bars.
+         */
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
         setContentView(R.layout.activity_main);
         webView = findViewById(R.id.web_view);
+        applySafeAreaInsets();
         configureWebView();
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
@@ -48,6 +61,27 @@ public final class MainActivity extends ComponentActivity {
         }
     }
 
+    private void applySafeAreaInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(webView, (view, windowInsets) -> {
+            Insets systemBars = windowInsets.getInsets(
+                    WindowInsetsCompat.Type.statusBars()
+                            | WindowInsetsCompat.Type.navigationBars()
+                            | WindowInsetsCompat.Type.displayCutout()
+            );
+
+            view.setPadding(
+                    systemBars.left,
+                    systemBars.top,
+                    systemBars.right,
+                    systemBars.bottom
+            );
+
+            return windowInsets;
+        });
+
+        ViewCompat.requestApplyInsets(webView);
+    }
+
     @SuppressLint("SetJavaScriptEnabled")
     private void configureWebView() {
         WebSettings settings = webView.getSettings();
@@ -59,6 +93,8 @@ public final class MainActivity extends ComponentActivity {
         settings.setBuiltInZoomControls(false);
         settings.setDisplayZoomControls(false);
         settings.setMediaPlaybackRequiresUserGesture(true);
+        settings.setLoadWithOverviewMode(true);
+        settings.setUseWideViewPort(true);
 
         WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
                 .addPathHandler("/assets/", new WebViewAssetLoader.AssetsPathHandler(this))
@@ -85,6 +121,7 @@ public final class MainActivity extends ComponentActivity {
                 }
             }
         });
+
         webView.setWebChromeClient(new WebChromeClient());
         webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
     }
