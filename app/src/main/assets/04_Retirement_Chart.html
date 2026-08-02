@@ -2637,6 +2637,19 @@ table {
     <label class="tax-filing-profile-option"><input type="radio" name="page4-federal-filing" value="qss"><span><b>Qualifying Surviving Spouse</b><small>Available only when IRS requirements are met. Uses the same Federal rate schedule and standard deduction as Married Filing Jointly.</small></span></label>
   </div>
   <div class="tax-filing-profile-status" id="page4TaxFilingStatus"></div>
+
+  <div id="page4SpouseAgePanel" class="page4-spouse-age-panel" hidden>
+    <label for="page4SpouseRetirementAge"><b>Spouse age at retirement</b></label>
+    <div class="page4-spouse-age-row">
+      <input id="page4SpouseRetirementAge" type="number" inputmode="numeric" min="18" max="120" step="1" placeholder="Enter spouse age">
+      <button id="page4ClearSpouseAge" type="button">Clear</button>
+    </div>
+    <small>Used only for Married Filing Jointly. Enter the spouse's age in the first projected retirement year.</small>
+  </div>
+
+  <div class="tax-filing-profile-status" id="page4SeniorDeductionStatus" style="margin-top:6px;background:#fff7ed;border-color:#fdba74;color:#7c2d12;">
+    Age-65 federal deductions are applied automatically from the modeled ages.
+  </div>
 </div><div class="tax-growth-sim-card" id="taxGrowthSimulationCard"><div class="tax-growth-sim-row"><label class="tax-growth-sim-toggle"><input id="taxGrowthSimulationToggle" type="checkbox"/><span>Simulate 2.5% yearly federal and state bracket growth</span></label><div class="tax-growth-sim-copy"><strong>Planning simulation only — not an official tax forecast</strong>When selected, federal and state bracket boundaries and standard deductions rise by 2.5% each simulated year. The planned IRA → Roth conversion also rises by 2.5% annually, but is limited when necessary to avoid crossing the same simulated federal bracket used in Year 1.</div></div><div class="tax-growth-sim-status" id="taxGrowthSimulationStatus">Simulation is OFF. The current federal brackets remain fixed for every projected year.</div><div class="tax-growth-sim-disclaimer">Actual tax law, deductions, income, Social Security taxation, state taxes, and future bracket adjustments may differ. Total tax can be lower, similar, or higher even when the simulated bracket room increases. State bracket growth is a planning estimate and may not match future state law.</div></div><div class="paycheck-source-card" id="paycheckSourceCard"><h3>Retirement paycheck source</h3><div class="paycheck-source-copy">Choose which account funds the retirement paycheck. Roth-first is selected by default so converted money can be used for spending while the Traditional IRA remains available.</div><div class="paycheck-source-options" role="radiogroup" aria-label="Retirement paycheck source"><label class="paycheck-source-option"><input type="radio" name="paycheck-source" value="roth" checked><span><b>Roth first</b><small>Use Roth funds first, then IRA/401(k) if needed.</small></span></label><label class="paycheck-source-option"><input type="radio" name="paycheck-source" value="ira"><span><b>IRA / 401(k) first</b><small>Use taxable retirement funds first, then Roth.</small></span></label><label class="paycheck-source-option"><input type="radio" name="paycheck-source" value="proportional"><span><b>Proportional</b><small>Split the paycheck according to each account's current balance.</small></span></label></div><div class="paycheck-source-status" id="paycheckSourceStatus">Paycheck is funded from the Roth first.</div></div><div class="roth-tax-choice-card" id="rothTaxChoiceCard"><div class="roth-tax-choice-head"><div><h3>IRA → Roth conversion tax treatment</h3><div class="roth-tax-choice-sub">This chart now models the conversion tax as being paid from the <b>Roth at year-end</b>. The full conversion enters the Roth first, grows during the year, and then the estimated conversion tax is removed from the Roth.</div><button aria-controls="rothTaxHelpText" aria-expanded="false" class="text-tip-toggle roth-tax-help-btn" id="rothTaxHelpBtn" type="button">ⓘ Compare the tax payment methods</button></div></div><div class="roth-tax-help-text" id="rothTaxHelpText"><div class="text-tip-section"><b>What the chart is currently using</b><br/>The active model is <b>Roth pays at year-end</b>. That means the full IRA→Roth conversion is deposited into the Roth first, then the estimated extra tax caused by the conversion is removed from the Roth at year-end.</div><div class="text-tip-section"><b>Best choice — Cash / Savings</b><br/>Use money outside retirement accounts. The full conversion stays in the Roth and can keep growing tax-free. This is usually the cleanest and most efficient option.</div><div class="text-tip-section"><b>Traditional IRA withholding</b><br/>The custodian withholds the estimated tax before the Roth deposit is completed. Example: convert $10,000, withhold $2,000, and only $8,000 reaches the Roth.</div><div class="text-tip-section"><b>Roth pays at year-end</b><br/>The full conversion reaches the Roth first. The estimated tax dollars may grow for the year, but then the tax is paid from the Roth. This can look slightly better than IRA withholding in the chart because of timing, but it still reduces tax-free Roth assets.</div></div><details class="roth-tax-explainer"><summary>Tax payment method shown in this chart: <b>Roth pays at year-end</b></summary><div><p><b>Cash / Savings:</b> Full conversion stays in the Roth; taxes are paid outside the retirement accounts.</p><p><b>Traditional IRA withholding:</b> Taxes are withheld before the Roth deposit, so less money reaches the Roth.</p><p><b>Roth pays at year-end:</b> Full conversion enters the Roth first, then the conversion tax is removed from the Roth at year-end. This is the behavior currently used by the chart.</p></div></details><div class="roth-tax-summary" id="rothTaxChoiceSummary">Roth conversion tax payment summary will update after the chart runs.</div></div><div class="without-roth-tax-card mode-tax-card-hidden" id="withoutRothTaxCard"><h3>Without Roth Conversion tax summary</h3><div class="roth-tax-choice-sub">No IRA → Roth conversion tax is applied. This panel shows the regular federal, state, and SS tax numbers used by the chart.</div><div class="roth-tax-summary" id="withoutRothTaxSummary">Without Roth Conversion tax summary will update after the chart runs.</div></div><div class="top-controls"><div id="mode-toggle"><div class="control-group-box"><label class="organized-label"><input checked="" name="mode" type="radio" value="with"/><span>With Roth Conversion</span></label><label class="organized-label"><input name="mode" type="radio" value="no"/><span>Without Roth Conversion</span></label></div><div class="state-wrapper"><div class="state-prefix-label">State:</div><div class="control-group-box"><label class="organized-label"><input name="state-top" type="radio" value="taxed"/><span>Taxed</span></label><label class="organized-label"><input name="state-top" type="radio" value="exempt"/><span>Exempt</span></label></div></div></div></div><section class="history-panel" id="historicalScenarioPanel" aria-label="Historical data controls"><div class="history-toolbar"><label class="history-main-switch"><input id="historyModeToggle" type="checkbox"><span>Historical<br>Data</span></label><label class="history-scenario-label"><span>Scenario:</span><select id="historyStartYear" aria-label="Historical market scenario"></select></label><div class="history-player-buttons" role="group" aria-label="Historical time machine playback"><button type="button" id="historyPrevBtn" title="Previous scenario" aria-label="Previous scenario">◀</button><button type="button" id="historyPlayBtn" title="Play scenarios" aria-label="Play scenarios">▶</button><button type="button" id="historyPauseBtn" title="Pause playback" aria-label="Pause playback" disabled>⏸</button><button type="button" id="historyNextBtn" title="Next scenario" aria-label="Next scenario">▶|</button></div><label class="history-down-toggle"><input id="historyDownYears" type="checkbox" checked><span>▼ Down years</span></label><span id="historyProgress" class="history-progress"></span></div><div class="history-context-row" id="historyContextRow"><span>Historical context:</span><label><input type="radio" name="history-context" value="0">Event only</label><label><input type="radio" name="history-context" value="5" checked>5 years before &amp; after</label><label><input type="radio" name="history-context" value="10">10 years before &amp; after</label><label><input type="radio" name="history-context" value="custom">Custom</label><span class="history-custom-years" id="historyCustomYearsWrap"><input id="historyCustomYears" type="number" min="0" max="25" step="1" value="5" aria-label="Custom years before and after"><span>years each side</span></span><span class="history-window-status" id="historyWindowStatus"></span></div><div id="historyPlayerBody" hidden><small id="historyScenarioLabel"></small><small id="historyReturnLabel"></small></div><details class="history-help"><summary>ⓘ How historical returns affect this chart</summary><div class="history-help-body"><b>When Historical Data is turned on:</b><br/>The chart uses actual annual S&amp;P 500 total-return percentages for the selected event plus the chosen number of years before and after it. The default is 5 years on each side. Those historical percentages replace the normal Investment Return setting only inside the blue historical-context range.<br/><br/><b>Event range:</b><br/>The red or green line identifies the selected crisis, recovery, or boom inside the wider historical context.<br/><br/><b>Outside the historical context:</b><br/>The chart returns to the Investment Return percentage selected in your regular chart settings. The complete context window is placed at a random valid location within the retirement timeline. This is a historical stress test, not a prediction of future returns.</div></details></section><div class="chart-container" id="portfolio-chart"></div><div id="end-summary">End of Yr Summary will appear here after the simulation runs.</div><div class="controls" id="controls-top"></div><div id="ss-info"><div class="ss-card-title">Social Security</div><div class="ss-compact-grid"><div><span>Monthly Benefit</span><b id="ss-gross">$0</b></div><div><span>Federal Tax</span><b id="ss-fed-tax">$0</b></div><div><span>State Tax</span><b id="ss-state-tax">$0</b></div><div class="ss-net-row"><span>Monthly After Taxes</span><b id="ss-net">$0</b></div></div><button aria-controls="ssTaxHelpText" aria-expanded="false" class="text-tip-toggle" id="ssTaxHelpBtn" type="button">ⓘ Social Security tax tip</button><div class="ss-tax-help-text" id="ssTaxHelpText"><b>How Social Security taxes work</b><br/><br/>Depending on your combined retirement income, up to 85% of your Social Security benefit may be included in federal taxable income. That does not mean an 85% tax rate. Federal and state amounts above are estimates based on the tax settings on this page. Roth conversions, IRA withdrawals, pensions, and other income can increase the taxable portion.</div></div>
 <div class="chart-container" id="withdrawals-chart"></div><div class="controls" id="controls-bottom"></div><div id="assumptions"><div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;"><h2 style="margin:0">Assumptions</h2><div class="note">Changes are saved to <b>localStorage</b> and applied immediately when you click each area's Apply button.</div></div><div class="ass-row"><div class="ass-panel fed"><div style="display:flex; justify-content:space-between; align-items:center;"><h3>Federal Tax Assumptions</h3><span class="collapse" id="toggle-fed">▼ collapse</span></div><div id="fed-body" style="display:block;"><div class="small">Standard Deduction</div><div class="input-row"><input id="fed-std-input" min="0" step="100" type="number"/><div class="note">Enter value (dollars). Example: 31,500</div></div><div class="small">Preset / Custom</div><select class="select" id="fed-presets" style="margin-bottom:8px;"><option value="current">Use Current (loaded)</option><option value="example-2024">Example Preset 2024</option><option value="custom">Custom (edit below)</option></select><div class="small" style="margin-top:8px;">Brackets — Edit rate (%) and cap ($). Enter <b>Infinity</b> for open top bracket cap.</div><table class="brackets-table" id="fed-brackets-table"><thead><tr><td style="width:30px;">#</td><td style="width:70px;">Rate %</td><td>Cap $</td><td style="width:50px;"></td></tr></thead><tbody id="fed-brackets-tbody"></tbody></table><div style="margin-top:8px;"><button class="btn btn-apply btn-add-bracket" id="add-fed-bracket">+ Add Bracket</button></div><div style="margin-top:10px;"><button class="btn btn-apply" id="apply-fed">💾 Apply Federal Changes</button><button class="btn btn-clear" id="reset-fed">↺ Reset Federal Defaults</button></div></div></div><div class="ass-panel state" id="state-panel"><div style="display:flex; justify-content:space-between; align-items:center;"><h3>State Tax Assumptions</h3><span class="collapse" id="toggle-state">▼ collapse</span></div><div id="state-body" style="display:block;"><div class="small">State Preset</div><div class="input-row"><select aria-label="State preset" class="select state-name-select" id="state-name-select"></select><div class="note" id="state-preset-note">Choose a 2026 state preset. All states are preloaded for offline estimating; you can still edit the brackets below.</div></div><div class="small">State SS Tax Treatment</div><div class="state-ss-tax-row"><label><input name="state-ss-tax" type="radio" value="no"/> No state tax on SS</label><label><input name="state-ss-tax" type="radio" value="yes"/> State taxes SS</label></div><div class="state-ss-note" id="state-ss-note"></div><div class="small">State Exemption</div><div class="input-row"><label style="display:flex;align-items:center;gap:8px;"><input checked="" name="state-exempt" type="radio" value="no"/> Taxed</label><label style="display:flex;align-items:center;gap:8px;"><input name="state-exempt" type="radio" value="yes"/> Exempt (no state tax)</label><div class="note">If Exempt is selected, state tax is not applied.</div></div><div class="small" style="margin-top:8px;">State Standard Deduction</div><div class="input-row"><input id="state-std-input" min="0" step="100" type="number"/><div class="note">Enter value (dollars). Example: 10,000. This is subtracted before state brackets are applied.</div></div><div class="small" style="margin-top:8px;">State brackets — Edit rate (%) and cap ($). Enter <b>and above</b> or <b>Infinity</b> for the open top bracket.</div><table class="brackets-table" id="state-brackets-table" style="margin-top:8px;"><thead><tr><td style="width:30px;">#</td><td style="width:70px;">Rate %</td><td>Cap $</td><td style="width:50px;"></td></tr></thead><tbody id="state-brackets-tbody"></tbody></table><div style="margin-top:8px;"><button class="btn btn-apply btn-add-bracket" id="add-state-bracket">+ Add Bracket</button></div><div style="margin-top:10px;"><button class="btn btn-apply" id="apply-state">💾 Apply State Changes</button><button class="btn btn-clear" id="reset-state">↺ Reset State Defaults</button></div></div></div></div></div><script>
 try{
@@ -3399,21 +3412,116 @@ function getFederalBracketsForYear(simulationYear){
 function getFederalStandardDeductionForYear(simulationYear){
   return (Number(FED_STD_VAL)||0) * taxGrowthFactor(simulationYear);
 }
-function refreshTaxGrowthSimulationStatus(){
-  const el=document.getElementById('taxGrowthSimulationStatus');
-  if(!el) return;
-  el.textContent = TAX_GROWTH_SIM_ENABLED
-    ? 'Simulation is ON: federal and state bracket boundaries and standard deductions, plus the planned Roth conversion, grow 2.5% per year. The conversion is bracket-limited using the Year 1 federal bracket.'
-    : 'Simulation is OFF. The current federal and state brackets, deductions, and planned Roth conversion remain fixed for every projected year.';
-}
-function findFederalBracketIndex(taxableAmount, simulationYear){
-  const amount=Math.max(0,Number(taxableAmount)||0);
-  const brs=getFederalBracketsForYear(simulationYear).slice().sort((a,b)=>a.cap-b.cap);
-  for(let i=0;i<brs.length;i++) if(brs[i].cap===Infinity || amount<=brs[i].cap) return i;
-  return Math.max(0,brs.length-1);
+
+/* ---------------- AGE-65 FEDERAL DEDUCTIONS ----------------
+   The projection now models the taxpayer and, for Married Filing Jointly,
+   an optional spouse age.
+
+   2026 regular additional standard deduction:
+   - $2,050 for Single / Head of Household
+   - $1,650 per eligible person for married statuses and QSS
+
+   Enhanced senior deduction:
+   - Up to $6,000 per eligible individual for tax years 2025-2028
+   - Up to $12,000 for MFJ when both modeled spouses qualify
+   - Phases out by 6% of MAGI over $75,000, or $150,000 for MFJ
+   - Married Filing Separately is not eligible
+*/
+const SENIOR_DEDUCTION_BASE_YEAR = 2026;
+const SENIOR_ENHANCED_LAST_YEAR = 2028;
+const SPOUSE_RETIREMENT_AGE_KEY = 'retirement_spouse_age_at_retirement_v1';
+
+function getFederalFilingStatusCode(){
+  try{return localStorage.getItem('retirement_federal_filing_status_2026') || 'mfj';}
+  catch(e){return 'mfj';}
 }
 
-/* ---------------- TAX CALCULATION ENGINES ---------------- */
+function getProjectedTaxpayerAge(simulationYear){
+  const keys=[
+    'retirement_retire_age',
+    'k401_retirement_age',
+    'retirement_age',
+    'retirement_start_age',
+    'startAge'
+  ];
+  let baseAge=0;
+  for(const key of keys){
+    try{
+      const value=Number(localStorage.getItem(key));
+      if(Number.isFinite(value) && value>0){baseAge=value;break;}
+    }catch(e){}
+  }
+  if(!baseAge){
+    const el=document.getElementById('startAge');
+    if(el){
+      const value=Number(el.value);
+      if(Number.isFinite(value) && value>0)baseAge=value;
+    }
+  }
+  return baseAge>0 ? baseAge + Math.max(0,(Number(simulationYear)||1)-1) : 0;
+}
+
+function getSpouseRetirementBaseAge(){
+  try{
+    const saved=Number(localStorage.getItem(SPOUSE_RETIREMENT_AGE_KEY));
+    if(Number.isFinite(saved) && saved>=18 && saved<=120)return saved;
+  }catch(e){}
+  const input=document.getElementById('page4SpouseRetirementAge');
+  if(input){
+    const value=Number(input.value);
+    if(Number.isFinite(value) && value>=18 && value<=120)return value;
+  }
+  return 0;
+}
+
+function getProjectedSpouseAge(simulationYear){
+  if(getFederalFilingStatusCode()!=='mfj')return 0;
+  const baseAge=getSpouseRetirementBaseAge();
+  return baseAge>0 ? baseAge + Math.max(0,(Number(simulationYear)||1)-1) : 0;
+}
+
+function getSeniorFederalDeductions(simulationYear, approximateMAGI){
+  const taxpayerAge=getProjectedTaxpayerAge(simulationYear);
+  const spouseAge=getProjectedSpouseAge(simulationYear);
+  const status=getFederalFilingStatusCode();
+  const calendarYear=SENIOR_DEDUCTION_BASE_YEAR + Math.max(0,(Number(simulationYear)||1)-1);
+
+  const taxpayerEligible=taxpayerAge>=65;
+  const spouseEligible=status==='mfj' && spouseAge>=65;
+  const eligibleCount=(taxpayerEligible?1:0)+(spouseEligible?1:0);
+
+  let regularAdditional=0;
+  if(status==='single'||status==='hoh'){
+    regularAdditional=(taxpayerEligible?2050:0) * taxGrowthFactor(simulationYear);
+  }else{
+    // On a joint return, each spouse who is 65+ receives a separate amount.
+    // For MFS/QSS, only the modeled taxpayer is counted.
+    const regularEligibleCount=status==='mfj' ? eligibleCount : (taxpayerEligible?1:0);
+    regularAdditional=(1650 * regularEligibleCount) * taxGrowthFactor(simulationYear);
+  }
+
+  let enhancedAdditional=0;
+  if(calendarYear<=SENIOR_ENHANCED_LAST_YEAR && status!=='mfs' && eligibleCount>0){
+    const maximum=6000 * eligibleCount;
+    const threshold=(status==='mfj') ? 150000 : 75000;
+    const excess=Math.max(0,(Number(approximateMAGI)||0)-threshold);
+    enhancedAdditional=Math.max(0,maximum-(0.06*excess));
+  }
+
+  return {
+    taxpayerAge,
+    spouseAge,
+    calendarYear,
+    status,
+    taxpayerEligible,
+    spouseEligible,
+    eligibleCount,
+    regularAdditional,
+    enhancedAdditional,
+    totalAdditional:regularAdditional+enhancedAdditional
+  };
+}
+
 function calculateFederalTaxOnTaxable(taxableAmount, simulationYear){
   let tax = 0, lower = 0, remaining = taxableAmount;
   const brs = getFederalBracketsForYear(simulationYear).slice().sort((a,b)=> a.cap - b.cap);
@@ -3490,7 +3598,9 @@ function calculateCombinedTaxSnapshot(parts){
   const nonSocialSecurityAGI = iraWithdrawals + rothConversion + employerPension + rentalOther;
   const taxableSS = calculateTaxableSocialSecurity(grossSS, nonSocialSecurityAGI);
   const federalIncomeBeforeDeduction = nonSocialSecurityAGI + taxableSS;
-  const federalStandardDeduction = getFederalStandardDeductionForYear(simulationYear);
+  const federalBaseStandardDeduction = getFederalStandardDeductionForYear(simulationYear);
+  const seniorDeductions = getSeniorFederalDeductions(simulationYear, federalIncomeBeforeDeduction);
+  const federalStandardDeduction = federalBaseStandardDeduction + seniorDeductions.totalAdditional;
   const federalTaxableIncome = Math.max(0, federalIncomeBeforeDeduction - federalStandardDeduction);
   const federalTax = Math.round(calculateFederalTaxOnTaxable(federalTaxableIncome, simulationYear));
 
@@ -3505,7 +3615,29 @@ function calculateCombinedTaxSnapshot(parts){
   const statePoolForAllocation = Math.max(0, stateIncomeBeforeDeduction);
   const allocatedFed = (amount)=> taxablePoolForAllocation > 0 ? Math.round(federalTax * (Math.max(0, Number(amount)||0) / taxablePoolForAllocation)) : 0;
   const allocatedState = (amount)=> statePoolForAllocation > 0 ? Math.round(stateTax * (Math.max(0, Number(amount)||0) / statePoolForAllocation)) : 0;
-  return {nonSocialSecurityAGI,taxableSS,stateTaxableSS,federalIncomeBeforeDeduction,federalStandardDeduction,federalTaxableIncome,stateIncomeBeforeDeduction,federalTax,stateTax,totalTax,allocatedFed,allocatedState,simulationYear};
+  return {
+    nonSocialSecurityAGI,
+    taxableSS,
+    stateTaxableSS,
+    federalIncomeBeforeDeduction,
+    federalBaseStandardDeduction,
+    seniorRegularAdditionalDeduction:seniorDeductions.regularAdditional,
+    seniorEnhancedDeduction:seniorDeductions.enhancedAdditional,
+    seniorDeductionTotal:seniorDeductions.totalAdditional,
+    projectedTaxpayerAge:seniorDeductions.taxpayerAge,
+    projectedSpouseAge:seniorDeductions.spouseAge,
+    seniorEligibleCount:seniorDeductions.eligibleCount,
+    projectedTaxCalendarYear:seniorDeductions.calendarYear,
+    federalStandardDeduction,
+    federalTaxableIncome,
+    stateIncomeBeforeDeduction,
+    federalTax,
+    stateTax,
+    totalTax,
+    allocatedFed,
+    allocatedState,
+    simulationYear
+  };
 }
 
 function readParams(){
@@ -3914,6 +4046,13 @@ function runSimulation(p){
       TaxBracketGrowthSimulation: TAX_GROWTH_SIM_ENABLED,
       FederalBracketGrowthFactor: taxGrowthFactor(y),
       FederalStandardDeductionUsed: taxSnapshot.federalStandardDeduction,
+      FederalBaseStandardDeductionUsed: taxSnapshot.federalBaseStandardDeduction,
+      SeniorRegularAdditionalDeduction: taxSnapshot.seniorRegularAdditionalDeduction,
+      SeniorEnhancedDeduction: taxSnapshot.seniorEnhancedDeduction,
+      ProjectedTaxpayerAge: taxSnapshot.projectedTaxpayerAge,
+      ProjectedSpouseAge: taxSnapshot.projectedSpouseAge,
+      SeniorEligibleCount: taxSnapshot.seniorEligibleCount,
+      ProjectedTaxCalendarYear: taxSnapshot.projectedTaxCalendarYear,
       RothNetConversion: rothNetConversion,
       RothConversionTax: rothConversionTax,
       TaxWithoutRothConversion: baseTaxSnapshot.totalTax,
@@ -11477,6 +11616,163 @@ main,section,article,form,
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);else bind();
 })();
 </script>
+
+<style id="page4-spouse-age-v1-style">
+.page4-spouse-age-panel{
+  margin-top:10px;
+  padding:12px;
+  border:1px solid #c7d2fe;
+  border-radius:12px;
+  background:#eef2ff;
+  color:#1e1b4b;
+}
+.page4-spouse-age-panel[hidden]{display:none!important}
+.page4-spouse-age-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:7px;
+}
+.page4-spouse-age-row input{
+  flex:1 1 auto;
+  min-width:0;
+  width:100%;
+  border:1px solid #94a3b8;
+  border-radius:10px;
+  padding:10px 11px;
+  background:#fff;
+  color:#111827;
+}
+.page4-spouse-age-row button{
+  flex:0 0 auto;
+  border:1px solid #94a3b8;
+  border-radius:10px;
+  padding:10px 12px;
+  background:#fff;
+  color:#1e293b;
+  font-weight:800;
+}
+.page4-spouse-age-panel small{
+  display:block;
+  margin-top:7px;
+  line-height:1.35;
+}
+@media(max-width:380px){
+  .page4-spouse-age-row{align-items:stretch;flex-direction:column}
+  .page4-spouse-age-row button{width:100%}
+}
+</style>
+
+<script id="page4-spouse-age-v1">
+(function(){
+  'use strict';
+  const STATUS_KEY='retirement_federal_filing_status_2026';
+  const AGE_KEY='retirement_spouse_age_at_retirement_v1';
+
+  function status(){
+    try{return localStorage.getItem(STATUS_KEY)||'mfj';}
+    catch(e){return 'mfj';}
+  }
+
+  function savedAge(){
+    try{
+      const n=Number(localStorage.getItem(AGE_KEY));
+      return Number.isFinite(n)&&n>=18&&n<=120?n:0;
+    }catch(e){return 0;}
+  }
+
+  function saveAge(value){
+    const n=Number(value);
+    try{
+      if(Number.isFinite(n)&&n>=18&&n<=120)localStorage.setItem(AGE_KEY,String(Math.round(n)));
+      else localStorage.removeItem(AGE_KEY);
+    }catch(e){}
+  }
+
+  function projectedTaxpayerAge(){
+    try{
+      if(typeof getProjectedTaxpayerAge==='function')return Number(getProjectedTaxpayerAge(1))||0;
+    }catch(e){}
+    return 0;
+  }
+
+  function updateStatus(){
+    const output=document.getElementById('page4SeniorDeductionStatus');
+    if(!output)return;
+    const filing=status();
+    const taxpayerAge=projectedTaxpayerAge();
+    const spouseAge=savedAge();
+
+    if(filing==='mfj'){
+      if(!spouseAge){
+        output.textContent='Enter the spouse age at retirement to calculate whether one or both spouses qualify for age-65 federal deductions.';
+      }else{
+        const taxpayerText=taxpayerAge?('Taxpayer age '+Math.round(taxpayerAge)): 'Taxpayer age comes from the retirement settings';
+        output.textContent=taxpayerText+'; spouse age '+Math.round(spouseAge)+'. The projection checks both ages separately in every projected year.';
+      }
+    }else{
+      output.textContent='Age-65 federal deductions are based on the modeled taxpayer age. Spouse age is used only for Married Filing Jointly.';
+    }
+  }
+
+  function refresh(){
+    const panel=document.getElementById('page4SpouseAgePanel');
+    const input=document.getElementById('page4SpouseRetirementAge');
+    if(!panel||!input)return;
+    const joint=status()==='mfj';
+    panel.hidden=!joint;
+    if(joint && !input.value){
+      const n=savedAge();
+      if(n)input.value=String(Math.round(n));
+    }
+    updateStatus();
+  }
+
+  function init(){
+    const input=document.getElementById('page4SpouseRetirementAge');
+    const clear=document.getElementById('page4ClearSpouseAge');
+
+    if(input){
+      const n=savedAge();
+      if(n)input.value=String(Math.round(n));
+      input.addEventListener('input',function(){
+        saveAge(input.value);
+        updateStatus();
+        try{if(typeof update==='function')update();}catch(e){}
+      });
+      input.addEventListener('change',function(){
+        saveAge(input.value);
+        updateStatus();
+        try{if(typeof update==='function')update();}catch(e){}
+      });
+    }
+
+    if(clear){
+      clear.addEventListener('click',function(){
+        if(input)input.value='';
+        saveAge('');
+        updateStatus();
+        try{if(typeof update==='function')update();}catch(e){}
+      });
+    }
+
+    document.querySelectorAll('input[name="page4-federal-filing"]').forEach(function(radio){
+      radio.addEventListener('change',function(){
+        setTimeout(function(){
+          refresh();
+          try{if(typeof update==='function')update();}catch(e){}
+        },40);
+      });
+    });
+
+    refresh();
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+  else init();
+})();
+</script>
+
 </body></html>
 <!-- FINAL PAGE 4 EXISTING-BALANCE NAMES + STABLE $100K BUCKET RANGES -->
 <script id="page4-existing-balance-bucket-authoritative-v2">
