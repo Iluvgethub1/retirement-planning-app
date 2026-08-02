@@ -11773,6 +11773,61 @@ main,section,article,form,
 })();
 </script>
 
+
+<script id="page4-startup-refresh-fix-v1">
+(function(){
+  'use strict';
+
+  function goToTop(){
+    try{
+      if('scrollRestoration' in history) history.scrollRestoration='manual';
+    }catch(e){}
+    try{window.scrollTo({top:0,left:0,behavior:'auto'});}
+    catch(e){try{window.scrollTo(0,0);}catch(err){}}
+  }
+
+  function refreshPage4(){
+    goToTop();
+
+    try{
+      if(typeof window.update==='function') window.update();
+      else if(typeof update==='function') update();
+    }catch(e){}
+
+    try{window.dispatchEvent(new Event('resize'));}catch(e){}
+
+    /* Some chart/slider libraries finish loading after the HTML. */
+    setTimeout(function(){
+      goToTop();
+      try{
+        if(typeof window.update==='function') window.update();
+        else if(typeof update==='function') update();
+      }catch(e){}
+      try{window.dispatchEvent(new Event('resize'));}catch(e){}
+    },300);
+
+    setTimeout(function(){
+      try{
+        if(typeof window.update==='function') window.update();
+        else if(typeof update==='function') update();
+      }catch(e){}
+      try{window.dispatchEvent(new Event('resize'));}catch(e){}
+    },1200);
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',refreshPage4,{once:true});
+  }else{
+    refreshPage4();
+  }
+
+  window.addEventListener('load',refreshPage4,{once:true});
+  window.addEventListener('pageshow',function(event){
+    if(event.persisted) refreshPage4();
+  });
+})();
+</script>
+
 </body></html>
 <!-- FINAL PAGE 4 EXISTING-BALANCE NAMES + STABLE $100K BUCKET RANGES -->
 <script id="page4-existing-balance-bucket-authoritative-v2">
