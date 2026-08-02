@@ -254,32 +254,6 @@
     t.querySelector('strong').textContent=(pageLabel||'Page')+' saved';
     clearTimeout(toastTimer);t.style.opacity='1';toastTimer=setTimeout(function(){t.style.opacity='0';},650);
   }
-  function page2LegacyPacket(p){
-    if(!p)return null;
-    var rows=[];
-    try{
-      document.querySelectorAll('#expenseList .expense-row').forEach(function(row,i){
-        var text=row.querySelector('input[type="text"]');
-        var amount=row.querySelector('input[type="number"]');
-        var swatch=row.querySelector('.color-swatch');
-        rows.push({
-          name:(text&&text.value)||('Envelope '+(i+1)),
-          amount:number(amount&&amount.value)||0,
-          color:(swatch&&swatch.style.backgroundColor)||'#64748b'
-        });
-      });
-    }catch(e){}
-    return {
-      version:26,
-      income:number(p.monthlyIncome)||0,
-      k401:number(p.monthly401k)||0,
-      roth:number(p.monthlyRoth)||0,
-      incomeMin:0,incomeMax:number(p.monthlyIncomeMax)||Math.max(number(p.monthlyIncome)||0,100),incomeStep:100,
-      k401Min:0,k401Max:number(p.monthly401kMax)||Math.max(number(p.monthly401k)||0,25),k401Step:25,
-      rothMin:0,rothMax:number(p.monthlyRothMax)||Math.max(number(p.monthlyRoth)||0,25),rothStep:25,
-      envelopes:rows,savedAt:Date.now()
-    };
-  }
   function go(target,withPacket){
     if(navigating)return;
     navigating=true;
@@ -288,24 +262,7 @@
     setTimeout(function(){
       if(withPacket){
         var encoded=encodeURIComponent(JSON.stringify(p));
-        if(PAGE==='page2'&&target.indexOf('03_')===0){
-          /* Page 3 still has several startup controllers that initialize from the
-             older v26 packet before the shared-v8 restorer runs. The capture-phase
-             Next handler used to bypass that packet entirely, leaving Page 3 at
-             its defaults. Write both formats and include both hashes so every
-             initializer receives the same current Page 2 values. */
-          var legacy=page2LegacyPacket(p);
-          try{
-            localStorage.setItem('retirement_page2_packet_v26',JSON.stringify(legacy));
-            sessionStorage.setItem('page2_to_page3_snapshot_v17',JSON.stringify({shared:p,legacy:legacy,savedAt:Date.now()}));
-            sessionStorage.setItem('page2_to_page3_monthly_v24',JSON.stringify({monthly401k:Number(p.monthly401k)||0,monthlyRoth:Number(p.monthlyRoth)||0,monthlyIncome:Number(p.monthlyIncome)||0,monthly401kMax:Number(p.monthly401kMax)||0,monthlyRothMax:Number(p.monthlyRothMax)||0,savedAt:Date.now()}));
-            window.__PAGE2_PACKET_V26=legacy;
-          }catch(e){}
-          var legacyEncoded=encodeURIComponent(JSON.stringify(legacy));
-          location.href=target+'#v26='+legacyEncoded+'&p23sync='+encoded;
-        }else{
-          location.href=target+'#p23sync='+encoded;
-        }
+        location.href=target+'#p23sync='+encoded;
       }else location.href=target;
     },680);
   }
@@ -325,10 +282,6 @@
   window.addEventListener('beforeunload',function(){savePacket();});
 
   var incoming=packetFromHash()||storedPacket();
-  if(PAGE==='page3'&&incoming){
-    window.__P23_IMMUTABLE_HANDOFF_V24=incoming;
-    try{sessionStorage.setItem('page2_to_page3_monthly_v24',JSON.stringify({monthly401k:Number(incoming.monthly401k)||0,monthlyRoth:Number(incoming.monthlyRoth)||0,monthlyIncome:Number(incoming.monthlyIncome)||0,monthly401kMax:Number(incoming.monthly401kMax)||0,monthlyRothMax:Number(incoming.monthlyRothMax)||0,savedAt:Date.now()}));}catch(e){}
-  }
   var restoreStarted=false;
   var chartHost=null;
 
@@ -388,7 +341,11 @@
     setTimeout(function(){
       try{if(chartInstance)chartInstance.options.animation=previousAnimation;}catch(e){}
     },0);
-    /* Keep the transfer hash for this page session so late Page 3 controllers can read the immutable packet. */
+    try{
+      if(location.hash.indexOf('p23sync=')!==-1){
+        history.replaceState(null,'',location.pathname+location.search);
+      }
+    }catch(e){}
     incoming=null;
   }
 
@@ -441,8 +398,15 @@
     var el=document.getElementById(sliderId);
     if(!el||!el.noUiSlider) return false;
     var s=el.noUiSlider;
-    /* Readout compatibility only. The age-limit controller owns the slider
-       range, step, and value; changing them here caused the flashing/reset. */
+    try{
+      var value=n(s.get());
+      var opts=s.options||{};
+      var range=opts.range||{min:0,max:Math.max(25,value)};
+      var min=n(range.min), max=n(range.max);
+      if(max<value) max=value;
+      s.updateOptions({range:{min:min,max:max},step:25,animate:false,animationDuration:0},false);
+      s.set(Math.round(value/25)*25);
+    }catch(e){}
     if(!el.dataset.p23ReadoutBound){
       el.dataset.p23ReadoutBound='1';
       try{s.on('update.p23readout',function(values){setReadout(readoutId,values&&values[0]);});}catch(e){
@@ -454,14 +418,18 @@
     return true;
   }
   function apply(){
-    /* Bind readouts without changing slider configuration. */
+    /* All money sliders on Page 3 use exact $25 increments. */
     bindSlider('income-slider','income-slider-value');
     bindSlider('existing-slider','existing-value');
     bindSlider('contrib-slider','contrib-value');
     bindSlider('existing-roth-slider','existing-roth-value');
     bindSlider('roth-slider','roth-value');
 
-    /* Each slider keeps its own controller-defined step size. */
+    try{
+      localStorage.setItem('sync_monthly_income_step','25');
+      localStorage.setItem('sync_monthly_401k_step','25');
+      localStorage.setItem('sync_monthly_roth_step','25');
+    }catch(e){}
   }
 
   document.addEventListener('DOMContentLoaded',apply);

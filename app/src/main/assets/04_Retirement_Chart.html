@@ -79,7 +79,7 @@ html.page4-startup-settling #controls-top .noUi-target{
   }catch(e){}
 })();
 </script>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes"><title>After Retirement</title><link href="vendor/nouislider-app.min.css" rel="stylesheet"/><script src="vendor/plotly.min.js"></script>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes"><title>After Retirement</title><link href="https://cdn.jsdelivr.net/npm/nouislider@15.8.0/dist/nouislider.min.css" rel="stylesheet"/><script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 <script>
 window.addEventListener('focus', ()=>{
   try{
@@ -201,7 +201,7 @@ document.addEventListener('input', ()=>setTimeout(colorRetirementChartSliderBars
 document.addEventListener('change', ()=>setTimeout(colorRetirementChartSliderBarsByOrder, 25));
 document.addEventListener('click', ()=>setTimeout(colorRetirementChartSliderBarsByOrder, 25));
 </script>
-<script src="vendor/nouislider-app.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/nouislider@15.8.0/dist/nouislider.min.js"></script>
 <style>
 html,body{margin:0;padding:0;width:100%;overflow-x:hidden;position:relative}
 body{font-family:Arial,sans-serif;background:#f9fafb;color:#111827;-webkit-font-smoothing:antialiased}
@@ -2377,280 +2377,23 @@ html{scrollbar-gutter:stable;}
 </style>
 
 
-<style id="page4-equal-card-gutters-v12">
-:root{--page4-card-gutter:14px;--page4-card-radius:12px}
-#controls-top.controls{
-  width:calc(100% - (var(--page4-card-gutter) * 2))!important;
-  margin:12px var(--page4-card-gutter)!important;
-  padding:0!important;
-  gap:10px!important;
-  background:transparent!important;
-  border-top:0!important;
-  box-sizing:border-box!important;
-}
-#controls-top .ctrl{
-  box-sizing:border-box!important;
-  padding:12px 14px!important;
-  margin:0!important;
-  border-radius:var(--page4-card-radius)!important;
-  min-width:0!important;
-}
-#controls-top .ctrl .noUi-target{
-  width:calc(100% - 20px)!important;
-  margin-left:10px!important;
-  margin-right:10px!important;
-  box-sizing:border-box!important;
-}
-#ss-info,#end-summary,#assumptions,.roth-tax-choice-card,#withoutRothTaxCard,.tax-growth-sim-card,.paycheck-source-card,.history-panel,.audit-summary-panel{
-  width:calc(100% - (var(--page4-card-gutter) * 2))!important;
-  margin-left:var(--page4-card-gutter)!important;
-  margin-right:var(--page4-card-gutter)!important;
-  box-sizing:border-box!important;
-  border-radius:var(--page4-card-radius)!important;
-}
-@media(min-width:861px){#controls-top .ctrl{width:calc(50% - 5px)!important}}
-@media(max-width:860px){#controls-top .ctrl{width:100%!important}}
-@media(max-width:520px){
-  :root{--page4-card-gutter:12px}
-  #controls-top .ctrl{padding:12px!important}
-  #controls-top .ctrl .noUi-target{width:calc(100% - 24px)!important;margin-left:12px!important;margin-right:12px!important}
-}
+<style id="page4-filing-status-restored-style-v2">
+.page4-filing-status-card{margin:12px 10px;padding:12px;border:1px solid #c7d2fe;border-radius:12px;background:linear-gradient(135deg,#eef2ff,#fff);box-shadow:0 1px 4px rgba(2,6,23,.06);font-family:Arial,sans-serif;box-sizing:border-box}
+.page4-filing-status-card h3{margin:0 0 4px;font-size:15px;font-weight:900;color:#111827}
+.page4-filing-status-copy{font-size:12px;line-height:1.35;color:#374151;margin-bottom:9px}
+.page4-filing-status-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.page4-filing-status-options label{display:flex;align-items:center;gap:7px;padding:8px 9px;border:1px solid #d1d5db;border-radius:10px;background:#fff;font-size:12px;font-weight:900;cursor:pointer;box-sizing:border-box}
+.page4-filing-status-options input{width:16px;height:16px;margin:0;accent-color:#111827;flex:0 0 auto}
+.page4-filing-status-status{margin-top:9px;padding:8px 9px;border-radius:9px;background:#f8fafc;border:1px solid #e5e7eb;font-size:12px;font-weight:800;line-height:1.35;color:#111827}
+@media(max-width:600px){.page4-filing-status-options{grid-template-columns:1fr}}
 </style>
-
-<style id="android-global-responsive-release-v2">
-/* Global phone/tablet responsiveness */
-html, body {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-  overflow-x: hidden !important;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box !important;
-  min-width: 0;
-}
-
-img, svg, video, iframe {
-  max-width: 100% !important;
-  height: auto;
-}
-
-canvas {
-  max-width: 100% !important;
-}
-
-input, select, textarea, button {
-  max-width: 100% !important;
-}
-
-input, select, textarea {
-  font-size: 16px !important;
-}
-
-table {
-  max-width: 100% !important;
-}
-
-.card, .slider-card, .summary-card, .policy-card,
-.tax-gate-card, .tax-filing-profile-card,
-.page3-tax-filing-card, .page4-tax-filing-card,
-.page4-return-source-card, .retirement-risk-card-v10,
-.intro-card, .save-card {
-  max-width: 100% !important;
-  min-width: 0 !important;
-  overflow-wrap: anywhere;
-}
-
-/* Header: Back + audio + flexible title + Next */
-.app-nav {
-  display: grid !important;
-  grid-template-columns: auto auto minmax(0, 1fr) auto !important;
-  align-items: center !important;
-  gap: 8px !important;
-  width: 100% !important;
-  max-width: 100vw !important;
-  padding-left: max(8px, env(safe-area-inset-left)) !important;
-  padding-right: max(8px, env(safe-area-inset-right)) !important;
-  overflow: hidden !important;
-}
-
-.app-nav > * {
-  min-width: 0 !important;
-}
-
-.app-nav .back,
-.app-nav .next,
-.app-nav > a.back,
-.app-nav > a.next {
-  min-width: 68px !important;
-  max-width: 86px !important;
-  padding: 10px 8px !important;
-  white-space: nowrap !important;
-  flex: none !important;
-}
-
-.app-nav .page-audio-button {
-  width: 50px !important;
-  min-width: 50px !important;
-  max-width: 50px !important;
-  padding-left: 6px !important;
-  padding-right: 6px !important;
-  flex: none !important;
-}
-
-.app-nav .nav-title,
-.app-nav .after-retirement-title,
-.app-nav .title {
-  min-width: 0 !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-  text-align: center !important;
-  font-size: clamp(14px, 4vw, 22px) !important;
-  line-height: 1.1 !important;
-}
-
-/* Flexible content and controls */
-.chart-container, .block-chart, .dual-block-chart,
-.slider, .slider-holder, .year-slider-wrap,
-.income-age-slider-line, .k401-age-slider-line {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-}
-
-.noUi-target {
-  max-width: 100% !important;
-}
-
-.main-grid, .assumption-grid, .ct-quick-grid,
-.ss-compact-grid, .ss-simple-grid,
-.end-summary-mini-grid, .universal-slider-max-grid,
-.slider-max-grid {
-  min-width: 0 !important;
-}
-
-@media (max-width: 600px) {
-  body {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .main-grid, .assumption-grid, .ct-quick-grid,
-  .ss-compact-grid, .ss-simple-grid,
-  .end-summary-mini-grid, .universal-slider-max-grid,
-  .slider-max-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-
-  .app-nav {
-    gap: 6px !important;
-  }
-
-  .app-nav .back,
-  .app-nav .next,
-  .app-nav > a.back,
-  .app-nav > a.next {
-    min-width: 64px !important;
-    max-width: 76px !important;
-    font-size: 13px !important;
-    padding: 9px 6px !important;
-  }
-
-  .app-nav .page-audio-button {
-    width: 46px !important;
-    min-width: 46px !important;
-    max-width: 46px !important;
-  }
-
-  .app-nav .after-retirement-title .celebrate-icon {
-    display: none !important;
-  }
-
-  .footer-nav {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 8px !important;
-  }
-
-  .footer-nav > * {
-    flex: 1 1 120px !important;
-  }
-}
-
-@media (max-width: 390px) {
-  .app-nav {
-    gap: 4px !important;
-    padding-left: max(5px, env(safe-area-inset-left)) !important;
-    padding-right: max(5px, env(safe-area-inset-right)) !important;
-  }
-
-  .app-nav .back,
-  .app-nav .next,
-  .app-nav > a.back,
-  .app-nav > a.next {
-    min-width: 58px !important;
-    max-width: 66px !important;
-    padding: 8px 4px !important;
-    font-size: 12px !important;
-  }
-
-  .app-nav .page-audio-button {
-    width: 42px !important;
-    min-width: 42px !important;
-    max-width: 42px !important;
-  }
-
-  .app-nav .nav-title,
-  .app-nav .after-retirement-title,
-  .app-nav .title {
-    font-size: 14px !important;
-  }
-}
-
-@media (orientation: landscape) and (max-height: 520px) {
-  .app-nav {
-    position: sticky !important;
-    top: 0 !important;
-  }
-}
-</style>
-
 </head><body><div class="app-nav">
 <button class="back" onclick="window.location.href='03_401K_Calculator.html'">← Back</button><button class="page-audio-button" type="button" aria-label="Play page audio" title="Play page audio" data-audio-file="retirement.mp3">
   <span aria-hidden="true">🔊</span>
 </button>
 <audio class="page-audio-element" preload="none" src="retirement.mp3"></audio>
 <div class="page-audio-status" role="status" aria-live="polite"></div>
-<div class="nav-title after-retirement-title"><span class="celebrate-icon">🎊</span><span class="after-retirement-text">After Retirement</span><span class="celebrate-icon">🎊</span></div><button class="next" onclick="window.location.href='05_Retirement_Expenses.html'">Next</button></div><div aria-labelledby="taxGateTitle" aria-modal="true" class="tax-gate-overlay" id="taxGateOverlay" role="dialog"><div class="tax-gate-card"><h2 id="taxGateTitle">⚠️ Default Tax Assumptions Loaded</h2><p><b>Before using this retirement chart, please understand the tax tables currently loaded.</b></p><ul><li>The Federal tax setup includes selectable 2026 profiles for Married Filing Jointly, Single, Head of Household, Married Filing Separately, and Qualifying Surviving Spouse.</li><li>The State tax setup is currently based on <b>California</b> income tax brackets.</li><li>Your filing status, state, deductions, SS taxation, pension taxation, retirement-income rules, and yearly tax laws may be different.</li></ul><p>For better accuracy, look up the current-year Federal tax brackets, standard deduction, and state income-tax rules that apply to <b>your own tax situation</b>. Tax laws change and need to be updated yearly. Then enter those values in the Federal and State tax assumption boxes at the bottom of this page and click the Apply buttons. The app will save those values in its memory until you change or reset them.</p><label class="tax-gate-check"><input id="taxGateCheckbox" type="checkbox"/><span>I understand these are default tax assumptions and yearly tax laws change. I am responsible for updating them yearly for my own filing status and state before relying on the chart.</span></label><div class="tax-gate-actions"><button class="tax-gate-back" onclick="window.location.href='03_401K_Calculator.html'" type="button">Go Back</button><button class="tax-gate-continue" disabled="" id="taxGateContinue" onclick="acceptTaxGate()" type="button">I Understand — Continue</button></div></div></div><div class="tax-assumption-banner" id="taxAssumptionBanner"><div><strong>⚠️ Tax reminder:</strong> Choose one Federal &amp; State filing status below. That selection controls both tax calculations. State presets are labeled for 2026 and are preloaded for all states where this app can estimate state income tax offline. No-income-tax states are automatic. Local city/county taxes and special credits are not included. Yearly tax laws change and should be reviewed yearly.</div><button onclick="document.getElementById('assumptions')?.scrollIntoView({behavior:'smooth',block:'start'});" type="button">Go to Tax Settings</button></div><div class="tax-filing-profile-card page4-tax-filing-card" id="page4TaxFilingCard">
-  <h3>2026 Federal &amp; State filing status</h3>
-  <div class="tax-filing-profile-copy">Choose your filing status once. The calculator uses that selection for the Federal calculation and for the selected state tax profile. Federal brackets, the Federal standard deduction, Social Security thresholds, and the state planning profile update together. These are planning estimates, not tax advice.</div>
-  <div class="tax-filing-profile-options" role="radiogroup" aria-label="2026 Federal filing status">
-    <label class="tax-filing-profile-option"><input type="radio" name="page4-federal-filing" value="mfj"><span><b>Married Filing Jointly</b><small>Joint return for most married couples. 2026 standard deduction: $32,200.</small></span></label>
-    <label class="tax-filing-profile-option"><input type="radio" name="page4-federal-filing" value="single"><span><b>Single</b><small>Unmarried and not eligible for another status. 2026 standard deduction: $16,100.</small></span></label>
-    <label class="tax-filing-profile-option"><input type="radio" name="page4-federal-filing" value="hoh"><span><b>Head of Household</b><small>Generally unmarried, paying more than half the cost of a home for a qualifying person. Standard deduction: $24,150.</small></span></label>
-    <label class="tax-filing-profile-option"><input type="radio" name="page4-federal-filing" value="mfs"><span><b>Married Filing Separately</b><small>Separate married returns. Uses narrower brackets; the model uses the conservative Social Security threshold treatment associated with this status.</small></span></label>
-    <label class="tax-filing-profile-option"><input type="radio" name="page4-federal-filing" value="qss"><span><b>Qualifying Surviving Spouse</b><small>Available only when IRS requirements are met. Uses the same Federal rate schedule and standard deduction as Married Filing Jointly.</small></span></label>
-  </div>
-  <div class="tax-filing-profile-status" id="page4TaxFilingStatus"></div>
-
-  <div id="page4SpouseAgePanel" class="page4-spouse-age-panel" hidden>
-    <label for="page4SpouseRetirementAge"><b>Spouse age at retirement</b></label>
-    <div class="page4-spouse-age-row">
-      <input id="page4SpouseRetirementAge" type="number" inputmode="numeric" min="18" max="120" step="1" placeholder="Enter spouse age">
-      <button id="page4ClearSpouseAge" type="button">Clear</button>
-    </div>
-    <small>Used only for Married Filing Jointly. Enter the spouse's age in the first projected retirement year.</small>
-  </div>
-
-  <div class="tax-filing-profile-status" id="page4SeniorDeductionStatus" style="margin-top:6px;background:#fff7ed;border-color:#fdba74;color:#7c2d12;">
-    Age-65 federal deductions are applied automatically from the modeled ages.
-  </div>
-</div><div class="tax-growth-sim-card" id="taxGrowthSimulationCard"><div class="tax-growth-sim-row"><label class="tax-growth-sim-toggle"><input id="taxGrowthSimulationToggle" type="checkbox"/><span>Simulate 2.5% yearly federal and state bracket growth</span></label><div class="tax-growth-sim-copy"><strong>Planning simulation only — not an official tax forecast</strong>When selected, federal and state bracket boundaries and standard deductions rise by 2.5% each simulated year. The planned IRA → Roth conversion also rises by 2.5% annually, but is limited when necessary to avoid crossing the same simulated federal bracket used in Year 1.</div></div><div class="tax-growth-sim-status" id="taxGrowthSimulationStatus">Simulation is OFF. The current federal brackets remain fixed for every projected year.</div><div class="tax-growth-sim-disclaimer">Actual tax law, deductions, income, Social Security taxation, state taxes, and future bracket adjustments may differ. Total tax can be lower, similar, or higher even when the simulated bracket room increases. State bracket growth is a planning estimate and may not match future state law.</div></div><div class="paycheck-source-card" id="paycheckSourceCard"><h3>Retirement paycheck source</h3><div class="paycheck-source-copy">Choose which account funds the retirement paycheck. Roth-first is selected by default so converted money can be used for spending while the Traditional IRA remains available.</div><div class="paycheck-source-options" role="radiogroup" aria-label="Retirement paycheck source"><label class="paycheck-source-option"><input type="radio" name="paycheck-source" value="roth" checked><span><b>Roth first</b><small>Use Roth funds first, then IRA/401(k) if needed.</small></span></label><label class="paycheck-source-option"><input type="radio" name="paycheck-source" value="ira"><span><b>IRA / 401(k) first</b><small>Use taxable retirement funds first, then Roth.</small></span></label><label class="paycheck-source-option"><input type="radio" name="paycheck-source" value="proportional"><span><b>Proportional</b><small>Split the paycheck according to each account's current balance.</small></span></label></div><div class="paycheck-source-status" id="paycheckSourceStatus">Paycheck is funded from the Roth first.</div></div><div class="roth-tax-choice-card" id="rothTaxChoiceCard"><div class="roth-tax-choice-head"><div><h3>IRA → Roth conversion tax treatment</h3><div class="roth-tax-choice-sub">This chart now models the conversion tax as being paid from the <b>Roth at year-end</b>. The full conversion enters the Roth first, grows during the year, and then the estimated conversion tax is removed from the Roth.</div><button aria-controls="rothTaxHelpText" aria-expanded="false" class="text-tip-toggle roth-tax-help-btn" id="rothTaxHelpBtn" type="button">ⓘ Compare the tax payment methods</button></div></div><div class="roth-tax-help-text" id="rothTaxHelpText"><div class="text-tip-section"><b>What the chart is currently using</b><br/>The active model is <b>Roth pays at year-end</b>. That means the full IRA→Roth conversion is deposited into the Roth first, then the estimated extra tax caused by the conversion is removed from the Roth at year-end.</div><div class="text-tip-section"><b>Best choice — Cash / Savings</b><br/>Use money outside retirement accounts. The full conversion stays in the Roth and can keep growing tax-free. This is usually the cleanest and most efficient option.</div><div class="text-tip-section"><b>Traditional IRA withholding</b><br/>The custodian withholds the estimated tax before the Roth deposit is completed. Example: convert $10,000, withhold $2,000, and only $8,000 reaches the Roth.</div><div class="text-tip-section"><b>Roth pays at year-end</b><br/>The full conversion reaches the Roth first. The estimated tax dollars may grow for the year, but then the tax is paid from the Roth. This can look slightly better than IRA withholding in the chart because of timing, but it still reduces tax-free Roth assets.</div></div><details class="roth-tax-explainer"><summary>Tax payment method shown in this chart: <b>Roth pays at year-end</b></summary><div><p><b>Cash / Savings:</b> Full conversion stays in the Roth; taxes are paid outside the retirement accounts.</p><p><b>Traditional IRA withholding:</b> Taxes are withheld before the Roth deposit, so less money reaches the Roth.</p><p><b>Roth pays at year-end:</b> Full conversion enters the Roth first, then the conversion tax is removed from the Roth at year-end. This is the behavior currently used by the chart.</p></div></details><div class="roth-tax-summary" id="rothTaxChoiceSummary">Roth conversion tax payment summary will update after the chart runs.</div></div><div class="without-roth-tax-card mode-tax-card-hidden" id="withoutRothTaxCard"><h3>Without Roth Conversion tax summary</h3><div class="roth-tax-choice-sub">No IRA → Roth conversion tax is applied. This panel shows the regular federal, state, and SS tax numbers used by the chart.</div><div class="roth-tax-summary" id="withoutRothTaxSummary">Without Roth Conversion tax summary will update after the chart runs.</div></div><div class="top-controls"><div id="mode-toggle"><div class="control-group-box"><label class="organized-label"><input checked="" name="mode" type="radio" value="with"/><span>With Roth Conversion</span></label><label class="organized-label"><input name="mode" type="radio" value="no"/><span>Without Roth Conversion</span></label></div><div class="state-wrapper"><div class="state-prefix-label">State:</div><div class="control-group-box"><label class="organized-label"><input name="state-top" type="radio" value="taxed"/><span>Taxed</span></label><label class="organized-label"><input name="state-top" type="radio" value="exempt"/><span>Exempt</span></label></div></div></div></div><section class="history-panel" id="historicalScenarioPanel" aria-label="Historical data controls"><div class="history-toolbar"><label class="history-main-switch"><input id="historyModeToggle" type="checkbox"><span>Historical<br>Data</span></label><label class="history-scenario-label"><span>Scenario:</span><select id="historyStartYear" aria-label="Historical market scenario"></select></label><div class="history-player-buttons" role="group" aria-label="Historical time machine playback"><button type="button" id="historyPrevBtn" title="Previous scenario" aria-label="Previous scenario">◀</button><button type="button" id="historyPlayBtn" title="Play scenarios" aria-label="Play scenarios">▶</button><button type="button" id="historyPauseBtn" title="Pause playback" aria-label="Pause playback" disabled>⏸</button><button type="button" id="historyNextBtn" title="Next scenario" aria-label="Next scenario">▶|</button></div><label class="history-down-toggle"><input id="historyDownYears" type="checkbox" checked><span>▼ Down years</span></label><span id="historyProgress" class="history-progress"></span></div><div class="history-context-row" id="historyContextRow"><span>Historical context:</span><label><input type="radio" name="history-context" value="0">Event only</label><label><input type="radio" name="history-context" value="5" checked>5 years before &amp; after</label><label><input type="radio" name="history-context" value="10">10 years before &amp; after</label><label><input type="radio" name="history-context" value="custom">Custom</label><span class="history-custom-years" id="historyCustomYearsWrap"><input id="historyCustomYears" type="number" min="0" max="25" step="1" value="5" aria-label="Custom years before and after"><span>years each side</span></span><span class="history-window-status" id="historyWindowStatus"></span></div><div id="historyPlayerBody" hidden><small id="historyScenarioLabel"></small><small id="historyReturnLabel"></small></div><details class="history-help"><summary>ⓘ How historical returns affect this chart</summary><div class="history-help-body"><b>When Historical Data is turned on:</b><br/>The chart uses actual annual S&amp;P 500 total-return percentages for the selected event plus the chosen number of years before and after it. The default is 5 years on each side. Those historical percentages replace the normal Investment Return setting only inside the blue historical-context range.<br/><br/><b>Event range:</b><br/>The red or green line identifies the selected crisis, recovery, or boom inside the wider historical context.<br/><br/><b>Outside the historical context:</b><br/>The chart returns to the Investment Return percentage selected in your regular chart settings. The complete context window is placed at a random valid location within the retirement timeline. This is a historical stress test, not a prediction of future returns.</div></details></section><div class="chart-container" id="portfolio-chart"></div><div id="end-summary">End of Yr Summary will appear here after the simulation runs.</div><div class="controls" id="controls-top"></div><div id="ss-info"><div class="ss-card-title">Social Security</div><div class="ss-compact-grid"><div><span>Monthly Benefit</span><b id="ss-gross">$0</b></div><div><span>Federal Tax</span><b id="ss-fed-tax">$0</b></div><div><span>State Tax</span><b id="ss-state-tax">$0</b></div><div class="ss-net-row"><span>Monthly After Taxes</span><b id="ss-net">$0</b></div></div><button aria-controls="ssTaxHelpText" aria-expanded="false" class="text-tip-toggle" id="ssTaxHelpBtn" type="button">ⓘ Social Security tax tip</button><div class="ss-tax-help-text" id="ssTaxHelpText"><b>How Social Security taxes work</b><br/><br/>Depending on your combined retirement income, up to 85% of your Social Security benefit may be included in federal taxable income. That does not mean an 85% tax rate. Federal and state amounts above are estimates based on the tax settings on this page. Roth conversions, IRA withdrawals, pensions, and other income can increase the taxable portion.</div></div>
+<div class="nav-title after-retirement-title"><span class="celebrate-icon">🎊</span><span class="after-retirement-text">After Retirement</span><span class="celebrate-icon">🎊</span></div><button class="next" onclick="window.location.href='05_Retirement_Expenses.html'">Next</button></div><div aria-labelledby="taxGateTitle" aria-modal="true" class="tax-gate-overlay" id="taxGateOverlay" role="dialog"><div class="tax-gate-card"><h2 id="taxGateTitle">⚠️ Default Tax Assumptions Loaded</h2><p><b>Before using this retirement chart, please understand the tax tables currently loaded.</b></p><ul><li>The Federal tax setup is a default starting point and is built around a <b>Married Filing Jointly</b> example.</li><li>The State tax setup is currently based on <b>California</b> income tax brackets.</li><li>Your filing status, state, deductions, SS taxation, pension taxation, retirement-income rules, and yearly tax laws may be different.</li></ul><p>For better accuracy, look up the current-year Federal tax brackets, standard deduction, and state income-tax rules that apply to <b>your own tax situation</b>. Tax laws change and need to be updated yearly. Then enter those values in the Federal and State tax assumption boxes at the bottom of this page and click the Apply buttons. The app will save those values in its memory until you change or reset them.</p><label class="tax-gate-check"><input id="taxGateCheckbox" type="checkbox"/><span>I understand these are default tax assumptions and yearly tax laws change. I am responsible for updating them yearly for my own filing status and state before relying on the chart.</span></label><div class="tax-gate-actions"><button class="tax-gate-back" onclick="window.location.href='03_401K_Calculator.html'" type="button">Go Back</button><button class="tax-gate-continue" disabled="" id="taxGateContinue" onclick="acceptTaxGate()" type="button">I Understand — Continue</button></div></div></div><div class="tax-assumption-banner" id="taxAssumptionBanner"><div><strong>⚠️ Tax reminder:</strong> Default Federal tax assumptions are built around a Married Filing Jointly setup. State presets are labeled for 2026 and are preloaded for all states where this app can estimate state income tax offline. No-income-tax states are automatic. Local city/county taxes and special credits are not included. Yearly tax laws change and should be reviewed yearly.</div><button onclick="document.getElementById('assumptions')?.scrollIntoView({behavior:'smooth',block:'start'});" type="button">Go to Tax Settings</button></div><div class="tax-growth-sim-card" id="taxGrowthSimulationCard"><div class="tax-growth-sim-row"><label class="tax-growth-sim-toggle"><input id="taxGrowthSimulationToggle" type="checkbox"/><span>Simulate 2.5% yearly federal bracket growth</span></label><div class="tax-growth-sim-copy"><strong>Planning simulation only — not an official tax forecast</strong>When selected, federal bracket caps and the federal standard deduction rise by 2.5% each simulated year. The planned IRA → Roth conversion also rises by 2.5% annually, but is limited when necessary to avoid crossing the same simulated federal bracket used in Year 1.</div></div><div class="tax-growth-sim-status" id="taxGrowthSimulationStatus">Simulation is OFF. The current federal brackets remain fixed for every projected year.</div><div class="tax-growth-sim-disclaimer">Actual tax law, deductions, income, Social Security taxation, state taxes, and future bracket adjustments may differ. Total tax can be lower, similar, or higher even when the simulated bracket room increases. State brackets are not changed by this switch.</div></div><div class="paycheck-source-card" id="paycheckSourceCard"><h3>Retirement paycheck source</h3><div class="paycheck-source-copy">Choose which account funds the retirement paycheck. Roth-first is selected by default so converted money can be used for spending while the Traditional IRA remains available.</div><div class="paycheck-source-options" role="radiogroup" aria-label="Retirement paycheck source"><label class="paycheck-source-option"><input type="radio" name="paycheck-source" value="roth" checked><span><b>Roth first</b><small>Use Roth funds first, then IRA/401(k) if needed.</small></span></label><label class="paycheck-source-option"><input type="radio" name="paycheck-source" value="ira"><span><b>IRA / 401(k) first</b><small>Use taxable retirement funds first, then Roth.</small></span></label><label class="paycheck-source-option"><input type="radio" name="paycheck-source" value="proportional"><span><b>Proportional</b><small>Split the paycheck according to each account's current balance.</small></span></label></div><div class="paycheck-source-status" id="paycheckSourceStatus">Paycheck is funded from the Roth first.</div></div><div class="roth-tax-choice-card" id="rothTaxChoiceCard"><div class="roth-tax-choice-head"><div><h3>IRA → Roth conversion tax treatment</h3><div class="roth-tax-choice-sub">This chart now models the conversion tax as being paid from the <b>Roth at year-end</b>. The full conversion enters the Roth first, grows during the year, and then the estimated conversion tax is removed from the Roth.</div><button aria-controls="rothTaxHelpText" aria-expanded="false" class="text-tip-toggle roth-tax-help-btn" id="rothTaxHelpBtn" type="button">ⓘ Compare the tax payment methods</button></div></div><div class="roth-tax-help-text" id="rothTaxHelpText"><div class="text-tip-section"><b>What the chart is currently using</b><br/>The active model is <b>Roth pays at year-end</b>. That means the full IRA→Roth conversion is deposited into the Roth first, then the estimated extra tax caused by the conversion is removed from the Roth at year-end.</div><div class="text-tip-section"><b>Best choice — Cash / Savings</b><br/>Use money outside retirement accounts. The full conversion stays in the Roth and can keep growing tax-free. This is usually the cleanest and most efficient option.</div><div class="text-tip-section"><b>Traditional IRA withholding</b><br/>The custodian withholds the estimated tax before the Roth deposit is completed. Example: convert $10,000, withhold $2,000, and only $8,000 reaches the Roth.</div><div class="text-tip-section"><b>Roth pays at year-end</b><br/>The full conversion reaches the Roth first. The estimated tax dollars may grow for the year, but then the tax is paid from the Roth. This can look slightly better than IRA withholding in the chart because of timing, but it still reduces tax-free Roth assets.</div></div><details class="roth-tax-explainer"><summary>Tax payment method shown in this chart: <b>Roth pays at year-end</b></summary><div><p><b>Cash / Savings:</b> Full conversion stays in the Roth; taxes are paid outside the retirement accounts.</p><p><b>Traditional IRA withholding:</b> Taxes are withheld before the Roth deposit, so less money reaches the Roth.</p><p><b>Roth pays at year-end:</b> Full conversion enters the Roth first, then the conversion tax is removed from the Roth at year-end. This is the behavior currently used by the chart.</p></div></details><div class="roth-tax-summary" id="rothTaxChoiceSummary">Roth conversion tax payment summary will update after the chart runs.</div></div><div class="without-roth-tax-card mode-tax-card-hidden" id="withoutRothTaxCard"><h3>Without Roth Conversion tax summary</h3><div class="roth-tax-choice-sub">No IRA → Roth conversion tax is applied. This panel shows the regular federal, state, and SS tax numbers used by the chart.</div><div class="roth-tax-summary" id="withoutRothTaxSummary">Without Roth Conversion tax summary will update after the chart runs.</div></div><div class="top-controls"><div id="mode-toggle"><div class="control-group-box"><label class="organized-label"><input checked="" name="mode" type="radio" value="with"/><span>With Roth Conversion</span></label><label class="organized-label"><input name="mode" type="radio" value="no"/><span>Without Roth Conversion</span></label></div><div class="state-wrapper"><div class="state-prefix-label">State:</div><div class="control-group-box"><label class="organized-label"><input name="state-top" type="radio" value="taxed"/><span>Taxed</span></label><label class="organized-label"><input name="state-top" type="radio" value="exempt"/><span>Exempt</span></label></div></div></div></div><div class="page4-filing-status-card" id="page4FilingStatusCard" aria-label="Federal filing status"><h3>Federal Filing Status</h3><div class="page4-filing-status-copy">Choose the filing status used for the federal standard deduction, federal tax brackets, Social Security provisional-income thresholds, and senior-deduction calculation. The Federal Tax Assumptions table below changes immediately.</div><div class="page4-filing-status-options" role="radiogroup" aria-label="Federal filing status"><label><input type="radio" name="page4-filing-status" value="mfj"><span>Married Filing Jointly</span></label><label><input type="radio" name="page4-filing-status" value="single"><span>Single</span></label><label><input type="radio" name="page4-filing-status" value="hoh"><span>Head of Household</span></label><label><input type="radio" name="page4-filing-status" value="mfs"><span>Married Filing Separately</span></label><label><input type="radio" name="page4-filing-status" value="qss"><span>Qualifying Surviving Spouse</span></label></div><div class="page4-filing-status-status" id="page4FilingStatusStatus">Loading federal filing status…</div></div><section class="history-panel" id="historicalScenarioPanel" aria-label="Historical data controls"><div class="history-toolbar"><label class="history-main-switch"><input id="historyModeToggle" type="checkbox"><span>Historical<br>Data</span></label><label class="history-scenario-label"><span>Scenario:</span><select id="historyStartYear" aria-label="Historical market scenario"></select></label><div class="history-player-buttons" role="group" aria-label="Historical scenario playback"><button type="button" id="historyPrevBtn" title="Previous scenario" aria-label="Previous scenario">◀</button><button type="button" id="historyPlayBtn" title="Play scenarios" aria-label="Play scenarios">▶</button><button type="button" id="historyPauseBtn" title="Pause playback" aria-label="Pause playback" disabled>⏸</button><button type="button" id="historyNextBtn" title="Next scenario" aria-label="Next scenario">▶|</button></div><label class="history-down-toggle"><input id="historyDownYears" type="checkbox" checked><span>▼ Down years</span></label><span id="historyProgress" class="history-progress"></span></div><div class="history-context-row" id="historyContextRow"><span>Historical context:</span><label><input type="radio" name="history-context" value="0">Event only</label><label><input type="radio" name="history-context" value="5" checked>5 years before &amp; after</label><label><input type="radio" name="history-context" value="10">10 years before &amp; after</label><label><input type="radio" name="history-context" value="custom">Custom</label><span class="history-custom-years" id="historyCustomYearsWrap"><input id="historyCustomYears" type="number" min="0" max="25" step="1" value="5" aria-label="Custom years before and after"><span>years each side</span></span><span class="history-window-status" id="historyWindowStatus"></span></div><div id="historyPlayerBody" hidden><small id="historyScenarioLabel"></small><small id="historyReturnLabel"></small></div><details class="history-help"><summary>ⓘ How historical returns affect this chart</summary><div class="history-help-body"><b>When Historical Data is turned on:</b><br/>The chart uses actual annual S&amp;P 500 total-return percentages for the selected event plus the chosen number of years before and after it. The default is 5 years on each side. Those historical percentages replace the normal Investment Return setting only inside the blue historical-context range.<br/><br/><b>Event range:</b><br/>The red or green line identifies the selected crisis, recovery, or boom inside the wider historical context.<br/><br/><b>Outside the historical context:</b><br/>The chart returns to the Investment Return percentage selected in your regular chart settings. The complete context window is placed at a random valid location within the retirement timeline. This is a historical stress test, not a prediction of future returns.</div></details></section><div class="chart-container" id="portfolio-chart"></div><div id="end-summary">End of Yr Summary will appear here after the simulation runs.</div><div class="controls" id="controls-top"></div><div id="ss-info"><div class="ss-card-title">Social Security</div><div class="ss-compact-grid"><div><span>Monthly Benefit</span><b id="ss-gross">$0</b></div><div><span>Federal Tax</span><b id="ss-fed-tax">$0</b></div><div><span>State Tax</span><b id="ss-state-tax">$0</b></div><div class="ss-net-row"><span>Monthly After Taxes</span><b id="ss-net">$0</b></div></div><button aria-controls="ssTaxHelpText" aria-expanded="false" class="text-tip-toggle" id="ssTaxHelpBtn" type="button">ⓘ Social Security tax tip</button><div class="ss-tax-help-text" id="ssTaxHelpText"><b>How Social Security taxes work</b><br/><br/>Depending on your combined retirement income, up to 85% of your Social Security benefit may be included in federal taxable income. That does not mean an 85% tax rate. Federal and state amounts above are estimates based on the tax settings on this page. Roth conversions, IRA withdrawals, pensions, and other income can increase the taxable portion.</div></div>
 <div class="chart-container" id="withdrawals-chart"></div><div class="controls" id="controls-bottom"></div><div id="assumptions"><div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;"><h2 style="margin:0">Assumptions</h2><div class="note">Changes are saved to <b>localStorage</b> and applied immediately when you click each area's Apply button.</div></div><div class="ass-row"><div class="ass-panel fed"><div style="display:flex; justify-content:space-between; align-items:center;"><h3>Federal Tax Assumptions</h3><span class="collapse" id="toggle-fed">▼ collapse</span></div><div id="fed-body" style="display:block;"><div class="small">Standard Deduction</div><div class="input-row"><input id="fed-std-input" min="0" step="100" type="number"/><div class="note">Enter value (dollars). Example: 31,500</div></div><div class="small">Preset / Custom</div><select class="select" id="fed-presets" style="margin-bottom:8px;"><option value="current">Use Current (loaded)</option><option value="example-2024">Example Preset 2024</option><option value="custom">Custom (edit below)</option></select><div class="small" style="margin-top:8px;">Brackets — Edit rate (%) and cap ($). Enter <b>Infinity</b> for open top bracket cap.</div><table class="brackets-table" id="fed-brackets-table"><thead><tr><td style="width:30px;">#</td><td style="width:70px;">Rate %</td><td>Cap $</td><td style="width:50px;"></td></tr></thead><tbody id="fed-brackets-tbody"></tbody></table><div style="margin-top:8px;"><button class="btn btn-apply btn-add-bracket" id="add-fed-bracket">+ Add Bracket</button></div><div style="margin-top:10px;"><button class="btn btn-apply" id="apply-fed">💾 Apply Federal Changes</button><button class="btn btn-clear" id="reset-fed">↺ Reset Federal Defaults</button></div></div></div><div class="ass-panel state" id="state-panel"><div style="display:flex; justify-content:space-between; align-items:center;"><h3>State Tax Assumptions</h3><span class="collapse" id="toggle-state">▼ collapse</span></div><div id="state-body" style="display:block;"><div class="small">State Preset</div><div class="input-row"><select aria-label="State preset" class="select state-name-select" id="state-name-select"></select><div class="note" id="state-preset-note">Choose a 2026 state preset. All states are preloaded for offline estimating; you can still edit the brackets below.</div></div><div class="small">State SS Tax Treatment</div><div class="state-ss-tax-row"><label><input name="state-ss-tax" type="radio" value="no"/> No state tax on SS</label><label><input name="state-ss-tax" type="radio" value="yes"/> State taxes SS</label></div><div class="state-ss-note" id="state-ss-note"></div><div class="small">State Exemption</div><div class="input-row"><label style="display:flex;align-items:center;gap:8px;"><input checked="" name="state-exempt" type="radio" value="no"/> Taxed</label><label style="display:flex;align-items:center;gap:8px;"><input name="state-exempt" type="radio" value="yes"/> Exempt (no state tax)</label><div class="note">If Exempt is selected, state tax is not applied.</div></div><div class="small" style="margin-top:8px;">State Standard Deduction</div><div class="input-row"><input id="state-std-input" min="0" step="100" type="number"/><div class="note">Enter value (dollars). Example: 10,000. This is subtracted before state brackets are applied.</div></div><div class="small" style="margin-top:8px;">State brackets — Edit rate (%) and cap ($). Enter <b>and above</b> or <b>Infinity</b> for the open top bracket.</div><table class="brackets-table" id="state-brackets-table" style="margin-top:8px;"><thead><tr><td style="width:30px;">#</td><td style="width:70px;">Rate %</td><td>Cap $</td><td style="width:50px;"></td></tr></thead><tbody id="state-brackets-tbody"></tbody></table><div style="margin-top:8px;"><button class="btn btn-apply btn-add-bracket" id="add-state-bracket">+ Add Bracket</button></div><div style="margin-top:10px;"><button class="btn btn-apply" id="apply-state">💾 Apply State Changes</button><button class="btn btn-clear" id="reset-state">↺ Reset State Defaults</button></div></div></div></div></div><script>
 try{
   const migrationKey='state_tax_2025_brackets_loaded_v1';
@@ -2672,7 +2415,7 @@ try{
 <script>
 /* ---------------- CONSTANTS / MUTABLE / SYSTEM STATE ---------------- */
 const defaults={YEARS:40, EMPLOYER_PCT:0};
-const defaults2={START_PORTFOLIO:0, START_ROTH:0, PORTF_RATE:0.10, IRA_INJECT_YR:200000, PAYCHECK_MONTH:4000, SS_MONTH:3000, EMPLOYER_MONTH:0, RENTAL_MONTH:0};
+const defaults2={START_PORTFOLIO:0, START_ROTH:0, PORTF_RATE:0.10, IRA_INJECT_YR:200000, PAYCHECK_MONTH:4000, SS_MONTH:4000, EMPLOYER_MONTH:0, RENTAL_MONTH:0};
 const RETIREMENT_FIXED_SLIDER_DEFAULTS={
   EMPLOYER_PCT:{max:600000,value:0},
   START_PORTFOLIO:{max:150000,value:0},
@@ -2680,7 +2423,7 @@ const RETIREMENT_FIXED_SLIDER_DEFAULTS={
   IRA_INJECT_YR:{max:1000000,value:200000},
   PAYCHECK_MONTH:{max:10000,value:4000},
   EMPLOYER_MONTH:{max:20000,value:0},
-  SS_MONTH:{max:10000,value:3000}
+  SS_MONTH:{max:10000,value:4000}
 };
 try{
   const desired={
@@ -3191,7 +2934,7 @@ function createSliderElement(s, container){
             const federalTaxableIncome = Math.max(0, annual - FED_STD_VAL);
             const stateTaxableIncome = Math.max(0, annual);
             const fed = calculateFederalTaxOnTaxable(federalTaxableIncome);
-            const st  = calculateStateTaxOnTaxable(stateTaxableIncome, simulationYear);
+            const st  = calculateStateTaxOnTaxable(stateTaxableIncome);
             text = `${s.label}: ${fmtUSD(val)} / After-tax: ${fmtUSD((annual - fed - st) / 12)}`;
           } catch (e) {}
         }
@@ -3410,118 +3153,69 @@ function getFederalBracketsForYear(simulationYear){
   return FED_BRACKETS.map(b=>({rate:b.rate,cap:b.cap===Infinity?Infinity:b.cap*factor}));
 }
 function getFederalStandardDeductionForYear(simulationYear){
-  return (Number(FED_STD_VAL)||0) * taxGrowthFactor(simulationYear);
+  return getFederalDeductionForYear(simulationYear, 0);
 }
 
-/* ---------------- AGE-65 FEDERAL DEDUCTIONS ----------------
-   The projection now models the taxpayer and, for Married Filing Jointly,
-   an optional spouse age.
-
-   2026 regular additional standard deduction:
-   - $2,050 for Single / Head of Household
-   - $1,650 per eligible person for married statuses and QSS
-
-   Enhanced senior deduction:
-   - Up to $6,000 per eligible individual for tax years 2025-2028
-   - Up to $12,000 for MFJ when both modeled spouses qualify
-   - Phases out by 6% of MAGI over $75,000, or $150,000 for MFJ
-   - Married Filing Separately is not eligible
-*/
-const SENIOR_DEDUCTION_BASE_YEAR = 2026;
-const SENIOR_ENHANCED_LAST_YEAR = 2028;
-const SPOUSE_RETIREMENT_AGE_KEY = 'retirement_spouse_age_at_retirement_v1';
-
-function getFederalFilingStatusCode(){
-  try{return localStorage.getItem('retirement_federal_filing_status_2026') || 'mfj';}
-  catch(e){return 'mfj';}
-}
-
-function getProjectedTaxpayerAge(simulationYear){
-  const keys=[
-    'retirement_retire_age',
-    'k401_retirement_age',
-    'retirement_age',
-    'retirement_start_age',
-    'startAge'
-  ];
-  let baseAge=0;
-  for(const key of keys){
-    try{
-      const value=Number(localStorage.getItem(key));
-      if(Number.isFinite(value) && value>0){baseAge=value;break;}
-    }catch(e){}
-  }
-  if(!baseAge){
-    const el=document.getElementById('startAge');
-    if(el){
-      const value=Number(el.value);
-      if(Number.isFinite(value) && value>0)baseAge=value;
-    }
-  }
-  return baseAge>0 ? baseAge + Math.max(0,(Number(simulationYear)||1)-1) : 0;
-}
-
-function getSpouseRetirementBaseAge(){
+function readSeniorDeductionSettings(){
+  const defaults={single:2050,married:1650,temporary:6000,singleIncome:75000,marriedIncome:150000,reductionRate:6,finalYear:2028};
   try{
-    const saved=Number(localStorage.getItem(SPOUSE_RETIREMENT_AGE_KEY));
-    if(Number.isFinite(saved) && saved>=18 && saved<=120)return saved;
-  }catch(e){}
-  const input=document.getElementById('page4SpouseRetirementAge');
-  if(input){
-    const value=Number(input.value);
-    if(Number.isFinite(value) && value>=18 && value<=120)return value;
+    const saved=JSON.parse(localStorage.getItem('retirement_senior_deduction_settings_v1')||'{}');
+    return Object.assign({},defaults,saved||{});
+  }catch(e){return defaults;}
+}
+function readModeledRetirementAge(){
+  const keys=['retirement_retire_age','k401_retirement_age','retirement_age','retirement_start_age','startAge'];
+  for(const key of keys){
+    try{const n=Number(localStorage.getItem(key));if(Number.isFinite(n)&&n>=18&&n<=120)return Math.round(n);}catch(e){}
+  }
+  return 62;
+}
+function readModeledSpouseAge(){
+  const keys=['retirement_spouse_age_at_retirement_v2','retirement_spouse_age','spouse_age'];
+  for(const key of keys){
+    try{const n=Number(localStorage.getItem(key));if(Number.isFinite(n)&&n>=18&&n<=120)return Math.round(n);}catch(e){}
   }
   return 0;
 }
-
-function getProjectedSpouseAge(simulationYear){
-  if(getFederalFilingStatusCode()!=='mfj')return 0;
-  const baseAge=getSpouseRetirementBaseAge();
-  return baseAge>0 ? baseAge + Math.max(0,(Number(simulationYear)||1)-1) : 0;
+function readFederalFilingStatus(){
+  try{return localStorage.getItem('retirement_federal_filing_status_2026')||'mfj';}catch(e){return 'mfj';}
+}
+function getFederalDeductionForYear(simulationYear, incomeBeforeDeduction){
+  const year=Math.max(1,Number(simulationYear)||1);
+  const settings=readSeniorDeductionSettings();
+  const filing=readFederalFilingStatus();
+  const taxpayerAge=readModeledRetirementAge()+year-1;
+  const spouseBase=readModeledSpouseAge();
+  const spouseAge=spouseBase?spouseBase+year-1:0;
+  const married=filing==='mfj'||filing==='mfs'||filing==='qss';
+  const eligible=(taxpayerAge>=65?1:0)+(married&&spouseAge>=65?1:0);
+  const regularEach=married?Number(settings.married||0):Number(settings.single||0);
+  let temporary=0;
+  const calendarYear=2026+year-1;
+  if(calendarYear<=Number(settings.finalYear||0)&&eligible>0){
+    temporary=Number(settings.temporary||0)*eligible;
+    const threshold=married?Number(settings.marriedIncome||0):Number(settings.singleIncome||0);
+    const over=Math.max(0,(Number(incomeBeforeDeduction)||0)-threshold);
+    temporary=Math.max(0,temporary-(over*(Number(settings.reductionRate||0)/100)));
+  }
+  const base=(Number(FED_STD_VAL)||0)*taxGrowthFactor(year);
+  return Math.max(0,base+(eligible*regularEach)+temporary);
+}
+function refreshTaxGrowthSimulationStatus(){
+  const el=document.getElementById('taxGrowthSimulationStatus');
+  if(!el) return;
+  el.textContent = TAX_GROWTH_SIM_ENABLED
+    ? 'Simulation is ON: federal bracket caps, the federal standard deduction, and the planned Roth conversion grow 2.5% per year. The conversion is bracket-limited using the Year 1 federal bracket.'
+    : 'Simulation is OFF. The current federal brackets and planned Roth conversion remain fixed for every projected year.';
+}
+function findFederalBracketIndex(taxableAmount, simulationYear){
+  const amount=Math.max(0,Number(taxableAmount)||0);
+  const brs=getFederalBracketsForYear(simulationYear).slice().sort((a,b)=>a.cap-b.cap);
+  for(let i=0;i<brs.length;i++) if(brs[i].cap===Infinity || amount<=brs[i].cap) return i;
+  return Math.max(0,brs.length-1);
 }
 
-function getSeniorFederalDeductions(simulationYear, approximateMAGI){
-  const taxpayerAge=getProjectedTaxpayerAge(simulationYear);
-  const spouseAge=getProjectedSpouseAge(simulationYear);
-  const status=getFederalFilingStatusCode();
-  const calendarYear=SENIOR_DEDUCTION_BASE_YEAR + Math.max(0,(Number(simulationYear)||1)-1);
-
-  const taxpayerEligible=taxpayerAge>=65;
-  const spouseEligible=status==='mfj' && spouseAge>=65;
-  const eligibleCount=(taxpayerEligible?1:0)+(spouseEligible?1:0);
-
-  let regularAdditional=0;
-  if(status==='single'||status==='hoh'){
-    regularAdditional=(taxpayerEligible?2050:0) * taxGrowthFactor(simulationYear);
-  }else{
-    // On a joint return, each spouse who is 65+ receives a separate amount.
-    // For MFS/QSS, only the modeled taxpayer is counted.
-    const regularEligibleCount=status==='mfj' ? eligibleCount : (taxpayerEligible?1:0);
-    regularAdditional=(1650 * regularEligibleCount) * taxGrowthFactor(simulationYear);
-  }
-
-  let enhancedAdditional=0;
-  if(calendarYear<=SENIOR_ENHANCED_LAST_YEAR && status!=='mfs' && eligibleCount>0){
-    const maximum=6000 * eligibleCount;
-    const threshold=(status==='mfj') ? 150000 : 75000;
-    const excess=Math.max(0,(Number(approximateMAGI)||0)-threshold);
-    enhancedAdditional=Math.max(0,maximum-(0.06*excess));
-  }
-
-  return {
-    taxpayerAge,
-    spouseAge,
-    calendarYear,
-    status,
-    taxpayerEligible,
-    spouseEligible,
-    eligibleCount,
-    regularAdditional,
-    enhancedAdditional,
-    totalAdditional:regularAdditional+enhancedAdditional
-  };
-}
-
+/* ---------------- TAX CALCULATION ENGINES ---------------- */
 function calculateFederalTaxOnTaxable(taxableAmount, simulationYear){
   let tax = 0, lower = 0, remaining = taxableAmount;
   const brs = getFederalBracketsForYear(simulationYear).slice().sort((a,b)=> a.cap - b.cap);
@@ -3533,29 +3227,28 @@ function calculateFederalTaxOnTaxable(taxableAmount, simulationYear){
   return Math.max(0, tax);
 }
 
-function getStateBracketsForYear(simulationYear){
-  const factor=taxGrowthFactor(simulationYear);
-  let br=STATE_SETTINGS.brackets;
-  if(!br || br.length===0 || isNaN(br[0].rate)) br=[...HARDCODED_STATE_BRACKETS];
-  return br.map(b=>({rate:Number(b.rate)||0,min:(Number(b.min)||0)*factor,cap:(b.cap===Infinity||!Number.isFinite(Number(b.cap)))?Infinity:Number(b.cap)*factor}));
-}
-function getStateStandardDeductionForYear(simulationYear){
-  return (Number(STATE_STD_VAL)||0)*taxGrowthFactor(simulationYear);
-}
-function calculateStateTaxOnTaxable(taxableAmount, simulationYear){
-  taxableAmount=Math.max(0,(Number(taxableAmount)||0)-getStateStandardDeductionForYear(simulationYear));
-  if(STATE_SETTINGS.exempt||taxableAmount<=0)return 0;
-  let tax=0;
-  const sortedBrackets=getStateBracketsForYear(simulationYear).slice().sort((a,b)=>a.min-b.min);
+function calculateStateTaxOnTaxable(taxableAmount){
+  taxableAmount = Math.max(0, (Number(taxableAmount)||0) - (Number(STATE_STD_VAL)||0));
+  if(STATE_SETTINGS.exempt || taxableAmount <= 0) return 0;
+  let tax = 0;
+  
+  let br = STATE_SETTINGS.brackets;
+  if(!br || br.length === 0 || isNaN(br[0].rate)) {
+    br = [...HARDCODED_STATE_BRACKETS];
+  }
+  const sortedBrackets = br.slice().sort((a,b)=> (a.min - b.min));
+  
   for(const b of sortedBrackets){
-    const minimumBoundary=Number(b.min)||0;
-    if(taxableAmount>minimumBoundary){
-      const cap=b.cap===Infinity?Number.POSITIVE_INFINITY:Number(b.cap);
-      const taxableInBracket=Math.min(taxableAmount,cap)-minimumBoundary;
-      if(taxableInBracket>0)tax+=taxableInBracket*(Number(b.rate)||0);
+    let minimumBoundary = isNaN(b.min) ? 0 : b.min;
+    if (taxableAmount > minimumBoundary) {
+      const cap = (b.cap === Infinity || isNaN(b.cap) ? Number.POSITIVE_INFINITY : b.cap);
+      const taxableInBracket = Math.min(taxableAmount, cap) - minimumBoundary;
+      if (taxableInBracket > 0) {
+        tax += taxableInBracket * b.rate;
+      }
     }
   }
-  return Math.max(0,tax);
+  return Math.max(0, tax);
 }
 
 function calculateTaxableSocialSecurity(grossSS, otherAGI) {
@@ -3563,12 +3256,11 @@ function calculateTaxableSocialSecurity(grossSS, otherAGI) {
   otherAGI = Math.max(0, Number(otherAGI) || 0);
   if (grossSS <= 0) return 0;
 
+  // Married Filing Jointly provisional-income thresholds used by this page's default tax setup.
   // Provisional / combined income = non-SS AGI + 50% of gross SS.
-  // Thresholds follow the selected federal filing-status planning profile.
   const combinedIncome = otherAGI + (grossSS * 0.5);
-  const filingProfile = (window.__retirementFederalFilingProfile || {ssLower:32000,ssUpper:44000});
-  const lowerThreshold = Number(filingProfile.ssLower);
-  const upperThreshold = Number(filingProfile.ssUpper);
+  const lowerThreshold = 32000;
+  const upperThreshold = 44000;
 
   let taxableSS = 0;
   if (combinedIncome <= lowerThreshold) {
@@ -3576,7 +3268,7 @@ function calculateTaxableSocialSecurity(grossSS, otherAGI) {
   } else if (combinedIncome <= upperThreshold) {
     taxableSS = Math.min(grossSS * 0.5, (combinedIncome - lowerThreshold) * 0.5);
   } else {
-    const tierOneTaxable = Math.min(grossSS * 0.5, (upperThreshold - lowerThreshold) * 0.5); // first-tier taxable amount under the selected filing-status thresholds
+    const tierOneTaxable = Math.min(grossSS * 0.5, (upperThreshold - lowerThreshold) * 0.5); // max $6,000 for MFJ
     taxableSS = tierOneTaxable + ((combinedIncome - upperThreshold) * 0.85);
   }
 
@@ -3598,9 +3290,7 @@ function calculateCombinedTaxSnapshot(parts){
   const nonSocialSecurityAGI = iraWithdrawals + rothConversion + employerPension + rentalOther;
   const taxableSS = calculateTaxableSocialSecurity(grossSS, nonSocialSecurityAGI);
   const federalIncomeBeforeDeduction = nonSocialSecurityAGI + taxableSS;
-  const federalBaseStandardDeduction = getFederalStandardDeductionForYear(simulationYear);
-  const seniorDeductions = getSeniorFederalDeductions(simulationYear, federalIncomeBeforeDeduction);
-  const federalStandardDeduction = federalBaseStandardDeduction + seniorDeductions.totalAdditional;
+  const federalStandardDeduction = getFederalDeductionForYear(simulationYear, federalIncomeBeforeDeduction);
   const federalTaxableIncome = Math.max(0, federalIncomeBeforeDeduction - federalStandardDeduction);
   const federalTax = Math.round(calculateFederalTaxOnTaxable(federalTaxableIncome, simulationYear));
 
@@ -3608,36 +3298,14 @@ function calculateCombinedTaxSnapshot(parts){
   // California default excludes SS from state taxable income.
   const stateTaxableSS = stateTaxesSocialSecurity() ? taxableSS : 0;
   const stateIncomeBeforeDeduction = nonSocialSecurityAGI + stateTaxableSS;
-  const stateTax = Math.round(calculateStateTaxOnTaxable(stateIncomeBeforeDeduction, simulationYear));
+  const stateTax = Math.round(calculateStateTaxOnTaxable(stateIncomeBeforeDeduction));
   const totalTax = federalTax + stateTax;
 
   const taxablePoolForAllocation = Math.max(0, federalIncomeBeforeDeduction);
   const statePoolForAllocation = Math.max(0, stateIncomeBeforeDeduction);
   const allocatedFed = (amount)=> taxablePoolForAllocation > 0 ? Math.round(federalTax * (Math.max(0, Number(amount)||0) / taxablePoolForAllocation)) : 0;
   const allocatedState = (amount)=> statePoolForAllocation > 0 ? Math.round(stateTax * (Math.max(0, Number(amount)||0) / statePoolForAllocation)) : 0;
-  return {
-    nonSocialSecurityAGI,
-    taxableSS,
-    stateTaxableSS,
-    federalIncomeBeforeDeduction,
-    federalBaseStandardDeduction,
-    seniorRegularAdditionalDeduction:seniorDeductions.regularAdditional,
-    seniorEnhancedDeduction:seniorDeductions.enhancedAdditional,
-    seniorDeductionTotal:seniorDeductions.totalAdditional,
-    projectedTaxpayerAge:seniorDeductions.taxpayerAge,
-    projectedSpouseAge:seniorDeductions.spouseAge,
-    seniorEligibleCount:seniorDeductions.eligibleCount,
-    projectedTaxCalendarYear:seniorDeductions.calendarYear,
-    federalStandardDeduction,
-    federalTaxableIncome,
-    stateIncomeBeforeDeduction,
-    federalTax,
-    stateTax,
-    totalTax,
-    allocatedFed,
-    allocatedState,
-    simulationYear
-  };
+  return {nonSocialSecurityAGI,taxableSS,stateTaxableSS,federalIncomeBeforeDeduction,federalStandardDeduction,federalTaxableIncome,stateIncomeBeforeDeduction,federalTax,stateTax,totalTax,allocatedFed,allocatedState,simulationYear};
 }
 
 function readParams(){
@@ -4046,13 +3714,6 @@ function runSimulation(p){
       TaxBracketGrowthSimulation: TAX_GROWTH_SIM_ENABLED,
       FederalBracketGrowthFactor: taxGrowthFactor(y),
       FederalStandardDeductionUsed: taxSnapshot.federalStandardDeduction,
-      FederalBaseStandardDeductionUsed: taxSnapshot.federalBaseStandardDeduction,
-      SeniorRegularAdditionalDeduction: taxSnapshot.seniorRegularAdditionalDeduction,
-      SeniorEnhancedDeduction: taxSnapshot.seniorEnhancedDeduction,
-      ProjectedTaxpayerAge: taxSnapshot.projectedTaxpayerAge,
-      ProjectedSpouseAge: taxSnapshot.projectedSpouseAge,
-      SeniorEligibleCount: taxSnapshot.seniorEligibleCount,
-      ProjectedTaxCalendarYear: taxSnapshot.projectedTaxCalendarYear,
       RothNetConversion: rothNetConversion,
       RothConversionTax: rothConversionTax,
       TaxWithoutRothConversion: baseTaxSnapshot.totalTax,
@@ -4436,7 +4097,7 @@ function drawCharts(df){
     tracesUpper.push({x:x,y:tops.map((v,i)=>historyMeta[i]?.isHistorical&&historyMeta[i]?.returnRate<0?v+maxTop*.045:null),type:'scatter',mode:'markers',name:'Down market year',marker:{symbol:'triangle-down',size:10,color:'#dc2626'},customdata:historyMeta.map(m=>[m?.isHistorical?m.calendarYear:'',m?.isHistorical?((m.returnRate*100).toFixed(1)+'%'):'']),hovertemplate:'<b>Down market</b><br>Historical year %{customdata[0]}<br>Return %{customdata[1]}<extra></extra>',showlegend:false});
   }
   if(historyOn){
-    const scenario=page4ScenarioForYear(historyYear) || {title:'Historical start '+historyYear,classification:'Historical time machine',period:String(historyYear),happened:'This projection uses the actual sequence of annual S&P 500 total returns beginning in the selected year.',environment:'Results change as the historical return sequence moves through good and bad markets.',retirement:'Compare this path with other starting years to see sequence-of-returns risk.'};
+    const scenario=page4ScenarioForYear(historyYear) || {title:'Historical start '+historyYear,classification:'Historical scenario',period:String(historyYear),happened:'This projection uses the actual sequence of annual S&P 500 total returns beginning in the selected year.',environment:'Results change as the historical return sequence moves through good and bad markets.',retirement:'Compare this path with other starting years to see sequence-of-returns risk.'};
     const contextData=historyMeta.map(m=>[
       scenario.title,
       scenario.classification,
@@ -8196,7 +7857,7 @@ html,body{overflow-x:hidden!important;overflow-y:auto!important;touch-action:pan
  'use strict';
  if(window.__page4CleanInteractiveTooltipInstalled)return;
  window.__page4CleanInteractiveTooltipInstalled=true;
- var latest=null,lastYear=1,moreDetailsOpen=false;
+ var latest=null,lastYear=1;
  var C={ira:'#ef4444',roth:'#f2cf4a',pay:'#16a34a',fed:'#111827',state:'#6b7280',pension:'#f97316',ss:'#3b82f6',rental:'#06b6d4',conversion:'#a855f7',total:'#334155'};
  function num(v){v=Number(v);return Number.isFinite(v)?v:0}
  function nz(v){return Math.abs(num(v))>.004}
@@ -8211,26 +7872,18 @@ html,body{overflow-x:hidden!important;overflow-y:auto!important;touch-action:pan
   var payIRA=num(r.NetTakenFromPortfolio),payRoth=num(r.PaidFromRothForPaycheck);
   var taxIRA=num(r.TaxPaidFromIRA),taxRoth=num(r.TaxPaidFromRoth),taxCash=num(r.TaxPaidFromCash);
   var conversionTax=num(r.RothConversionTax);
-  var netPortfolio=num(r.IRA)+num(r.Roth);
+  var netPortfolio=num(r.IRA)+num(r.Roth); var h='<div class="ct-title">Year '+y+' (Age '+age(y)+') <span class="ct-net-inline">• Net Portfolio: '+money(netPortfolio)+'</span></div>';
+  h+=sec('Account balances',[row('IRA / 401K',r.IRA,C.ira),row('Existing Roth',r.Roth,C.roth)],true);
+  h+=sec('Paycheck funding',[row('Paycheck from IRA / 401K',-Math.abs(payIRA),C.pay,' /yr',true),row('Paycheck from Roth',-Math.abs(payRoth),C.roth,' /yr',true),row('Total paycheck paid',pay,C.pay,' /yr',true)]);
+  h+=sec('Estimated tax bill',[row('Federal tax estimate',-Math.abs(fed),C.fed,' /yr'),row('State tax estimate',-Math.abs(state),C.state,' /yr')]);
+  h+=sec('Tax payment source',[row('Conversion tax paid from IRA',-Math.abs(taxIRA),C.ira,' /yr'),row('Conversion tax paid from Roth',-Math.abs(taxRoth),C.roth,' /yr'),row('Conversion tax paid from cash',-Math.abs(taxCash),C.total,' /yr')]);
+  h+=sec('Internal transfer',[row('IRA → Roth conversion',conv,C.conversion,' /yr'),row('Estimated tax caused by conversion',-Math.abs(conversionTax),C.fed,' /yr')]);
   var strategy=r.PaycheckSourceStrategy||getPaycheckSourceStrategy();
-  var h='<div class="ct-title ct-title-compact"><span>Year '+y+' (Age '+age(y)+')</span><span class="ct-net-compact">Net '+money(netPortfolio)+'</span></div>';
-  h+='<div class="ct-quick-grid">';
-  h+=row('IRA / 401K',r.IRA,C.ira,'',true);
-  h+=row('Roth',r.Roth,C.roth,'',true);
-  h+=row('Paycheck',pay,C.pay,' /yr',true);
-  h+=row('Federal tax',-Math.abs(fed),C.fed,' /yr',true);
-  h+=row('State tax',-Math.abs(state),C.state,' /yr',true);
-  h+='</div>';
-  h+='<details class="ct-more"><summary>More details</summary><div class="ct-more-body">';
-  h+=sec('Paycheck source',[row('IRA paycheck',-Math.abs(payIRA),C.pay,' /yr',true),row('Roth paycheck',-Math.abs(payRoth),C.roth,' /yr',true)]);
-  h+=sec('Tax payment source',[row('Tax paid from IRA',-Math.abs(taxIRA),C.ira,' /yr'),row('Tax paid from Roth',-Math.abs(taxRoth),C.roth,' /yr'),row('Tax paid from cash',-Math.abs(taxCash),C.total,' /yr')]);
-  h+=sec('Roth conversion',[row('IRA → Roth conversion',conv,C.conversion,' /yr'),row('Conversion tax',-Math.abs(conversionTax),C.fed,' /yr')]);
-  h+='<div class="ct-note">Paycheck strategy: <b>'+paycheckSourceLabel(strategy)+'</b>.</div>';
-  h+='</div></details>';
+  h+='<div class="ct-note">Paycheck strategy: <b>'+paycheckSourceLabel(strategy)+'</b>. The account-source rows show what the simulation actually deducted.</div>';
   return h
  }
  function lower(r,y){var pay=num(r.Paycheck),pg=num(r.EmployerAnnual),pn=Math.max(0,pg-num(r.TaxEmployerFederal)-num(r.TaxEmployerState)),sg=num(r.SocialSec),sn=num(r.NetSS),rent=num(r.RentalAnnual),avail=pay+pn+sn+rent;var h='<div class="ct-title">Year '+y+' (Age '+age(y)+')</div>';h+=sec('Monthly income',[row('Paycheck paid to you',pay/12,C.pay,' /mo'),row('Pension after tax',pn/12,C.pension,' /mo'),row('Social Security after tax',sn/12,C.ss,' /mo'),row('Rental / other income',rent/12,C.rental,' /mo'),row('Total available after tax',avail/12,C.total,' /mo')],true);h+=sec('Before-tax reference',[row('Pension gross',pg/12,C.pension,' /mo'),row('Social Security gross',sg/12,C.ss,' /mo')]);return h}
- function ensure(gd){if(!gd)return null;gd.style.position='relative';var t=gd.querySelector(':scope > .page4-clean-tip');if(!t){t=document.createElement('div');t.className='page4-clean-tip';t.setAttribute('aria-hidden','false');t.innerHTML='<div class="ct-content"></div><div class="ct-arrow"></div>';['pointerdown','pointerup','click','touchstart','touchend'].forEach(function(type){t.addEventListener(type,function(e){e.stopPropagation()},{passive:type==='touchstart'||type==='touchend'})});gd.appendChild(t)}return t}
+ function ensure(gd){if(!gd)return null;gd.style.position='relative';var t=gd.querySelector(':scope > .page4-clean-tip');if(!t){t=document.createElement('div');t.className='page4-clean-tip';t.setAttribute('aria-hidden','true');t.innerHTML='<div class="ct-content"></div><div class="ct-arrow"></div>';gd.appendChild(t)}return t}
  function idx(gd,y){var target='Yr '+y;for(var k=0;k<(gd.data||[]).length;k++){var xs=gd.data[k].x||[],i=xs.findIndex(function(x){return String(x)===target});if(i>=0)return i}return Math.max(0,y-1)}
  function count(gd){for(var k=0;k<(gd.data||[]).length;k++)if(Array.isArray(gd.data[k].x)&&gd.data[k].x.length)return gd.data[k].x.length;return Math.max(1,dataset().length)}
  function anchor(gd,i){
@@ -8266,16 +7919,7 @@ html,body{overflow-x:hidden!important;overflow-y:auto!important;touch-action:pan
   }
   var n=count(gd);return{x:52+(gd.clientWidth-96)*(n<=1?.5:i/(n-1)),y:gd.clientHeight-72};
  }
- function show(gd,y){var df=dataset(),r=df[Math.max(0,y-1)],t=ensure(gd);if(!gd||!r||!t)return;lastYear=y;
-  var prior=t.querySelector('.ct-more');
-  if(prior) moreDetailsOpen=!!prior.open;
-  t.querySelector('.ct-content').innerHTML=gd.id==='portfolio-chart'?upper(r,y):lower(r,y);
-  var details=t.querySelector('.ct-more');
-  if(details){
-    details.open=moreDetailsOpen;
-    details.addEventListener('toggle',function(){moreDetailsOpen=!!details.open;});
-  }
-  var i=idx(gd,y);requestAnimationFrame(function(){
+ function show(gd,y){var df=dataset(),r=df[Math.max(0,y-1)],t=ensure(gd);if(!gd||!r||!t)return;lastYear=y;t.querySelector('.ct-content').innerHTML=gd.id==='portfolio-chart'?upper(r,y):lower(r,y);var i=idx(gd,y);requestAnimationFrame(function(){
   var a=anchor(gd,i),w=t.offsetWidth||215,h=t.offsetHeight||145;
   var left=Math.max(w/2+5,Math.min(gd.clientWidth-w/2-5,a.x));
   var top=92;t.style.left=left+'px';t.style.top=top+'px';
@@ -9531,7 +9175,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
         var txt=scenarioSelect&&scenarioSelect.options[scenarioSelect.selectedIndex]
           ? scenarioSelect.options[scenarioSelect.selectedIndex].textContent
           : 'selected historical scenario';
-        status.textContent='Currently using: Historical time machine — '+txt;
+        status.textContent='Currently using: Historical scenario — '+txt;
       }else{
         var rtxt=rangeSelect&&rangeSelect.options[rangeSelect.selectedIndex]
           ? rangeSelect.options[rangeSelect.selectedIndex].textContent
@@ -9564,8 +9208,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       '<div id="page4ReturnSourceChoices">'+
         '<label class="page4-return-source-card" id="page4ReturnScenarioCard">'+
           '<input type="radio" name="page4-friendly-return-source" id="page4ReturnScenarioRadio" value="scenario">'+
-          '<span class="choice-title">Historical time machine</span>'+
-          '<select id="page4ReturnScenarioSelect" aria-label="Historical time machine"></select>'+
+          '<span class="choice-title">Historical scenario</span>'+
+          '<select id="page4ReturnScenarioSelect" aria-label="Historical scenario"></select>'+
         '</label>'+
         '<label class="page4-return-source-card" id="page4ReturnRangeCard">'+
           '<input type="radio" name="page4-friendly-return-source" id="page4ReturnRangeRadio" value="range">'+
@@ -9692,7 +9336,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </style>
 
 <style id="page4-ten-year-history-only-style">
-/* Historical time machines always use ten years before and after. */
+/* Historical scenarios always use ten years before and after. */
 #historyContextRow{
   display:flex!important;
   align-items:center!important;
@@ -10399,7 +10043,7 @@ label:has(.show-near-chart-checkbox){
     details.id='page4HistoricalDetails';
 
     var summary=document.createElement('summary');
-    summary.textContent='How the historical test works';
+    summary.textContent='Historical return details';
 
     var body=document.createElement('div');
     body.id='page4HistoricalDetailsBody';
@@ -10727,10 +10371,10 @@ label:has(.show-near-chart-checkbox){
         status.textContent='Currently using: Your investment return percentage'+(value?' — '+value:'')+'.';
       }else if(selected==='scenario'){
         var option=scenario&&scenario.options[scenario.selectedIndex];
-        status.textContent='Currently using: Historical time machine — '+(option?option.textContent:'selected scenario')+'.';
+        status.textContent='Currently using: Historical scenario — '+(option?option.textContent:'selected scenario')+'.';
       }else{
         var rangeOption=range&&range.options[range.selectedIndex];
-        status.textContent='Currently testing: Exact historical year range — '+(rangeOption?rangeOption.textContent:'selected range')+'.';
+        status.textContent='Currently using: Exact historical year range — '+(rangeOption?rangeOption.textContent:'selected range')+'.';
       }
     }
   }
@@ -10813,8 +10457,8 @@ label:has(.show-near-chart-checkbox){
     var panel=document.createElement('section');
     panel.id='page4ThreeReturnChoices';
     panel.innerHTML=
-      '<h3>Would my retirement have survived?</h3>'+
-      '<div class="return-choice-help">Choose a return source, then travel through different markets to see how your retirement might have grown, struggled, and recovered.</div>'+
+      '<h3>Choose investment return source</h3>'+
+      '<div class="return-choice-help">Choose one. The chart uses only the selected return source.</div>'+
 
       '<label class="page4-three-choice" id="page4ReturnCard_custom">'+
         '<input type="radio" id="page4ReturnMode_custom" name="page4-return-mode" value="custom">'+
@@ -10824,8 +10468,8 @@ label:has(.show-near-chart-checkbox){
 
       '<label class="page4-three-choice" id="page4ReturnCard_scenario">'+
         '<input type="radio" id="page4ReturnMode_scenario" name="page4-return-mode" value="scenario">'+
-        '<span class="choice-name">Historical time machine</span>'+
-        '<select class="choice-control" id="page4ReturnScenarioSelect" aria-label="Historical time machine"></select>'+
+        '<span class="choice-name">Historical scenario</span>'+
+        '<select class="choice-control" id="page4ReturnScenarioSelect" aria-label="Historical scenario"></select>'+
       '</label>'+
 
       '<label class="page4-three-choice" id="page4ReturnCard_range">'+
@@ -10836,8 +10480,8 @@ label:has(.show-near-chart-checkbox){
 
       '<div id="page4ReturnChoiceStatus" aria-live="polite"></div>'+
       '<details id="page4ReturnDetails">'+
-        '<summary>How the historical test works</summary>'+
-        '<div id="page4ReturnDetailsBody">Historical time machines use a fixed 10-year context before and after the selected market event. Exact year range uses each annual return in sequence for the displayed range.</div>'+
+        '<summary>Historical return details</summary>'+
+        '<div id="page4ReturnDetailsBody">Historical scenarios use a fixed 10-year context before and after the selected market event. Exact year range uses each annual return in sequence for the displayed range.</div>'+
       '</details>';
 
     chart.insertAdjacentElement('beforebegin',panel);
@@ -11362,472 +11006,402 @@ main,section,article,form,
 </script>
 
 
+<script id="page4-return-source-single-truth-v1">
+(function(){
+ 'use strict';
+ if(window.__page4ReturnSourceSingleTruthV1)return;window.__page4ReturnSourceSingleTruthV1=true;
+ var KEY='page4_return_source_mode';
+ function mode(){try{var m=localStorage.getItem(KEY)||'custom';return /^(custom|scenario|range)$/.test(m)?m:'custom'}catch(e){return 'custom'}}
+ function save(k,v){try{localStorage.setItem(k,String(v))}catch(e){}}
+ function sync(run){
+   var m=mode(),toggle=document.getElementById('historyModeToggle');
+   if(toggle)toggle.checked=m!=='custom';
+   save('shared_historical_market_enabled',m==='custom'?'0':'1');
+   document.querySelectorAll('input[name="page4-return-mode"]').forEach(function(r){r.checked=r.value===m});
+   ['custom','scenario','range'].forEach(function(n){var c=document.getElementById('page4ReturnCard_'+n);if(c)c.classList.toggle('active',n===m)});
+   var status=document.getElementById('page4ReturnChoiceStatus');
+   if(status&&m==='custom'){
+     var val=document.getElementById('page4CleanReturnValue');status.textContent='Currently using: Your investment return percentage'+(val?' — '+val.textContent:'')+'.';
+   }
+   if(run){try{if(typeof page4PauseHistory==='function')page4PauseHistory();if(typeof update==='function')update()}catch(e){}}
+ }
+ window.page4HistoryEnabled=function(){return mode()!=='custom'};
+ document.addEventListener('change',function(e){var r=e.target&&e.target.closest&&e.target.closest('input[name="page4-return-mode"]');if(!r||!r.checked)return;save(KEY,r.value);sync(true)},true);
+ document.addEventListener('click',function(e){var card=e.target&&e.target.closest&&e.target.closest('.page4-three-choice');if(!card)return;var r=card.querySelector('input[name="page4-return-mode"]');if(r&&!r.checked){r.checked=true;save(KEY,r.value);sync(true)}},true);
+ function boot(){sync(false);setTimeout(function(){sync(true)},100);setTimeout(function(){sync(true)},500)}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();addEventListener('pageshow',boot);
+})();
+</script>
 
-<!-- V26: wider, brighter Page 4 Investment Returns slider -->
-<style id="v26InvestmentReturnRailVisualFix">
-/* Give the special Investment Returns control a comfortable page gutter while
-   allowing its rail to use nearly all of the remaining width. */
-#controls-top .ctrl[data-key="PORTF_RATE"]{
-  padding-left:6px!important;
-  padding-right:6px!important;
-  overflow:visible!important;
+
+<style id="page4-undim-and-full-year-track-v1">
+/* Page 4 must never remain visually dimmed after a dialog or mode change. */
+html,body,#app,.page,.app-main,main,
+.page4-return-source-panel,.page4-return-source-card,.page4-three-choice,
+.history-panel,#portfolio-chart,#withdrawals-chart,.v40-years-chart-control{
+  opacity:1!important;filter:none!important;
 }
-#controls-top .ctrl[data-key="PORTF_RATE"] .ctrl-header{
-  padding-left:2px!important;
-  padding-right:2px!important;
-}
-#controls-top .ctrl[data-key="PORTF_RATE"] .basic-minus-plus-row{
-  display:grid!important;
-  grid-template-columns:30px minmax(0,1fr) 30px!important;
-  align-items:center!important;
-  column-gap:6px!important;
-  width:100%!important;
-  max-width:100%!important;
-  margin:10px 0 30px!important;
-  padding:0!important;
-  box-sizing:border-box!important;
-  overflow:visible!important;
-}
-#controls-top .ctrl[data-key="PORTF_RATE"] .basic-slider-step-btn{
-  width:30px!important;
-  min-width:30px!important;
-  height:30px!important;
-  padding:0!important;
-  font-size:19px!important;
-}
-#controls-top .ctrl[data-key="PORTF_RATE"] .basic-minus-plus-row .noUi-target{
-  width:100%!important;
-  min-width:0!important;
+body::before,body::after,.page-dimmer,.modal-backdrop:not(.is-open),.popup-overlay[hidden],.dialog-overlay[hidden]{display:none!important;pointer-events:none!important}
+/* Let the selected-year rail fill all space between the minus and plus buttons. */
+.v40-years-row{grid-template-columns:28px minmax(0,1fr) 28px!important;column-gap:0!important}
+.v40-years-range{display:block!important;width:calc(100% + 18px)!important;max-width:none!important;margin-left:-9px!important;margin-right:-9px!important;padding:0!important;box-sizing:border-box!important;opacity:1!important}
+@media(max-width:520px){.v40-years-row{grid-template-columns:28px minmax(0,1fr) 28px!important;column-gap:0!important}.v40-years-range{width:calc(100% + 16px)!important;margin-left:-8px!important;margin-right:-8px!important}}
+</style>
+<script id="page4-clear-stuck-dim-v1">(function(){function clear(){document.documentElement.style.opacity='1';document.body.style.opacity='1';document.body.style.filter='none';document.body.classList.remove('dimmed','modal-open','popup-open','overlay-open');document.querySelectorAll('.page-dimmer,.modal-backdrop,.popup-overlay,.dialog-overlay').forEach(function(n){if(n.hidden||n.getAttribute('aria-hidden')==='true'){n.style.display='none';n.style.pointerEvents='none';}});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',clear,{once:true});else clear();window.addEventListener('pageshow',clear);})();</script>
+
+
+<!-- Page 4 full-width year slider + editable deduction assumptions restored -->
+<style id="page4FullWidthYearAndDeductionsV14">
+#governmentLimitStatusSafeV2{display:none!important}
+.ctrl[data-key="YEARS"] .basic-minus-plus-row{
+  grid-template-columns:32px minmax(0,1fr) 32px!important;
+  column-gap:4px!important;
+  width:calc(100% + 24px)!important;
   max-width:none!important;
-  height:10px!important;
-  min-height:10px!important;
-  margin:0!important;
-  opacity:1!important;
-  filter:none!important;
-  pointer-events:auto!important;
-  background:#cbd5e1!important;
-  box-sizing:border-box!important;
+  margin-left:-12px!important;
+  margin-right:-12px!important;
+  padding:0!important;
 }
-#controls-top .ctrl[data-key="PORTF_RATE"] .noUi-connects,
-#controls-top .ctrl[data-key="PORTF_RATE"] .noUi-base{
-  opacity:1!important;
-  filter:none!important;
+.ctrl[data-key="YEARS"] .basic-slider-step-btn{
+  width:32px!important;min-width:32px!important;max-width:32px!important;
+  height:36px!important;min-height:36px!important;max-height:36px!important;
+  font-size:19px!important;line-height:36px!important;
 }
-#controls-top .ctrl[data-key="PORTF_RATE"] .noUi-connect{
-  opacity:1!important;
-  background:#16a34a!important;
-  background-color:#16a34a!important;
-}
-#controls-top .ctrl[data-key="PORTF_RATE"] .noUi-handle{
-  width:28px!important;
-  height:28px!important;
-  right:-14px!important;
-  top:-9px!important;
-  border:3px solid #16a34a!important;
-  background:#fff!important;
-  opacity:1!important;
-  filter:none!important;
-  box-shadow:0 2px 6px rgba(0,0,0,.25)!important;
-  pointer-events:auto!important;
-}
-#controls-top .ctrl[data-key="PORTF_RATE"]:not(.page4-slider-is-locked) .noUi-target,
-#controls-top .ctrl[data-key="PORTF_RATE"]:not(.page4-slider-is-locked) .noUi-handle{
-  opacity:1!important;
-}
-@media(max-width:520px){
-  #controls-top .ctrl[data-key="PORTF_RATE"]{
-    padding-left:5px!important;
-    padding-right:5px!important;
-  }
-  #controls-top .ctrl[data-key="PORTF_RATE"] .basic-minus-plus-row{
-    grid-template-columns:28px minmax(0,1fr) 28px!important;
-    column-gap:5px!important;
-  }
-  #controls-top .ctrl[data-key="PORTF_RATE"] .basic-slider-step-btn{
-    width:28px!important;
-    min-width:28px!important;
-    height:28px!important;
-  }
-}
+.ctrl[data-key="YEARS"] .basic-minus-plus-row .noUi-target{width:100%!important;margin:0!important}
+#seniorDeductionSettingsV14{margin:12px 0 4px;padding:12px;border:1px solid #f59e0b;border-radius:12px;background:#fffbeb}
+#seniorDeductionSettingsV14 h4{margin:0 0 5px;font-size:16px;color:#78350f}
+#seniorDeductionSettingsV14 .senior-intro{margin:0 0 10px;font-size:12px;line-height:1.35;color:#6b4f24}
+#seniorDeductionSettingsV14 .senior-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#seniorDeductionSettingsV14 label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:800;color:#422006}
+#seniorDeductionSettingsV14 input{width:100%;box-sizing:border-box;padding:8px 9px;border:1px solid #d97706;border-radius:8px;background:#fff;font-size:15px;font-weight:800;color:#111827}
+#seniorDeductionSettingsV14 .wide{grid-column:1/-1}
+#seniorDeductionPreviewV14{margin-top:10px;padding:9px 10px;border-radius:9px;background:#fff7ed;border:1px solid #fdba74;font-size:12px;line-height:1.4;color:#7c2d12}
+#seniorDeductionPreviewV14 strong{font-size:14px}
+@media(max-width:430px){#seniorDeductionSettingsV14 .senior-grid{grid-template-columns:1fr}#seniorDeductionSettingsV14 .wide{grid-column:auto}}
 </style>
-<script id="v26InvestmentReturnActiveStateFix">
-(function(){
-  function restoreInvestmentReturnControl(){
-    var card=document.querySelector('#controls-top .ctrl[data-key="PORTF_RATE"]');
-    if(!card) return;
-    var slider=card.querySelector('.noUi-target');
-    /* A generic mode-lock script can mistakenly carry a disabled visual state
-       onto this standalone return control. It has no slider/number mode toggle,
-       so keep it enabled unless its own visible lock control is intentionally on. */
-    var ownLock=card.querySelector('.page4-lock-checkbox');
-    var intentionallyLocked=!!(ownLock && ownLock.checked);
-    if(!intentionallyLocked){
-      card.classList.remove('page4-slider-is-locked');
-      if(slider){
-        slider.classList.remove('mode-locked','locked','slider-user-locked','slider-actually-locked');
-        slider.style.opacity='1';
-        slider.style.pointerEvents='auto';
-        try{ if(slider.noUiSlider) slider.noUiSlider.enable(); }catch(e){}
-      }
-    }
-    try{ if(typeof colorSliderByKey==='function' && slider) colorSliderByKey('PORTF_RATE',slider); }catch(e){}
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){setTimeout(restoreInvestmentReturnControl,0);setTimeout(restoreInvestmentReturnControl,400);});
-  else {setTimeout(restoreInvestmentReturnControl,0);setTimeout(restoreInvestmentReturnControl,400);}
-  window.addEventListener('load',function(){setTimeout(restoreInvestmentReturnControl,100);});
-  window.addEventListener('pageshow',function(){setTimeout(restoreInvestmentReturnControl,50);});
-})();
-</script>
-
-<style id="page4-tooltip-more-details-stable-v31">
-.page4-clean-tip .ct-more>summary{touch-action:manipulation!important;-webkit-tap-highlight-color:transparent!important}
-.page4-clean-tip .ct-more[open]>.ct-more-body{display:block!important}
-</style>
-
-
-<style id="retirement-history-fun-copy-v33">
-.retirement-history-question-v33{margin:6px 0 10px;padding:8px 10px;border-radius:10px;background:#eff6ff;border:1px solid #93c5fd;color:#1e3a8a;font-weight:900;line-height:1.3}
-.retirement-history-question-v33 strong{color:#111827}
-</style>
-<script id="retirement-history-fun-copy-v33-script">
-(function(){
-  function install(){
-    var heading=[].slice.call(document.querySelectorAll('h3')).find(function(h){return /Would my retirement have survived\?/i.test(h.textContent||'');});
-    if(!heading)return false;
-    var panel=heading.parentElement;
-    if(!panel||panel.querySelector('.retirement-history-question-v33'))return true;
-    var note=document.createElement('div');
-    note.className='retirement-history-question-v33';
-    note.innerHTML='<strong>Time-travel with your own money.</strong> Try a boom, recession, crash, or random stretch of history and watch how your retirement would have handled it.';
-    var help=panel.querySelector('.return-choice-help');
-    if(help&&help.nextSibling)panel.insertBefore(note,help.nextSibling);else panel.appendChild(note);
-    return true;
-  }
-  function run(){if(install())return;var n=0,t=setInterval(function(){n++;if(install()||n>40)clearInterval(t)},150)}
-  document.readyState==='loading'?document.addEventListener('DOMContentLoaded',run,{once:true}):run();
-})();
-</script>
-
-<style id="federal-filing-profile-v34-page4">
-.page4-tax-filing-card{width:calc(100% - 20px);margin:10px;padding:12px;box-sizing:border-box;border:1px solid #bfdbfe;border-radius:12px;background:linear-gradient(135deg,#eff6ff,#fff);box-shadow:0 1px 4px rgba(2,6,23,.06)}
-.page4-tax-filing-card h3{margin:0 0 4px;font-size:15px}.tax-filing-profile-copy{font-size:12px;line-height:1.35;color:#374151;margin-bottom:9px}.tax-filing-profile-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.tax-filing-profile-option{display:flex;gap:8px;align-items:flex-start;padding:9px;border:1px solid #d1d5db;border-radius:10px;background:#fff;cursor:pointer;box-sizing:border-box}.tax-filing-profile-option:has(input:checked){border-color:#2563eb;background:#dbeafe;box-shadow:0 0 0 1px #2563eb inset}.tax-filing-profile-option input{width:16px;height:16px;margin-top:2px;flex:0 0 auto}.tax-filing-profile-option b{display:block;font-size:12px}.tax-filing-profile-option small{display:block;margin-top:3px;font-size:11px;line-height:1.27;color:#374151}.tax-filing-profile-status{margin-top:8px;padding:7px 8px;border-radius:8px;background:#fff;border:1px solid #bfdbfe;font-size:11px;font-weight:900;color:#1e3a8a;line-height:1.3}@media(max-width:700px){.tax-filing-profile-options{grid-template-columns:1fr}}
-</style>
-<script id="federal-filing-profile-v34-page4-script">
+<script id="page4DeductionAssumptionsV14">
 (function(){
  'use strict';
- const KEY='retirement_federal_filing_status_2026';
- const CUSTOM='retirement_federal_profile_customized_v34';
- const rates=[.10,.12,.22,.24,.32,.35,.37];
- const profiles={
-  mfj:{name:'Married Filing Jointly',std:32200,caps:[24800,100800,211400,403550,512450,768700,Infinity],ssLower:32000,ssUpper:44000,note:'Joint 2026 brackets loaded.'},
-  qss:{name:'Qualifying Surviving Spouse',std:32200,caps:[24800,100800,211400,403550,512450,768700,Infinity],ssLower:25000,ssUpper:34000,note:'Uses the 2026 joint rate schedule; eligibility rules still apply.'},
-  single:{name:'Single',std:16100,caps:[12400,50400,105700,201775,256225,640600,Infinity],ssLower:25000,ssUpper:34000,note:'Single 2026 brackets loaded.'},
-  hoh:{name:'Head of Household',std:24150,caps:[17700,67450,105700,201750,256200,640600,Infinity],ssLower:25000,ssUpper:34000,note:'Head of Household 2026 brackets loaded; eligibility rules still apply.'},
-  mfs:{name:'Married Filing Separately',std:16100,caps:[12400,50400,105700,201775,256225,384350,Infinity],ssLower:0,ssUpper:0,note:'Married Filing Separately brackets loaded. Social Security treatment is modeled conservatively; actual rules depend on living arrangements and other facts.'}
- };
- function setStatus(p,custom){
-  const el=document.getElementById('page4TaxFilingStatus');if(!el)return;
-  el.textContent=p.name+' selected. Standard deduction: $'+p.std.toLocaleString()+'. '+p.note+(custom?' The bracket table below has been manually customized.':'');
+ const KEY='retirement_senior_deduction_settings_v1';
+ const DEF={single:2050,married:1650,temporary:6000,singleIncome:75000,marriedIncome:150000,reductionRate:6,finalYear:2028};
+ function read(){try{return Object.assign({},DEF,JSON.parse(localStorage.getItem(KEY)||'{}')||{})}catch(e){return Object.assign({},DEF)}}
+ function money(v){return '$'+Math.round(Number(v)||0).toLocaleString('en-US')}
+ function selectedYear(){
+   const text=(document.querySelector('.v40-selected-year-label')||{}).textContent||'';
+   const m=text.match(/(\d+)/);return m?Math.max(1,Number(m[1])):1;
  }
- function applyProfile(code,force){
-  const p=profiles[code]||profiles.mfj;
-  window.__retirementFederalFilingProfile=p;
-  try{localStorage.setItem(KEY,code)}catch(e){}
-  const custom=(()=>{try{return localStorage.getItem(CUSTOM)==='1'}catch(e){return false}})();
-  if(force||!custom){
-   try{
-    FED_BRACKETS=p.caps.map((cap,i)=>({rate:rates[i],cap:cap}));
-    FED_STD_VAL=p.std;
-    if(typeof saveFedToLocal==='function')saveFedToLocal();
-    if(typeof populateFedUI==='function')populateFedUI();
-    if(typeof update==='function')update();
-    try{localStorage.setItem(CUSTOM,'0')}catch(e){}
-   }catch(e){console.warn('Could not apply filing profile',e)}
-  }
-  setStatus(p,custom&&!force);
+ function values(){
+   const out={};Object.keys(DEF).forEach(k=>{const el=document.getElementById('senior-'+k+'-v14');out[k]=el?Number(el.value):DEF[k]});return out;
  }
- function init(){
-  let code='mfj';try{code=localStorage.getItem(KEY)||'mfj'}catch(e){}
-  if(!profiles[code])code='mfj';
-  document.querySelectorAll('input[name="page4-federal-filing"]').forEach(r=>{
-   r.checked=r.value===code;
-   r.addEventListener('change',()=>{if(r.checked)applyProfile(r.value,true)});
-  });
-  applyProfile(code,false);
-  // Mark manual edits so a reload does not silently replace them until another filing status is chosen.
-  const original=window.applyFedFromUI;
-  if(typeof original==='function')window.applyFedFromUI=function(){original.apply(this,arguments);try{localStorage.setItem(CUSTOM,'1')}catch(e){};const p=profiles[(localStorage.getItem(KEY)||'mfj')]||profiles.mfj;setStatus(p,true)};
+ function save(){try{localStorage.setItem(KEY,JSON.stringify(values()))}catch(e){}}
+ function preview(){
+   const box=document.getElementById('seniorDeductionPreviewV14');if(!box)return;
+   const y=selectedYear(), age=readModeledRetirementAge()+y-1, spouse0=readModeledSpouseAge(), spouse=spouse0?spouse0+y-1:0;
+   const total=getFederalDeductionForYear(y,0);
+   box.innerHTML='<strong>Deduction used for selected Year '+y+': '+money(total)+'</strong><br>Taxpayer age '+age+(spouse?', spouse age '+spouse:'')+'. The final tax calculation may reduce the temporary deduction when income is above the entered limit.';
  }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(init,50));else setTimeout(init,50);
+ function build(){
+   const tbody=document.getElementById('fed-brackets-tbody');if(!tbody||document.getElementById('seniorDeductionSettingsV14'))return false;
+   const table=tbody.closest('table');if(!table)return false;
+   const v=read();
+   const box=document.createElement('section');box.id='seniorDeductionSettingsV14';
+   box.innerHTML='<h4>Age-65 deduction settings</h4><p class="senior-intro">These are editable tax-law assumptions. The calculator adds the correct amount automatically for the taxpayer and spouse ages. The ages below are the ages at the start of retirement and increase automatically in later simulation years.</p><div class="senior-grid">'+
+    '<label>Taxpayer age at start of retirement<input id="senior-taxpayerAge-v14" type="number" min="18" max="120" step="1" inputmode="numeric"></label>'+
+    '<label>Spouse age at start of retirement<input id="senior-spouseAge-v14" type="number" min="18" max="120" step="1" inputmode="numeric" placeholder="Leave blank if not applicable"></label>'+
+    '<label>Extra deduction for age 65+ — Single / Head of Household<input id="senior-single-v14" type="number" min="0" step="50" value="'+v.single+'"></label>'+
+    '<label>Extra deduction for age 65+ — Married, per spouse<input id="senior-married-v14" type="number" min="0" step="50" value="'+v.married+'"></label>'+
+    '<label>Temporary extra senior deduction, per qualifying person<input id="senior-temporary-v14" type="number" min="0" step="100" value="'+v.temporary+'"></label>'+
+    '<label>Last year the temporary deduction is available<input id="senior-finalYear-v14" type="number" min="2026" max="2100" step="1" value="'+v.finalYear+'"></label>'+
+    '<label>Income where it starts to shrink — Single / Head of Household<input id="senior-singleIncome-v14" type="number" min="0" step="1000" value="'+v.singleIncome+'"></label>'+
+    '<label>Income where it starts to shrink — Married Filing Jointly<input id="senior-marriedIncome-v14" type="number" min="0" step="1000" value="'+v.marriedIncome+'"></label>'+
+    '<label class="wide">How quickly the temporary deduction gets smaller (%)<input id="senior-reductionRate-v14" type="number" min="0" max="100" step="0.1" value="'+v.reductionRate+'"><span style="font-weight:500">Example: 6% reduces it by $60 for each $1,000 of income above the limit.</span></label></div><div id="seniorDeductionPreviewV14"></div>';
+   table.insertAdjacentElement('afterend',box);
+   box.querySelectorAll('input').forEach(el=>el.addEventListener('input',()=>{save();preview()}));
+   const apply=document.getElementById('apply-fed');if(apply)apply.addEventListener('click',()=>{save();setTimeout(()=>{try{update()}catch(e){}preview()},0)},true);
+   const reset=document.getElementById('reset-fed');if(reset)reset.addEventListener('click',()=>{try{localStorage.removeItem(KEY)}catch(e){}setTimeout(()=>location.reload(),0)},true);
+   preview();return true;
+ }
+ function boot(n){if(build())return;if(n)setTimeout(()=>boot(n-1),150)}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>boot(30));else boot(30);
+ document.addEventListener('input',e=>{if(e.target&&e.target.closest&&e.target.closest('.ctrl[data-key="YEARS"]'))setTimeout(preview,0)},true);
 })();
 </script>
 
-<style id="state-filing-status-sync-v36-style">
-.state-filing-status-note-v36{margin:8px 0;padding:8px 9px;border-radius:9px;background:#eff6ff;border:1px solid #bfdbfe;color:#1e3a8a;font-size:11px;font-weight:800;line-height:1.32}
-</style>
-<script id="state-filing-status-sync-v36">
-(function(){
- 'use strict';
- const STATUS_KEY='retirement_federal_filing_status_2026';
- const STATE_BASE_KEY='retirement_state_base_profile_v36';
- const factors={mfj:1,qss:1,single:.5,mfs:.5,hoh:.75};
- const names={mfj:'Married Filing Jointly',qss:'Qualifying Surviving Spouse',single:'Single',mfs:'Married Filing Separately',hoh:'Head of Household'};
- const STATE_STATUS_KEY='retirement_state_filing_status_2026';
- function clone(x){return JSON.parse(JSON.stringify(x,function(k,v){return v===Infinity?'__INF__':v}),function(k,v){return v==='__INF__'?Infinity:v})}
- function status(){try{return localStorage.getItem(STATUS_KEY)||'mfj'}catch(e){return 'mfj'}}
- function captureBase(){
-   try{
-    const code=(STATE_SETTINGS&&STATE_SETTINGS.stateName)||'CA';
-    const current={code:code,std:Number(STATE_STD_VAL)||0,exempt:!!STATE_SETTINGS.exempt,taxesSocialSecurity:!!STATE_SETTINGS.taxesSocialSecurity,brackets:clone(STATE_SETTINGS.brackets||[])};
-    localStorage.setItem(STATE_BASE_KEY,JSON.stringify(current));
-    return current;
-   }catch(e){return null}
- }
- function readBase(){try{return JSON.parse(localStorage.getItem(STATE_BASE_KEY)||'null')}catch(e){return null}}
- function ensureNote(){
-   const body=document.getElementById('state-body');if(!body)return null;
-   let n=document.getElementById('stateFilingStatusNoteV36');
-   if(!n){n=document.createElement('div');n.id='stateFilingStatusNoteV36';n.className='state-filing-status-note-v36';const sel=document.getElementById('state-name-select');if(sel&&sel.parentElement)sel.parentElement.insertAdjacentElement('afterend',n);else body.prepend(n)}
-   return n;
- }
- function apply(){
-   const st=status(),factor=factors[st]||1;
-   try{localStorage.setItem(STATE_STATUS_KEY,st)}catch(e){}
-   let base=readBase();
-   const code=(STATE_SETTINGS&&STATE_SETTINGS.stateName)||'CA';
-   if(!base||base.code!==code)base=captureBase();
-   if(!base)return;
-   try{
-    STATE_STD_VAL=(Number(base.std)||0)*factor;
-    STATE_SETTINGS.brackets=(base.brackets||[]).map(b=>({rate:Number(b.rate)||0,min:(Number(b.min)||0)*factor,cap:(b.cap===Infinity||!Number.isFinite(Number(b.cap)))?Infinity:Number(b.cap)*factor}));
-    STATE_SETTINGS.exempt=!!base.exempt;STATE_SETTINGS.taxesSocialSecurity=!!base.taxesSocialSecurity;
-    if(typeof saveStateToLocal==='function')saveStateToLocal();
-    if(typeof populateStateUI==='function')populateStateUI();
-    if(typeof update==='function')update();
-   }catch(e){console.warn('State filing-status adjustment failed',e)}
-   const n=ensureNote();if(n)n.textContent='Federal and state filing status: '+(names[st]||st)+'. The state calculation now follows the filing-status radio selected above. This does not mean that anyone pays half of the state tax. The built-in planning profile changes state bracket thresholds and the state deduction before calculating tax on the projected income. State rules vary, so review or edit the displayed state table when official figures are available.';
- }
- function bind(){
-   document.querySelectorAll('input[name="page4-federal-filing"]').forEach(r=>r.addEventListener('change',()=>{if(r.checked)setTimeout(apply,30)}));
-   const state=document.getElementById('state-name-select');if(state)state.addEventListener('change',()=>setTimeout(()=>{captureBase();apply()},80));
-   const applyBtn=document.getElementById('apply-state');if(applyBtn)applyBtn.addEventListener('click',()=>setTimeout(captureBase,30));
-   setTimeout(()=>{captureBase();apply()},250);
- }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);else bind();
-})();
-</script>
 
-<style id="page4-spouse-age-v1-style">
-.page4-spouse-age-panel{
-  margin-top:10px;
-  padding:12px;
-  border:1px solid #c7d2fe;
-  border-radius:12px;
-  background:#eef2ff;
-  color:#1e1b4b;
-}
-.page4-spouse-age-panel[hidden]{display:none!important}
-.page4-spouse-age-row{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-top:7px;
-}
-.page4-spouse-age-row input{
-  flex:1 1 auto;
-  min-width:0;
-  width:100%;
-  border:1px solid #94a3b8;
-  border-radius:10px;
-  padding:10px 11px;
-  background:#fff;
-  color:#111827;
-}
-.page4-spouse-age-row button{
-  flex:0 0 auto;
-  border:1px solid #94a3b8;
-  border-radius:10px;
-  padding:10px 12px;
-  background:#fff;
-  color:#1e293b;
-  font-weight:800;
-}
-.page4-spouse-age-panel small{
-  display:block;
-  margin-top:7px;
-  line-height:1.35;
-}
-@media(max-width:380px){
-  .page4-spouse-age-row{align-items:stretch;flex-direction:column}
-  .page4-spouse-age-row button{width:100%}
-}
-</style>
-
-<script id="page4-spouse-age-v1">
+<script id="page4-filing-status-fully-connected-v2">
 (function(){
   'use strict';
-  const STATUS_KEY='retirement_federal_filing_status_2026';
-  const AGE_KEY='retirement_spouse_age_at_retirement_v1';
-
-  function status(){
-    try{return localStorage.getItem(STATUS_KEY)||'mfj';}
-    catch(e){return 'mfj';}
+  var STATUS_KEY='retirement_federal_filing_status_2026';
+  var CUSTOM_KEY_PREFIX='retirement_federal_custom_2026_';
+  var RATES=[.10,.12,.22,.24,.32,.35,.37];
+  var PRESETS={
+    mfj:{label:'Married Filing Jointly',std:32200,caps:[24800,100800,211400,403550,512450,768700,Infinity],ss:[32000,44000]},
+    qss:{label:'Qualifying Surviving Spouse',std:32200,caps:[24800,100800,211400,403550,512450,768700,Infinity],ss:[32000,44000]},
+    single:{label:'Single',std:16100,caps:[12400,50400,105700,201775,256225,640600,Infinity],ss:[25000,34000]},
+    hoh:{label:'Head of Household',std:24150,caps:[17700,67450,105700,201750,256200,640600,Infinity],ss:[25000,34000]},
+    mfs:{label:'Married Filing Separately',std:16100,caps:[12400,50400,105700,201775,256225,384350,Infinity],ss:[25000,34000]}
+  };
+  function status(){try{var v=localStorage.getItem(STATUS_KEY)||'mfj';return PRESETS[v]?v:'mfj';}catch(e){return 'mfj';}}
+  function clonePreset(key){var p=PRESETS[key]||PRESETS.mfj;return {std:p.std,brackets:p.caps.map(function(cap,i){return {rate:RATES[i],cap:cap};})};}
+  function readCustom(key){try{var raw=localStorage.getItem(CUSTOM_KEY_PREFIX+key);if(!raw)return null;var obj=JSON.parse(raw);if(!obj||!Array.isArray(obj.brackets))return null;return {std:Number(obj.std)||0,brackets:obj.brackets.map(function(b){return {rate:Number(b.rate)||0,cap:b.cap==='Infinity'?Infinity:Number(b.cap)};})};}catch(e){return null;}}
+  function saveCurrentAsCustom(){try{var key=status();localStorage.setItem(CUSTOM_KEY_PREFIX+key,JSON.stringify({std:Number(getStd())||0,brackets:(getBrackets()||[]).map(function(b){return {rate:Number(b.rate)||0,cap:b.cap===Infinity?'Infinity':Number(b.cap)};})}));}catch(e){}}
+  function setGlobals(data){
+    // top-level let bindings are not window properties, so assign through eval in this page's global scope.
+    try{(0,eval)('FED_STD_VAL='+JSON.stringify(Number(data.std)||0)+'; FED_BRACKETS='+JSON.stringify(data.brackets.map(function(b){return {rate:Number(b.rate)||0,cap:b.cap===Infinity?'Infinity':Number(b.cap)}; })).replace(/"Infinity"/g,'Infinity')+';');}catch(e){console.error('Filing status tax assignment failed',e);}
   }
+  function getStd(){try{return (0,eval)('FED_STD_VAL');}catch(e){return 0;}}
+  function getBrackets(){try{return (0,eval)('FED_BRACKETS');}catch(e){return [];}}
+  function persistBase(){try{localStorage.setItem('assumption_fed_std',String(getStd()));localStorage.setItem('assumption_fed_brackets',JSON.stringify(getBrackets().map(function(b){return {rate:b.rate,cap:b.cap===Infinity?'Infinity':b.cap};})));}catch(e){}}
+  function refreshUI(){try{if(typeof populateFedUI==='function')populateFedUI();}catch(e){} try{if(typeof update==='function')update();}catch(e){} }
+  function updateStatusText(){var key=status(),p=PRESETS[key],el=document.getElementById('page4FilingStatusStatus');if(el)el.textContent=p.label+' selected — 2026 standard deduction $'+p.std.toLocaleString()+'. Federal brackets, Social Security thresholds, and senior-deduction rules are connected to this selection.';document.querySelectorAll('input[name="page4-filing-status"]').forEach(function(r){r.checked=r.value===key;});}
+  function applyStatus(key,useCustom){if(!PRESETS[key])key='mfj';try{localStorage.setItem(STATUS_KEY,key);}catch(e){}var data=(useCustom!==false&&readCustom(key))||clonePreset(key);setGlobals(data);persistBase();refreshUI();updateStatusText();}
 
-  function savedAge(){
-    try{
-      const n=Number(localStorage.getItem(AGE_KEY));
-      return Number.isFinite(n)&&n>=18&&n<=120?n:0;
-    }catch(e){return 0;}
-  }
-
-  function saveAge(value){
-    const n=Number(value);
-    try{
-      if(Number.isFinite(n)&&n>=18&&n<=120)localStorage.setItem(AGE_KEY,String(Math.round(n)));
-      else localStorage.removeItem(AGE_KEY);
-    }catch(e){}
-  }
-
-  function projectedTaxpayerAge(){
-    try{
-      if(typeof getProjectedTaxpayerAge==='function')return Number(getProjectedTaxpayerAge(1))||0;
-    }catch(e){}
-    return 0;
-  }
-
-  function updateStatus(){
-    const output=document.getElementById('page4SeniorDeductionStatus');
-    if(!output)return;
-    const filing=status();
-    const taxpayerAge=projectedTaxpayerAge();
-    const spouseAge=savedAge();
-
-    if(filing==='mfj'){
-      if(!spouseAge){
-        output.textContent='Enter the spouse age at retirement to calculate whether one or both spouses qualify for age-65 federal deductions.';
-      }else{
-        const taxpayerText=taxpayerAge?('Taxpayer age '+Math.round(taxpayerAge)): 'Taxpayer age comes from the retirement settings';
-        output.textContent=taxpayerText+'; spouse age '+Math.round(spouseAge)+'. The projection checks both ages separately in every projected year.';
-      }
-    }else{
-      output.textContent='Age-65 federal deductions are based on the modeled taxpayer age. Spouse age is used only for Married Filing Jointly.';
-    }
-  }
-
-  function refresh(){
-    const panel=document.getElementById('page4SpouseAgePanel');
-    const input=document.getElementById('page4SpouseRetirementAge');
-    if(!panel||!input)return;
-    const joint=status()==='mfj';
-    panel.hidden=!joint;
-    if(joint && !input.value){
-      const n=savedAge();
-      if(n)input.value=String(Math.round(n));
-    }
-    updateStatus();
-  }
+  // Make Social Security provisional-income thresholds follow the selected filing status.
+  window.calculateTaxableSocialSecurity=function(grossSS,otherAGI){
+    grossSS=Math.max(0,Number(grossSS)||0);otherAGI=Math.max(0,Number(otherAGI)||0);if(grossSS<=0)return 0;
+    var p=PRESETS[status()]||PRESETS.mfj,lower=p.ss[0],upper=p.ss[1];
+    var combined=otherAGI+(grossSS*.5),taxable=0;
+    if(combined<=lower)taxable=0;
+    else if(combined<=upper)taxable=Math.min(grossSS*.5,(combined-lower)*.5);
+    else taxable=Math.min(grossSS*.5,(upper-lower)*.5)+((combined-upper)*.85);
+    return Math.max(0,Math.min(taxable,grossSS*.85));
+  };
 
   function init(){
-    const input=document.getElementById('page4SpouseRetirementAge');
-    const clear=document.getElementById('page4ClearSpouseAge');
-
-    if(input){
-      const n=savedAge();
-      if(n)input.value=String(Math.round(n));
-      input.addEventListener('input',function(){
-        saveAge(input.value);
-        updateStatus();
-        try{if(typeof update==='function')update();}catch(e){}
-      });
-      input.addEventListener('change',function(){
-        saveAge(input.value);
-        updateStatus();
-        try{if(typeof update==='function')update();}catch(e){}
-      });
-    }
-
-    if(clear){
-      clear.addEventListener('click',function(){
-        if(input)input.value='';
-        saveAge('');
-        updateStatus();
-        try{if(typeof update==='function')update();}catch(e){}
-      });
-    }
-
-    document.querySelectorAll('input[name="page4-federal-filing"]').forEach(function(radio){
-      radio.addEventListener('change',function(){
-        setTimeout(function(){
-          refresh();
-          try{if(typeof update==='function')update();}catch(e){}
-        },40);
-      });
-    });
-
-    refresh();
+    document.querySelectorAll('input[name="page4-filing-status"]').forEach(function(r){r.addEventListener('change',function(){if(this.checked)applyStatus(this.value,true);});});
+    var apply=document.getElementById('apply-fed');if(apply)apply.addEventListener('click',function(){setTimeout(function(){saveCurrentAsCustom();updateStatusText();},0);});
+    var reset=document.getElementById('reset-fed');if(reset)reset.addEventListener('click',function(ev){ev.preventDefault();ev.stopImmediatePropagation();try{localStorage.removeItem(CUSTOM_KEY_PREFIX+status());}catch(e){}applyStatus(status(),false);},true);
+    applyStatus(status(),true);
   }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
 
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
-  else init();
+<style id="page4-spouse-age-filing-status-v1">
+#page4SpouseAgeRow{margin-top:10px;padding:10px;border:1px solid #bfdbfe;border-radius:10px;background:#eff6ff;display:none;align-items:center;gap:10px;flex-wrap:wrap}
+#page4SpouseAgeRow.show{display:flex}
+#page4SpouseAgeRow label{font-size:12px;font-weight:900;color:#1e3a8a}
+#page4SpouseAgeInput{width:92px;padding:8px 9px;border:1px solid #60a5fa;border-radius:8px;background:#fff;font-size:15px;font-weight:900;color:#111827;box-sizing:border-box}
+#page4SpouseAgeHelp{font-size:11px;line-height:1.3;color:#1e3a8a;flex:1 1 230px}
+#page4DeductionConnectionStatus{margin-top:8px;padding:8px 9px;border-radius:9px;background:#f8fafc;border:1px solid #e5e7eb;font-size:12px;font-weight:800;line-height:1.35;color:#111827}
+</style>
+<script id="page4-spouse-age-filing-status-v1-script">
+(function(){
+ 'use strict';
+ var SPOUSE_KEY='retirement_spouse_age_at_retirement_v2';
+ function filing(){try{return localStorage.getItem('retirement_federal_filing_status_2026')||'mfj';}catch(e){return 'mfj';}}
+ function spouseAge(){try{var n=Number(localStorage.getItem(SPOUSE_KEY));return Number.isFinite(n)&&n>=18&&n<=120?Math.round(n):0;}catch(e){return 0;}}
+ function selectedYear(){
+   var text=((document.querySelector('.v40-selected-year-label')||{}).textContent||'');
+   var m=text.match(/(\d+)/);return m?Math.max(1,Number(m[1])):1;
+ }
+ function money(v){return '$'+Math.round(Number(v)||0).toLocaleString('en-US');}
+ function build(){
+   var card=document.getElementById('page4FilingStatusCard');
+   if(!card||document.getElementById('page4SpouseAgeRow'))return !!card;
+   var row=document.createElement('div');row.id='page4SpouseAgeRow';
+   row.innerHTML='<label for="page4SpouseAgeInput">Spouse age at the start of retirement</label><input id="page4SpouseAgeInput" type="number" min="18" max="120" step="1" inputmode="numeric" placeholder="Age"><div id="page4SpouseAgeHelp">For Married Filing Jointly, the calculator adds the age-65 additional deduction separately for each spouse who is age 65 or older. Enter your spouse’s age here so the standard-deduction total is calculated correctly for every retirement year.</div>';
+   var status=document.createElement('div');status.id='page4DeductionConnectionStatus';
+   card.appendChild(row);card.appendChild(status);
+   var input=document.getElementById('page4SpouseAgeInput');input.value=spouseAge()||'';
+   input.addEventListener('input',function(){
+     var n=Number(this.value);try{if(Number.isFinite(n)&&n>=18&&n<=120)localStorage.setItem(SPOUSE_KEY,String(Math.round(n)));else localStorage.removeItem(SPOUSE_KEY);}catch(e){}
+     refresh();try{if(typeof update==='function')update();}catch(e){}
+   });
+   document.querySelectorAll('input[name="page4-filing-status"]').forEach(function(r){r.addEventListener('change',function(){setTimeout(refresh,0);});});
+   document.addEventListener('input',function(e){if(e.target&&e.target.closest&&e.target.closest('.ctrl[data-key="YEARS"]'))setTimeout(refresh,0);},true);
+   return true;
+ }
+ function refresh(){
+   var row=document.getElementById('page4SpouseAgeRow'),box=document.getElementById('page4DeductionConnectionStatus');if(!row||!box)return;
+   var f=filing(),show=(f==='mfj'||f==='mfs');row.classList.toggle('show',show);
+   var y=selectedYear(),taxAge=(typeof readModeledRetirementAge==='function'?readModeledRetirementAge():62)+y-1;
+   var baseSpouse=spouseAge(),spAge=baseSpouse?baseSpouse+y-1:0;
+   var total=0;try{total=getFederalDeductionForYear(y,0);}catch(e){}
+   if(f==='mfj'){
+     box.innerHTML='<b>Connected standard deduction for selected Year '+y+': '+money(total)+'</b><br>Taxpayer age '+taxAge+(spAge?', spouse age '+spAge:'. Enter spouse age above')+'. The federal tax calculation uses the base Married Filing Jointly deduction plus each qualifying age-65 additional deduction.';
+   }else if(f==='mfs'){
+     box.innerHTML='<b>Connected standard deduction for selected Year '+y+': '+money(total)+'</b><br>Taxpayer age '+taxAge+(spAge?', spouse age '+spAge:'')+'. Married Filing Separately rules are selected; review eligibility and whether a spouse itemizes.';
+   }else{
+     box.innerHTML='<b>Connected standard deduction for selected Year '+y+': '+money(total)+'</b><br>Taxpayer age '+taxAge+'. The selected filing status controls the base deduction, tax table, and age-65 addition.';
+   }
+   try{var old=document.getElementById('seniorDeductionPreviewV14');if(old){var t=getFederalDeductionForYear(y,0);old.innerHTML='<strong>Deduction used for selected Year '+y+': '+money(t)+'</strong><br>Taxpayer age '+taxAge+(spAge?', spouse age '+spAge:'')+'. This total is used by the federal tax calculation.';}}catch(e){}
+ }
+ function boot(n){if(build()){refresh();return;}if(n)setTimeout(function(){boot(n-1)},150);}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){boot(40)});else boot(40);
+ window.addEventListener('load',function(){setTimeout(refresh,500)});
+})();
+</script>
+
+<style id="page4-senior-deduction-authoritative-v3-style">
+#page4EffectiveFederalDeductionV3{margin:10px 0 2px;padding:10px;border:2px solid #16a34a;border-radius:10px;background:#f0fdf4;color:#14532d;font:800 12px/1.4 Arial,sans-serif}
+#page4EffectiveFederalDeductionV3 strong{display:block;font-size:15px;margin-bottom:3px}
+#page4EffectiveFederalDeductionV3 .deduction-line{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #bbf7d0;padding-top:4px;margin-top:4px}
+#page4EffectiveFederalDeductionV3 .deduction-warning{margin-top:6px;color:#92400e;background:#fffbeb;border:1px solid #fde68a;border-radius:7px;padding:6px}
+</style>
+<script id="page4-senior-deduction-authoritative-v3">
+(function(){
+  'use strict';
+  var SPOUSE_KEY='retirement_spouse_age_at_retirement_v2';
+  var TAXPAYER_KEY='retirement_taxpayer_age_at_retirement_v1';
+  var STATUS_KEY='retirement_federal_filing_status_2026';
+  function num(v,d){v=Number(v);return Number.isFinite(v)?v:(d||0);}
+  function money(v){return '$'+Math.round(num(v)).toLocaleString('en-US');}
+  function filing(){try{return localStorage.getItem(STATUS_KEY)||'mfj';}catch(e){return 'mfj';}}
+  function spouseStartAge(){try{var n=num(localStorage.getItem(SPOUSE_KEY),0);return n>=18&&n<=120?Math.round(n):0;}catch(e){return 0;}}
+  function simulationYear(){
+    try{var r=document.querySelector('.v40-years-range');if(r&&num(r.value,0)>=1)return Math.round(num(r.value,1));}catch(e){}
+    try{var c=document.querySelector('.ctrl[data-key="YEARS"] .noUi-target');if(c&&c.noUiSlider){var v=num(c.noUiSlider.get(),0);if(v>=1)return Math.round(v);}}catch(e){}
+    try{if(typeof sliderValuesMemory!=='undefined'&&num(sliderValuesMemory.YEARS,0)>=1)return Math.round(num(sliderValuesMemory.YEARS,1));}catch(e){}
+    return 1;
+  }
+  function taxpayerStartAge(){try{var saved=num(localStorage.getItem(TAXPAYER_KEY),0);if(saved>=18&&saved<=120)return Math.round(saved);return typeof readModeledRetirementAge==='function'?Math.round(num(readModeledRetirementAge(),62)):62;}catch(e){return 62;}}
+  function settings(){
+    var d={single:2050,married:1650,temporary:6000,singleIncome:75000,marriedIncome:150000,reductionRate:6,finalYear:2028};
+    try{return Object.assign(d,JSON.parse(localStorage.getItem('retirement_senior_deduction_settings_v1')||'{}')||{});}catch(e){return d;}
+  }
+  function baseStd(){try{return num((0,eval)('FED_STD_VAL'),0);}catch(e){return 0;}}
+  function growth(y){try{return typeof taxGrowthFactor==='function'?num(taxGrowthFactor(y),1):1;}catch(e){return 1;}}
+  function details(y,income){
+    y=Math.max(1,Math.round(num(y,1)));income=Math.max(0,num(income,0));
+    var st=settings(), f=filing(), married=(f==='mfj'||f==='mfs'||f==='qss');
+    var taxpayerAge=taxpayerStartAge()+y-1, spouse0=spouseStartAge(), spouseAge=spouse0?spouse0+y-1:0;
+    var taxpayerQualifies=taxpayerAge>=65, spouseQualifies=married&&spouseAge>=65;
+    var count=(taxpayerQualifies?1:0)+(spouseQualifies?1:0);
+    var regularEach=married?num(st.married):num(st.single);
+    var regular=count*regularEach;
+    var calendarYear=2026+y-1;
+    var temporaryEach=num(st.temporary), temporary=count*temporaryEach;
+    var temporaryAvailable=calendarYear<=num(st.finalYear,0);
+    if(!temporaryAvailable)temporary=0;
+    var threshold=married?num(st.marriedIncome):num(st.singleIncome);
+    var reduction=0;
+    if(temporary>0&&income>threshold){reduction=(income-threshold)*(num(st.reductionRate)/100);temporary=Math.max(0,temporary-reduction);}
+    var base=baseStd()*growth(y);
+    return {f:f,y:y,calendarYear:calendarYear,taxpayerAge:taxpayerAge,spouseAge:spouseAge,taxpayerQualifies:taxpayerQualifies,spouseQualifies:spouseQualifies,count:count,base:base,regularEach:regularEach,regular:regular,temporaryEach:temporaryEach,temporary:temporary,temporaryAvailable:temporaryAvailable,finalYear:num(st.finalYear),threshold:threshold,reduction:reduction,total:Math.max(0,base+regular+temporary)};
+  }
+  // Authoritative deduction function used by the federal tax pipeline.
+  window.getFederalDeductionForYear=function(y,income){return details(y,income).total;};
+  window.getFederalStandardDeductionForYear=function(y){return details(y,0).total;};
+  function ensurePreview(){
+    var fed=document.getElementById('fed-body');if(!fed)return null;
+    var box=document.getElementById('page4EffectiveFederalDeductionV3');
+    if(!box){box=document.createElement('div');box.id='page4EffectiveFederalDeductionV3';var first=fed.querySelector('.small');if(first)first.insertAdjacentElement('beforebegin',box);else fed.prepend(box);}
+    return box;
+  }
+  function render(income){
+    var d=details(simulationYear(),income||0), box=ensurePreview();if(!box)return;
+    var spouseLine=(d.f==='mfj'||d.f==='mfs'||d.f==='qss')?'<div class="deduction-line"><span>Spouse age '+(d.spouseAge||'not entered')+(d.spouseQualifies?' — qualifies':' — does not qualify')+'</span><span>'+(d.spouseQualifies?money(d.regularEach+d.temporaryEach):'$0')+'</span></div>':'';
+    var tempNote='';
+    if(d.count&& !d.temporaryAvailable)tempNote='<div class="deduction-warning">The editable temporary senior deduction is not applied in calendar year '+d.calendarYear+' because its “last year available” assumption is '+d.finalYear+'. Change that assumption below if you want to model it beyond that year.</div>';
+    else if(d.temporary>0)tempNote='<div class="deduction-line"><span>Temporary senior deduction ('+money(d.temporaryEach)+' × '+d.count+')</span><span>'+money(d.temporary)+'</span></div>';
+    box.innerHTML='<strong>Effective federal standard deduction used: '+money(d.total)+'</strong>'+
+      '<div>Selected simulation year '+d.y+' (calendar year '+d.calendarYear+')</div>'+
+      '<div class="deduction-line"><span>Base '+(d.f==='mfj'?'Married Filing Jointly':'filing-status')+' deduction</span><span>'+money(d.base)+'</span></div>'+
+      '<div class="deduction-line"><span>Taxpayer age '+d.taxpayerAge+(d.taxpayerQualifies?' — qualifies':' — does not qualify')+'</span><span>'+(d.taxpayerQualifies?money(d.regularEach+d.temporaryEach):'$0')+'</span></div>'+spouseLine+
+      '<div class="deduction-line"><span>Regular age-65 additions actually included</span><span>'+money(d.regular)+'</span></div>'+tempNote;
+    var old=document.getElementById('seniorDeductionPreviewV14');if(old)old.innerHTML='<strong>Deduction used for selected year: '+money(d.total)+'</strong><br>Base '+money(d.base)+' + regular age-65 additions '+money(d.regular)+' + temporary senior deduction '+money(d.temporary)+'.';
+    var status=document.getElementById('page4DeductionConnectionStatus');if(status)status.innerHTML='<b>Federal tax calculation is using '+money(d.total)+'</b><br>Taxpayer age '+d.taxpayerAge+(d.spouseAge?', spouse age '+d.spouseAge:'')+'.';
+  }
+  function recalc(){render(0);try{if(typeof update==='function')update();}catch(e){}}
+  function bind(){
+    ensurePreview();
+    var taxAge=document.getElementById('senior-taxpayerAge-v14');
+    var seniorSpouse=document.getElementById('senior-spouseAge-v14');
+    try{if(taxAge&&!taxAge.value){var tv=num(localStorage.getItem(TAXPAYER_KEY),0);if(!(tv>=18&&tv<=120))tv=typeof readModeledRetirementAge==='function'?num(readModeledRetirementAge(),62):62;taxAge.value=Math.round(tv);}}catch(e){}
+    try{if(seniorSpouse&&!seniorSpouse.value){var sv=spouseStartAge();if(sv)seniorSpouse.value=Math.round(sv);}}catch(e){}
+    if(taxAge&&!taxAge.dataset.v3Bound){taxAge.dataset.v3Bound='1';var saveTaxAge=function(){var n=num(taxAge.value,0);try{if(n>=18&&n<=120)localStorage.setItem(TAXPAYER_KEY,String(Math.round(n)));else localStorage.removeItem(TAXPAYER_KEY);}catch(e){}recalc();};taxAge.addEventListener('input',saveTaxAge);taxAge.addEventListener('change',saveTaxAge);}
+    if(seniorSpouse&&!seniorSpouse.dataset.v3Bound){seniorSpouse.dataset.v3Bound='1';var saveSeniorSpouse=function(){var n=num(seniorSpouse.value,0);try{if(n>=18&&n<=120)localStorage.setItem(SPOUSE_KEY,String(Math.round(n)));else localStorage.removeItem(SPOUSE_KEY);}catch(e){}var other=document.getElementById('page4SpouseAgeInput');if(other&&other!==seniorSpouse)other.value=n>=18&&n<=120?Math.round(n):'';recalc();};seniorSpouse.addEventListener('input',saveSeniorSpouse);seniorSpouse.addEventListener('change',saveSeniorSpouse);}
+    var spouse=document.getElementById('page4SpouseAgeInput');
+    if(spouse&&!spouse.dataset.v3Bound){spouse.dataset.v3Bound='1';spouse.addEventListener('input',function(){var n=num(this.value,0);try{if(n>=18&&n<=120)localStorage.setItem(SPOUSE_KEY,String(Math.round(n)));else localStorage.removeItem(SPOUSE_KEY);}catch(e){}var mirror=document.getElementById('senior-spouseAge-v14');if(mirror&&mirror!==this)mirror.value=n>=18&&n<=120?Math.round(n):'';recalc();});spouse.addEventListener('change',recalc);}
+    document.querySelectorAll('input[name="page4-filing-status"]').forEach(function(r){if(!r.dataset.v3Bound){r.dataset.v3Bound='1';r.addEventListener('change',function(){setTimeout(recalc,0);});}});
+    document.querySelectorAll('#seniorDeductionSettingsV14 input').forEach(function(i){if(!i.dataset.v3Bound){i.dataset.v3Bound='1';i.addEventListener('input',function(){setTimeout(recalc,0);});i.addEventListener('change',function(){setTimeout(recalc,0);});}});
+    var years=document.querySelector('.ctrl[data-key="YEARS"] .noUi-target');if(years&&years.noUiSlider&&!years.dataset.v3Bound){years.dataset.v3Bound='1';try{years.noUiSlider.on('update.page4SeniorV3',function(){render(0);});}catch(e){}}
+    render(0);
+  }
+  function boot(n){bind();if(n>0)setTimeout(function(){boot(n-1);},250);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){boot(20);});else boot(20);
+  window.addEventListener('load',function(){setTimeout(bind,500);setTimeout(recalc,1200);});
+})();
+</script>
+
+<style id="page4-editable-age-note-style-v1">
+#seniorDeductionSettingsV14 .age-note-v1{grid-column:1/-1;margin:-1px 0 2px;padding:7px 9px;border-radius:8px;background:#eff6ff;border:1px solid #bfdbfe;color:#1e3a8a;font-size:11px;font-weight:700;line-height:1.35}
+#seniorDeductionSettingsV14 .age-reset-v1{grid-column:1/-1;border:0;border-radius:8px;padding:8px 10px;background:#1d4ed8;color:#fff;font-weight:900;cursor:pointer}
+</style>
+<script id="page4-editable-age-controls-v1">
+(function(){
+ 'use strict';
+ var TAX='retirement_taxpayer_age_at_retirement_v1', SPOUSE='retirement_spouse_age_at_retirement_v2';
+ function num(v){v=Number(v);return Number.isFinite(v)?v:0;}
+ function enhance(){
+   var grid=document.querySelector('#seniorDeductionSettingsV14 .senior-grid');
+   if(!grid||document.getElementById('page4AgeAssumptionNoteV1'))return false;
+   var spouse=document.getElementById('senior-spouseAge-v14');
+   var note=document.createElement('div');note.id='page4AgeAssumptionNoteV1';note.className='age-note-v1';note.textContent='These ages control age-65 deduction eligibility only. The calculator adds one year to each age as the retirement simulation advances. Spouse age is used for married filing statuses.';
+   if(spouse&&spouse.parentElement)spouse.parentElement.insertAdjacentElement('afterend',note);else grid.prepend(note);
+   var btn=document.createElement('button');btn.type='button';btn.className='age-reset-v1';btn.textContent='Use retirement age from the calculator';
+   btn.addEventListener('click',function(){
+     try{localStorage.removeItem(TAX);}catch(e){}
+     var tax=document.getElementById('senior-taxpayerAge-v14');
+     if(tax){try{tax.value=Math.round(typeof readModeledRetirementAge==='function'?num(readModeledRetirementAge()):62);}catch(e){tax.value=62;}}
+     try{if(typeof update==='function')update();}catch(e){}
+     document.dispatchEvent(new Event('change',{bubbles:true}));
+   });
+   grid.appendChild(btn);
+   return true;
+ }
+ function boot(n){if(enhance())return;if(n)setTimeout(function(){boot(n-1)},200);}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){boot(30)});else boot(30);
 })();
 </script>
 
 
-<script id="page4-startup-refresh-fix-v1">
+<style id="page4-senior-assumptions-below-green-style-v1">
+#page4EffectiveFederalDeductionV3 + #seniorDeductionSettingsV14{margin-top:10px!important}
+#seniorDeductionSettingsV14 .senior-intro{font-size:12px!important;line-height:1.4!important}
+</style>
+<script id="page4-senior-assumptions-below-green-v2">
 (function(){
   'use strict';
+  function place(){
+    var green=document.getElementById('page4EffectiveFederalDeductionV3');
+    var settings=document.getElementById('seniorDeductionSettingsV14');
+    if(!green||!settings)return false;
 
-  function goToTop(){
-    try{
-      if('scrollRestoration' in history) history.scrollRestoration='manual';
-    }catch(e){}
-    try{window.scrollTo({top:0,left:0,behavior:'auto'});}
-    catch(e){try{window.scrollTo(0,0);}catch(err){}}
+    if(green.nextElementSibling!==settings){
+      green.insertAdjacentElement('afterend',settings);
+    }
+
+    var h=settings.querySelector('h4');
+    var heading='Assumptions used by the green deduction box';
+    if(h && h.textContent!==heading) h.textContent=heading;
+
+    var p=settings.querySelector('.senior-intro');
+    var copy='These values control the effective federal standard deduction shown directly above and used in the federal tax calculation. Taxpayer and spouse ages determine who qualifies. The dollar amounts, income limits, phase-down rate, and expiration year are editable planning assumptions.';
+    if(p && p.textContent!==copy) p.textContent=copy;
+
+    return true;
   }
 
-  function refreshPage4(){
-    goToTop();
-
-    try{
-      if(typeof window.update==='function') window.update();
-      else if(typeof update==='function') update();
-    }catch(e){}
-
-    try{window.dispatchEvent(new Event('resize'));}catch(e){}
-
-    /* Some chart/slider libraries finish loading after the HTML. */
-    setTimeout(function(){
-      goToTop();
-      try{
-        if(typeof window.update==='function') window.update();
-        else if(typeof update==='function') update();
-      }catch(e){}
-      try{window.dispatchEvent(new Event('resize'));}catch(e){}
-    },300);
-
-    setTimeout(function(){
-      try{
-        if(typeof window.update==='function') window.update();
-        else if(typeof update==='function') update();
-      }catch(e){}
-      try{window.dispatchEvent(new Event('resize'));}catch(e){}
-    },1200);
+  function boot(tries){
+    if(place()) return;
+    if(tries>0) setTimeout(function(){boot(tries-1);},200);
   }
 
   if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',refreshPage4,{once:true});
+    document.addEventListener('DOMContentLoaded',function(){boot(30);},{once:true});
   }else{
-    refreshPage4();
+    boot(30);
   }
 
-  window.addEventListener('load',refreshPage4,{once:true});
-  window.addEventListener('pageshow',function(event){
-    if(event.persisted) refreshPage4();
-  });
+  window.addEventListener('load',function(){
+    setTimeout(place,150);
+    setTimeout(place,700);
+    setTimeout(place,1600);
+  },{once:true});
 })();
 </script>
-
 </body></html>
 <!-- FINAL PAGE 4 EXISTING-BALANCE NAMES + STABLE $100K BUCKET RANGES -->
 <script id="page4-existing-balance-bucket-authoritative-v2">
@@ -12439,356 +12013,249 @@ main,section,article,form,
 })();
 </script>
 
-<!-- V27: actual visible Page 4 investment-return slider width and contrast fix -->
-<style id="v27VisibleInvestmentReturnSliderFix">
-/* The visible control is #page4CleanReturnSlider, not the original hidden noUi card. */
-#page4ReturnCard_custom,
-#page4ReturnCard_custom.active{
-  padding-left:4px!important;
-  padding-right:4px!important;
-  opacity:1!important;
-}
-#page4CustomReturnHost{
-  width:100%!important;
-  padding-left:0!important;
-  padding-right:0!important;
-  margin:0!important;
-  opacity:1!important;
-}
-#page4CleanReturnControl{
-  width:100%!important;
-  padding:0!important;
-  margin:0!important;
-  opacity:1!important;
-}
-#page4CleanReturnRow{
-  grid-template-columns:40px minmax(0,1fr) 40px!important;
-  gap:4px!important;
-  width:100%!important;
-  padding:0!important;
-  margin:0!important;
-  opacity:1!important;
-}
-.page4-clean-return-step{
-  width:40px!important;
-  min-width:40px!important;
-  height:44px!important;
-  border-radius:12px!important;
-  background:#111827!important;
-  color:#ffffff!important;
-  opacity:1!important;
-  filter:none!important;
-}
-#page4CleanReturnSlider{
-  width:100%!important;
-  min-width:0!important;
-  height:42px!important;
-  opacity:1!important;
-  filter:none!important;
-}
-#page4CleanReturnSlider::-webkit-slider-runnable-track{
-  height:11px!important;
-  background:linear-gradient(
-    to right,
-    #16a34a 0%,
-    #16a34a var(--fill, 0%),
-    #d1d5db var(--fill, 0%),
-    #d1d5db 100%
-  )!important;
-  opacity:1!important;
-}
-#page4CleanReturnSlider::-webkit-slider-thumb{
-  width:34px!important;
-  height:34px!important;
-  margin-top:-11.5px!important;
-  border:4px solid #16a34a!important;
-  background:#ffffff!important;
-  opacity:1!important;
-  filter:none!important;
-}
-#page4CleanReturnSlider::-moz-range-track{
-  height:11px!important;
-  background:#d1d5db!important;
-  opacity:1!important;
-}
-#page4CleanReturnSlider::-moz-range-progress{
-  height:11px!important;
-  background:#16a34a!important;
-  opacity:1!important;
-}
-#page4CleanReturnSlider::-moz-range-thumb{
-  width:34px!important;
-  height:34px!important;
-  border:4px solid #16a34a!important;
-  background:#ffffff!important;
-  opacity:1!important;
-  filter:none!important;
-}
-/* Keep the unselected return card readable instead of washing out the whole control. */
-#page4ReturnCard_custom:not(.active){
-  opacity:1!important;
-}
-#page4ReturnCard_custom:not(.active) #page4CleanReturnLabel,
-#page4ReturnCard_custom:not(.active) #page4CleanReturnValue{
-  opacity:1!important;
-  color:#111827!important;
-}
-@media(max-width:520px){
-  #page4ReturnCard_custom,
-  #page4ReturnCard_custom.active{
-    padding-left:2px!important;
-    padding-right:2px!important;
-  }
-  #page4CleanReturnRow{
-    grid-template-columns:38px minmax(0,1fr) 38px!important;
-    gap:3px!important;
-  }
-  .page4-clean-return-step{
-    width:38px!important;
-    min-width:38px!important;
-    height:42px!important;
-  }
-}
-</style>
-
-<!-- V28: one authoritative Page 4 return-source controller; remove duplicate hidden source panels. -->
-<style id="page4-return-source-single-authority-v28-style">
-/* Old panels created duplicate IDs and could keep a stale blue selection. */
-#page4ReturnSourcePanel,
-#page4ExclusiveHistorySourceRow,
-#page4HistorySourceStatus{
-  display:none!important;
-}
+<!-- Page 4 return-source selection synchronization -->
+<style id="page4-return-radio-outline-sync">
+/* A stale JavaScript active class must never show a different choice. */
+#page4ThreeReturnChoices .page4-three-choice,
 #page4ThreeReturnChoices .page4-three-choice.active{
-  border-color:#2563eb!important;
-  box-shadow:inset 0 0 0 1px #2563eb!important;
-  background:#eff6ff!important;
-}
-#page4ThreeReturnChoices .page4-three-choice:not(.active){
-  border-color:#d1d5db!important;
-  box-shadow:none!important;
+  border:1px solid #cbd5e1!important;
+  padding:9px!important;
   background:#fff!important;
+  box-shadow:none!important;
+}
+#page4ThreeReturnChoices .page4-three-choice:has(> input[type="radio"]:checked){
+  border:2px solid #2563eb!important;
+  padding:8px!important;
+  background:#eff6ff!important;
+  box-shadow:0 0 0 1px rgba(37,99,235,.08)!important;
 }
 </style>
-<script id="page4-return-source-single-authority-v28-script">
+<script id="page4-return-radio-outline-sync-script">
 (function(){
   'use strict';
-  if(window.__page4ReturnSourceSingleAuthorityV28)return;
-  window.__page4ReturnSourceSingleAuthorityV28=true;
+  if(window.__page4ReturnRadioOutlineSync)return;
+  window.__page4ReturnRadioOutlineSync=true;
 
-  var MODE_KEY='page4_return_source_mode';
-  var LEGACY_MODE_KEY='page4_historical_return_source';
-  var RANGE_KEY='shared_historical_market_start_year';
-  var SCENARIO_KEY='page4_named_scenario_year';
-
-  function read(key,fallback){
-    try{
-      var value=localStorage.getItem(key);
-      return value===null?fallback:value;
-    }catch(e){return fallback;}
-  }
-  function save(key,value){try{localStorage.setItem(key,String(value));}catch(e){}}
-  function cleanMode(value){return value==='scenario'||value==='range'?'_'+value:'custom';}
-  function mode(){
-    var value=read(MODE_KEY,'custom');
-    return value==='scenario'||value==='range'?value:'custom';
-  }
-
-  function finalPanel(){return document.getElementById('page4ThreeReturnChoices');}
-  function finalScenario(){return finalPanel()&&finalPanel().querySelector('#page4ReturnScenarioSelect');}
-  function finalRange(){return finalPanel()&&finalPanel().querySelector('#page4ReturnRangeSelect');}
-
-  function removeObsoletePanel(){
-    var old=document.getElementById('page4ReturnSourcePanel');
-    if(old&&old.parentNode)old.parentNode.removeChild(old);
-    var row=document.getElementById('page4ExclusiveHistorySourceRow');
-    if(row)row.style.display='none';
-    var status=document.getElementById('page4HistorySourceStatus');
-    if(status)status.style.display='none';
-  }
-
-  function setActualHistoricalSwitch(selected){
-    var toggle=document.getElementById('historyModeToggle');
-    if(toggle){
-      var shouldCheck=selected!=='custom';
-      if(toggle.checked!==shouldCheck)toggle.checked=shouldCheck;
-    }
-    save('shared_historical_market_enabled',selected==='range'?'1':'0');
-  }
-
-  function paint(selected){
-    var panel=finalPanel();
-    if(!panel)return;
-    ['custom','scenario','range'].forEach(function(name){
-      var radio=panel.querySelector('#page4ReturnMode_'+name);
-      var card=panel.querySelector('#page4ReturnCard_'+name);
-      if(radio)radio.checked=selected===name;
-      if(card)card.classList.toggle('active',selected===name);
-    });
-
-    var customCard=panel.querySelector('#page4ReturnCard_custom');
-    var customSlider=document.getElementById('page4CleanReturnSlider');
-    if(customCard)customCard.style.opacity='1';
-    if(customSlider){
-      customSlider.disabled=selected!=='custom';
-      customSlider.style.opacity='1';
-      customSlider.style.pointerEvents=selected==='custom'?'auto':'none';
-    }
-
-    var status=panel.querySelector('#page4ReturnChoiceStatus');
-    if(!status)return;
-    if(selected==='custom'){
-      var value=document.getElementById('page4CleanReturnValue');
-      status.textContent='Currently using: Your investment return percentage — '+(value?value.textContent:'')+'.';
-    }else if(selected==='scenario'){
-      var scenario=finalScenario();
-      var scenarioOption=scenario&&scenario.options[scenario.selectedIndex];
-      status.textContent='Currently using: Historical time machine — '+(scenarioOption?scenarioOption.textContent:'selected scenario')+'.';
-    }else{
-      var range=finalRange();
-      var rangeOption=range&&range.options[range.selectedIndex];
-      status.textContent='Currently testing: Exact historical year range — '+(rangeOption?rangeOption.textContent:'selected range')+'.';
-    }
-  }
-
-  function apply(selected,rerun){
-    selected=selected==='scenario'||selected==='range'?selected:'custom';
-    save(MODE_KEY,selected);
-    save(LEGACY_MODE_KEY,selected);
-    setActualHistoricalSwitch(selected);
-
-    if(selected==='scenario'){
-      var scenario=finalScenario();
-      var original=document.getElementById('historyStartYear');
-      if(scenario){
-        save(SCENARIO_KEY,scenario.value);
-        if(original)original.value=scenario.value;
-      }
-    }else if(selected==='range'){
-      var range=finalRange();
-      if(range){
-        save(RANGE_KEY,range.value);
-        save('page4_history_start_year',range.value);
-      }
-    }
-
-    paint(selected);
-    if(rerun!==false){
-      try{if(typeof page4PauseHistory==='function')page4PauseHistory();}catch(e){}
-      try{if(typeof update==='function')update();}catch(e){}
-      setTimeout(function(){paint(selected);},0);
-    }
-  }
-
-  /* The calculation must use the exact same authority as the visible radio. */
-  window.page4HistoryEnabled=function(){return mode()!=='custom';};
-
-  function bind(){
-    removeObsoletePanel();
-    var panel=finalPanel();
+  function sync(){
+    var panel=document.getElementById('page4ThreeReturnChoices');
     if(!panel)return false;
-    if(panel.dataset.singleAuthorityV28==='1'){
-      paint(mode());
-      return true;
-    }
-    panel.dataset.singleAuthorityV28='1';
-
-    panel.addEventListener('change',function(event){
-      var radio=event.target.closest&&event.target.closest('input[name="page4-return-mode"]');
-      if(radio&&radio.checked){
-        event.stopImmediatePropagation();
-        apply(radio.value,true);
-        return;
-      }
-      if(event.target.id==='page4ReturnScenarioSelect'){
-        event.stopImmediatePropagation();
-        apply('scenario',true);
-      }else if(event.target.id==='page4ReturnRangeSelect'){
-        event.stopImmediatePropagation();
-        apply('range',true);
-      }
-    },true);
-
-    panel.addEventListener('pointerdown',function(event){
-      if(event.target.id==='page4ReturnScenarioSelect')apply('scenario',false);
-      if(event.target.id==='page4ReturnRangeSelect')apply('range',false);
-    },true);
-
-    /* Clicking anywhere in the custom return card selects the custom source. */
-    var custom=panel.querySelector('#page4ReturnCard_custom');
-    if(custom)custom.addEventListener('pointerdown',function(event){
-      if(event.target.closest&&event.target.closest('button,input[type="range"],input[type="radio"]')){
-        apply('custom',false);
-      }
-    },true);
-
-    apply(mode(),true);
+    var cards=panel.querySelectorAll('.page4-three-choice');
+    cards.forEach(function(card){
+      var radio=card.querySelector(':scope > input[type="radio"]');
+      card.classList.toggle('active',!!(radio&&radio.checked));
+      card.setAttribute('aria-selected',radio&&radio.checked?'true':'false');
+    });
     return true;
   }
 
-  function retry(n){
-    if(bind())return;
-    if(n>0)setTimeout(function(){retry(n-1);},200);
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){retry(25);});
-  else retry(25);
+  document.addEventListener('change',function(event){
+    if(event.target&&event.target.matches&&event.target.matches('#page4ThreeReturnChoices input[type="radio"]')){
+      requestAnimationFrame(sync);
+      setTimeout(sync,30);
+    }
+  },true);
 
-  window.addEventListener('load',function(){
-    setTimeout(function(){removeObsoletePanel();bind();apply(mode(),true);},500);
-  });
+  document.addEventListener('click',function(event){
+    if(event.target&&event.target.closest&&event.target.closest('#page4ThreeReturnChoices .page4-three-choice')){
+      setTimeout(sync,0);
+      setTimeout(sync,60);
+    }
+  },true);
+
+  function start(tries){
+    if(sync()){
+      setTimeout(sync,100);
+      setTimeout(sync,500);
+      return;
+    }
+    if(tries>0)setTimeout(function(){start(tries-1);},150);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){start(30);});
+  else start(30);
+  window.addEventListener('pageshow',function(){setTimeout(sync,0);});
 })();
 </script>
 
+<!-- SAFE_GOVERNMENT_LIMIT_STATUS_PAGE4_V2 -->
+<style id="safe-government-limit-status-page4-v2-style">
+#governmentLimitStatusSafeV2{margin:10px 12px;padding:9px 11px;border:1px solid #86efac;border-radius:10px;background:#f0fdf4;color:#166534;font:800 12px/1.35 Arial,sans-serif;box-sizing:border-box}
+#governmentLimitStatusSafeV2.limits-on{border-color:#cbd5e1;background:#f8fafc;color:#475569}
+</style>
+<script id="safe-government-limit-status-page4-v2">
+(function(){
+  'use strict';
+  function limitsOff(){try{return localStorage.getItem('retirement_disable_government_contribution_limits')==='1'||localStorage.getItem('page3_disable_government_contribution_limits')==='1'}catch(e){return false}}
+  function show(){
+    var anchor=document.getElementById('taxAssumptionBanner')||document.getElementById('assumptions');
+    if(!anchor)return;
+    var el=document.getElementById('governmentLimitStatusSafeV2');
+    if(!el){el=document.createElement('div');el.id='governmentLimitStatusSafeV2';anchor.parentNode.insertBefore(el,anchor.nextSibling)}
+    if(limitsOff()){
+      el.className='';
+      el.textContent='Government contribution limits are removed. This page uses the full 401(k) and Roth amounts calculated on Page 3.';
+    }else{
+      el.className='limits-on';
+      el.textContent='Government contribution limits are active.';
+    }
+  }
+  function boot(){show();setTimeout(show,250);setTimeout(function(){try{if(typeof update==='function')update()}catch(e){}},400)}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+  addEventListener('pageshow',boot);
+})();
+</script>
 
-<style id="page4-tooltip-collapsible-compact-v30">
-/* Compact chart tooltip: quick summary first, detailed audit only when expanded. */
-.page4-clean-tip{
-  width:min(286px,calc(100% - 12px))!important;
-  max-width:calc(100% - 12px)!important;
-  padding:7px 8px 6px!important;
-  pointer-events:auto!important;
-  font-size:10.5px!important;
-  line-height:1.08!important;
+<!-- Page 4 selected-year slider matched to Page 3 control -->
+<style id="page4YearSliderMatchPage3Final">
+.ctrl[data-key="YEARS"] .basic-minus-plus-row{
+  display:grid !important;
+  grid-template-columns:38px minmax(0,1fr) 38px !important;
+  align-items:center !important;
+  column-gap:8px !important;
+  width:100% !important;
+  max-width:100% !important;
+  margin:8px 0 24px !important;
+  padding:0 4px !important;
+  box-sizing:border-box !important;
+  overflow:visible !important;
 }
-.page4-clean-tip .ct-title-compact{
-  display:flex!important;
-  justify-content:space-between!important;
-  align-items:baseline!important;
-  gap:8px!important;
-  margin:0 0 4px!important;
-  padding-bottom:4px!important;
-  border-bottom:1px solid #d1d5db!important;
-  font-size:12px!important;
-  white-space:nowrap!important;
+.ctrl[data-key="YEARS"] .basic-slider-step-btn{
+  width:38px !important;
+  min-width:38px !important;
+  max-width:38px !important;
+  height:38px !important;
+  min-height:38px !important;
+  max-height:38px !important;
+  padding:0 !important;
+  border-radius:999px !important;
+  font-size:22px !important;
+  line-height:38px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
 }
-.page4-clean-tip .ct-net-compact{font-size:10.5px!important;color:#334155!important;text-align:right!important}
-.page4-clean-tip .ct-quick-grid{display:grid!important;grid-template-columns:1fr!important;gap:1px!important}
-.page4-clean-tip .ct-row{min-height:14px!important;line-height:1.04!important}
-.page4-clean-tip .ct-dot{width:8px!important;height:8px!important;min-width:8px!important;margin-right:3px!important}
-.page4-clean-tip .ct-more{margin-top:5px!important;border-top:1px solid #d1d5db!important;padding-top:4px!important}
-.page4-clean-tip .ct-more>summary{
-  cursor:pointer!important;
-  list-style:none!important;
-  display:flex!important;
+.ctrl[data-key="YEARS"] .basic-minus-plus-row .noUi-target{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+  height:8px !important;
+  min-height:8px !important;
+  margin:0 !important;
+  padding:0 !important;
+  box-sizing:border-box !important;
+  flex:none !important;
+  overflow:visible !important;
+}
+.ctrl[data-key="YEARS"] .basic-minus-plus-row .noUi-base,
+.ctrl[data-key="YEARS"] .basic-minus-plus-row .noUi-connects{
+  width:100% !important;
+  height:8px !important;
+}
+.ctrl[data-key="YEARS"] .basic-minus-plus-row .noUi-handle{
+  width:38px !important;
+  height:38px !important;
+  right:-19px !important;
+  top:-15px !important;
+  border-radius:50% !important;
+  box-sizing:border-box !important;
+}
+@media(max-width:520px){
+  .ctrl[data-key="YEARS"] .basic-minus-plus-row{
+    grid-template-columns:36px minmax(0,1fr) 36px !important;
+    column-gap:7px !important;
+    padding:0 3px !important;
+  }
+  .ctrl[data-key="YEARS"] .basic-slider-step-btn{
+    width:36px !important;
+    min-width:36px !important;
+    max-width:36px !important;
+    height:36px !important;
+    min-height:36px !important;
+    max-height:36px !important;
+    font-size:21px !important;
+    line-height:36px !important;
+  }
+}
+</style>
+
+<!-- Page 4 investment-return slider sized to match Page 3 -->
+<style id="page4InvestmentReturnMatchPage3V15">
+#page4ReturnCard_custom{
+  padding:6px 7px 8px!important;
+}
+#page4ReturnCard_custom.active{
+  padding:5px 6px 7px!important;
+}
+#page4CustomReturnHost{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  box-sizing:border-box!important;
+}
+#page4CleanReturnControl{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  box-sizing:border-box!important;
+}
+#page4CleanReturnRow{
+  display:grid!important;
+  grid-template-columns:38px minmax(0,1fr) 38px!important;
   align-items:center!important;
-  justify-content:space-between!important;
-  min-height:24px!important;
-  padding:3px 5px!important;
-  border-radius:6px!important;
-  background:#f8fafc!important;
-  color:#1e3a8a!important;
-  font-weight:1000!important;
-  user-select:none!important;
+  column-gap:6px!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  box-sizing:border-box!important;
 }
-.page4-clean-tip .ct-more>summary::-webkit-details-marker{display:none!important}
-.page4-clean-tip .ct-more>summary:after{content:'▾';font-size:12px!important}
-.page4-clean-tip .ct-more[open]>summary:after{content:'▴'}
-.page4-clean-tip .ct-more-body{padding-top:3px!important}
-.page4-clean-tip .ct-section{margin:3px 0 1px!important;padding-top:3px!important;font-size:8.5px!important}
-.page4-clean-tip .ct-note{margin:4px 0 0!important;padding-top:4px!important;max-width:none!important;font-size:9px!important;line-height:1.12!important}
-.page4-clean-tip .ct-note-line{display:inline!important}
-@media(max-width:390px){
-  .page4-clean-tip{width:min(276px,calc(100% - 10px))!important}
-  .page4-clean-tip .ct-title-compact{font-size:11.5px!important}
+.page4-clean-return-step{
+  width:38px!important;
+  min-width:38px!important;
+  max-width:38px!important;
+  height:38px!important;
+  min-height:38px!important;
+  max-height:38px!important;
+  border-radius:999px!important;
+  font-size:22px!important;
+  line-height:38px!important;
+}
+#page4CleanReturnSlider{
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  height:38px!important;
+  margin:0!important;
+  padding:0!important;
+  box-sizing:border-box!important;
+}
+#page4CleanReturnSlider::-webkit-slider-runnable-track{
+  width:100%!important;
+  height:9px!important;
+}
+#page4CleanReturnSlider::-webkit-slider-thumb{
+  width:32px!important;
+  height:32px!important;
+  margin-top:-11.5px!important;
+}
+@media(max-width:520px){
+  #page4ReturnCard_custom{padding-left:5px!important;padding-right:5px!important;}
+  #page4ReturnCard_custom.active{padding-left:4px!important;padding-right:4px!important;}
+  #page4CleanReturnRow{
+    grid-template-columns:36px minmax(0,1fr) 36px!important;
+    column-gap:5px!important;
+  }
+  .page4-clean-return-step{
+    width:36px!important;
+    min-width:36px!important;
+    max-width:36px!important;
+    height:36px!important;
+    min-height:36px!important;
+    max-height:36px!important;
+    font-size:21px!important;
+    line-height:36px!important;
+  }
 }
 </style>

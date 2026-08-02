@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <script id="retirement-autosave-clean-migration-v1">
 (function(){
   'use strict';
@@ -24,8 +23,8 @@
   }catch(e){}
 })();
 </script>
-<html lang="en"><head>
-<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Income &amp; Expense Setup</title><link href="vendor/nouislider-app.min.css" rel="stylesheet"/><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f8fafc;color:#111827}.app-nav{position:sticky;top:0;z-index:99999;background:#fff;border-bottom:1px solid #d1d5db;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)}.app-nav .nav-title{font-weight:900;font-size:14px;text-align:center;flex:1}.app-nav button{border:0;border-radius:8px;padding:8px 12px;font-weight:900;cursor:pointer;font-size:12px;color:#fff;min-width:78px}.app-nav .back{background:#ef4444}.app-nav .next{background:#16a34a}.page{width:100%;max-width:1180px;margin:0 auto;padding:10px}.top-summary{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:8px;margin-bottom:10px}.summary-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:10px;box-shadow:0 2px 7px rgba(0,0,0,.05)}.summary-card .label{font-size:11px;font-weight:800;color:#6b7280;margin-bottom:4px}.summary-card .value{font-size:15px;font-weight:900}.green{color:#16a34a}.red{color:#ef4444}.yellow{color:#f2cf4a;text-shadow:0 1px 1px rgba(0,0,0,.15)}.main-grid{display:grid;grid-template-columns:minmax(310px,430px) 1fr;gap:10px;align-items:stretch}.panel{background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.06);padding:10px}.panel h2{margin:0 0 8px;font-size:16px}.slider-card{border:1px solid #e5e7eb;border-radius:8px;background:#fff;padding:7px;margin-bottom:7px}.slider-head{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;margin-bottom:5px}.slider-title{font-weight:900;font-size:12px;line-height:1.15}.slider-value{font-weight:900;font-size:12px;line-height:1.15}.slider-radios{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;font-size:10px;font-weight:900;line-height:1}.slider-radios label{cursor:pointer;display:flex;align-items:center;gap:2px;white-space:nowrap}.slider-radios input{width:11px;height:11px;margin:0}.sensitivity-label{width:100%;font-size:10px;font-weight:900;color:#6b7280;text-align:right;margin-bottom:3px}.slider-holder{margin:8px 4px 7px}.noUi-target{height:8px;border:0;box-shadow:none;background:#e5e7eb;border-radius:999px}.noUi-connect{background:#111827}.noUi-horizontal .noUi-handle{width:18px;height:18px;right:-9px;top:-5px;border-radius:50%;border:2px solid #111827;box-shadow:0 1px 3px rgba(0,0,0,.25)}.noUi-handle:before,.noUi-handle:after{display:none}#monthlyIncomeSlider .noUi-connect{background:#16a34a}#monthlyIncomeSlider .noUi-handle{border-color:#16a34a}#monthly401kSlider .noUi-connect{background:#ef4444}#monthly401kSlider .noUi-handle{border-color:#ef4444}#monthlyRothSlider .noUi-connect{background:#f2cf4a}#monthlyRothSlider .noUi-handle{border-color:#b45309}.inline-limit-warning{visibility:hidden;min-height:18px;margin-top:4px;padding:4px 7px;border-radius:6px;font-size:11px;font-weight:bold;line-height:1.1;display:flex;align-items:center;gap:5px;width:fit-content}.inline-limit-warning.show{visibility:visible}.inline-limit-warning.k401{background:#fff1f2;border:1px solid #fecaca;color:#b91c1c}.inline-limit-warning.roth{background:#fffbeb;border:1px solid #fde68a;color:#92400e}.controls-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}.controls-row button,.controls-row select{padding:8px;border-radius:7px;border:1px solid #d1d5db;font-weight:800;font-size:12px}.controls-row button{border:0;color:#fff;background:#111827;cursor:pointer}.controls-row button.green-btn{background:#16a34a}.controls-row button.red-btn{background:#ef4444}.controls-row select{background:#fff;flex:1;min-width:140px}.expense-list{display:flex;flex-direction:column;gap:7px}.expense-row{display:grid;grid-template-columns:20px 1fr 86px 42px 28px;gap:5px;align-items:center;padding:7px;border:1px solid #e5e7eb;border-radius:9px;background:#f9fafb}.color-swatch{width:18px;height:18px;border-radius:5px;border:1px solid rgba(0,0,0,.15)}.expense-row input{width:100%;padding:5px;border:1px solid #d1d5db;border-radius:6px;font-size:12px}.expense-row .percent{font-size:11px;font-weight:900;text-align:right;color:#374151}.expense-row .delete{border:0;background:#ef4444;color:#fff;border-radius:6px;height:25px;font-weight:900;cursor:pointer}#chartContainer{flex:1;min-height:520px;height:520px;display:block;overflow:visible}.block-chart{width:100%;height:100%;min-height:500px;display:flex;flex-wrap:wrap;align-content:stretch;gap:6px;padding:6px;border-radius:12px;background:#f8fafc;border:1px solid #e5e7eb}.block-item{min-width:110px;min-height:78px;border-radius:10px;color:#fff;padding:9px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.15);overflow:hidden}.block-name{font-size:13px;font-weight:900;line-height:1.1}.block-amount{font-size:18px;font-weight:900;margin-top:4px}.block-percent{font-size:12px;font-weight:900;margin-top:2px;opacity:.95}.slider-max-panel{margin-top:10px;padding:10px;border:1px solid #d1d5db;border-radius:8px;background:#f9fafb;font-size:12px}.slider-max-grid{display:grid;grid-template-columns:1fr 90px 70px;gap:6px 8px;align-items:center}.slider-max-grid label{font-weight:bold}.slider-max-grid input{width:100%;padding:4px}.slider-max-grid button{padding:5px 8px;border:0;border-radius:5px;font-weight:bold;cursor:pointer;background:#111827;color:white}.budget-note{margin-top:8px;padding:9px;border-radius:9px;background:#fef3c7;border:1px solid #f59e0b;font-size:12px;font-weight:700}.saved-note{color:#6b7280;font-size:11px;margin-top:6px}@media(max-width:760px){.top-summary{grid-template-columns:repeat(2,minmax(130px,1fr))}.top-summary .summary-card:last-child{grid-column:span 2}.main-grid{grid-template-columns:1fr}#chartContainer{min-height:460px;height:460px}.block-chart{min-height:440px;gap:5px;padding:5px}.block-item{min-width:92px;min-height:68px;padding:7px}.block-name{font-size:11px}.block-amount{font-size:15px}}.expense-list{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:5px !important}.expense-row{display:grid !important;grid-template-columns:16px 1fr 90px 42px 24px !important;gap:5px !important;align-items:center !important;padding:8px !important;border-radius:8px !important;min-height:48px !important}.color-swatch{width:12px !important;height:12px !important;border-radius:4px !important}.expense-row input[type="text"],.expense-row input[type="number"],.expense-row input{padding:6px !important;font-size:15px !important;font-weight:800 !important;height:34px !important}.expense-row .percent{font-size:13px !important;font-weight:900 !important;color:#111827 !important}.expense-row .delete{height:21px !important;font-size:11px !important;border-radius:5px !important}@media(max-width:520px){.expense-list{grid-template-columns:1fr !important}}.setup-age-period,.age-period-radios{display:flex !important;gap:8px !important;align-items:center !important;flex-wrap:wrap !important;margin:0 0 6px 0 !important;font-size:11px !important;font-weight:900 !important}.setup-age-period .age-period-title,.age-period-radios .age-period-title{font-weight:900 !important;color:#374151 !important}.setup-age-period label,.age-period-radios label{cursor:pointer !important;display:flex !important;align-items:center !important;gap:4px !important;white-space:nowrap !important}.setup-age-period input[type="radio"],.age-period-radios input[type="radio"]{width:13px !important;height:13px !important;margin:0 !important}.income-year-selector{margin:0 0 10px;background:#fff;border:1px solid #d1d5db;border-radius:10px;box-shadow:0 2px 7px rgba(0,0,0,.05);padding:10px;font-size:12px}.income-year-head{display:flex;justify-content:space-between;align-items:center;font-weight:900;margin-bottom:6px}.income-year-pill{background:#111827;color:white;border-radius:999px;padding:4px 9px;font-weight:1000}#incomeYearSlider{width:100%;height:30px;accent-color:#16a34a;cursor:pointer}.income-year-ticks{display:flex;justify-content:space-between;gap:1px;margin-top:2px;font-size:9px;font-weight:900;color:#6b7280;user-select:none}.income-year-ticks span{flex:1;text-align:center;min-width:8px}.income-year-note{font-size:11px;font-weight:800;color:#374151;margin-top:4px}.top-inflation-choice{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:900;white-space:nowrap;cursor:pointer}.top-inflation-choice input{width:15px;height:15px;margin:0;accent-color:#111827}.page-save-left,.page-save-center,.page-save-right{display:flex;align-items:center;gap:8px;flex:1}.page-save-left{justify-content:flex-start}.page-save-center{justify-content:center}.page-save-right{justify-content:flex-end}@media(max-width:620px){.page-save-wrap{gap:6px}.page-save-left,.page-save-center,.page-save-right{flex:1;justify-content:center}.page-save-btn{padding:7px 10px}.top-inflation-choice{font-size:11px}}.page-save-wrap{position:sticky;top:48px;z-index:9998;background:#fff7ed;border-bottom:1px solid #fed7aa;padding:7px 10px;display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:Arial,sans-serif}.page-save-btn{border:0;border-radius:8px;padding:8px 14px;font-weight:900;cursor:pointer;font-size:12px;background:#111827;color:#fff}.page-save-status{font-size:12px;font-weight:900;color:#166534}.monthly-income-sync-note{display:block;margin:4px 0 5px;padding:5px 8px;border-radius:8px;border:1px solid #bbf7d0;background:#f0fdf4;color:#166534;font-size:11px;font-weight:900;line-height:1.2}.monthly-income-sync-note.off{border-color:#d1d5db;background:#f9fafb;color:#374151}.income-inflation-panel{margin:0 0 8px;padding:9px 10px;border:1px solid #bfdbfe;border-radius:10px;background:linear-gradient(135deg,#eff6ff,#ffffff);box-shadow:0 2px 7px rgba(0,0,0,.05)}.income-inflation-title{font-size:13px;font-weight:1000;color:#111827;margin-bottom:7px}.income-inflation-options{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.income-inflation-options label{display:flex;align-items:center;gap:6px;min-height:30px;padding:6px 10px;border:1px solid #d1d5db;border-radius:999px;background:#fff;font-size:12px;font-weight:900;cursor:pointer;user-select:none}.income-inflation-options input{width:17px;height:17px;margin:0;accent-color:#111827}.income-inflation-note{margin-top:6px;font-size:11px;line-height:1.25;font-weight:800;color:#374151}.income-inflation-panel.on{border-color:#86efac;background:linear-gradient(135deg,#f0fdf4,#ffffff)}.income-inflation-panel.off{border-color:#fed7aa;background:linear-gradient(135deg,#fff7ed,#ffffff)}.inflation-item-note{grid-column:1 / -1;margin-top:-2px;padding:4px 6px;border-radius:6px;background:#fffbeb;border:1px solid #fde68a;color:#92400e;font-size:10.5px;font-weight:900;line-height:1.15}.block-note{margin-top:3px;font-size:10.5px;font-weight:900;line-height:1.12;opacity:.95}.expense-row{grid-template-columns:16px 1fr 90px 42px 24px !important;gap:5px !important;min-height:46px !important;padding:7px !important}.expense-rule-note,.expense-row .expense-kind,.expense-row .expense-term{display:none!important}.k401-page-transfer-overlay{position:fixed;inset:0;z-index:2147483647;overflow:hidden;background:transparent;display:none;font-family:Arial,sans-serif}.k401-page-transfer-overlay.show{display:block}.k401-transfer-track{width:200vw;height:100vh;display:flex;transform:translateX(0)}.k401-page-transfer-overlay.show .k401-transfer-track{animation:k401SlideToPageThree .95s cubic-bezier(.22,.82,.24,1) forwards}.k401-transfer-pane{width:100vw;height:100vh;flex:0 0 100vw;overflow:hidden;background:transparent;position:relative}.k401-transfer-page2-copy{width:100%;min-height:100vh;pointer-events:none}.k401-transfer-page3-frame{width:100%;height:100%;border:0;background:transparent;display:block;visibility:hidden!important;opacity:0!important}.k401-transfer-page3-static{width:100%;height:100%;background:#f4f4f4;overflow:hidden;font-family:Arial,sans-serif;color:#111827}.k401-static-nav{height:38px;background:#fff;border-bottom:1px solid #d1d5db;display:flex;align-items:center;justify-content:space-between;padding:0 10px;box-shadow:0 2px 8px rgba(0,0,0,.08);font-size:12px;font-weight:900}.k401-static-btn{border-radius:8px;padding:8px 12px;color:#fff;background:#ef4444;min-width:78px;text-align:center}.k401-static-btn.next{background:#16a34a}.k401-static-chart{width:99%;height:350px;margin:10px auto 16px;background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.1);position:relative;overflow:hidden}.k401-static-legend{position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;gap:16px;font-size:12px;font-weight:700;white-space:nowrap}.k401-static-legend span{display:inline-flex;align-items:center;gap:5px}.k401-static-dot{width:22px;height:10px;border-radius:3px;display:inline-block}.k401-static-plot{position:absolute;left:42px;right:12px;top:42px;bottom:34px;border-left:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;display:flex;align-items:flex-end;gap:7px;padding:0 8px}.k401-static-bar{flex:1;min-width:5px;border-radius:3px 3px 0 0;background:linear-gradient(to top,#ef4444 0 var(--red),#f2cf4a var(--red) 100%);box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}.k401-static-controls{width:99%;margin:10px auto;background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.1);padding:8px}.k401-static-row{display:flex;gap:6px;margin-bottom:6px}.k401-static-small{height:33px;border:1px solid #e5e7eb;border-radius:8px;background:#fafafa;flex:0 0 64px}.k401-static-slider-card{border:1px solid #e5e7eb;border-radius:9px;background:#fff;padding:7px 9px;margin:5px 0;box-shadow:0 1px 4px rgba(0,0,0,.04)}.k401-static-label{font-size:12px;font-weight:900;margin-bottom:7px}.k401-static-rail{height:6px;border-radius:999px;background:#e5e7eb;overflow:hidden}.k401-static-fill{height:100%;border-radius:999px;background:#ef4444;width:34%}.k401-static-fill.yellow{background:#f2cf4a;width:22%}.k401-static-fill.black{background:#111827;width:70%}.k401-transfer-plug-layer{position:fixed;inset:0;z-index:2147483647;pointer-events:none;display:flex;align-items:center;justify-content:center}.k401-transfer-plug-card{position:relative;width:min(290px,78vw);height:88px;border-radius:999px;background:rgba(255,255,255,.84);border:1px solid rgba(209,213,219,.9);box-shadow:0 18px 50px rgba(17,24,39,.20);backdrop-filter:blur(6px);overflow:hidden}.k401-transfer-stream{position:absolute;left:22px;top:42px;width:178px;height:4px;border-radius:999px;background:linear-gradient(90deg,rgba(59,130,246,.05),rgba(59,130,246,.95),rgba(34,197,94,.95));transform-origin:left center;animation:k401StreamGrow .95s ease forwards}.k401-transfer-stream:before,.k401-transfer-stream:after{content:"";position:absolute;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:#3b82f6;box-shadow:0 0 12px rgba(59,130,246,.85);animation:k401DataDot .55s linear infinite}.k401-transfer-stream:after{animation-delay:.18s}.k401-transfer-plug{position:absolute;left:40px;top:19px;width:58px;height:50px;animation:k401PlugMove .95s cubic-bezier(.18,.88,.25,1) forwards}.k401-transfer-plug svg{width:100%;height:100%;filter:drop-shadow(0 5px 10px rgba(37,99,235,.30))}.k401-transfer-socket{position:absolute;right:34px;top:22px;width:44px;height:44px;border-radius:13px;background:#16a34a;box-shadow:0 0 0 6px rgba(22,163,74,.12),0 0 25px rgba(22,163,74,.58);animation:k401SocketGlow .95s ease forwards}.k401-transfer-socket:before,.k401-transfer-socket:after{content:"";position:absolute;top:14px;width:5px;height:16px;border-radius:999px;background:#dcfce7}.k401-transfer-socket:before{left:13px}.k401-transfer-socket:after{right:13px}.k401-transfer-label{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-size:11px;font-weight:900;color:#111827;animation:k401LabelFade .95s ease forwards}.k401-transition-preload{position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}@keyframes k401SlideToPageThree{0%{transform:translateX(0)}100%{transform:translateX(-100vw)}}@keyframes k401PlugMove{0%{transform:translateX(0) scale(1)}62%{transform:translateX(137px) scale(1.04)}78%{transform:translateX(137px) scale(.96)}100%{transform:translateX(137px) scale(1)}}@keyframes k401StreamGrow{0%{transform:scaleX(.05);opacity:.15}45%{transform:scaleX(.75);opacity:1}100%{transform:scaleX(1);opacity:1}}@keyframes k401DataDot{0%{left:8px;opacity:0}20%{opacity:1}100%{left:164px;opacity:0}}@keyframes k401SocketGlow{0%,55%{box-shadow:0 0 0 6px rgba(22,163,74,.10),0 0 18px rgba(22,163,74,.30)}75%{box-shadow:0 0 0 12px rgba(22,163,74,.18),0 0 34px rgba(22,163,74,.80)}100%{box-shadow:0 0 0 6px rgba(22,163,74,.12),0 0 25px rgba(22,163,74,.58)}}@keyframes k401LabelFade{0%{opacity:0;transform:translateY(3px)}30%,82%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-3px)}}.k401-transfer-pane:nth-child(2)::before{content:none!important;display:none!important}.k401-transfer-page3-static,.k401-static-chart,.k401-static-controls{display:none!important}.noUi-target.slider-actually-locked,.noUi-target.locked{opacity:.45!important;pointer-events:none!important}input[type="range"].slider-actually-locked,input[type="range"].locked{opacity:.45!important;pointer-events:none!important}#monthlyIncomeSlider .noUi-connect{background:#16a34a!important}#monthlyIncomeSlider .noUi-handle{border-color:#16a34a!important}.auto-save-small-notice{position:fixed;top:54px;left:50%;transform:translateX(-50%);z-index:2147483647;display:none;padding:3px 8px;border-radius:999px;background:rgba(22,101,52,.92);color:#fff;font:900 11px/1.2 Arial,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.16);pointer-events:none}.auto-save-small-notice.show{display:block}.noUi-target.mode-locked,.noUi-target.locked,input[type="range"].mode-locked,input[type="range"].locked{opacity:.45!important;pointer-events:none!important}.expense-row{grid-template-columns:16px minmax(92px,1fr) 82px 42px 70px 24px !important;gap:4px !important;padding:6px !important;min-height:42px !important}.expense-row input[type="text"],.expense-row input[type="number"]{height:30px !important;padding:4px 5px !important;font-size:13px !important}.expense-row .term-select{height:30px !important;padding:3px 4px !important;border:1px solid #d1d5db !important;border-radius:6px !important;background:#fff !important;font-size:11px !important;font-weight:900 !important;width:70px !important}.expense-row .term-spacer{width:70px;height:1px}.expense-row .delete{height:22px !important}@media(max-width:520px){.expense-row{grid-template-columns:14px minmax(82px,1fr) 78px 34px 62px 22px !important;gap:3px !important}.expense-row .term-select{width:62px !important;font-size:10px !important}.expense-row .term-spacer{width:62px}}.debt-payments-panel{margin:0 0 8px 0;padding:8px;border:1px solid #d1d5db;border-radius:9px;background:#f8fafc}.debt-payments-title{font-size:12px;font-weight:1000;color:#111827;margin:0 0 5px 0;display:flex;justify-content:space-between;gap:6px}.debt-payments-title span:last-child{font-size:10px;color:#6b7280;font-weight:900}.debt-row{display:grid;grid-template-columns:14px minmax(105px,1fr) 90px 72px 22px;gap:5px;align-items:center;min-height:34px;margin-top:4px}.debt-row .debt-swatch{width:12px;height:12px;border-radius:4px;border:1px solid rgba(0,0,0,.15)}.debt-row .debt-name{font-size:13px;font-weight:1000;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.debt-row input{width:100%;height:31px;padding:5px 6px;border:1px solid #d1d5db;border-radius:6px;font-size:14px;font-weight:900;background:#fff}.debt-row .debt-mo{font-size:11px;font-weight:1000;color:#374151}.debt-warning{display:none;margin-top:4px;font-size:10.5px;font-weight:900;color:#b91c1c}.debt-warning.show{display:block}.expense-row .term-select,.expense-row .term-spacer{display:none!important}@media(max-width:520px){.debt-row{grid-template-columns:12px 1fr 80px 58px 20px}.debt-row .debt-name{font-size:12px}.debt-row input{font-size:13px;padding:4px}}.reveal-next-overlay{position:fixed;inset:0;z-index:2147483647;overflow:hidden;background:transparent!important;display:block;pointer-events:none;font-family:Arial,sans-serif}.reveal-next-frame{position:absolute;inset:0;width:100vw;height:100vh;border:0;background:transparent!important;z-index:1}.reveal-current-window{position:absolute;inset:0;width:100vw;height:100vh;overflow:hidden;z-index:2;background:transparent!important;will-change:auto}.reveal-current-page{width:100vw;min-height:100vh;pointer-events:none;background:transparent!important}.reveal-next-overlay.go .reveal-current-window{animation:revealCurrentSlideLeft .95s cubic-bezier(.22,.82,.24,1) forwards}.reveal-plug-layer{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;pointer-events:none}.reveal-plug-card{position:relative;width:min(310px,80vw);height:88px;border-radius:999px;background:transparent;border:0;box-shadow:none;overflow:visible}.reveal-stream{position:absolute;left:22px;top:42px;width:194px;height:4px;border-radius:999px;background:linear-gradient(90deg,rgba(59,130,246,.05),rgba(59,130,246,.95),rgba(34,197,94,.95));transform-origin:left center;animation:revealStreamGrow .95s ease forwards}.reveal-stream:before,.reveal-stream:after{content:"";position:absolute;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:#3b82f6;box-shadow:0 0 12px rgba(59,130,246,.85);animation:revealDataDot .55s linear infinite}.reveal-stream:after{animation-delay:.18s}.reveal-plug{position:absolute;left:40px;top:19px;width:58px;height:50px;animation:revealPlugMove .95s cubic-bezier(.18,.88,.25,1) forwards}.reveal-plug svg{width:100%;height:100%;filter:drop-shadow(0 5px 10px rgba(37,99,235,.30))}.reveal-socket{position:absolute;right:34px;top:22px;width:44px;height:44px;border-radius:13px;background:#16a34a;box-shadow:0 0 0 6px rgba(22,163,74,.12),0 0 25px rgba(22,163,74,.58);animation:revealSocketGlow .95s ease forwards}.reveal-socket:before,.reveal-socket:after{content:"";position:absolute;top:14px;width:5px;height:16px;border-radius:999px;background:#dcfce7}.reveal-socket:before{left:13px}.reveal-socket:after{right:13px}.reveal-label{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-size:11px;font-weight:900;color:#111827;text-shadow:0 1px 2px rgba(255,255,255,.9);animation:revealLabelFade .95s ease forwards}@keyframes revealCurrentSlideLeft{0%{transform:translateX(0)}100%{transform:translateX(-100vw)}}@keyframes revealPlugMove{0%{transform:translateX(0) scale(1)}62%{transform:translateX(153px) scale(1.04)}78%{transform:translateX(153px) scale(.96)}100%{transform:translateX(153px) scale(1)}}@keyframes revealStreamGrow{0%{transform:scaleX(.05);opacity:.15}45%{transform:scaleX(.75);opacity:1}100%{transform:scaleX(1);opacity:1}}@keyframes revealDataDot{0%{left:8px;opacity:0}20%{opacity:1}100%{left:180px;opacity:0}}@keyframes revealSocketGlow{0%,55%{box-shadow:0 0 0 6px rgba(22,163,74,.10),0 0 18px rgba(22,163,74,.30)}75%{box-shadow:0 0 0 12px rgba(22,163,74,.18),0 0 34px rgba(22,163,74,.80)}100%{box-shadow:0 0 0 6px rgba(22,163,74,.12),0 0 25px rgba(22,163,74,.58)}}@keyframes revealLabelFade{0%{opacity:0;transform:translateY(3px)}30%,82%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-3px)}}@media (prefers-reduced-motion:reduce){.reveal-next-overlay.go .reveal-current-window,.reveal-plug,.reveal-stream,.reveal-socket,.reveal-label{animation:none!important}}.page-save-wrap,.page-save-btn{display:none!important}.page2-age-controls{width:100%!important;margin:2px 0 6px 0!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;box-sizing:border-box!important}.page2-age-top-row{display:flex!important;align-items:flex-end!important;justify-content:space-between!important;gap:12px!important;width:100%!important;box-sizing:border-box!important}.page2-age-control-row{display:flex!important;justify-content:flex-start!important;align-items:flex-end!important;gap:10px!important;flex-wrap:nowrap!important;box-sizing:border-box!important;min-width:0!important;flex:0 1 auto!important}.page2-age-select-wrap{display:flex!important;flex-direction:column!important;gap:3px!important;width:98px!important;max-width:42vw!important;box-sizing:border-box!important}.page2-age-select-wrap label{font-size:11px!important;font-weight:1000!important;color:#374151!important;line-height:1!important;text-align:left!important}.page2-age-select-wrap select{width:100%!important;height:30px!important;border:1px solid #d1d5db!important;border-radius:8px!important;background:#fff!important;font-size:13px!important;font-weight:900!important;padding:3px 6px!important;box-sizing:border-box!important}.page2-age-tip{margin:0 0 2px auto!important;text-align:right!important;white-space:nowrap!important;align-self:flex-end!important;max-width:48%!important;overflow:hidden!important;text-overflow:ellipsis!important}.income-age-slider-line{display:grid!important;grid-template-columns:32px minmax(120px,1fr) 32px!important;gap:7px!important;align-items:center!important;width:100%!important;box-sizing:border-box!important;padding:0 4px!important}.income-age-slider-line #incomeYearSlider{width:100%!important;margin:0!important;box-sizing:border-box!important}.income-age-step-btn{width:30px!important;height:30px!important;border:0!important;border-radius:8px!important;background:#111827!important;color:#fff!important;font-size:18px!important;font-weight:1000!important;line-height:1!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;cursor:pointer!important;touch-action:manipulation!important;box-shadow:0 1px 4px rgba(0,0,0,.16)!important;padding:0!important}.income-age-step-btn:active{transform:scale(.96)!important}@media(max-width:520px){.income-year-selector{padding-left:14px!important;padding-right:14px!important}.page2-age-top-row{gap:8px!important}.page2-age-control-row{gap:8px!important}.page2-age-select-wrap{width:86px!important}.page2-age-tip{max-width:42%!important;font-size:10px!important}.income-age-slider-line{grid-template-columns:30px minmax(100px,1fr) 30px!important;padding:0 2px!important}}.compact-year-head{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;margin-bottom:4px!important}.year-title-wrap{display:flex!important;align-items:center!important;gap:8px!important;min-width:0!important;white-space:nowrap!important}.year-head-note{margin:0!important;text-align:right!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;max-width:64%!important;font-size:11px!important;font-weight:900!important;color:#374151!important;line-height:1.15!important}.page2-age-top-row{align-items:flex-end!important}@media(max-width:520px){.compact-year-head{gap:7px!important}.year-head-note{max-width:56%!important;font-size:9.5px!important}.year-title-wrap{gap:5px!important}.income-year-pill{padding:3px 7px!important}}.year-title-wrap{flex:0 0 auto!important;min-width:max-content!important}.compact-year-head,.income-year-head{align-items:center!important;gap:12px!important}.year-head-note,#incomeYearNote{flex:1 1 auto!important;max-width:none!important;font-size:18px!important;font-weight:800!important;line-height:1.15!important;padding:8px 12px!important;background:#ffffff!important;border:1px solid #d1d5db!important;border-radius:12px!important;color:#111827!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important}.page2-age-tip,#page2YearLiveTip{font-size:18px!important;font-weight:800!important;line-height:1.15!important;padding:8px 12px!important;background:#ffffff!important;border:1px solid #d1d5db!important;border-radius:12px!important;color:#111827!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;max-width:58%!important}@media(max-width:520px){.compact-year-head,.income-year-head{gap:8px!important}.year-head-note,#incomeYearNote{font-size:18px!important;padding:7px 10px!important}.page2-age-tip,#page2YearLiveTip{font-size:18px!important;padding:7px 10px!important;max-width:56%!important}}.slider-card.page2-income-card,.slider-card.page2-k401-card,.slider-card.page2-roth-card{border:2px solid #d1d5db !important;border-radius:9px !important;box-shadow:0 1px 4px rgba(17,24,39,.04) !important;padding:7px 9px !important}.slider-card.page2-income-card{border-left:6px solid #16a34a !important;background:#fbfefb !important}.slider-card.page2-k401-card{border-left:6px solid #ef4444 !important;background:#fffbfb !important}.slider-card.page2-roth-card{border-left:6px solid #f2cf4a !important;background:#fffefb !important}.page2-income-card #monthlyIncomeValue{color:#16a34a !important}.page2-k401-card #monthly401kValue{color:#ef4444 !important}.page2-roth-card #monthlyRothValue{color:#b45309 !important}.page2-income-card .monthly-income-sync-note{background:rgba(240,253,244,.72) !important;border-color:#bbf7d0 !important}.page2-k401-card .setup-age-period,.page2-roth-card .setup-age-period{border:1px solid #d1d5db !important;border-radius:9px !important;background:rgba(255,255,255,.78) !important;padding:5px 8px !important;width:fit-content !important}.page2-k401-card .setup-age-period{border-left:4px solid #ef4444 !important}.page2-roth-card .setup-age-period{border-left:4px solid #f2cf4a !important}
+<html lang="en"><head><script id="remove-government-limit-feature-early">try{localStorage.removeItem('retirement_disable_government_contribution_limits');localStorage.removeItem('page3_disable_government_contribution_limits');localStorage.removeItem('disable-government-contribution-limits');localStorage.removeItem('retirement_government_limit_updated_at');}catch(e){}</script>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Income &amp; Expense Setup</title><link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.8.0/nouislider.min.css" rel="stylesheet"/><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f8fafc;color:#111827}.app-nav{position:sticky;top:0;z-index:99999;background:#fff;border-bottom:1px solid #d1d5db;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)}.app-nav .nav-title{font-weight:900;font-size:14px;text-align:center;flex:1}.app-nav button{border:0;border-radius:8px;padding:8px 12px;font-weight:900;cursor:pointer;font-size:12px;color:#fff;min-width:78px}.app-nav .back{background:#ef4444}.app-nav .next{background:#16a34a}.page{width:100%;max-width:1180px;margin:0 auto;padding:10px}.top-summary{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:8px;margin-bottom:10px}.summary-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:10px;box-shadow:0 2px 7px rgba(0,0,0,.05)}.summary-card .label{font-size:11px;font-weight:800;color:#6b7280;margin-bottom:4px}.summary-card .value{font-size:15px;font-weight:900}.green{color:#16a34a}.red{color:#ef4444}.yellow{color:#f2cf4a;text-shadow:0 1px 1px rgba(0,0,0,.15)}.main-grid{display:grid;grid-template-columns:minmax(310px,430px) 1fr;gap:10px;align-items:stretch}.panel{background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.06);padding:10px}.panel h2{margin:0 0 8px;font-size:16px}.slider-card{border:1px solid #e5e7eb;border-radius:8px;background:#fff;padding:7px;margin-bottom:7px}.slider-head{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;margin-bottom:5px}.slider-title{font-weight:900;font-size:12px;line-height:1.15}.slider-value{font-weight:900;font-size:12px;line-height:1.15}.slider-radios{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;font-size:10px;font-weight:900;line-height:1}.slider-radios label{cursor:pointer;display:flex;align-items:center;gap:2px;white-space:nowrap}.slider-radios input{width:11px;height:11px;margin:0}.sensitivity-label{width:100%;font-size:10px;font-weight:900;color:#6b7280;text-align:right;margin-bottom:3px}.slider-holder{margin:8px 4px 7px}.noUi-target{height:8px;border:0;box-shadow:none;background:#e5e7eb;border-radius:999px}.noUi-connect{background:#111827}.noUi-horizontal .noUi-handle{width:18px;height:18px;right:-9px;top:-5px;border-radius:50%;border:2px solid #111827;box-shadow:0 1px 3px rgba(0,0,0,.25)}.noUi-handle:before,.noUi-handle:after{display:none}#monthlyIncomeSlider .noUi-connect{background:#16a34a}#monthlyIncomeSlider .noUi-handle{border-color:#16a34a}#monthly401kSlider .noUi-connect{background:#ef4444}#monthly401kSlider .noUi-handle{border-color:#ef4444}#monthlyRothSlider .noUi-connect{background:#f2cf4a}#monthlyRothSlider .noUi-handle{border-color:#b45309}.inline-limit-warning{visibility:hidden;min-height:18px;margin-top:4px;padding:4px 7px;border-radius:6px;font-size:11px;font-weight:bold;line-height:1.1;display:flex;align-items:center;gap:5px;width:fit-content}.inline-limit-warning.show{visibility:visible}.inline-limit-warning.k401{background:#fff1f2;border:1px solid #fecaca;color:#b91c1c}.inline-limit-warning.roth{background:#fffbeb;border:1px solid #fde68a;color:#92400e}.controls-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}.controls-row button,.controls-row select{padding:8px;border-radius:7px;border:1px solid #d1d5db;font-weight:800;font-size:12px}.controls-row button{border:0;color:#fff;background:#111827;cursor:pointer}.controls-row button.green-btn{background:#16a34a}.controls-row button.red-btn{background:#ef4444}.controls-row select{background:#fff;flex:1;min-width:140px}.expense-list{display:flex;flex-direction:column;gap:7px}.expense-row{display:grid;grid-template-columns:20px 1fr 86px 42px 28px;gap:5px;align-items:center;padding:7px;border:1px solid #e5e7eb;border-radius:9px;background:#f9fafb}.color-swatch{width:18px;height:18px;border-radius:5px;border:1px solid rgba(0,0,0,.15)}.expense-row input{width:100%;padding:5px;border:1px solid #d1d5db;border-radius:6px;font-size:12px}.expense-row .percent{font-size:11px;font-weight:900;text-align:right;color:#374151}.expense-row .delete{border:0;background:#ef4444;color:#fff;border-radius:6px;height:25px;font-weight:900;cursor:pointer}#chartContainer{flex:1;min-height:520px;height:520px;display:block;overflow:visible}.block-chart{width:100%;height:100%;min-height:500px;display:flex;flex-wrap:wrap;align-content:stretch;gap:6px;padding:6px;border-radius:12px;background:#f8fafc;border:1px solid #e5e7eb}.block-item{min-width:110px;min-height:78px;border-radius:10px;color:#fff;padding:9px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.15);overflow:hidden}.block-name{font-size:13px;font-weight:900;line-height:1.1}.block-amount{font-size:18px;font-weight:900;margin-top:4px}.block-percent{font-size:12px;font-weight:900;margin-top:2px;opacity:.95}.slider-max-panel{margin-top:10px;padding:10px;border:1px solid #d1d5db;border-radius:8px;background:#f9fafb;font-size:12px}.slider-max-grid{display:grid;grid-template-columns:1fr 90px 70px;gap:6px 8px;align-items:center}.slider-max-grid label{font-weight:bold}.slider-max-grid input{width:100%;padding:4px}.slider-max-grid button{padding:5px 8px;border:0;border-radius:5px;font-weight:bold;cursor:pointer;background:#111827;color:white}.budget-note{margin-top:8px;padding:9px;border-radius:9px;background:#fef3c7;border:1px solid #f59e0b;font-size:12px;font-weight:700}.saved-note{color:#6b7280;font-size:11px;margin-top:6px}@media(max-width:760px){.top-summary{grid-template-columns:repeat(2,minmax(130px,1fr))}.top-summary .summary-card:last-child{grid-column:span 2}.main-grid{grid-template-columns:1fr}#chartContainer{min-height:460px;height:460px}.block-chart{min-height:440px;gap:5px;padding:5px}.block-item{min-width:92px;min-height:68px;padding:7px}.block-name{font-size:11px}.block-amount{font-size:15px}}.expense-list{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:5px !important}.expense-row{display:grid !important;grid-template-columns:16px 1fr 90px 42px 24px !important;gap:5px !important;align-items:center !important;padding:8px !important;border-radius:8px !important;min-height:48px !important}.color-swatch{width:12px !important;height:12px !important;border-radius:4px !important}.expense-row input[type="text"],.expense-row input[type="number"],.expense-row input{padding:6px !important;font-size:15px !important;font-weight:800 !important;height:34px !important}.expense-row .percent{font-size:13px !important;font-weight:900 !important;color:#111827 !important}.expense-row .delete{height:21px !important;font-size:11px !important;border-radius:5px !important}@media(max-width:520px){.expense-list{grid-template-columns:1fr !important}}.setup-age-period,.age-period-radios{display:flex !important;gap:8px !important;align-items:center !important;flex-wrap:wrap !important;margin:0 0 6px 0 !important;font-size:11px !important;font-weight:900 !important}.setup-age-period .age-period-title,.age-period-radios .age-period-title{font-weight:900 !important;color:#374151 !important}.setup-age-period label,.age-period-radios label{cursor:pointer !important;display:flex !important;align-items:center !important;gap:4px !important;white-space:nowrap !important}.setup-age-period input[type="radio"],.age-period-radios input[type="radio"]{width:13px !important;height:13px !important;margin:0 !important}.income-year-selector{margin:0 0 10px;background:#fff;border:1px solid #d1d5db;border-radius:10px;box-shadow:0 2px 7px rgba(0,0,0,.05);padding:10px;font-size:12px}.income-year-head{display:flex;justify-content:space-between;align-items:center;font-weight:900;margin-bottom:6px}.income-year-pill{background:#111827;color:white;border-radius:999px;padding:4px 9px;font-weight:1000}#incomeYearSlider{width:100%;height:30px;accent-color:#16a34a;cursor:pointer}.income-year-ticks{display:flex;justify-content:space-between;gap:1px;margin-top:2px;font-size:9px;font-weight:900;color:#6b7280;user-select:none}.income-year-ticks span{flex:1;text-align:center;min-width:8px}.income-year-note{font-size:11px;font-weight:800;color:#374151;margin-top:4px}.top-inflation-choice{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:900;white-space:nowrap;cursor:pointer}.top-inflation-choice input{width:15px;height:15px;margin:0;accent-color:#111827}.page-save-left,.page-save-center,.page-save-right{display:flex;align-items:center;gap:8px;flex:1}.page-save-left{justify-content:flex-start}.page-save-center{justify-content:center}.page-save-right{justify-content:flex-end}@media(max-width:620px){.page-save-wrap{gap:6px}.page-save-left,.page-save-center,.page-save-right{flex:1;justify-content:center}.page-save-btn{padding:7px 10px}.top-inflation-choice{font-size:11px}}.page-save-wrap{position:sticky;top:48px;z-index:9998;background:#fff7ed;border-bottom:1px solid #fed7aa;padding:7px 10px;display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:Arial,sans-serif}.page-save-btn{border:0;border-radius:8px;padding:8px 14px;font-weight:900;cursor:pointer;font-size:12px;background:#111827;color:#fff}.page-save-status{font-size:12px;font-weight:900;color:#166534}.monthly-income-sync-note{display:block;margin:4px 0 5px;padding:5px 8px;border-radius:8px;border:1px solid #bbf7d0;background:#f0fdf4;color:#166534;font-size:11px;font-weight:900;line-height:1.2}.monthly-income-sync-note.off{border-color:#d1d5db;background:#f9fafb;color:#374151}.income-inflation-panel{margin:0 0 8px;padding:9px 10px;border:1px solid #bfdbfe;border-radius:10px;background:linear-gradient(135deg,#eff6ff,#ffffff);box-shadow:0 2px 7px rgba(0,0,0,.05)}.income-inflation-title{font-size:13px;font-weight:1000;color:#111827;margin-bottom:7px}.income-inflation-options{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.income-inflation-options label{display:flex;align-items:center;gap:6px;min-height:30px;padding:6px 10px;border:1px solid #d1d5db;border-radius:999px;background:#fff;font-size:12px;font-weight:900;cursor:pointer;user-select:none}.income-inflation-options input{width:17px;height:17px;margin:0;accent-color:#111827}.income-inflation-note{margin-top:6px;font-size:11px;line-height:1.25;font-weight:800;color:#374151}.income-inflation-panel.on{border-color:#86efac;background:linear-gradient(135deg,#f0fdf4,#ffffff)}.income-inflation-panel.off{border-color:#fed7aa;background:linear-gradient(135deg,#fff7ed,#ffffff)}.inflation-item-note{grid-column:1 / -1;margin-top:-2px;padding:4px 6px;border-radius:6px;background:#fffbeb;border:1px solid #fde68a;color:#92400e;font-size:10.5px;font-weight:900;line-height:1.15}.block-note{margin-top:3px;font-size:10.5px;font-weight:900;line-height:1.12;opacity:.95}.expense-row{grid-template-columns:16px 1fr 90px 42px 24px !important;gap:5px !important;min-height:46px !important;padding:7px !important}.expense-rule-note,.expense-row .expense-kind,.expense-row .expense-term{display:none!important}.k401-page-transfer-overlay{position:fixed;inset:0;z-index:2147483647;overflow:hidden;background:transparent;display:none;font-family:Arial,sans-serif}.k401-page-transfer-overlay.show{display:block}.k401-transfer-track{width:200vw;height:100vh;display:flex;transform:translateX(0)}.k401-page-transfer-overlay.show .k401-transfer-track{animation:k401SlideToPageThree .95s cubic-bezier(.22,.82,.24,1) forwards}.k401-transfer-pane{width:100vw;height:100vh;flex:0 0 100vw;overflow:hidden;background:transparent;position:relative}.k401-transfer-page2-copy{width:100%;min-height:100vh;pointer-events:none}.k401-transfer-page3-frame{width:100%;height:100%;border:0;background:transparent;display:block;visibility:hidden!important;opacity:0!important}.k401-transfer-page3-static{width:100%;height:100%;background:#f4f4f4;overflow:hidden;font-family:Arial,sans-serif;color:#111827}.k401-static-nav{height:38px;background:#fff;border-bottom:1px solid #d1d5db;display:flex;align-items:center;justify-content:space-between;padding:0 10px;box-shadow:0 2px 8px rgba(0,0,0,.08);font-size:12px;font-weight:900}.k401-static-btn{border-radius:8px;padding:8px 12px;color:#fff;background:#ef4444;min-width:78px;text-align:center}.k401-static-btn.next{background:#16a34a}.k401-static-chart{width:99%;height:350px;margin:10px auto 16px;background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.1);position:relative;overflow:hidden}.k401-static-legend{position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;gap:16px;font-size:12px;font-weight:700;white-space:nowrap}.k401-static-legend span{display:inline-flex;align-items:center;gap:5px}.k401-static-dot{width:22px;height:10px;border-radius:3px;display:inline-block}.k401-static-plot{position:absolute;left:42px;right:12px;top:42px;bottom:34px;border-left:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;display:flex;align-items:flex-end;gap:7px;padding:0 8px}.k401-static-bar{flex:1;min-width:5px;border-radius:3px 3px 0 0;background:linear-gradient(to top,#ef4444 0 var(--red),#f2cf4a var(--red) 100%);box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}.k401-static-controls{width:99%;margin:10px auto;background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.1);padding:8px}.k401-static-row{display:flex;gap:6px;margin-bottom:6px}.k401-static-small{height:33px;border:1px solid #e5e7eb;border-radius:8px;background:#fafafa;flex:0 0 64px}.k401-static-slider-card{border:1px solid #e5e7eb;border-radius:9px;background:#fff;padding:7px 9px;margin:5px 0;box-shadow:0 1px 4px rgba(0,0,0,.04)}.k401-static-label{font-size:12px;font-weight:900;margin-bottom:7px}.k401-static-rail{height:6px;border-radius:999px;background:#e5e7eb;overflow:hidden}.k401-static-fill{height:100%;border-radius:999px;background:#ef4444;width:34%}.k401-static-fill.yellow{background:#f2cf4a;width:22%}.k401-static-fill.black{background:#111827;width:70%}.k401-transfer-plug-layer{position:fixed;inset:0;z-index:2147483647;pointer-events:none;display:flex;align-items:center;justify-content:center}.k401-transfer-plug-card{position:relative;width:min(290px,78vw);height:88px;border-radius:999px;background:rgba(255,255,255,.84);border:1px solid rgba(209,213,219,.9);box-shadow:0 18px 50px rgba(17,24,39,.20);backdrop-filter:blur(6px);overflow:hidden}.k401-transfer-stream{position:absolute;left:22px;top:42px;width:178px;height:4px;border-radius:999px;background:linear-gradient(90deg,rgba(59,130,246,.05),rgba(59,130,246,.95),rgba(34,197,94,.95));transform-origin:left center;animation:k401StreamGrow .95s ease forwards}.k401-transfer-stream:before,.k401-transfer-stream:after{content:"";position:absolute;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:#3b82f6;box-shadow:0 0 12px rgba(59,130,246,.85);animation:k401DataDot .55s linear infinite}.k401-transfer-stream:after{animation-delay:.18s}.k401-transfer-plug{position:absolute;left:40px;top:19px;width:58px;height:50px;animation:k401PlugMove .95s cubic-bezier(.18,.88,.25,1) forwards}.k401-transfer-plug svg{width:100%;height:100%;filter:drop-shadow(0 5px 10px rgba(37,99,235,.30))}.k401-transfer-socket{position:absolute;right:34px;top:22px;width:44px;height:44px;border-radius:13px;background:#16a34a;box-shadow:0 0 0 6px rgba(22,163,74,.12),0 0 25px rgba(22,163,74,.58);animation:k401SocketGlow .95s ease forwards}.k401-transfer-socket:before,.k401-transfer-socket:after{content:"";position:absolute;top:14px;width:5px;height:16px;border-radius:999px;background:#dcfce7}.k401-transfer-socket:before{left:13px}.k401-transfer-socket:after{right:13px}.k401-transfer-label{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-size:11px;font-weight:900;color:#111827;animation:k401LabelFade .95s ease forwards}.k401-transition-preload{position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}@keyframes k401SlideToPageThree{0%{transform:translateX(0)}100%{transform:translateX(-100vw)}}@keyframes k401PlugMove{0%{transform:translateX(0) scale(1)}62%{transform:translateX(137px) scale(1.04)}78%{transform:translateX(137px) scale(.96)}100%{transform:translateX(137px) scale(1)}}@keyframes k401StreamGrow{0%{transform:scaleX(.05);opacity:.15}45%{transform:scaleX(.75);opacity:1}100%{transform:scaleX(1);opacity:1}}@keyframes k401DataDot{0%{left:8px;opacity:0}20%{opacity:1}100%{left:164px;opacity:0}}@keyframes k401SocketGlow{0%,55%{box-shadow:0 0 0 6px rgba(22,163,74,.10),0 0 18px rgba(22,163,74,.30)}75%{box-shadow:0 0 0 12px rgba(22,163,74,.18),0 0 34px rgba(22,163,74,.80)}100%{box-shadow:0 0 0 6px rgba(22,163,74,.12),0 0 25px rgba(22,163,74,.58)}}@keyframes k401LabelFade{0%{opacity:0;transform:translateY(3px)}30%,82%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-3px)}}.k401-transfer-pane:nth-child(2)::before{content:none!important;display:none!important}.k401-transfer-page3-static,.k401-static-chart,.k401-static-controls{display:none!important}.noUi-target.slider-actually-locked,.noUi-target.locked{opacity:.45!important;pointer-events:none!important}input[type="range"].slider-actually-locked,input[type="range"].locked{opacity:.45!important;pointer-events:none!important}#monthlyIncomeSlider .noUi-connect{background:#16a34a!important}#monthlyIncomeSlider .noUi-handle{border-color:#16a34a!important}.auto-save-small-notice{position:fixed;top:54px;left:50%;transform:translateX(-50%);z-index:2147483647;display:none;padding:3px 8px;border-radius:999px;background:rgba(22,101,52,.92);color:#fff;font:900 11px/1.2 Arial,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.16);pointer-events:none}.auto-save-small-notice.show{display:block}.noUi-target.mode-locked,.noUi-target.locked,input[type="range"].mode-locked,input[type="range"].locked{opacity:.45!important;pointer-events:none!important}.expense-row{grid-template-columns:16px minmax(92px,1fr) 82px 42px 70px 24px !important;gap:4px !important;padding:6px !important;min-height:42px !important}.expense-row input[type="text"],.expense-row input[type="number"]{height:30px !important;padding:4px 5px !important;font-size:13px !important}.expense-row .term-select{height:30px !important;padding:3px 4px !important;border:1px solid #d1d5db !important;border-radius:6px !important;background:#fff !important;font-size:11px !important;font-weight:900 !important;width:70px !important}.expense-row .term-spacer{width:70px;height:1px}.expense-row .delete{height:22px !important}@media(max-width:520px){.expense-row{grid-template-columns:14px minmax(82px,1fr) 78px 34px 62px 22px !important;gap:3px !important}.expense-row .term-select{width:62px !important;font-size:10px !important}.expense-row .term-spacer{width:62px}}.debt-payments-panel{margin:0 0 8px 0;padding:8px;border:1px solid #d1d5db;border-radius:9px;background:#f8fafc}.debt-payments-title{font-size:12px;font-weight:1000;color:#111827;margin:0 0 5px 0;display:flex;justify-content:space-between;gap:6px}.debt-payments-title span:last-child{font-size:10px;color:#6b7280;font-weight:900}.debt-row{display:grid;grid-template-columns:14px minmax(105px,1fr) 90px 72px 22px;gap:5px;align-items:center;min-height:34px;margin-top:4px}.debt-row .debt-swatch{width:12px;height:12px;border-radius:4px;border:1px solid rgba(0,0,0,.15)}.debt-row .debt-name{font-size:13px;font-weight:1000;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.debt-row input{width:100%;height:31px;padding:5px 6px;border:1px solid #d1d5db;border-radius:6px;font-size:14px;font-weight:900;background:#fff}.debt-row .debt-mo{font-size:11px;font-weight:1000;color:#374151}.debt-warning{display:none;margin-top:4px;font-size:10.5px;font-weight:900;color:#b91c1c}.debt-warning.show{display:block}.expense-row .term-select,.expense-row .term-spacer{display:none!important}@media(max-width:520px){.debt-row{grid-template-columns:12px 1fr 80px 58px 20px}.debt-row .debt-name{font-size:12px}.debt-row input{font-size:13px;padding:4px}}.reveal-next-overlay{position:fixed;inset:0;z-index:2147483647;overflow:hidden;background:transparent!important;display:block;pointer-events:none;font-family:Arial,sans-serif}.reveal-next-frame{position:absolute;inset:0;width:100vw;height:100vh;border:0;background:transparent!important;z-index:1}.reveal-current-window{position:absolute;inset:0;width:100vw;height:100vh;overflow:hidden;z-index:2;background:transparent!important;will-change:auto}.reveal-current-page{width:100vw;min-height:100vh;pointer-events:none;background:transparent!important}.reveal-next-overlay.go .reveal-current-window{animation:revealCurrentSlideLeft .95s cubic-bezier(.22,.82,.24,1) forwards}.reveal-plug-layer{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;pointer-events:none}.reveal-plug-card{position:relative;width:min(310px,80vw);height:88px;border-radius:999px;background:transparent;border:0;box-shadow:none;overflow:visible}.reveal-stream{position:absolute;left:22px;top:42px;width:194px;height:4px;border-radius:999px;background:linear-gradient(90deg,rgba(59,130,246,.05),rgba(59,130,246,.95),rgba(34,197,94,.95));transform-origin:left center;animation:revealStreamGrow .95s ease forwards}.reveal-stream:before,.reveal-stream:after{content:"";position:absolute;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:#3b82f6;box-shadow:0 0 12px rgba(59,130,246,.85);animation:revealDataDot .55s linear infinite}.reveal-stream:after{animation-delay:.18s}.reveal-plug{position:absolute;left:40px;top:19px;width:58px;height:50px;animation:revealPlugMove .95s cubic-bezier(.18,.88,.25,1) forwards}.reveal-plug svg{width:100%;height:100%;filter:drop-shadow(0 5px 10px rgba(37,99,235,.30))}.reveal-socket{position:absolute;right:34px;top:22px;width:44px;height:44px;border-radius:13px;background:#16a34a;box-shadow:0 0 0 6px rgba(22,163,74,.12),0 0 25px rgba(22,163,74,.58);animation:revealSocketGlow .95s ease forwards}.reveal-socket:before,.reveal-socket:after{content:"";position:absolute;top:14px;width:5px;height:16px;border-radius:999px;background:#dcfce7}.reveal-socket:before{left:13px}.reveal-socket:after{right:13px}.reveal-label{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-size:11px;font-weight:900;color:#111827;text-shadow:0 1px 2px rgba(255,255,255,.9);animation:revealLabelFade .95s ease forwards}@keyframes revealCurrentSlideLeft{0%{transform:translateX(0)}100%{transform:translateX(-100vw)}}@keyframes revealPlugMove{0%{transform:translateX(0) scale(1)}62%{transform:translateX(153px) scale(1.04)}78%{transform:translateX(153px) scale(.96)}100%{transform:translateX(153px) scale(1)}}@keyframes revealStreamGrow{0%{transform:scaleX(.05);opacity:.15}45%{transform:scaleX(.75);opacity:1}100%{transform:scaleX(1);opacity:1}}@keyframes revealDataDot{0%{left:8px;opacity:0}20%{opacity:1}100%{left:180px;opacity:0}}@keyframes revealSocketGlow{0%,55%{box-shadow:0 0 0 6px rgba(22,163,74,.10),0 0 18px rgba(22,163,74,.30)}75%{box-shadow:0 0 0 12px rgba(22,163,74,.18),0 0 34px rgba(22,163,74,.80)}100%{box-shadow:0 0 0 6px rgba(22,163,74,.12),0 0 25px rgba(22,163,74,.58)}}@keyframes revealLabelFade{0%{opacity:0;transform:translateY(3px)}30%,82%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-3px)}}@media (prefers-reduced-motion:reduce){.reveal-next-overlay.go .reveal-current-window,.reveal-plug,.reveal-stream,.reveal-socket,.reveal-label{animation:none!important}}.page-save-wrap,.page-save-btn{display:none!important}.page2-age-controls{width:100%!important;margin:2px 0 6px 0!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;box-sizing:border-box!important}.page2-age-top-row{display:flex!important;align-items:flex-end!important;justify-content:space-between!important;gap:12px!important;width:100%!important;box-sizing:border-box!important}.page2-age-control-row{display:flex!important;justify-content:flex-start!important;align-items:flex-end!important;gap:10px!important;flex-wrap:nowrap!important;box-sizing:border-box!important;min-width:0!important;flex:0 1 auto!important}.page2-age-select-wrap{display:flex!important;flex-direction:column!important;gap:3px!important;width:98px!important;max-width:42vw!important;box-sizing:border-box!important}.page2-age-select-wrap label{font-size:11px!important;font-weight:1000!important;color:#374151!important;line-height:1!important;text-align:left!important}.page2-age-select-wrap select{width:100%!important;height:30px!important;border:1px solid #d1d5db!important;border-radius:8px!important;background:#fff!important;font-size:13px!important;font-weight:900!important;padding:3px 6px!important;box-sizing:border-box!important}.page2-age-tip{margin:0 0 2px auto!important;text-align:right!important;white-space:nowrap!important;align-self:flex-end!important;max-width:48%!important;overflow:hidden!important;text-overflow:ellipsis!important}.income-age-slider-line{display:grid!important;grid-template-columns:32px minmax(120px,1fr) 32px!important;gap:7px!important;align-items:center!important;width:100%!important;box-sizing:border-box!important;padding:0 4px!important}.income-age-slider-line #incomeYearSlider{width:100%!important;margin:0!important;box-sizing:border-box!important}.income-age-step-btn{width:30px!important;height:30px!important;border:0!important;border-radius:8px!important;background:#111827!important;color:#fff!important;font-size:18px!important;font-weight:1000!important;line-height:1!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;cursor:pointer!important;touch-action:manipulation!important;box-shadow:0 1px 4px rgba(0,0,0,.16)!important;padding:0!important}.income-age-step-btn:active{transform:scale(.96)!important}@media(max-width:520px){.income-year-selector{padding-left:14px!important;padding-right:14px!important}.page2-age-top-row{gap:8px!important}.page2-age-control-row{gap:8px!important}.page2-age-select-wrap{width:86px!important}.page2-age-tip{max-width:42%!important;font-size:10px!important}.income-age-slider-line{grid-template-columns:30px minmax(100px,1fr) 30px!important;padding:0 2px!important}}.compact-year-head{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;margin-bottom:4px!important}.year-title-wrap{display:flex!important;align-items:center!important;gap:8px!important;min-width:0!important;white-space:nowrap!important}.year-head-note{margin:0!important;text-align:right!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;max-width:64%!important;font-size:11px!important;font-weight:900!important;color:#374151!important;line-height:1.15!important}.page2-age-top-row{align-items:flex-end!important}@media(max-width:520px){.compact-year-head{gap:7px!important}.year-head-note{max-width:56%!important;font-size:9.5px!important}.year-title-wrap{gap:5px!important}.income-year-pill{padding:3px 7px!important}}.year-title-wrap{flex:0 0 auto!important;min-width:max-content!important}.compact-year-head,.income-year-head{align-items:center!important;gap:12px!important}.year-head-note,#incomeYearNote{flex:1 1 auto!important;max-width:none!important;font-size:18px!important;font-weight:800!important;line-height:1.15!important;padding:8px 12px!important;background:#ffffff!important;border:1px solid #d1d5db!important;border-radius:12px!important;color:#111827!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important}.page2-age-tip,#page2YearLiveTip{font-size:18px!important;font-weight:800!important;line-height:1.15!important;padding:8px 12px!important;background:#ffffff!important;border:1px solid #d1d5db!important;border-radius:12px!important;color:#111827!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;max-width:58%!important}@media(max-width:520px){.compact-year-head,.income-year-head{gap:8px!important}.year-head-note,#incomeYearNote{font-size:18px!important;padding:7px 10px!important}.page2-age-tip,#page2YearLiveTip{font-size:18px!important;padding:7px 10px!important;max-width:56%!important}}.slider-card.page2-income-card,.slider-card.page2-k401-card,.slider-card.page2-roth-card{border:2px solid #d1d5db !important;border-radius:9px !important;box-shadow:0 1px 4px rgba(17,24,39,.04) !important;padding:7px 9px !important}.slider-card.page2-income-card{border-left:6px solid #16a34a !important;background:#fbfefb !important}.slider-card.page2-k401-card{border-left:6px solid #ef4444 !important;background:#fffbfb !important}.slider-card.page2-roth-card{border-left:6px solid #f2cf4a !important;background:#fffefb !important}.page2-income-card #monthlyIncomeValue{color:#16a34a !important}.page2-k401-card #monthly401kValue{color:#ef4444 !important}.page2-roth-card #monthlyRothValue{color:#b45309 !important}.page2-income-card .monthly-income-sync-note{background:rgba(240,253,244,.72) !important;border-color:#bbf7d0 !important}.page2-k401-card .setup-age-period,.page2-roth-card .setup-age-period{border:1px solid #d1d5db !important;border-radius:9px !important;background:rgba(255,255,255,.78) !important;padding:5px 8px !important;width:fit-content !important}.page2-k401-card .setup-age-period{border-left:4px solid #ef4444 !important}.page2-roth-card .setup-age-period{border-left:4px solid #f2cf4a !important}
 /* Other Income side-by-side green income block */
 .slider-card.page2-other-income-card{border:2px solid #d1d5db!important;border-left:6px solid #22c55e!important;background:#f0fdf4!important;border-radius:9px!important;box-shadow:0 1px 4px rgba(17,24,39,.04)!important;padding:7px 9px!important}
 .page2-other-income-card #otherIncomeValue{color:#22c55e!important;font-weight:1000!important}
@@ -989,7 +988,6 @@ color:#111827!important;
 background:#fff!important;
 }
 </style>
-
 <style id="final-button-text-consistency-v1">
 /* Keep Increase and Decrease wording consistently black on every page. */
 button[data-action="increase"],button[data-action="decrease"],
@@ -1019,7 +1017,6 @@ button[data-dir="1"] *,button[data-dir="-1"] *,
   -webkit-text-fill-color:#111827!important;
 }
 </style>
-
 <style id="page2-square-lock-buttons-v1">
 /* Page 2 lock controls match the app's rounded-square buttons instead of circles. */
 .slider-lock-button,.stable-lock-button,
@@ -1032,7 +1029,6 @@ button[class*="lock"],button[id*="lock"],button[id*="Lock"] {
   aspect-ratio:1 / 1!important;
 }
 </style>
-
 <style id="unified-slider-card-size-v1">
 /* Slider-card sizing only: shared medium size across Pages 2, 3, and 4. */
 .slider-card{
@@ -1045,7 +1041,6 @@ button[class*="lock"],button[id*="lock"],button[id*="Lock"] {
 .slider-head{margin-bottom:7px !important;}
 .slider-holder{margin:10px 5px 8px !important;}
 </style>
-
 <style id="p2-federal-limit-panel-style-v2">
 .p2-federal-limit-panel{margin:10px 0 12px;padding:12px;border:2px solid #f59e0b;border-radius:18px;background:linear-gradient(135deg,#fff7ed,#ffffff 58%,#fffbeb);box-shadow:0 8px 24px rgba(0,0,0,.12)}
 .p2-limit-title{font-size:18px;font-weight:1000;color:#111827}.p2-limit-copy{margin:4px 0 10px;font-size:12px;font-weight:800;line-height:1.35;color:#374151}
@@ -1055,352 +1050,38 @@ button[class*="lock"],button[id*="lock"],button[id*="Lock"] {
 @media(max-width:620px){.p2-limit-columns{grid-template-columns:1fr}.p2-limit-title{font-size:17px}.p2-limit-group label{grid-template-columns:1fr 105px}}
 </style>
 
-<style id="page-audio-placeholder-style">
-.page-audio-button{
-  flex:0 0 auto;
-  width:38px;
-  height:38px;
-  min-width:38px!important;
-  padding:0!important;
-  border:2px solid #111827!important;
-  border-radius:999px!important;
-  background:#ffffff!important;
-  color:#111827!important;
-  display:inline-flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  font-size:20px!important;
-  line-height:1!important;
-  cursor:pointer!important;
-  box-shadow:0 2px 7px rgba(15,23,42,.15)!important;
-  -webkit-tap-highlight-color:transparent;
-}
-.page-audio-button:active{transform:scale(.96)}
-.page-audio-button.is-playing{
-  background:#16a34a!important;
-  color:#ffffff!important;
-  border-color:#166534!important;
-}
-.page-audio-button.is-unavailable{
-  background:#fef2f2!important;
-  color:#b91c1c!important;
-  border-color:#ef4444!important;
-}
-.page-audio-status{
-  position:fixed;
-  top:56px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:2147483647;
-  max-width:min(92vw,520px);
-  padding:7px 11px;
-  border-radius:999px;
-  background:rgba(17,24,39,.96);
-  color:#ffffff;
-  font:900 12px/1.25 Arial,sans-serif;
-  text-align:center;
-  box-shadow:0 4px 15px rgba(0,0,0,.25);
-  display:none;
-  pointer-events:none;
-}
-.page-audio-status.show{display:block}
-@media(max-width:520px){
-  .page-audio-button{width:36px;height:36px;min-width:36px!important;font-size:19px!important}
-  .page-audio-status{top:52px;font-size:11px}
-}
-</style>
+</head><body><div class="app-nav">
+<button class="back" onclick="saveValues(); window.location.href='01_Directions.html'">← Back</button>
 
 
-<style id="page2-annual-retirement-summary-v16">
-#sum401k{color:#dc2626!important}
-#sumRoth{color:#a16207!important}
-.top-summary .summary-card:has(#sum401k){border-top:4px solid #dc2626}
-.top-summary .summary-card:has(#sumRoth){border-top:4px solid #d4a017}
-</style>
-
-<style id="page2-retirement-disclaimer-v1-style">
-#page2DisclaimerOverlay{position:fixed;inset:0;z-index:2147483647;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(15,23,42,.76);font-family:Arial,sans-serif;box-sizing:border-box}
-#page2DisclaimerOverlay.show{display:flex}
-#page2DisclaimerCard{width:min(760px,96vw);max-height:90vh;overflow:auto;background:#fff;border:2px solid #f59e0b;border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.45);padding:18px;color:#111827;box-sizing:border-box}
-#page2DisclaimerCard h1{margin:0 0 5px;font-size:24px;line-height:1.12}
-#page2DisclaimerCard h2{margin:15px 0 6px;font-size:16px}
-#page2DisclaimerCard p{margin:7px 0;line-height:1.42;font-size:13px;font-weight:700;color:#374151}
-#page2DisclaimerCard .disclaimer-intro{padding:10px 12px;border-radius:11px;background:#eff6ff;border:1px solid #bfdbfe;color:#1e3a8a}
-#page2DisclaimerCard .disclaimer-warning{padding:10px 12px;border-radius:11px;background:#fff7ed;border:1px solid #fed7aa;color:#7c2d12}
-#page2DisclaimerCard .disclaimer-save{padding:10px 12px;border-radius:11px;background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
-#page2DisclaimerChecks{margin-top:13px;display:grid;gap:8px}
-.page2-disclaimer-check{display:flex;align-items:flex-start;gap:9px;padding:9px 10px;border:1px solid #d1d5db;border-radius:10px;background:#f8fafc;font-size:13px;font-weight:900;line-height:1.3;cursor:pointer}
-.page2-disclaimer-check input{width:19px;height:19px;margin:0;flex:0 0 auto;accent-color:#16a34a}
-#page2DisclaimerContinue{width:100%;margin-top:14px;border:0;border-radius:11px;padding:12px 14px;background:#16a34a;color:#fff;font-size:14px;font-weight:1000;cursor:pointer}
-#page2DisclaimerContinue:disabled{background:#9ca3af;cursor:not-allowed}
-#page2DisclaimerReopen{display:block;margin:12px auto 18px;border:0;background:transparent;color:#1d4ed8;text-decoration:underline;text-underline-offset:3px;font-size:12px;font-weight:900;cursor:pointer}
-body.page2-disclaimer-open{overflow:hidden!important}
-@media(max-width:520px){#page2DisclaimerCard{padding:14px;max-height:92vh}#page2DisclaimerCard h1{font-size:20px}.page2-disclaimer-check{font-size:12px}}
-</style>
-
-<style id="android-global-responsive-release-v2">
-/* Global phone/tablet responsiveness */
-html, body {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-  overflow-x: hidden !important;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box !important;
-  min-width: 0;
-}
-
-img, svg, video, iframe {
-  max-width: 100% !important;
-  height: auto;
-}
-
-canvas {
-  max-width: 100% !important;
-}
-
-input, select, textarea, button {
-  max-width: 100% !important;
-}
-
-input, select, textarea {
-  font-size: 16px !important;
-}
-
-table {
-  max-width: 100% !important;
-}
-
-.card, .slider-card, .summary-card, .policy-card,
-.tax-gate-card, .tax-filing-profile-card,
-.page3-tax-filing-card, .page4-tax-filing-card,
-.page4-return-source-card, .retirement-risk-card-v10,
-.intro-card, .save-card {
-  max-width: 100% !important;
-  min-width: 0 !important;
-  overflow-wrap: anywhere;
-}
-
-/* Header: Back + audio + flexible title + Next */
-.app-nav {
-  display: grid !important;
-  grid-template-columns: auto auto minmax(0, 1fr) auto !important;
-  align-items: center !important;
-  gap: 8px !important;
-  width: 100% !important;
-  max-width: 100vw !important;
-  padding-left: max(8px, env(safe-area-inset-left)) !important;
-  padding-right: max(8px, env(safe-area-inset-right)) !important;
-  overflow: hidden !important;
-}
-
-.app-nav > * {
-  min-width: 0 !important;
-}
-
-.app-nav .back,
-.app-nav .next,
-.app-nav > a.back,
-.app-nav > a.next {
-  min-width: 68px !important;
-  max-width: 86px !important;
-  padding: 10px 8px !important;
-  white-space: nowrap !important;
-  flex: none !important;
-}
-
-.app-nav .page-audio-button {
-  width: 50px !important;
-  min-width: 50px !important;
-  max-width: 50px !important;
-  padding-left: 6px !important;
-  padding-right: 6px !important;
-  flex: none !important;
-}
-
-.app-nav .nav-title,
-.app-nav .after-retirement-title,
-.app-nav .title {
-  min-width: 0 !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-  text-align: center !important;
-  font-size: clamp(14px, 4vw, 22px) !important;
-  line-height: 1.1 !important;
-}
-
-/* Flexible content and controls */
-.chart-container, .block-chart, .dual-block-chart,
-.slider, .slider-holder, .year-slider-wrap,
-.income-age-slider-line, .k401-age-slider-line {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-}
-
-.noUi-target {
-  max-width: 100% !important;
-}
-
-.main-grid, .assumption-grid, .ct-quick-grid,
-.ss-compact-grid, .ss-simple-grid,
-.end-summary-mini-grid, .universal-slider-max-grid,
-.slider-max-grid {
-  min-width: 0 !important;
-}
-
-@media (max-width: 600px) {
-  body {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .main-grid, .assumption-grid, .ct-quick-grid,
-  .ss-compact-grid, .ss-simple-grid,
-  .end-summary-mini-grid, .universal-slider-max-grid,
-  .slider-max-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-
-  .app-nav {
-    gap: 6px !important;
-  }
-
-  .app-nav .back,
-  .app-nav .next,
-  .app-nav > a.back,
-  .app-nav > a.next {
-    min-width: 64px !important;
-    max-width: 76px !important;
-    font-size: 13px !important;
-    padding: 9px 6px !important;
-  }
-
-  .app-nav .page-audio-button {
-    width: 46px !important;
-    min-width: 46px !important;
-    max-width: 46px !important;
-  }
-
-  .app-nav .after-retirement-title .celebrate-icon {
-    display: none !important;
-  }
-
-  .footer-nav {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 8px !important;
-  }
-
-  .footer-nav > * {
-    flex: 1 1 120px !important;
-  }
-}
-
-@media (max-width: 390px) {
-  .app-nav {
-    gap: 4px !important;
-    padding-left: max(5px, env(safe-area-inset-left)) !important;
-    padding-right: max(5px, env(safe-area-inset-right)) !important;
-  }
-
-  .app-nav .back,
-  .app-nav .next,
-  .app-nav > a.back,
-  .app-nav > a.next {
-    min-width: 58px !important;
-    max-width: 66px !important;
-    padding: 8px 4px !important;
-    font-size: 12px !important;
-  }
-
-  .app-nav .page-audio-button {
-    width: 42px !important;
-    min-width: 42px !important;
-    max-width: 42px !important;
-  }
-
-  .app-nav .nav-title,
-  .app-nav .after-retirement-title,
-  .app-nav .title {
-    font-size: 14px !important;
-  }
-}
-
-@media (orientation: landscape) and (max-height: 520px) {
-  .app-nav {
-    position: sticky !important;
-    top: 0 !important;
-  }
-}
-</style>
-
-</head><body>
-<div id="page2DisclaimerOverlay" role="dialog" aria-modal="true" aria-labelledby="page2DisclaimerTitle" aria-describedby="page2DisclaimerDescription">
-  <div id="page2DisclaimerCard">
-    <h1 id="page2DisclaimerTitle">📘 Welcome to Your Retirement Planner</h1>
-    <p id="page2DisclaimerDescription" class="disclaimer-intro"><strong>Please read this information before continuing.</strong> This calculator helps you explore retirement savings, investments, withdrawals, taxes, inflation, and spending through different planning scenarios.</p>
-
-    <h2>Educational Planning Tool</h2>
-    <div class="disclaimer-warning">
-      <p>Retirement planning involves uncertainty. Investment returns can rise or fall, inflation changes over time, tax laws and contribution limits are updated, Social Security rules may change, and your personal financial situation may change.</p>
-      <p>Every chart, projection, report, and calculation in this calculator is an estimate based on the information you enter and the assumptions you select. Future results are not guaranteed.</p>
-      <p>This calculator is for <strong>educational and retirement-planning purposes only</strong>. It does not provide financial, investment, tax, accounting, or legal advice and should not be the sole basis for an important decision.</p>
-      <p>Before making retirement, investment, estate-planning, or tax decisions, consider consulting a qualified financial advisor, CPA, tax professional, or attorney who can review your individual circumstances.</p>
-    </div>
-
-    <h2>💾 Your Progress Is Automatically Saved</h2>
-    <p class="disclaimer-save">Your information is saved in this browser while you work. You can move between pages, make changes, compare strategies, and continue without losing your progress.</p>
-
-    <h2>✔ Please Acknowledge</h2>
-    <div id="page2DisclaimerChecks">
-      <label class="page2-disclaimer-check"><input type="checkbox" data-page2-disclaimer-check> <span>I understand this calculator is an educational retirement-planning tool.</span></label>
-      <label class="page2-disclaimer-check"><input type="checkbox" data-page2-disclaimer-check> <span>I understand all calculations, projections, and reports are estimates and are not guarantees of future investment performance or tax results.</span></label>
-      <label class="page2-disclaimer-check"><input type="checkbox" data-page2-disclaimer-check> <span>I understand I should consult qualified financial, investment, tax, or legal professionals before making important financial decisions.</span></label>
-    </div>
-    <button id="page2DisclaimerContinue" type="button" disabled>Continue Building My Retirement Plan</button>
-  </div>
-</div>
-<div class="app-nav">
-<button class="back" onclick="saveValues(); window.location.href='01_Directions.html'">← Back</button><button class="page-audio-button" type="button" aria-label="Play page audio" title="Play page audio" data-audio-file="income.mp3">
-  <span aria-hidden="true">🔊</span>
-</button>
-<audio class="page-audio-element" preload="none" src="income.mp3"></audio>
-<div class="page-audio-status" role="status" aria-live="polite"></div>
-<div class="nav-title">Income &amp; Expense Setup</div><button class="next" id="page2BridgeNext" onclick="return page2SaveAndGoToPage3(event)" type="button">Next →</button></div><div class="page"><div class="income-year-selector"><div class="income-year-head compact-year-head"><div class="year-title-wrap"><span>Selected year</span></div><div class="income-year-note year-head-note" id="incomeYearNote">This slider matches the selected year on the 401K calculator.</div></div><div aria-label="Age controls" class="page2-age-controls"><div class="page2-age-top-row"><div class="page2-age-control-row"><div class="page2-age-select-wrap"><label for="page2StartAge">Start Age</label><select id="page2StartAge"></select></div><div class="page2-age-select-wrap"><label for="page2RetirementAge">Retire Age</label><select id="page2RetirementAge"></select></div></div><div class="page2-age-tip" id="page2YearLiveTip">Tip: YEAR 1 / AGE 25 selected</div></div></div><div class="income-age-slider-line"><button aria-label="Decrease selected year" class="income-age-step-btn" data-income-age-delta="-1" type="button">−</button><input id="incomeYearSlider" list="incomeYearTicks" max="0" min="0" step="1" type="range" value="0"/><button aria-label="Increase selected year" class="income-age-step-btn" data-income-age-delta="1" type="button">+</button></div><datalist id="incomeYearTicks"></datalist><div class="income-year-ticks" id="incomeYearTickRow"></div></div><section class="top-summary"><div class="summary-card"><div class="label">Monthly income</div><div class="value green" id="sumMonthlyIncome">$0</div></div><div class="summary-card"><div class="label">Yearly income to 401K</div><div class="value green" id="sumYearlyIncome">$0</div></div><div class="summary-card"><div class="label">Yearly 401K or IRA investment</div><div class="value red" id="sum401k">$0</div></div><div class="summary-card"><div class="label">Yearly Roth IRA investment</div><div class="value yellow" id="sumRoth">$0</div></div><div class="summary-card"><div class="label" id="remainingLabel">Remaining after expenses</div><div class="value green" id="budgetRemaining">$0</div></div></section><div aria-label="Filing status" class="page2-filing-status-panel" id="page2FilingStatusPanel">
+<div class="nav-title">Income &amp; Expense Setup</div><button class="next" id="page2BridgeNext" onclick="return page2SaveAndGoToPage3(event)" type="button">Next →</button></div><div class="page"><div class="income-year-selector"><div class="income-year-head compact-year-head"><div class="year-title-wrap"><span>Selected year</span></div><div class="income-year-note year-head-note" id="incomeYearNote">This slider matches the selected year on the 401K calculator.</div></div><div aria-label="Age controls" class="page2-age-controls"><div class="page2-age-top-row"><div class="page2-age-control-row"><div class="page2-age-select-wrap"><label for="page2StartAge">Start Age</label><select id="page2StartAge"></select></div><div class="page2-age-select-wrap"><label for="page2RetirementAge">Retire Age</label><select id="page2RetirementAge"></select></div></div><div class="page2-age-tip" id="page2YearLiveTip">Tip: YEAR 1 / AGE 25 selected</div></div></div><div class="income-age-slider-line"><button aria-label="Decrease selected year" class="income-age-step-btn" data-income-age-delta="-1" type="button">−</button><input id="incomeYearSlider" list="incomeYearTicks" max="0" min="0" step="1" type="range" value="0"/><button aria-label="Increase selected year" class="income-age-step-btn" data-income-age-delta="1" type="button">+</button></div><datalist id="incomeYearTicks"></datalist><div class="income-year-ticks" id="incomeYearTickRow"></div></div><section class="top-summary"><div class="summary-card"><div class="label">Monthly income</div><div class="value green" id="sumMonthlyIncome">$0</div></div><div class="summary-card"><div class="label">Yearly income to 401K</div><div class="value green" id="sumYearlyIncome">$0</div></div><div class="summary-card"><div class="label">Monthly 401K investment</div><div class="value red" id="sum401k">$0</div></div><div class="summary-card"><div class="label">Monthly Roth IRA investment</div><div class="value yellow" id="sumRoth">$0</div></div><div class="summary-card"><div class="label" id="remainingLabel">Remaining after expenses</div><div class="value green" id="budgetRemaining">$0</div></div></section><div aria-label="Filing status" class="page2-filing-status-panel" id="page2FilingStatusPanel">
 <div class="page2-filing-title">Filing Status</div>
 <div class="page2-filing-radios">
 <label><input name="filingStatus" type="radio" value="single"/> Single</label>
 <label><input name="filingStatus" type="radio" value="married"/> Married Filing Jointly</label>
 </div>
 <div class="page2-filing-note">Shared with Page 3 and used for Roth IRA income eligibility.</div>
-</div><section class="main-grid"><div class="panel"><h2>Monthly Income &amp; Investing</h2><div class="slider-card page2-income-card"><div class="slider-head"><div><div class="slider-title">Monthly Income</div><div class="slider-value" id="monthlyIncomeValue">$5,000</div></div><button aria-label="Lock Monthly income" aria-pressed="false" class="slider-lock-button" data-slider-target="monthlyIncomeSlider" title="Lock Monthly income" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button></div><div class="monthly-income-sync-note off" id="monthlyIncomeSyncNote">Inflation OFF — Page 03 income uses today\'s monthly income.</div><div class="slider-holder" id="monthlyIncomeSlider"></div><input id="monthlyIncome" type="hidden" value="5000"/></div><div class="slider-card page2-other-income-card"><div class="slider-head"><div><div class="slider-title">Other Income / Rent</div><div class="slider-value" id="otherIncomeValue">$0</div></div><button aria-label="Lock Other income" aria-pressed="false" class="slider-lock-button" data-slider-target="otherIncomeSlider" title="Lock Other income" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button></div><div class="slider-holder" id="otherIncomeSlider"></div><input id="otherIncome" type="hidden" value="0"/></div><div class="slider-card page2-k401-card"><div class="slider-head"><div><div class="catchup-note k401-catchup-note">The 401K contribution limit changes with age. Move the age slider to the age you want to model, then adjust this slider up to that age's limit.</div><details class="rule-tip"><summary>Click for 401K rules</summary><div class="rule-body">Base limit: <span class="k401-under50-text">$24.5K</span>/year. Age 50+: <span class="k401-50-text">$32.5K</span>. Age 60–63: <span class="k401-60-text">$35.8K</span>. The slider warning appears if the monthly amount is over the annual limit.</div></details><details class="government-limit-bypass" id="page2-government-limit-bypass"><summary><input id="disable-government-contribution-limits" type="checkbox" aria-label="Remove government limitations"><span>Remove government limitations</span></summary><div class="government-limit-help">Uses the full monthly 401K and Roth amounts entered, even above the configured annual limits.</div></details><div class="slider-title">Monthly 401K Investment</div><div class="slider-value" id="monthly401kValue">$0</div></div><button aria-label="Lock 401K investment" aria-pressed="false" class="slider-lock-button" data-slider-target="monthly401kSlider" title="Lock 401K investment" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button></div><div class="slider-holder" id="monthly401kSlider"></div><input id="monthly401k" type="hidden" value="0"/><div class="inline-limit-warning k401" id="k401LimitWarning">🔴 401K limit reached.</div></div><div class="slider-card page2-roth-card"><div class="slider-head"><div><div class="catchup-note roth-catchup-note">The Roth IRA contribution limit changes at age 50. Move the age slider to the age you want to model, then adjust this slider up to that age's limit.</div><div class="slider-title">Monthly Roth IRA Investment</div><div class="slider-value" id="monthlyRothValue">$0</div></div><button aria-label="Lock Roth investment" aria-pressed="false" class="slider-lock-button" data-slider-target="monthlyRothSlider" title="Lock Roth investment" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button></div><div class="slider-holder" id="monthlyRothSlider"></div><input id="monthlyRoth" type="hidden" value="0"/><div class="inline-limit-warning roth" id="rothLimitWarning">🟡 Roth IRA limit reached.</div></div><h2>Monthly Expenses</h2><div class="controls-row"><select id="presetSelect"><option value="">Add preset category...</option><option value="Housing|2000|#ef4444">Housing</option><option value="Groceries|500|#f97316">Groceries</option><option value="Utilities|250|#3b82f6">Utilities</option><option value="Transportation|450|#22c55e">Transportation</option><option value="Insurance|350|#8b5cf6">Insurance</option><option value="Medical|300|#ec4899">Medical</option><option value="Credit Cards|250|#111827">Credit Cards</option><option value="Savings|500|#16a34a">Savings</option><option value="Entertainment|250|#facc15">Entertainment</option><option value="Miscellaneous|200|#6366f1">Miscellaneous</option><option value="Phone / Internet|150|#06b6d4">Phone / Internet</option><option value="Medical / Healthcare|250|#ec4899">Medical / Healthcare</option><option value="Childcare|500|#0ea5e9">Childcare</option><option value="Education|250|#a855f7">Education</option><option value="Personal / Household|200|#14b8a6">Personal / Household</option><option value="Dining Out|200|#fb7185">Dining Out</option><option value="Subscriptions|100|#84cc16">Subscriptions</option><option value="Taxes|300|#c026d3">Taxes</option></select><button class="green-btn" id="addExpense">Add Blank</button><button class="red-btn" id="resetExpenses">Reset</button></div><div class="expense-list" id="expenseList"></div></div><div class="panel"><h2>Income &amp; Expense Block Chart</h2><div id="chartContainer"><div class="block-chart" id="blockChart"></div></div><div class="budget-note" id="budgetNote">Set income, investments, and expenses. Click Next to send yearly income and monthly investments to the 401K calculator.</div></div></section><section class="p2-federal-limit-panel" id="p2FederalLimitPanel">
-  <div class="p2-limit-title">⚠️ Federal Contribution-Limit Assumptions</div>
-  <div class="p2-limit-copy">These annual limits control the 401K and Roth IRA warnings and caps on this page and the 401K calculator. Update them when federal rules change.</div>
-  <div class="p2-limit-columns">
-    <div class="p2-limit-group"><h3>401K annual limits</h3>
-      <label>Under age 50 <input id="p2AssK401Under50" type="number" min="0" step="100"></label>
-      <label>Age 50–59 <input id="p2AssK401Age50" type="number" min="0" step="100"></label>
-      <label>Age 60–63 <input id="p2AssK401Age60" type="number" min="0" step="100"></label>
-      <label>Age 64+ <input id="p2AssK401Age64" type="number" min="0" step="100"></label>
-      <div class="p2-limit-actions"><button id="p2ApplyK401Limits" type="button">Apply 401K Limits</button><button class="reset" id="p2ResetK401Limits" type="button">Reset</button></div>
-    </div>
-    <div class="p2-limit-group"><h3>Roth IRA annual limits</h3>
-      <label>Base contribution <input id="p2AssRothBase" type="number" min="0" step="100"></label>
-      <label>Age 50+ catch-up <input id="p2AssRothCatchup" type="number" min="0" step="100"></label>
-      <label>Single income ceiling <input id="p2AssRothSingle" type="number" min="0" step="1000"></label>
-      <label>Married income ceiling <input id="p2AssRothMarried" type="number" min="0" step="1000"></label>
-      <div class="p2-limit-actions"><button id="p2ApplyRothLimits" type="button">Apply Roth Limits</button><button class="reset" id="p2ResetRothLimits" type="button">Reset</button></div>
-    </div>
-  </div>
-  <div class="p2-limit-status" id="p2LimitStatus">Saved values are shared with the 401K Calculator.</div>
-</section></div><script src="vendor/nouislider-app.min.js"></script>
+</div><section class="main-grid"><div class="panel"><h2>Monthly Income &amp; Investing</h2><div class="slider-card page2-income-card"><div class="slider-head"><div><div class="slider-title">Monthly Income</div><div class="slider-value" id="monthlyIncomeValue">$5,000</div></div><button aria-label="Lock Monthly income" aria-pressed="false" class="slider-lock-button" data-slider-target="monthlyIncomeSlider" title="Lock Monthly income" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button></div><div class="monthly-income-sync-note off" id="monthlyIncomeSyncNote">Inflation OFF — Page 03 income uses today\'s monthly income.</div><div class="slider-holder" id="monthlyIncomeSlider"></div><input id="monthlyIncome" type="hidden" value="5000"/></div><div class="slider-card page2-other-income-card"><div class="slider-head"><div><div class="slider-title">Other Income / Rent</div><div class="slider-value" id="otherIncomeValue">$0</div></div><button aria-label="Lock Other income" aria-pressed="false" class="slider-lock-button" data-slider-target="otherIncomeSlider" title="Lock Other income" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button></div><div class="slider-holder" id="otherIncomeSlider"></div><input id="otherIncome" type="hidden" value="0"/></div><div class="slider-card page2-k401-card"><div class="slider-head"><div><div class="catchup-note k401-catchup-note">The 401K contribution limit changes with age. Move the age slider to the age you want to model, then adjust this slider up to that age's limit.</div><details class="rule-tip"><summary>Click for 401K rules</summary><div class="rule-body">Base limit: <span class="k401-under50-text">$24.5K</span>/year. Age 50+: <span class="k401-50-text">$32.5K</span>. Age 60–63: <span class="k401-60-text">$35.8K</span>. The slider warning appears if the monthly amount is over the annual limit.</div></details><div class="slider-title">Monthly 401K Investment</div><div class="slider-value" id="monthly401kValue">$0</div></div><button aria-label="Lock 401K investment" aria-pressed="false" class="slider-lock-button" data-slider-target="monthly401kSlider" title="Lock 401K investment" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button></div><div class="slider-holder" id="monthly401kSlider"></div><input id="monthly401k" type="hidden" value="0"/><div class="inline-limit-warning k401" id="k401LimitWarning">🔴 401K limit reached.</div></div><div class="slider-card page2-roth-card"><div class="slider-head"><div><div class="catchup-note roth-catchup-note">The Roth IRA contribution limit changes at age 50. Move the age slider to the age you want to model, then adjust this slider up to that age's limit.</div><div class="slider-title">Monthly Roth IRA Investment</div><div class="slider-value" id="monthlyRothValue">$0</div></div><button aria-label="Lock Roth investment" aria-pressed="false" class="slider-lock-button" data-slider-target="monthlyRothSlider" title="Lock Roth investment" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button></div><div class="slider-holder" id="monthlyRothSlider"></div><input id="monthlyRoth" type="hidden" value="0"/><div class="inline-limit-warning roth" id="rothLimitWarning">🟡 Roth IRA limit reached.</div></div><h2>Monthly Expenses</h2><div class="controls-row"><select id="presetSelect"><option value="">Add preset category...</option><option value="Housing|2000|#ef4444">Housing</option><option value="Groceries|500|#f97316">Groceries</option><option value="Utilities|250|#3b82f6">Utilities</option><option value="Transportation|450|#22c55e">Transportation</option><option value="Insurance|350|#8b5cf6">Insurance</option><option value="Medical|300|#ec4899">Medical</option><option value="Credit Cards|250|#111827">Credit Cards</option><option value="Savings|500|#16a34a">Savings</option><option value="Entertainment|250|#facc15">Entertainment</option><option value="Miscellaneous|200|#6366f1">Miscellaneous</option><option value="Phone / Internet|150|#06b6d4">Phone / Internet</option><option value="Medical / Healthcare|250|#ec4899">Medical / Healthcare</option><option value="Childcare|500|#0ea5e9">Childcare</option><option value="Education|250|#a855f7">Education</option><option value="Personal / Household|200|#14b8a6">Personal / Household</option><option value="Dining Out|200|#fb7185">Dining Out</option><option value="Subscriptions|100|#84cc16">Subscriptions</option><option value="Taxes|300|#c026d3">Taxes</option></select><button class="green-btn" id="addExpense">Add Blank</button><button class="red-btn" id="resetExpenses">Reset</button></div><div class="expense-list" id="expenseList"></div></div><div class="panel"><h2>Income &amp; Expense Block Chart</h2><div id="chartContainer"><div class="block-chart" id="blockChart"></div></div><div class="budget-note" id="budgetNote">Set income, investments, and expenses. Click Next to send yearly income and monthly investments to the 401K calculator.</div></div></section><section class="p2-federal-limit-panel" id="p2FederalLimitPanel">
+<div class="p2-limit-title">⚠️ Federal Contribution-Limit Assumptions</div>
+<div class="p2-limit-copy">These annual limits control the 401K and Roth IRA warnings and caps on this page and the 401K calculator. Update them when federal rules change.</div>
+<div class="p2-limit-columns">
+<div class="p2-limit-group"><h3>401K annual limits</h3>
+<label>Under age 50 <input id="p2AssK401Under50" min="0" step="100" type="number"/></label>
+<label>Age 50–59 <input id="p2AssK401Age50" min="0" step="100" type="number"/></label>
+<label>Age 60–63 <input id="p2AssK401Age60" min="0" step="100" type="number"/></label>
+<label>Age 64+ <input id="p2AssK401Age64" min="0" step="100" type="number"/></label>
+<div class="p2-limit-actions"><button id="p2ApplyK401Limits" type="button">Apply 401K Limits</button><button class="reset" id="p2ResetK401Limits" type="button">Reset</button></div>
+</div>
+<div class="p2-limit-group"><h3>Roth IRA annual limits</h3>
+<label>Base contribution <input id="p2AssRothBase" min="0" step="100" type="number"/></label>
+<label>Age 50+ catch-up <input id="p2AssRothCatchup" min="0" step="100" type="number"/></label>
+<label>Single income ceiling <input id="p2AssRothSingle" min="0" step="1000" type="number"/></label>
+<label>Married income ceiling <input id="p2AssRothMarried" min="0" step="1000" type="number"/></label>
+<div class="p2-limit-actions"><button id="p2ApplyRothLimits" type="button">Apply Roth Limits</button><button class="reset" id="p2ResetRothLimits" type="button">Reset</button></div>
+</div>
+</div>
+<div class="p2-limit-status" id="p2LimitStatus">Saved values are shared with the 401K Calculator.</div>
+</section></div><script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.8.0/nouislider.min.js"></script>
 <script>
 let expenses=[];let selectedIncomeYearIndex=0;const defaultExpenses=[{name:'Rent/Mortgage',amount:2000,color:'#ef4444'},{name:'Groceries',amount:400,color:'#f97316'},{name:'Credit Card',amount:150,color:'#111827'},{name:'Utilities',amount:200,color:'#3b82f6'},{name:'Car / Transportation',amount:250,color:'#22c55e'},{name:'Cash Savings',amount:300,color:'#16a34a'},{name:'Insurance',amount:350,color:'#8b5cf6'},{name:'Medical / Healthcare',amount:250,color:'#ec4899'},{name:'Entertainment',amount:200,color:'#eab308'},{name:'Phone / Internet',amount:150,color:'#06b6d4'},{name:'Personal / Household',amount:200,color:'#14b8a6'},{name:'Miscellaneous',amount:150,color:'#6366f1'}];
 const sliderRefs={}, sliderDefaults={monthlyIncome:{min:3000,max:7000,step:25,start:5000,holder:'monthlyIncomeSlider'},otherIncome:{min:0,max:7000,step:25,start:0,holder:'otherIncomeSlider'},monthly401k:{min:0,max:2000,step:25,start:0,holder:'monthly401kSlider'},monthlyRoth:{min:0,max:700,step:25,start:0,holder:'monthlyRothSlider'}};
@@ -1450,7 +1131,7 @@ function setupSlider(id){
 function setMode(sliderId,mode){const sld=sliderRefs[sliderId],holder=document.getElementById(sliderDefaults[sliderId].holder);if(!sld)return;const cfg=sliderDefaults[sliderId],fullMax=getSliderMaxValue(sliderId),current=Number(sld.get())||0;if(mode==='lock'){holder.style.pointerEvents='none';holder.style.opacity='.5';return}holder.style.pointerEvents='auto';holder.style.opacity='1';if(mode==='large')sld.updateOptions({range:{min:(cfg.min||0),max:fullMax},step:cfg.step},true);else if(mode==='fine'){const span=Math.max(cfg.step*5,fullMax*.10);sld.updateOptions({range:{min:Math.round(Math.max((cfg.min||0),current-span)/cfg.step)*cfg.step,max:Math.round(Math.min(fullMax,current+span)/cfg.step)*cfg.step},step:cfg.step},true)}else{const span=Math.max(cfg.step*2,fullMax*.02);sld.updateOptions({range:{min:Math.round(Math.max((cfg.min||0),current-span)/cfg.step)*cfg.step,max:Math.round(Math.min(fullMax,current+span)/cfg.step)*cfg.step},step:cfg.step},true)}sld.set(Math.max((cfg.min||0),current))}
 function setupK401Limit(){try{const a=JSON.parse(localStorage.getItem('k401_assumptions')||'{}');const period=document.querySelector('input[name="setup401kAgePeriod"]:checked')?.value||'under50';return period==='age50plus' ? Number(a.age50||31000) : Number(a.under50||23500);}catch(e){return (document.querySelector('input[name="setup401kAgePeriod"]:checked')?.value||'under50')==='age50plus'?31000:23500;}}
 function setupRothLimit(){try{const a=JSON.parse(localStorage.getItem('roth_assumptions')||'{}');const period=document.querySelector('input[name="setupRothAgePeriod"]:checked')?.value||'under50';return Number(a.base||7500)+(period==='age50plus'?Number(a.catchup||1100):0);}catch(e){return (document.querySelector('input[name="setupRothAgePeriod"]:checked')?.value||'under50')==='age50plus'?8600:7500;}}
-function update(save=true){const income=val('monthlyIncome'),other=val('otherIncome'),totalIncome=income+other,k401=val('monthly401k'),roth=val('monthlyRoth'),exp=expenseTotal();document.getElementById('monthlyIncomeValue').textContent=fmtUSD(income);const otherEl=document.getElementById('otherIncomeValue');if(otherEl)otherEl.textContent=fmtUSD(other);document.getElementById('monthly401kValue').textContent=fmtUSD(k401);document.getElementById('monthlyRothValue').textContent=fmtUSD(roth);document.getElementById('sumMonthlyIncome').textContent=fmtUSD(totalIncome);document.getElementById('sumYearlyIncome').textContent=fmtUSD(totalIncome*12);document.getElementById('sum401k').textContent=fmtUSD(k401*12);document.getElementById('sumRoth').textContent=fmtUSD(roth*12);const remaining=totalIncome-k401-roth-exp;document.getElementById('budgetRemaining').textContent=fmtUSD(Math.abs(remaining));document.getElementById('budgetRemaining').className=remaining>=0?'value green':'value red';document.getElementById('remainingLabel').textContent=remaining>=0?'Remaining after expenses':'Shortfall';document.getElementById('budgetNote').textContent=remaining>=0?`You have ${fmtUSD(remaining)} left after expenses and investments.`:`You are short by ${fmtUSD(Math.abs(remaining))}.`;const limitsDisabled=!!document.getElementById('disable-government-contribution-limits')?.checked;document.getElementById('k401LimitWarning').classList.toggle('show',!limitsDisabled&&k401*12>setupK401Limit());document.getElementById('rothLimitWarning').classList.toggle('show',!limitsDisabled&&roth*12>setupRothLimit());if(save)saveValues();updateBlockChart();}
+function update(save=true){const income=val('monthlyIncome'),other=val('otherIncome'),totalIncome=income+other,k401=val('monthly401k'),roth=val('monthlyRoth'),exp=expenseTotal();document.getElementById('monthlyIncomeValue').textContent=fmtUSD(income);const otherEl=document.getElementById('otherIncomeValue');if(otherEl)otherEl.textContent=fmtUSD(other);document.getElementById('monthly401kValue').textContent=fmtUSD(k401);document.getElementById('monthlyRothValue').textContent=fmtUSD(roth);document.getElementById('sumMonthlyIncome').textContent=fmtUSD(totalIncome);document.getElementById('sumYearlyIncome').textContent=fmtUSD(totalIncome*12);document.getElementById('sum401k').textContent=fmtUSD(k401);document.getElementById('sumRoth').textContent=fmtUSD(roth);const remaining=totalIncome-k401-roth-exp;document.getElementById('budgetRemaining').textContent=fmtUSD(Math.abs(remaining));document.getElementById('budgetRemaining').className=remaining>=0?'value green':'value red';document.getElementById('remainingLabel').textContent=remaining>=0?'Remaining after expenses':'Shortfall';document.getElementById('budgetNote').textContent=remaining>=0?`You have ${fmtUSD(remaining)} left after expenses and investments.`:`You are short by ${fmtUSD(Math.abs(remaining))}.`;const limitsDisabled=!!document.getElementById('disable-government-contribution-limits')?.checked;document.getElementById('k401LimitWarning').classList.toggle('show',!limitsDisabled&&k401*12>setupK401Limit());document.getElementById('rothLimitWarning').classList.toggle('show',roth*12>setupRothLimit());if(save)saveValues();updateBlockChart();}
 function saveValues(){const income=val('monthlyIncome'),other=val('otherIncome'),totalIncome=income+other,k401=val('monthly401k'),roth=val('monthlyRoth');
 try{window.incomeSyncPage2SavePatch&&window.incomeSyncPage2SavePatch(totalIncome);}catch(e){}localStorage.setItem('primary_monthly_income',income);localStorage.setItem('other_income_monthly',other);localStorage.setItem('sync_other_income',other);localStorage.setItem('pre_other_income',other);localStorage.setItem('pre_monthly_income',totalIncome);localStorage.setItem('pre_yearly_income',totalIncome*12);localStorage.setItem('pre_monthly_401k',k401);localStorage.setItem('pre_monthly_roth',roth);localStorage.setItem('k401_prefill_income',totalIncome*12);localStorage.setItem('k401_prefill_monthly_401k',k401);localStorage.setItem('k401_prefill_monthly_roth',roth);localStorage.setItem('sync_monthly_income',totalIncome);localStorage.setItem('sync_total_monthly_income',totalIncome);localStorage.setItem('sync_yearly_income',totalIncome*12);localStorage.setItem('sync_total_yearly_income',totalIncome*12);localStorage.setItem('sync_monthly_401k',k401);localStorage.setItem('sync_monthly_roth',roth);localStorage.setItem('sync_retirement_inputs_source','income_expense_setup');localStorage.setItem('sync_retirement_inputs_updated',String(Date.now()));localStorage.setItem('income_setup_expense_rows',JSON.stringify(expenses));localStorage.setItem('page2_envelope_handoff_v1',JSON.stringify({version:1,updatedAt:Date.now(),source:'02_Income_ExpenseSetup',envelopes:(Array.isArray(expenses)?expenses:[]).map(function(e){return {name:String(e.name||'Expense'),amount:Number(e.amount)||0,color:e.color||'#64748b',termMonths:Number(e.termMonths)||0}})}))}
 function saveAndGo(){
@@ -1772,12 +1453,12 @@ update();renderRows(false);
     var annual=pageIncomeAnnual();
     var ceiling=filing==='married'?limits.marriedCeiling:limits.singleCeiling;
     var limitsDisabled=!!document.getElementById('disable-government-contribution-limits')?.checked;
-    var blocked=!limitsDisabled && annual>=ceiling;
+    var blocked=annual>=ceiling;
     if(blocked){
       warning.classList.add('show','roth-income-warning');
       warning.textContent='🔴 Roth IRA unavailable: '+(filing==='married'?'married filing jointly':'single')+' income is '+money(annual)+' and the direct Roth limit is '+money(ceiling)+'.';
       var sum=document.getElementById('sumRoth');
-      if(sum){sum.textContent='$0'; sum.title='Planned Roth contribution is '+money(plannedRoth()*12)+'/year, but direct Roth IRA contribution is unavailable at this income.';}
+      if(sum){sum.textContent='$0'; sum.title='Planned Roth slider amount is '+money(plannedRoth())+'/mo, but direct Roth IRA contribution is unavailable at this income.';}
     }else{
       warning.classList.remove('roth-income-warning');
       if(warning.textContent && warning.textContent.indexOf('Roth IRA unavailable')>=0){
@@ -2959,7 +2640,6 @@ html,body{overflow-x:hidden!important}
   window.addEventListener('pageshow',function(){setTimeout(repaintFrames,120);});
 })();
 </script>
-
 <script>window.__RETIREMENT_AUTOSAVE_PAGE__="page2";</script>
 <script id="page2-inflation-radio-initializer">document.addEventListener('DOMContentLoaded',()=>{initializeIncomeInflationRadios()});</script><script src="app-auto-save.js"></script>
 <!-- V50 TOP SAVE PILL: PAGE 2 TO PAGE 3 -->
@@ -2998,8 +2678,6 @@ html,body{overflow-x:hidden!important}
   };
 })();
 </script>
-
-
 <style id="page2-government-limit-bypass-style">
 .rule-tip{margin:5px 0 7px;border:1px solid #d1d5db;border-radius:8px;background:#f9fafb;font-size:11px;overflow:hidden}
 .rule-tip summary{cursor:pointer;padding:6px 8px;font-weight:900;user-select:none}
@@ -3046,7 +2724,6 @@ html,body{overflow-x:hidden!important}
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',install,{once:true}); else install();
 })();
 </script>
-
 <style id="page2-show-first-style">
 .page2-show-first-enabled{position:relative!important;padding-top:12px!important}
 .page2-show-first-row{display:flex;align-items:center;justify-content:flex-start;width:100%;min-height:38px;margin:0 0 8px;padding:0 10px;box-sizing:border-box}
@@ -3127,8 +2804,6 @@ html,body{overflow-x:hidden!important}
   window.addEventListener('pageshow',function(){setTimeout(install,0)});
 })();
 </script>
-
-
 <script id="p2-federal-limit-panel-script-v2">
 (function(){
 'use strict';
@@ -3147,10 +2822,6 @@ document.getElementById('p2ResetRothLimits').onclick=function(){localStorage.rem
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wire,{once:true});else wire();
 })();
 </script>
-
-
-
-
 <style id="age-pin-readout-fixed-css">
 .age-limit-pin-v3{position:absolute!important;top:-11px!important;width:3px!important;height:32px!important;background:#111827!important;border-radius:3px!important;transform:translateX(-1.5px)!important;z-index:30!important;pointer-events:none!important}.age-limit-pin-v3:before{content:"";position:absolute;left:-2px;top:-2px;width:7px;height:7px;border-radius:50%;background:#111827}.age-limit-readout-v3{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:8px!important;margin:5px 0 3px!important;font-size:12px!important;font-weight:900!important;color:#374151!important}.age-limit-readout-v3 .age-cap{color:#111827!important}.age-limit-managed .final-range-readout,.age-limit-managed .page3-final-range-readout,.age-limit-managed .clean-range-readout,.age-limit-managed .slider-range-display-final,.age-limit-managed .page3-matched-range-display,.age-limit-managed .cg-stable-range-readout,.age-limit-managed .cg-one-range-readout{display:none!important}.age-limit-managed .noUi-base{position:relative!important;overflow:visible!important}.age-limit-managed{overflow:visible!important;pointer-events:auto!important;opacity:1!important}.age-limit-managed .noUi-handle{pointer-events:auto!important;cursor:grab!important}
 </style><script id="age-pin-readout-fixed-v3">
@@ -3168,7 +2839,6 @@ function decorate(s,cap,full,a,label){s.classList.add('age-limit-managed');let b
 function setup(id,isK,load){let s=el(id);if(!s||!s.noUiSlider)return;let api=s.noUiSlider,L=limits(),cap=isK?L.kCap:L.rCap,full=isK?L.kFull:L.rFull,bucket=isK?L.kBucket:L.rBucket,key=isK?'k':'r',oid=isK?cfg.ko:cfg.ro,label=isK?'401(k)':'Roth IRA';s.classList.remove('locked','mode-locked','slider-actually-locked');let st=read();st[key]=st[key]||{};let old=api.__v3bucket;if(old&&old!==bucket)st[key][old]=Math.min(num(api.get(),0),num(api.__v3cap,Infinity));if(!api.__v3origUpdate){api.__v3origUpdate=api.updateOptions.bind(api);api.__v3origSet=api.set.bind(api)}let cm=num(api.options?.range?.max,0);if(Math.abs(cm-full)>.01){busy=true;api.__v3origUpdate({range:{min:0,max:full},step:1},false);busy=false}let v=num(api.get(),0);if(load||old!==bucket){let sv=num(st[key][bucket],NaN);if(Number.isFinite(sv))v=sv}v=Math.max(0,Math.min(v,cap));api.__v3bucket=bucket;api.__v3cap=cap;api.__v3full=full;busy=true;api.__v3origSet(v,false,true);busy=false;st[key][bucket]=v;write(st);out(oid,v);decorate(s,cap,full,L.age,label);if(!api.__v3events){api.__v3events=true;let enforce=function(values){if(busy)return;let vv=num(values,0),cc=num(api.__v3cap,Infinity);if(vv>cc){busy=true;api.__v3origSet(cc,false,true);busy=false;vv=cc}out(oid,vv)};api.on('slide.agePinV3',enforce);api.on('update.agePinV3',enforce);api.on('set.agePinV3',function(values){enforce(values);let q=read();q[key]=q[key]||{};q[key][api.__v3bucket]=Math.min(num(values,0),api.__v3cap);write(q)})}}
 function sync(load){setup(cfg.k,true,load);setup(cfg.r,false,load)}function bind(){[cfg.yr,...cfg.start,...cfg.kf,...cfg.rf].forEach(id=>{let x=el(id);if(x&&!x.__v3){x.__v3=true;x.addEventListener('input',()=>setTimeout(()=>sync(true),0));x.addEventListener('change',()=>setTimeout(()=>sync(true),0))}});document.addEventListener('click',e=>{if(e.target.closest('[id*="apply"],[id*="Apply"],[id*="reset"],[id*="Reset"]'))setTimeout(()=>sync(false),30)},true)}function boot(){sync(true);bind();setTimeout(()=>sync(false),400)}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();window.addEventListener('pageshow',()=>setTimeout(()=>sync(true),80));})();
 </script>
-
 <style id="shared-compact-slider-cards-v1">
 /* Compact slider-card option shared by Pages 2 and 4. */
 .page2-show-first-row,.ctrl-header{flex-wrap:wrap!important}
@@ -3220,8 +2890,6 @@ function sync(load){setup(cfg.k,true,load);setup(cfg.r,false,load)}function bind
 .ctrl.is-slider-compact .page4-card-lock,.ctrl.is-slider-compact .slider-lock-button,.ctrl.is-slider-compact .stable-lock-button{display:none!important}
 @media(max-width:520px){.slider-compact-description{font-size:11px}.slider-compact-label{font-size:11px}}
 </style>
-
-
 <script id="shared-compact-slider-cards-script-v1">
 (function(){
   'use strict';
@@ -3281,8 +2949,6 @@ function sync(load){setup(cfg.k,true,load);setup(cfg.r,false,load)}function bind
   if(window.MutationObserver)new MutationObserver(function(){install();}).observe(document.documentElement,{childList:true,subtree:true});
 })();
 </script>
-
-
 <style id="compact-slider-normal-rail-thickness-v2">
 /* Compact mode reduces card height without changing the slider rail thickness. */
 .slider-card.is-slider-compact .slider-holder.noUi-target,
@@ -3299,7 +2965,6 @@ function sync(load){setup(cfg.k,true,load);setup(cfg.r,false,load)}function bind
   min-height:8px!important;
 }
 </style>
-
 <style id="page2-compact-and-pin-final-v4">
 /* Match Page 3 compact behavior: preserve only controls, description, amount and slider. */
 .slider-card.is-slider-compact .slider-head > div:first-child > *:not(.slider-value){display:none!important}
@@ -3372,66 +3037,6 @@ function sync(load){setup(cfg.k,true,load);setup(cfg.r,false,load)}function bind
 })();
 </script>
 
-
-<script id="page-audio-placeholder-script">
-(function(){
-  'use strict';
-  function initPageAudio(){
-    var button=document.querySelector('.page-audio-button');
-    var audio=document.querySelector('.page-audio-element');
-    var status=document.querySelector('.page-audio-status');
-    if(!button||!audio||!status||button.dataset.audioReady==='yes')return;
-    button.dataset.audioReady='yes';
-    var hideTimer=0;
-    function showStatus(message){
-      status.textContent=message;
-      status.classList.add('show');
-      clearTimeout(hideTimer);
-      hideTimer=setTimeout(function(){status.classList.remove('show');},3200);
-    }
-    function setIdle(){
-      button.classList.remove('is-playing');
-      button.setAttribute('aria-label','Play page audio');
-      button.title='Play page audio';
-      var icon=button.querySelector('span');
-      if(icon)icon.textContent='🔊';
-    }
-    button.addEventListener('click',function(){
-      if(!audio.paused){
-        audio.pause();
-        setIdle();
-        showStatus('Audio paused.');
-        return;
-      }
-      button.classList.remove('is-unavailable');
-      var playPromise;
-      try{playPromise=audio.play();}catch(e){playPromise=Promise.reject(e);}
-      Promise.resolve(playPromise).then(function(){
-        button.classList.add('is-playing');
-        button.setAttribute('aria-label','Pause page audio');
-        button.title='Pause page audio';
-        var icon=button.querySelector('span');
-        if(icon)icon.textContent='⏸';
-        showStatus('Playing page audio.');
-      }).catch(function(){
-        setIdle();
-        button.classList.add('is-unavailable');
-        showStatus('Audio is not available yet. Add '+button.dataset.audioFile+' beside this HTML file.');
-      });
-    });
-    audio.addEventListener('ended',setIdle);
-    audio.addEventListener('pause',function(){if(!audio.ended)setIdle();});
-    audio.addEventListener('error',function(){
-      setIdle();
-      button.classList.add('is-unavailable');
-    });
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initPageAudio);
-  else initPageAudio();
-})();
-</script>
-
-
 <!-- Retirement suite finger-friendly scrolling -->
 <style id="retirement-suite-finger-friendly-scroll-v1">
 html,body{
@@ -3493,8 +3098,6 @@ button,[role="button"],label,select,input,summary,
   },true);
 })();
 </script>
-
-
 <!-- FINAL FIX: Page 2 age handoff to Page 3 -->
 <script id="final-page2-age-handoff-20260730">
 (function(){
@@ -3548,42 +3151,221 @@ button,[role="button"],label,select,input,summary,
   window.addEventListener('beforeunload',savePage2Ages);
 })();
 </script>
-
-
-<button id="page2DisclaimerReopen" type="button">View Retirement Planner Disclaimer Again</button>
-
-<script id="page2-retirement-disclaimer-v1-script">
+<!-- AUTHORITATIVE PAGE 2 WELCOME + ROTH SYNC V26 -->
+<style id="page2-welcome-v26-style">
+#page2WelcomeV26{position:fixed!important;inset:0!important;z-index:2147483647!important;display:none!important;align-items:center!important;justify-content:center!important;padding:14px!important;background:rgba(15,23,42,.84)!important;font-family:Arial,sans-serif!important;overflow:auto!important}
+#page2WelcomeV26.show{display:flex!important}
+#page2WelcomeV26 .welcome-card{width:min(640px,96vw)!important;max-height:94vh!important;overflow:auto!important;background:#fff!important;border-radius:18px!important;padding:20px!important;box-shadow:0 26px 80px rgba(0,0,0,.5)!important;border:1px solid #cbd5e1!important;color:#111827!important}
+#page2WelcomeV26 h2{margin:0 0 8px!important;font-size:22px!important;line-height:1.2!important;text-align:center!important}
+#page2WelcomeV26 .welcome-intro{margin:0 0 14px!important;font-size:14px!important;line-height:1.45!important;color:#334155!important;text-align:center!important}
+#page2WelcomeV26 .ack-item{display:flex!important;align-items:flex-start!important;gap:11px!important;margin:9px 0!important;padding:12px!important;border:1px solid #cbd5e1!important;border-radius:12px!important;background:#f8fafc!important;cursor:pointer!important;text-align:left!important}
+#page2WelcomeV26 .ack-item input{flex:0 0 auto!important;width:21px!important;height:21px!important;margin:1px 0 0!important;accent-color:#16a34a!important}
+#page2WelcomeV26 .ack-item span{font-size:14px!important;line-height:1.42!important;font-weight:700!important;color:#1e293b!important}
+#page2WelcomeV26 .welcome-actions{display:flex!important;gap:10px!important;justify-content:flex-end!important;margin-top:15px!important}
+#page2WelcomeV26 button{border:0!important;border-radius:10px!important;padding:11px 16px!important;font-size:14px!important;font-weight:900!important;cursor:pointer!important}
+#page2WelcomeV26 .exit-btn{background:#e5e7eb!important;color:#111827!important}
+#page2WelcomeV26 .accept-btn{background:#16a34a!important;color:#fff!important}
+#page2WelcomeV26 .accept-btn:disabled{background:#94a3b8!important;color:#e2e8f0!important;cursor:not-allowed!important}
+body.page2-welcome-v26-locked{overflow:hidden!important}
+@media(max-width:520px){#page2WelcomeV26{padding:9px!important;align-items:flex-start!important}#page2WelcomeV26 .welcome-card{margin-top:10px!important;padding:16px!important;border-radius:15px!important}#page2WelcomeV26 h2{font-size:20px!important}#page2WelcomeV26 .welcome-intro,#page2WelcomeV26 .ack-item span{font-size:13px!important}#page2WelcomeV26 .welcome-actions{flex-direction:column-reverse!important}#page2WelcomeV26 button{width:100%!important}}
+</style>
+<script id="page2-welcome-v26-script">
 (function(){
   'use strict';
-  var KEY='retirementDisclaimerAccepted_v1';
-  function init(){
-    var overlay=document.getElementById('page2DisclaimerOverlay');
-    var button=document.getElementById('page2DisclaimerContinue');
-    var checks=Array.from(document.querySelectorAll('[data-page2-disclaimer-check]'));
-    var reopen=document.getElementById('page2DisclaimerReopen');
-    if(!overlay||!button||!checks.length)return;
-    function update(){button.disabled=!checks.every(function(c){return c.checked;});}
-    function open(reset){
-      if(reset){checks.forEach(function(c){c.checked=false;});update();}
-      overlay.classList.add('show');
-      document.body.classList.add('page2-disclaimer-open');
-      setTimeout(function(){var first=checks[0];if(first)first.focus();},50);
-    }
-    function close(){overlay.classList.remove('show');document.body.classList.remove('page2-disclaimer-open');}
+  var KEY='retirement_page2_welcome_ack_v26';
+  function build(){
+    var old=document.getElementById('page2WelcomeV26'); if(old) return old;
+    var overlay=document.createElement('div');
+    overlay.id='page2WelcomeV26'; overlay.setAttribute('role','dialog'); overlay.setAttribute('aria-modal','true'); overlay.setAttribute('aria-labelledby','page2WelcomeV26Title');
+    overlay.innerHTML='<div class="welcome-card">'
+      +'<h2 id="page2WelcomeV26Title">Welcome &amp; Important Information</h2>'
+      +'<p class="welcome-intro">Please review and accept all three items before using the retirement planner.</p>'
+      +'<label class="ack-item"><input type="checkbox" class="page2WelcomeV26Check"><span>I understand this app is an educational retirement-planning tool. It is not financial, tax, legal, or investment advice, and important decisions should be reviewed with qualified professionals.</span></label>'
+      +'<label class="ack-item"><input type="checkbox" class="page2WelcomeV26Check"><span>I understand that retirement projections, investment returns, Social Security amounts, taxes, and other results are estimates. Actual laws, markets, income, expenses, and personal circumstances may produce different results.</span></label>'
+      +'<label class="ack-item"><input type="checkbox" class="page2WelcomeV26Check"><span>I understand that each page automatically saves whenever I leave it using Back, Next, another page, or by closing the app. My entries are stored only on this device and may be lost if browser or app data is cleared or the app is uninstalled.</span></label>'
+      +'<div class="welcome-actions"><button type="button" class="exit-btn" id="page2WelcomeV26Exit">Exit</button><button type="button" class="accept-btn" id="page2WelcomeV26Accept" disabled>Accept &amp; Continue</button></div></div>';
+    document.body.appendChild(overlay);
+    var checks=Array.prototype.slice.call(overlay.querySelectorAll('.page2WelcomeV26Check'));
+    var accept=overlay.querySelector('#page2WelcomeV26Accept');
+    function update(){accept.disabled=!checks.every(function(c){return c.checked;});}
     checks.forEach(function(c){c.addEventListener('change',update);});
-    button.addEventListener('click',function(){
-      if(button.disabled)return;
-      try{localStorage.setItem(KEY,JSON.stringify({accepted:true,acceptedAt:Date.now()}));}catch(e){}
-      close();
-    });
-    if(reopen)reopen.addEventListener('click',function(){open(true);});
-    var accepted=false;
-    try{var raw=JSON.parse(localStorage.getItem(KEY)||'null');accepted=!!(raw&&raw.accepted);}catch(e){accepted=localStorage.getItem(KEY)==='true';}
-    if(!accepted)open(true);
+    accept.addEventListener('click',function(){if(accept.disabled)return;try{localStorage.setItem(KEY,'accepted');}catch(e){} overlay.classList.remove('show');document.body.classList.remove('page2-welcome-v26-locked');});
+    overlay.querySelector('#page2WelcomeV26Exit').addEventListener('click',function(){location.href='index.html';});
+    return overlay;
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+  function launch(){var accepted=false;try{accepted=localStorage.getItem(KEY)==='accepted';}catch(e){} if(accepted)return;var o=build();document.body.classList.add('page2-welcome-v26-locked');o.classList.add('show');}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(launch,0);},{once:true});else setTimeout(launch,0);
+  window.addEventListener('pageshow',launch);
 })();
 </script>
+<script id="page2-roth-exact-quarter-sync-v3">
+(function(){
+  'use strict';
+  var busy=false;
+  function snap25(v){return Math.max(0,Math.round((Number(v)||0)/25)*25);}
+  function money(v){return '$'+snap25(v).toLocaleString();}
+  function persist(v){
+    var hidden=document.getElementById('monthlyRoth'); if(hidden)hidden.value=String(v);
+    var out=document.getElementById('monthlyRothValue'); if(out)out.textContent=money(v);
+    var sum=document.getElementById('sumRoth'); if(sum)sum.textContent=money(v);
+    ['sync_monthly_roth','k401_prefill_monthly_roth','pre_monthly_roth'].forEach(function(k){try{localStorage.setItem(k,String(v));}catch(e){}});
+  }
+  function install(){
+    var el=document.getElementById('monthlyRothSlider'); if(!el||!el.noUiSlider)return false;
+    if(el.dataset.exactQuarterSync==='1')return true; el.dataset.exactQuarterSync='1';
+    var api=el.noUiSlider;
+    try{
+      var r=api.options&&api.options.range||{min:0,max:700};
+      var max=Math.max(25,snap25(r.max));
+      api.updateOptions({range:{min:0,max:max},step:25},false);
+    }catch(e){}
+    function enforce(raw){
+      if(busy)return;
+      var v=snap25(Array.isArray(raw)?raw[0]:raw);
+      var now=Number(Array.isArray(api.get())?api.get()[0]:api.get())||0;
+      if(Math.abs(now-v)>.001){busy=true;try{api.set(v);}finally{busy=false;}}
+      persist(v);
+      setTimeout(function(){persist(v);},0);
+    }
+    api.on('update.exactQuarterSync',enforce);
+    api.on('set.exactQuarterSync',enforce);
+    enforce(api.get());
+    return true;
+  }
+  function patchTransfer(){
+    var old=window.transferPage2ToPage3;
+    if(typeof old!=='function'||old.__rothQuarterPatched)return;
+    var wrapped=function(ev){
+      var el=document.getElementById('monthlyRothSlider');
+      var v=snap25(el&&el.noUiSlider?el.noUiSlider.get():document.getElementById('monthlyRoth')&&document.getElementById('monthlyRoth').value);
+      if(el&&el.noUiSlider){busy=true;try{el.noUiSlider.set(v);}finally{busy=false;}}
+      persist(v);
+      try{
+        var p=JSON.parse(localStorage.getItem('retirement_page2_packet_v35')||'null'); if(p){p.roth=v;localStorage.setItem('retirement_page2_packet_v35',JSON.stringify(p));}
+      }catch(e){}
+      return old.call(this,ev);
+    };
+    wrapped.__rothQuarterPatched=true; window.transferPage2ToPage3=wrapped;
+  }
+  function start(){var n=0,t=setInterval(function(){var ok=install();patchTransfer();if((ok&&typeof window.transferPage2ToPage3==='function')||++n>100)clearInterval(t);},40);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
+})();
+</script>
+<script id="page2-exact-contribution-handoff-v27">
+(function(){
+  'use strict';
+  function n(v){v=Array.isArray(v)?v[0]:v;v=parseFloat(String(v==null?'':v).replace(/[^0-9.-]/g,''));return Number.isFinite(v)?v:0;}
+  function read(id,hidden,step){
+    var el=document.getElementById(id),v=0,max=0;
+    try{if(el&&el.noUiSlider){v=n(el.noUiSlider.get());max=n(el.noUiSlider.options&&el.noUiSlider.options.range&&el.noUiSlider.options.range.max);}}
+    catch(e){}
+    if(!v){var h=document.getElementById(hidden);v=n(h&&h.value);}
+    v=Math.max(0,Math.round(v/step)*step);
+    max=Math.max(v,Math.round(max/step)*step,step);
+    return {value:v,max:max,step:step};
+  }
+  window.transferPage2ToPage3=function(ev){
+    if(ev){ev.preventDefault();ev.stopPropagation();}
+    var inc=read('monthlyIncomeSlider','monthlyIncome',100);
+    var k=read('monthly401kSlider','monthly401k',100);
+    var r=read('monthlyRothSlider','monthlyRoth',25);
+    var packet={version:27,income:inc.value,k401:k.value,roth:r.value,incomeMin:0,incomeMax:inc.max,incomeStep:100,k401Min:0,k401Max:k.max,k401Step:100,rothMin:0,rothMax:r.max,rothStep:25,savedAt:Date.now()};
+    try{
+      localStorage.setItem('retirement_page2_packet_v27',JSON.stringify(packet));
+      localStorage.setItem('retirement_page2_packet_v26',JSON.stringify(packet));
+      localStorage.setItem('sync_monthly_income',String(packet.income));
+      localStorage.setItem('sync_monthly_401k',String(packet.k401));
+      localStorage.setItem('sync_monthly_roth',String(packet.roth));
+      localStorage.setItem('sync_monthly_401k_max',String(packet.k401Max));
+      localStorage.setItem('sync_monthly_roth_max',String(packet.rothMax));
+      localStorage.setItem('k401_monthly_under50',String(packet.k401));
+      localStorage.setItem('k401_monthly_50plus',String(packet.k401));
+      localStorage.setItem('roth_monthly_under50',String(packet.roth));
+      localStorage.setItem('roth_monthly_50plus',String(packet.roth));
+      localStorage.setItem('sync_monthly_401k_under50',String(packet.k401));
+      localStorage.setItem('sync_monthly_401k_age50plus',String(packet.k401));
+      localStorage.setItem('sync_monthly_roth_under50',String(packet.roth));
+      localStorage.setItem('sync_monthly_roth_age50plus',String(packet.roth));
+      localStorage.setItem('monthly_age_period_state',JSON.stringify({contrib:{active:'under50',under50:packet.k401,age50plus:packet.k401},roth:{active:'under50',under50:packet.roth,age50plus:packet.roth}}));
+    }catch(e){}
+    location.href='03_401K_Calculator.html#v27='+encodeURIComponent(JSON.stringify(packet));
+    return false;
+  };
+})();
+</script>
+<script id="page2-live-contribution-handoff-v1">
+(function(){
+  'use strict';
+  if(window.__page2LiveContributionHandoffV1)return;
+  window.__page2LiveContributionHandoffV1=true;
+  function num(v){v=Array.isArray(v)?v[0]:v;v=parseFloat(String(v==null?'':v).replace(/[^0-9.-]/g,''));return Number.isFinite(v)?v:0}
+  function slider(id,fallback){var el=document.getElementById(id);try{if(el&&el.noUiSlider)return num(el.noUiSlider.get())}catch(e){}var f=document.getElementById(fallback);return num(f&&('value'in f?f.value:f.textContent))}
+  function maxOf(id,value){var el=document.getElementById(id);try{var r=el&&el.noUiSlider&&el.noUiSlider.options&&el.noUiSlider.options.range;var m=r&&num(r.max);return Math.max(value,m)}catch(e){}return value}
+  function save(){
+    var roth=Math.max(0,Math.round(slider('monthlyRothSlider','monthlyRoth')/25)*25);
+    var k401=Math.max(0,Math.round(slider('monthly401kSlider','monthly401k')/100)*100);
+    var packet={version:1,stamp:Date.now(),source:'page2-live',roth:roth,k401:k401,rothMax:maxOf('monthlyRothSlider',roth),k401Max:maxOf('monthly401kSlider',k401)};
+    try{
+      localStorage.setItem('page2_live_contribution_handoff_v1',JSON.stringify(packet));
+      localStorage.setItem('sync_monthly_roth',String(roth));
+      localStorage.setItem('sync_monthly_401k',String(k401));
+      localStorage.setItem('k401_prefill_monthly_roth',String(roth));
+      localStorage.setItem('k401_prefill_monthly_401k',String(k401));
+      localStorage.setItem('pre_monthly_roth',String(roth));
+      localStorage.setItem('pre_monthly_401k',String(k401));
+      localStorage.setItem('sync_monthly_roth_max',String(packet.rothMax));
+      localStorage.setItem('sync_monthly_401k_max',String(packet.k401Max));
+      localStorage.setItem('retirement_page2_packet_v27',JSON.stringify({roth:roth,k401:k401,rothMax:packet.rothMax,k401Max:packet.k401Max,stamp:packet.stamp}));
+    }catch(e){}
+  }
+  function bind(){
+    ['monthlyRothSlider','monthly401kSlider'].forEach(function(id){var el=document.getElementById(id);if(!el||!el.noUiSlider||el.__liveHandoffBound)return;el.__liveHandoffBound=true;try{el.noUiSlider.on('update.page2LiveHandoff',save);el.noUiSlider.on('set.page2LiveHandoff',save)}catch(e){}});
+    document.querySelectorAll('.app-nav .next,button.next').forEach(function(btn){if(btn.__liveHandoffBound)return;btn.__liveHandoffBound=true;btn.addEventListener('click',save,true)});
+  }
+  function boot(){bind();save();[100,300,700,1400].forEach(function(ms){setTimeout(function(){bind();save()},ms)})}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+  addEventListener('pagehide',save,true);addEventListener('beforeunload',save,true);
+})();
+</script>
+<script id="authoritative-government-limit-sync-page2-v1">
+(function(){
+  'use strict';
+  var SHARED='retirement_disable_government_contribution_limits';
+  var LEGACY='page3_disable_government_contribution_limits';
+  function save(on){
+    try{
+      localStorage.setItem(SHARED,on?'1':'0');
+      localStorage.setItem(LEGACY,on?'1':'0');
+      localStorage.setItem('retirement_government_limit_updated_at',String(Date.now()));
+    }catch(e){}
+  }
+  function install(){
+    var box=document.getElementById('disable-government-contribution-limits');
+    if(!box||box.__authoritativeLimitSync)return;
+    box.__authoritativeLimitSync=true;
+    try{box.checked=localStorage.getItem(SHARED)==='1'||localStorage.getItem(LEGACY)==='1';}catch(e){}
+    save(box.checked);
+    box.addEventListener('change',function(){
+      save(box.checked);
+      try{if(typeof update==='function')update(false);}catch(e){}
+      try{if(typeof saveValues==='function')saveValues();}catch(e){}
+    },true);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+  window.addEventListener('pageshow',install);
+})();
+</script>
+<style id="government-limit-feature-removed-css">.government-limit-bypass,#page2-government-limit-bypass,#page3-government-limit-bypass{display:none!important}</style>
+<script id="government-limit-feature-removed-final">(function(){
+  var keys=['retirement_disable_government_contribution_limits', 'page3_disable_government_contribution_limits', 'disable-government-contribution-limits', 'retirement_government_limit_updated_at'];
+  function removeFeature(){
+    try{keys.forEach(function(k){localStorage.removeItem(k);});}catch(e){}
+    document.querySelectorAll('.government-limit-bypass,#page2-government-limit-bypass,#page3-government-limit-bypass').forEach(function(n){n.remove();});
+    var box=document.getElementById('disable-government-contribution-limits');if(box){box.checked=false;box.remove();}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',removeFeature,{once:true});else removeFeature();
+  window.addEventListener('pageshow',removeFeature);
+})();</script>
 </body></html>
 \n<!-- AUTHORITATIVE_CROSS_PAGE_RETIREMENT_SYNC_V3 -->
 <!-- Fixed authoritative Increase / Reset behavior for Monthly Income, 401K, and Roth IRA -->
@@ -3708,15 +3490,8 @@ button,[role="button"],label,select,input,summary,
 })();
 </script>
 <!-- Authoritative expense block colors + matching input rows -->
-
-
 <!-- Final unique persistent expense colors -->
-
-
 <!-- Fix duplicate "New Expense" color rendering: match by expense index, not repeated name -->
-
-
-
 <!-- Final authoritative Page 2 slider defaults and 100% range controls -->
 <script id="chatgpt-final-four-slider-range-controller">
 (function(){
@@ -3835,7 +3610,6 @@ button,[role="button"],label,select,input,summary,
 })();
 </script>
 <script src="page2-page3-sync.js?v=firstload7"></script>
-
 <!-- SAVED PAGE VISUAL V49 — CSS ONLY; DOES NOT TOUCH NAVIGATION -->
 <style id="saved-page-visual-v49">
 #verifiedSaveOverlay{position:fixed!important;inset:auto!important;top:76px!important;left:50%!important;transform:translateX(-50%)!important;z-index:2147483647!important;width:auto!important;height:auto!important;padding:0!important;margin:0!important;background:transparent!important;align-items:initial!important;justify-content:initial!important;pointer-events:none!important;}
@@ -3847,7 +3621,6 @@ button,[role="button"],label,select,input,summary,
 #verifiedSaveOverlay .save-sub{color:#166534!important;font:700 12px/1.2 Arial,sans-serif!important;margin:3px 0 0!important;}
 @media(max-width:520px){#verifiedSaveOverlay{top:64px!important;}#verifiedSaveOverlay .save-card{min-width:0!important;padding:10px 14px!important;gap:9px!important;}#verifiedSaveOverlay .save-title{font-size:15px!important;}#verifiedSaveOverlay .save-sub{font-size:11px!important;}}
 </style>
-
 <style id="page2-contribution-limit-ack-style">
 .contribution-limit-mini-warning{display:none;position:sticky;top:48px;z-index:99997;background:#fef3c7;border-bottom:1px solid #f59e0b;color:#111827;text-align:center;padding:6px 10px;font-size:12px;font-weight:900}
 .contribution-limit-mini-warning.show{display:block}
@@ -3930,12 +3703,6 @@ button,[role="button"],label,select,input,summary,
   else setTimeout(install,0);
 })();
 </script>
-
-
-
-
-
-
 <!-- AUTHORITATIVE AGE HANDOFF FIX V3 -->
 <script id="authoritative-page2-age-handoff-v3">
 (function(){
@@ -3996,27 +3763,120 @@ button,[role="button"],label,select,input,summary,
   window.addEventListener('pageshow',bind);
 })();
 </script>
-
-
-<!-- REQUIRED RETIREMENT TOOL AND INVESTMENT RISK NOTICE V10 -->
-<style id="retirement-risk-notice-v10-style">
-.retirement-risk-v10{display:none;position:fixed;inset:0;z-index:2147483647;background:rgba(15,23,42,.72);padding:14px;box-sizing:border-box;align-items:center;justify-content:center;font-family:Arial,sans-serif}.retirement-risk-v10.show{display:flex}.retirement-risk-card-v10{width:min(720px,96vw);max-height:90vh;overflow:auto;background:#fff;border:3px solid #b91c1c;border-radius:20px;box-shadow:0 24px 70px rgba(0,0,0,.38);padding:20px;color:#111827}.retirement-risk-card-v10 h2{margin:0 0 10px;font-size:23px;color:#991b1b}.retirement-risk-card-v10 p{margin:9px 0;line-height:1.45}.retirement-risk-card-v10 ul{margin:10px 0 12px 22px;padding:0}.retirement-risk-card-v10 li{margin:7px 0;line-height:1.35}.retirement-risk-check-v10{display:flex;gap:10px;align-items:flex-start;padding:12px;border:2px solid #f59e0b;border-radius:12px;background:#fffbeb;font-weight:900}.retirement-risk-check-v10 input{width:20px;height:20px;flex:0 0 auto;margin-top:1px}.retirement-risk-actions-v10{display:flex;justify-content:flex-end;margin-top:14px}.retirement-risk-actions-v10 button{border:0;border-radius:12px;padding:12px 18px;background:#16a34a;color:#fff;font-size:16px;font-weight:900}.retirement-risk-actions-v10 button:disabled{background:#9ca3af;cursor:not-allowed}.retirement-risk-record-v10{margin-top:10px;font-size:11px;color:#4b5563}
+<!-- FINAL_SHARED_GOVERNMENT_LIMIT_CONTROL_PAGE2_V2 -->
+<style id="final-shared-government-limit-control-page2-v2-style">
+#page2-government-limit-bypass.is-active{border-color:#16a34a!important;box-shadow:0 0 0 2px rgba(22,163,74,.12)!important}
+#page2-government-limit-bypass.is-active summary{background:#ecfdf5!important;color:#166534!important}
 </style>
-<script id="retirement-risk-notice-v10-script">
+<script id="final-shared-government-limit-control-page2-v2">
 (function(){
- 'use strict';
- var KEY='retirement_tool_risk_acceptance_v10', VERSION='2026-08-01-v10';
- var TEXT='This retirement calculator is an educational estimation tool only. It does not provide investment, financial, tax, legal, accounting, or Social Security advice. Results are hypothetical estimates based on information and assumptions entered by the user. Investing in stocks, bonds, mutual funds, retirement accounts, and other market investments involves risk. Investment returns are not guaranteed. You may lose money, including some or all of the amount invested. Past performance and historical scenarios do not guarantee future results. Inflation, taxes, fees, laws, contribution limits, market conditions, and personal circumstances may materially change actual outcomes. Consult qualified professionals before making financial decisions.';
- function accepted(){try{var x=JSON.parse(localStorage.getItem(KEY)||'null');return !!(x&&x.accepted===true&&x.version===VERSION);}catch(e){return false;}}
- function make(){
-  if(document.getElementById('retirementRiskNoticeV10'))return;
-  var o=document.createElement('div');o.id='retirementRiskNoticeV10';o.className='retirement-risk-v10';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');o.setAttribute('aria-labelledby','retirementRiskTitleV10');
-  o.innerHTML='<div class="retirement-risk-card-v10"><h2 id="retirementRiskTitleV10">Important Retirement Calculator and Investment Risk Notice</h2><p><b>This app is a calculator designed to help you understand the finances of saving for retirement. It is only a tool.</b></p><ul><li>Its results are estimates and hypothetical illustrations, not promises or predictions.</li><li>It is not investment, financial, tax, legal, accounting, or Social Security advice.</li><li><b>Investing in the market is not guaranteed to make money. You can lose money, including some or all of the money invested.</b></li><li>Past performance and historical scenarios do not guarantee future results.</li><li>Fees, taxes, inflation, laws, contribution limits, market conditions, and your circumstances can change actual results.</li></ul><p>Consider consulting qualified financial, tax, and legal professionals before making decisions.</p><label class="retirement-risk-check-v10"><input id="retirementRiskCheckV10" type="checkbox"><span>I have read and understand this notice, including that investment gains are not guaranteed and investments can lose money.</span></label><div class="retirement-risk-actions-v10"><button id="retirementRiskAcceptV10" type="button" disabled>Accept and Continue</button></div><div class="retirement-risk-record-v10">Your acceptance is saved in this browser with the notice version and acceptance date and time.</div></div>';
-  document.body.appendChild(o);
-  var c=document.getElementById('retirementRiskCheckV10'),b=document.getElementById('retirementRiskAcceptV10');c.addEventListener('change',function(){b.disabled=!c.checked;});b.addEventListener('click',function(){var record={accepted:true,version:VERSION,acceptedAt:new Date().toISOString(),noticeText:TEXT,page:location.href,userAgent:navigator.userAgent};try{localStorage.setItem(KEY,JSON.stringify(record));localStorage.setItem('retirement_tool_risk_acceptance_latest',JSON.stringify(record));}catch(e){}o.classList.remove('show');});
- }
- function boot(){make();if(!accepted())document.getElementById('retirementRiskNoticeV10').classList.add('show');}
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
- window.addEventListener('pageshow',function(){make();if(!accepted())document.getElementById('retirementRiskNoticeV10').classList.add('show');});
+  'use strict';
+  var KEY='retirement_disable_government_contribution_limits';
+  var LEGACY='page3_disable_government_contribution_limits';
+  function snap(n){return Math.max(0,Math.round((Number(n)||0)/25)*25)}
+  function apiValue(holder){
+    if(!holder||!holder.noUiSlider)return 0;
+    var raw=holder.noUiSlider.get();
+    return snap(Array.isArray(raw)?raw[0]:raw);
+  }
+  function setSlider(holderId, unlimited, kind){
+    var holder=document.getElementById(holderId);
+    if(!holder||!holder.noUiSlider)return;
+    var value=apiValue(holder);
+    var max;
+    if(unlimited){
+      max=Math.max(value,kind==='k401'?10000:5000);
+    }else{
+      var annual=0;
+      try{annual=kind==='k401'?(typeof setupK401Limit==='function'?setupK401Limit():35800):(typeof setupRothLimit==='function'?setupRothLimit():8600)}catch(e){}
+      max=Math.max(25,snap(annual/12));
+      value=Math.min(value,max);
+    }
+    try{
+      holder.noUiSlider.updateOptions({range:{min:0,max:max},step:25,animate:false},false);
+      holder.noUiSlider.set(value);
+    }catch(e){}
+    try{
+      localStorage.setItem(kind==='k401'?'sync_monthly_401k_max':'sync_monthly_roth_max',String(max));
+    }catch(e){}
+  }
+  function apply(box){
+    var on=!!box.checked;
+    try{localStorage.setItem(KEY,on?'1':'0');localStorage.setItem(LEGACY,on?'1':'0')}catch(e){}
+    var panel=document.getElementById('page2-government-limit-bypass');
+    if(panel)panel.classList.toggle('is-active',on);
+    setSlider('monthly401kSlider',on,'k401');
+    setSlider('monthlyRothSlider',false,'roth');
+    try{if(typeof update==='function')update(true)}catch(e){}
+  }
+  function install(){
+    var box=document.getElementById('disable-government-contribution-limits');
+    if(!box)return;
+    try{box.checked=localStorage.getItem(KEY)==='1'||localStorage.getItem(LEGACY)==='1'}catch(e){}
+    if(!box.__finalGovLimitBound){
+      box.__finalGovLimitBound=true;
+      box.addEventListener('change',function(){apply(box)},true);
+    }
+    apply(box);
+  }
+  function boot(){install();setTimeout(install,200);setTimeout(install,700)}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+  addEventListener('pageshow',boot);
+})();
+</script>
+<!-- FINAL_401K_ONLY_GOVERNMENT_LIMIT_PAGE2 -->
+<style id="final-401k-only-government-limit-page2-style">
+#page2-government-limit-bypass .government-limit-help{line-height:1.35}
+</style>
+<script id="final-401k-only-government-limit-page2">
+(function(){
+  'use strict';
+  var KEY='retirement_disable_government_contribution_limits';
+  function num(v){v=Array.isArray(v)?v[0]:v;v=parseFloat(String(v==null?'':v).replace(/[^0-9.-]/g,''));return Number.isFinite(v)?v:0}
+  function snap(v,step){return Math.max(0,Math.round(num(v)/step)*step)}
+  function slider(id){var e=document.getElementById(id);return e&&e.noUiSlider?e:null}
+  function current(api,step){return api?snap(api.get(),step):0}
+  function annual401(){try{return Math.max(0,num(typeof setupK401Limit==='function'?setupK401Limit():35800))}catch(e){return 35800}}
+  function annualRoth(){try{return Math.max(0,num(typeof setupRothLimit==='function'?setupRothLimit():8600))}catch(e){return 8600}}
+  function updateOne(id,on,kind){
+    var api=slider(id);if(!api)return;
+    var step=kind==='k401'?100:25, value=current(api,step), legal=snap((kind==='k401'?annual401():annualRoth())/12,step);
+    var max=legal;
+    if(kind==='k401'&&on){
+      var requested=0;try{requested=num(localStorage.getItem('sync_monthly_401k_max'))}catch(e){}
+      max=Math.max(value,requested,10000);
+    }else value=Math.min(value,legal);
+    try{api.updateOptions({range:{min:0,max:Math.max(step,max)},step:step,animate:false},false);api.set(value)}catch(e){}
+    try{
+      if(kind==='k401')localStorage.setItem('sync_monthly_401k_max',String(Math.max(step,max)));
+      else localStorage.setItem('sync_monthly_roth_max',String(Math.max(step,legal)));
+    }catch(e){}
+  }
+  function decorate(box){
+    var details=document.getElementById('page2-government-limit-bypass');
+    if(details){
+      var label=details.querySelector('summary span');if(label)label.textContent='Remove 401K government limit';
+      var help=details.querySelector('.government-limit-help');if(help)help.textContent='Applies only to the 401K contribution. Roth IRA contribution and income limits still apply.';
+      details.classList.toggle('is-active',!!box.checked);
+    }
+  }
+  function apply(){
+    var box=document.getElementById('disable-government-contribution-limits');if(!box)return;
+    var on=!!box.checked;decorate(box);
+    try{localStorage.setItem(KEY,on?'1':'0');localStorage.setItem('page3_disable_government_contribution_limits',on?'1':'0')}catch(e){}
+    updateOne('monthly401kSlider',on,'k401');
+    updateOne('monthlyRothSlider',false,'roth');
+    try{if(typeof update==='function')update(false)}catch(e){}
+  }
+  function install(){
+    var box=document.getElementById('disable-government-contribution-limits');if(!box)return;
+    try{box.checked=localStorage.getItem(KEY)==='1'}catch(e){}
+    if(!box.__only401Bound){box.__only401Bound=true;box.addEventListener('change',function(){[0,50,250].forEach(function(ms){setTimeout(apply,ms)})},true)}
+    [0,100,400,1000].forEach(function(ms){setTimeout(apply,ms)});
+  }
+  document.addEventListener('input',function(e){if(e.target&&/page2StartAge|incomeYearSlider/.test(e.target.id||''))setTimeout(apply,30)},true);
+  document.addEventListener('change',function(e){if(e.target&&/page2StartAge|incomeYearSlider/.test(e.target.id||''))setTimeout(apply,30)},true);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+  addEventListener('pageshow',install);
 })();
 </script>

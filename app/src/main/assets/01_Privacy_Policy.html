@@ -22,7 +22,6 @@ h1{position:relative;z-index:1;font-size:clamp(32px,5vw,58px);line-height:.96;ma
 .footer-nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0}.footer-nav button{border:0;border-radius:12px;padding:11px 14px;font-weight:1000;cursor:pointer;color:white}.footer-nav .back{background:#ef4444}.footer-nav .next{background:#16a34a}
 @media(max-width:760px){.policy-list{grid-template-columns:1fr}.local-diagram{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}}
 </style>
-
 <style id="v30-gold-readability-lock-position">
 /* v30: brighter readable gold text and a slightly farther-right paperclip lock. */
 :root{
@@ -57,8 +56,6 @@ h1{position:relative;z-index:1;font-size:clamp(32px,5vw,58px);line-height:.96;ma
   .slider-lock-button,.stable-lock-button{right:3px!important}
 }
 </style>
-
-
 <style id="v31-orange-gold-lock-final">
 /* v31: crisp orange-gold text with no shadow; locks slightly higher and farther right. */
 :root{
@@ -108,8 +105,6 @@ h1{position:relative;z-index:1;font-size:clamp(32px,5vw,58px);line-height:.96;ma
   }
 }
 </style>
-
-
 <style id="v32-readable-amber-pill-text">
 /* v32: improve readability of Roth/gold pill labels without shadows. */
 :root{
@@ -145,7 +140,6 @@ h1{position:relative;z-index:1;font-size:clamp(32px,5vw,58px);line-height:.96;ma
   background:#ffe6bd!important;
 }
 </style>
-
 <style id="yellow-card-black-text-final">
 /* Final readability override: all text inside yellow/gold cards is black. */
 .page3-card-yellow, .page3-card-yellow *,
@@ -161,7 +155,6 @@ h1{position:relative;z-index:1;font-size:clamp(32px,5vw,58px);line-height:.96;ma
   text-shadow:none !important;
 }
 </style>
-
 <style id="example-consistent-card-layout-v1">
 /* Consistent mobile card treatment based on the approved example. */
 .ctrl,.slider-block,.slider-card,.page4-slider-card,.income-slider-card,.control-card,.range-card{
@@ -226,275 +219,10 @@ h1{position:relative;z-index:1;font-size:clamp(32px,5vw,58px);line-height:.96;ma
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
 })();
 </script>
-
-
-<style id="page-audio-placeholder-style">
-.page-audio-button{
-  flex:0 0 auto;
-  width:38px;
-  height:38px;
-  min-width:38px!important;
-  padding:0!important;
-  border:2px solid #111827!important;
-  border-radius:999px!important;
-  background:#ffffff!important;
-  color:#111827!important;
-  display:inline-flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  font-size:20px!important;
-  line-height:1!important;
-  cursor:pointer!important;
-  box-shadow:0 2px 7px rgba(15,23,42,.15)!important;
-  -webkit-tap-highlight-color:transparent;
-}
-.page-audio-button:active{transform:scale(.96)}
-.page-audio-button.is-playing{
-  background:#16a34a!important;
-  color:#ffffff!important;
-  border-color:#166534!important;
-}
-.page-audio-button.is-unavailable{
-  background:#fef2f2!important;
-  color:#b91c1c!important;
-  border-color:#ef4444!important;
-}
-.page-audio-status{
-  position:fixed;
-  top:56px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:2147483647;
-  max-width:min(92vw,520px);
-  padding:7px 11px;
-  border-radius:999px;
-  background:rgba(17,24,39,.96);
-  color:#ffffff;
-  font:900 12px/1.25 Arial,sans-serif;
-  text-align:center;
-  box-shadow:0 4px 15px rgba(0,0,0,.25);
-  display:none;
-  pointer-events:none;
-}
-.page-audio-status.show{display:block}
-@media(max-width:520px){
-  .page-audio-button{width:36px;height:36px;min-width:36px!important;font-size:19px!important}
-  .page-audio-status{top:52px;font-size:11px}
-}
-</style>
-
-
-<style id="android-global-responsive-release-v2">
-/* Global phone/tablet responsiveness */
-html, body {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-  overflow-x: hidden !important;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box !important;
-  min-width: 0;
-}
-
-img, svg, video, iframe {
-  max-width: 100% !important;
-  height: auto;
-}
-
-canvas {
-  max-width: 100% !important;
-}
-
-input, select, textarea, button {
-  max-width: 100% !important;
-}
-
-input, select, textarea {
-  font-size: 16px !important;
-}
-
-table {
-  max-width: 100% !important;
-}
-
-.card, .slider-card, .summary-card, .policy-card,
-.tax-gate-card, .tax-filing-profile-card,
-.page3-tax-filing-card, .page4-tax-filing-card,
-.page4-return-source-card, .retirement-risk-card-v10,
-.intro-card, .save-card {
-  max-width: 100% !important;
-  min-width: 0 !important;
-  overflow-wrap: anywhere;
-}
-
-/* Header: Back + audio + flexible title + Next */
-.app-nav {
-  display: grid !important;
-  grid-template-columns: auto auto minmax(0, 1fr) auto !important;
-  align-items: center !important;
-  gap: 8px !important;
-  width: 100% !important;
-  max-width: 100vw !important;
-  padding-left: max(8px, env(safe-area-inset-left)) !important;
-  padding-right: max(8px, env(safe-area-inset-right)) !important;
-  overflow: hidden !important;
-}
-
-.app-nav > * {
-  min-width: 0 !important;
-}
-
-.app-nav .back,
-.app-nav .next,
-.app-nav > a.back,
-.app-nav > a.next {
-  min-width: 68px !important;
-  max-width: 86px !important;
-  padding: 10px 8px !important;
-  white-space: nowrap !important;
-  flex: none !important;
-}
-
-.app-nav .page-audio-button {
-  width: 50px !important;
-  min-width: 50px !important;
-  max-width: 50px !important;
-  padding-left: 6px !important;
-  padding-right: 6px !important;
-  flex: none !important;
-}
-
-.app-nav .nav-title,
-.app-nav .after-retirement-title,
-.app-nav .title {
-  min-width: 0 !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-  text-align: center !important;
-  font-size: clamp(14px, 4vw, 22px) !important;
-  line-height: 1.1 !important;
-}
-
-/* Flexible content and controls */
-.chart-container, .block-chart, .dual-block-chart,
-.slider, .slider-holder, .year-slider-wrap,
-.income-age-slider-line, .k401-age-slider-line {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-}
-
-.noUi-target {
-  max-width: 100% !important;
-}
-
-.main-grid, .assumption-grid, .ct-quick-grid,
-.ss-compact-grid, .ss-simple-grid,
-.end-summary-mini-grid, .universal-slider-max-grid,
-.slider-max-grid {
-  min-width: 0 !important;
-}
-
-@media (max-width: 600px) {
-  body {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .main-grid, .assumption-grid, .ct-quick-grid,
-  .ss-compact-grid, .ss-simple-grid,
-  .end-summary-mini-grid, .universal-slider-max-grid,
-  .slider-max-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-
-  .app-nav {
-    gap: 6px !important;
-  }
-
-  .app-nav .back,
-  .app-nav .next,
-  .app-nav > a.back,
-  .app-nav > a.next {
-    min-width: 64px !important;
-    max-width: 76px !important;
-    font-size: 13px !important;
-    padding: 9px 6px !important;
-  }
-
-  .app-nav .page-audio-button {
-    width: 46px !important;
-    min-width: 46px !important;
-    max-width: 46px !important;
-  }
-
-  .app-nav .after-retirement-title .celebrate-icon {
-    display: none !important;
-  }
-
-  .footer-nav {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 8px !important;
-  }
-
-  .footer-nav > * {
-    flex: 1 1 120px !important;
-  }
-}
-
-@media (max-width: 390px) {
-  .app-nav {
-    gap: 4px !important;
-    padding-left: max(5px, env(safe-area-inset-left)) !important;
-    padding-right: max(5px, env(safe-area-inset-right)) !important;
-  }
-
-  .app-nav .back,
-  .app-nav .next,
-  .app-nav > a.back,
-  .app-nav > a.next {
-    min-width: 58px !important;
-    max-width: 66px !important;
-    padding: 8px 4px !important;
-    font-size: 12px !important;
-  }
-
-  .app-nav .page-audio-button {
-    width: 42px !important;
-    min-width: 42px !important;
-    max-width: 42px !important;
-  }
-
-  .app-nav .nav-title,
-  .app-nav .after-retirement-title,
-  .app-nav .title {
-    font-size: 14px !important;
-  }
-}
-
-@media (orientation: landscape) and (max-height: 520px) {
-  .app-nav {
-    position: sticky !important;
-    top: 0 !important;
-  }
-}
-</style>
-
 </head>
 <body>
 <div class="app-nav">
-<button class="back" onclick="window.location.href='index.html'">← Back</button><button class="page-audio-button" type="button" aria-label="Play page audio" title="Play page audio" data-audio-file="privacy.mp3">
-  <span aria-hidden="true">🔊</span>
-</button>
-<audio class="page-audio-element" preload="none" src="privacy.mp3"></audio>
-<div class="page-audio-status" role="status" aria-live="polite"></div>
+<button class="back" onclick="window.location.href='index.html'">← Back</button>
 <div class="nav-title">Privacy Policy</div><button class="next" onclick="window.location.href='01_Directions.html'">Next →</button></div>
 <div class="page">
 <section class="hero">
@@ -519,11 +247,6 @@ table {
 <div class="callout">✅ <strong>No internet connection is required.</strong> The calculator works as a local planning tool on the device.</div>
 </section>
 <div class="footer-nav"><button class="back" onclick="window.location.href='index.html'">← Back</button><button class="next" onclick="window.location.href='01_Directions.html'">Continue to Directions →</button></div>
-</div>
-
-
-
-
 </div>
 <script id="direct-verified-save-navigation-v1">
 (function(){
@@ -628,8 +351,6 @@ table {
   });
 })();
 </script>
-
-
 <style id="global-yellow-pill-solid-black-final">
 /* Final global contrast override for every yellow/gold range-control pill. */
 .slider-block.page3-card-yellow button,
@@ -686,65 +407,6 @@ table {
 }
 </style>
 <script src="app-auto-save.js"></script>
-<script id="page-audio-placeholder-script">
-(function(){
-  'use strict';
-  function initPageAudio(){
-    var button=document.querySelector('.page-audio-button');
-    var audio=document.querySelector('.page-audio-element');
-    var status=document.querySelector('.page-audio-status');
-    if(!button||!audio||!status||button.dataset.audioReady==='yes')return;
-    button.dataset.audioReady='yes';
-    var hideTimer=0;
-    function showStatus(message){
-      status.textContent=message;
-      status.classList.add('show');
-      clearTimeout(hideTimer);
-      hideTimer=setTimeout(function(){status.classList.remove('show');},3200);
-    }
-    function setIdle(){
-      button.classList.remove('is-playing');
-      button.setAttribute('aria-label','Play page audio');
-      button.title='Play page audio';
-      var icon=button.querySelector('span');
-      if(icon)icon.textContent='🔊';
-    }
-    button.addEventListener('click',function(){
-      if(!audio.paused){
-        audio.pause();
-        setIdle();
-        showStatus('Audio paused.');
-        return;
-      }
-      button.classList.remove('is-unavailable');
-      var playPromise;
-      try{playPromise=audio.play();}catch(e){playPromise=Promise.reject(e);}
-      Promise.resolve(playPromise).then(function(){
-        button.classList.add('is-playing');
-        button.setAttribute('aria-label','Pause page audio');
-        button.title='Pause page audio';
-        var icon=button.querySelector('span');
-        if(icon)icon.textContent='⏸';
-        showStatus('Playing page audio.');
-      }).catch(function(){
-        setIdle();
-        button.classList.add('is-unavailable');
-        showStatus('Audio is not available yet. Add '+button.dataset.audioFile+' beside this HTML file.');
-      });
-    });
-    audio.addEventListener('ended',setIdle);
-    audio.addEventListener('pause',function(){if(!audio.ended)setIdle();});
-    audio.addEventListener('error',function(){
-      setIdle();
-      button.classList.add('is-unavailable');
-    });
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initPageAudio);
-  else initPageAudio();
-})();
-</script>
-
-
 <!-- Retirement suite finger-friendly scrolling -->
 <style id="retirement-suite-finger-friendly-scroll-v1">
 html,body{
@@ -806,6 +468,5 @@ button,[role="button"],label,select,input,summary,
   },true);
 })();
 </script>
-
 </body>
 </html>

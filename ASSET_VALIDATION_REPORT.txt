@@ -1,0 +1,25 @@
+RETIREMENT PLANNING MP3 ANDROID PROJECT VALIDATION
+
+HTML files: 8
+MP3 files: 5
+
+Included MP3s:
+- calculator.mp3
+- income.mp3
+- reports.mp3
+- retirement.mp3
+- retirement_expenses.mp3
+
+Removed Page 2 audio elements/styles/scripts: 5
+Removed Privacy audio elements/styles/scripts: 0
+
+Speaker behavior:
+- Privacy Policy: no speaker
+- Income & Expense Setup: no speaker
+- Directions: disabled muted speaker because directions.mp3 is not included
+- 401K Calculator: calculator.mp3
+- After Retirement: retirement.mp3
+- Retirement Expenses: retirement_expenses.mp3
+- Reports: reports.mp3
+
+The MP3 files are stored inside app/src/main/assets and are bundled into the APK.

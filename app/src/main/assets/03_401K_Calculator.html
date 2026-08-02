@@ -32,7 +32,7 @@
   if(!p)return;
   window.__PAGE2_PACKET_V26=p;
   // Feed the restored Page 3's own initialization path.
-  window.__PAGE2_PAYLOAD_V23={income:Number(p.income)||0,k401:Number(p.k401)||0,roth:Number(p.roth)||0};
+  var roundedRoth=Math.max(0,Math.round((Number(p.roth)||0)/25)*25); p.roth=roundedRoth; window.__PAGE2_PAYLOAD_V23={income:Number(p.income)||0,k401:Number(p.k401)||0,roth:roundedRoth};
   try{
     var values={
       sync_monthly_income:p.income,monthly_income:p.income,page2_monthly_income:p.income,k401_prefill_monthly_income:p.income,
@@ -40,7 +40,7 @@
       sync_monthly_roth:p.roth,k401_prefill_monthly_roth:p.roth,pre_monthly_roth:p.roth,
       sync_monthly_income_min:0,sync_monthly_income_max:7000,sync_monthly_income_step:100,
       sync_monthly_401k_min:0,sync_monthly_401k_max:2000,sync_monthly_401k_step:100,custom_contrib_slider_max:2000,monthly401k_max:2000,
-      sync_monthly_roth_min:0,sync_monthly_roth_max:700,sync_monthly_roth_step:25,custom_roth_slider_max:700,monthlyRoth_max:700
+      sync_monthly_roth_min:0,sync_monthly_roth_max:Math.max(700,Number(p.roth)||0),sync_monthly_roth_step:25,custom_roth_slider_max:Math.max(700,Number(p.roth)||0),monthlyRoth_max:Math.max(700,Number(p.roth)||0)
     };
     Object.keys(values).forEach(function(k){localStorage.setItem(k,String(values[k]));});
     var bucketState={contrib:{active:'under50',under50:Number(p.k401)||0,age50plus:Number(p.k401)||0},roth:{active:'under50',under50:Number(p.roth)||0,age50plus:Number(p.roth)||0},source:'page2-transfer-bootstrap',stamp:Date.now()};
@@ -54,12 +54,12 @@
     localStorage.setItem('roth_monthly_50plus',String(Number(p.roth)||0));
     localStorage.setItem('sync_monthly_roth_under50',String(Number(p.roth)||0));
     localStorage.setItem('sync_monthly_roth_age50plus',String(Number(p.roth)||0));
-    localStorage.setItem('retirement_monthly_shared_state_v6',JSON.stringify({version:30,updatedAt:bucketState.stamp,source:'page2-transfer-v30',k401:{value:Number(p.k401)||0,min:0,max:2000,locked:false},roth:{value:Number(p.roth)||0,min:0,max:700,locked:false}}));
+    localStorage.setItem('retirement_monthly_shared_state_v6',JSON.stringify({version:30,updatedAt:bucketState.stamp,source:'page2-transfer-v30',k401:{value:Number(p.k401)||0,min:0,max:2000,locked:false},roth:{value:Number(p.roth)||0,min:0,max:Math.max(700,Number(p.roth)||0),locked:false}}));
     localStorage.setItem('income_setup_expense_rows',JSON.stringify(p.envelopes||[]));
   }catch(e){}
 })();
 </script>
-<html lang="en"><head>
+<html lang="en"><head><script id="remove-government-limit-feature-early">try{localStorage.removeItem('retirement_disable_government_contribution_limits');localStorage.removeItem('page3_disable_government_contribution_limits');localStorage.removeItem('disable-government-contribution-limits');localStorage.removeItem('retirement_government_limit_updated_at');}catch(e){}</script>
 <style id="page3-no-legacy-flash-v53-startup">
 /* Keep the chart hidden for the first paint so the retired canvas tooltip cannot flash. */
 #chart-container{visibility:hidden!important}
@@ -89,7 +89,7 @@
     const d=JSON.parse(localStorage.getItem(KEY)||'null');
     const used=Number(localStorage.getItem(USED)||0);
     if(!d||!Number.isFinite(Number(d.value))||Number(d.stamp)<=used)return;
-    const value=Math.max(0,Math.min(700,Math.round(Number(d.value))));
+    const value=Math.max(0,Math.min(700,Math.round(Number(d.value)/25)*25));
     const active=d.active==='age50plus'?'age50plus':'under50';
     const stamp=Number(d.stamp)||Date.now();
     const raw=JSON.parse(localStorage.getItem('stable_401k_roth_bucket_state_v2')||'null')||{};
@@ -192,7 +192,7 @@
   };
 })();
 </script>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes"><title>401k Simulator</title><!-- Optimized: redundant comments removed; save observer throttled. --><link href="vendor/nouislider-app.min.css" rel="stylesheet"/><style>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes"><title>401k Simulator</title><!-- Optimized: redundant comments removed; save observer throttled. --><link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.8.0/nouislider.min.css" rel="stylesheet"/><style>
 body{margin:0;font-family:Arial,sans-serif;background:#f4f4f4}
 #chart-container{width:99%;max-width:none;height:350px;margin:10px auto 16px;background:#fff;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
 #myChart{display:block;width:100% !important;height:100% !important}
@@ -1477,228 +1477,13 @@ html.page3-controls-initializing #controls .controls-row { visibility:hidden !im
 }
 </style>
 
-
-<style id="android-global-responsive-release-v2">
-/* Global phone/tablet responsiveness */
-html, body {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-  overflow-x: hidden !important;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box !important;
-  min-width: 0;
-}
-
-img, svg, video, iframe {
-  max-width: 100% !important;
-  height: auto;
-}
-
-canvas {
-  max-width: 100% !important;
-}
-
-input, select, textarea, button {
-  max-width: 100% !important;
-}
-
-input, select, textarea {
-  font-size: 16px !important;
-}
-
-table {
-  max-width: 100% !important;
-}
-
-.card, .slider-card, .summary-card, .policy-card,
-.tax-gate-card, .tax-filing-profile-card,
-.page3-tax-filing-card, .page4-tax-filing-card,
-.page4-return-source-card, .retirement-risk-card-v10,
-.intro-card, .save-card {
-  max-width: 100% !important;
-  min-width: 0 !important;
-  overflow-wrap: anywhere;
-}
-
-/* Header: Back + audio + flexible title + Next */
-.app-nav {
-  display: grid !important;
-  grid-template-columns: auto auto minmax(0, 1fr) auto !important;
-  align-items: center !important;
-  gap: 8px !important;
-  width: 100% !important;
-  max-width: 100vw !important;
-  padding-left: max(8px, env(safe-area-inset-left)) !important;
-  padding-right: max(8px, env(safe-area-inset-right)) !important;
-  overflow: hidden !important;
-}
-
-.app-nav > * {
-  min-width: 0 !important;
-}
-
-.app-nav .back,
-.app-nav .next,
-.app-nav > a.back,
-.app-nav > a.next {
-  min-width: 68px !important;
-  max-width: 86px !important;
-  padding: 10px 8px !important;
-  white-space: nowrap !important;
-  flex: none !important;
-}
-
-.app-nav .page-audio-button {
-  width: 50px !important;
-  min-width: 50px !important;
-  max-width: 50px !important;
-  padding-left: 6px !important;
-  padding-right: 6px !important;
-  flex: none !important;
-}
-
-.app-nav .nav-title,
-.app-nav .after-retirement-title,
-.app-nav .title {
-  min-width: 0 !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-  text-align: center !important;
-  font-size: clamp(14px, 4vw, 22px) !important;
-  line-height: 1.1 !important;
-}
-
-/* Flexible content and controls */
-.chart-container, .block-chart, .dual-block-chart,
-.slider, .slider-holder, .year-slider-wrap,
-.income-age-slider-line, .k401-age-slider-line {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-}
-
-.noUi-target {
-  max-width: 100% !important;
-}
-
-.main-grid, .assumption-grid, .ct-quick-grid,
-.ss-compact-grid, .ss-simple-grid,
-.end-summary-mini-grid, .universal-slider-max-grid,
-.slider-max-grid {
-  min-width: 0 !important;
-}
-
-@media (max-width: 600px) {
-  body {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .main-grid, .assumption-grid, .ct-quick-grid,
-  .ss-compact-grid, .ss-simple-grid,
-  .end-summary-mini-grid, .universal-slider-max-grid,
-  .slider-max-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-
-  .app-nav {
-    gap: 6px !important;
-  }
-
-  .app-nav .back,
-  .app-nav .next,
-  .app-nav > a.back,
-  .app-nav > a.next {
-    min-width: 64px !important;
-    max-width: 76px !important;
-    font-size: 13px !important;
-    padding: 9px 6px !important;
-  }
-
-  .app-nav .page-audio-button {
-    width: 46px !important;
-    min-width: 46px !important;
-    max-width: 46px !important;
-  }
-
-  .app-nav .after-retirement-title .celebrate-icon {
-    display: none !important;
-  }
-
-  .footer-nav {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 8px !important;
-  }
-
-  .footer-nav > * {
-    flex: 1 1 120px !important;
-  }
-}
-
-@media (max-width: 390px) {
-  .app-nav {
-    gap: 4px !important;
-    padding-left: max(5px, env(safe-area-inset-left)) !important;
-    padding-right: max(5px, env(safe-area-inset-right)) !important;
-  }
-
-  .app-nav .back,
-  .app-nav .next,
-  .app-nav > a.back,
-  .app-nav > a.next {
-    min-width: 58px !important;
-    max-width: 66px !important;
-    padding: 8px 4px !important;
-    font-size: 12px !important;
-  }
-
-  .app-nav .page-audio-button {
-    width: 42px !important;
-    min-width: 42px !important;
-    max-width: 42px !important;
-  }
-
-  .app-nav .nav-title,
-  .app-nav .after-retirement-title,
-  .app-nav .title {
-    font-size: 14px !important;
-  }
-}
-
-@media (orientation: landscape) and (max-height: 520px) {
-  .app-nav {
-    position: sticky !important;
-    top: 0 !important;
-  }
-}
-</style>
-
 </head><body><div class="app-nav">
 <button class="back" onclick="return page3SaveAndGoToPage2(event)">← Back</button><button class="page-audio-button" type="button" aria-label="Play page audio" title="Play page audio" data-audio-file="calculator.mp3">
   <span aria-hidden="true">🔊</span>
 </button>
 <audio class="page-audio-element" preload="none" src="calculator.mp3"></audio>
 <div class="page-audio-status" role="status" aria-live="polite"></div>
-<div class="nav-title">401K Calculator</div><button class="next" onclick="showTaxAcknowledgment(event)">Next →</button></div><div class="tax-mini-warning" id="taxMiniWarning">⚠ Yearly tax laws change. Review and update your federal/state tax settings every year before relying on the chart.</div><div aria-labelledby="taxAckTitle" aria-modal="true" class="tax-ack-overlay" id="taxAckOverlay" role="dialog"><div class="tax-ack-card"><h2 id="taxAckTitle">⚠️ Tax Assumptions Before You Continue</h2><p><b>This retirement chart is preloaded with default tax assumptions.</b></p><div class="tax-filing-profile-card page3-tax-filing-card" id="page3TaxFilingCard">
-  <h3>Choose the Federal filing status you expect to use</h3>
-  <p class="tax-filing-intro">This choice will carry forward to Page 4, where the matching 2026 Federal brackets and standard deduction are loaded. You can change it again later.</p>
-  <div class="tax-filing-profile-options" role="radiogroup" aria-label="Federal filing status">
-    <label class="tax-filing-profile-option"><input type="radio" name="page3-federal-filing" value="mfj" checked><span><b>Married Filing Jointly</b><small>For most married couples filing one return together. Uses the 2026 joint brackets and a $32,200 standard deduction.</small></span></label>
-    <label class="tax-filing-profile-option"><input type="radio" name="page3-federal-filing" value="single"><span><b>Single</b><small>For an unmarried taxpayer who does not qualify for another status. Uses the 2026 single brackets and a $16,100 standard deduction.</small></span></label>
-    <label class="tax-filing-profile-option"><input type="radio" name="page3-federal-filing" value="hoh"><span><b>Head of Household</b><small>Generally for an unmarried taxpayer who pays more than half the cost of keeping up a home for a qualifying person. Uses a $24,150 standard deduction.</small></span></label>
-    <label class="tax-filing-profile-option"><input type="radio" name="page3-federal-filing" value="mfs"><span><b>Married Filing Separately</b><small>For married taxpayers filing separate returns. The brackets are narrower, and Social Security taxation can be less favorable.</small></span></label>
-    <label class="tax-filing-profile-option"><input type="radio" name="page3-federal-filing" value="qss"><span><b>Qualifying Surviving Spouse</b><small>May be available for a limited period after a spouse dies when IRS requirements are met. Uses the same Federal rate schedule as Married Filing Jointly.</small></span></label>
-  </div>
-  <div class="tax-filing-profile-status" id="page3TaxFilingStatus">Married Filing Jointly will be loaded on Page 4.</div>
-</div><ul><li>Federal tax assumptions are set up as a starting point.</li><li>The loaded Federal brackets are designed around a <b>Married Filing Jointly</b> setup.</li><li>The loaded State tax assumptions are based on <b>California</b> state income taxes.</li></ul><p>These defaults may not match your filing status, state, deductions, retirement income rules, Social Security tax rules, or yearly tax laws. Tax laws change and need to be updated yearly.</p><p>When you get to the chart, review the tax input boxes at the bottom of the page. Look up the current-year tax brackets and deduction amounts for <b>your own filing status and your own state</b>, enter them, and click the Apply buttons so the app saves them into its memory. Update these tax settings yearly.</p><label class="tax-ack-check"><input id="taxAckCheckbox" type="checkbox"/><span>I understand these are default tax assumptions and yearly tax laws change. I am responsible for updating them yearly for my own tax situation before relying on the projection.</span></label><div class="tax-ack-actions"><button class="tax-ack-cancel" onclick="closeTaxAcknowledgment()" type="button">Cancel</button><button class="tax-ack-continue" disabled="" id="taxAckContinue" onclick="acceptTaxAcknowledgmentAndContinue()" type="button">Continue to Retirement Chart</button></div></div></div><div id="chart-container"><canvas id="myChart"></canvas></div><div id="envelopeSyncStatus" style="max-width:1100px;margin:6px auto 0;padding:7px 10px;border:1px solid #d1d5db;border-radius:8px;background:#fff;font-size:12px;font-weight:800;color:#374151">Envelope sync: checking Page 02…</div><div class="k401-year-selector"><div class="k401-year-head"><span>Selected year</span><span id="k401SelectedYearPill">YEAR 1</span></div><div class="year-top-row" style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin:2px 0 4px 0;"><div class="k401-year-live-tip" id="k401YearLiveTip" style="margin:0;padding:4px 10px;border-radius:8px;display:inline-flex;align-items:center;white-space:nowrap;">Tip: YEAR 1 selected</div><div aria-label="Age controls" class="page3-age-controls" style="margin:0;flex:0 0 auto;"><div class="page3-age-control-row"><div class="page3-age-select-wrap"><label for="startAge">Start Age</label><select id="startAge"></select></div><div class="page3-age-select-wrap"><label for="retirementAge">Retire Age</label><select id="retirementAge"></select></div></div></div></div><div class="k401-age-slider-line"><button aria-label="Decrease selected year" class="age-slider-step-btn" data-age-slider-delta="-1" type="button">−</button><input id="k401YearSlider" list="k401YearTicks" max="0" min="0" step="1" title="YEAR 1 selected" type="range" value="0"/><button aria-label="Increase selected year" class="age-slider-step-btn" data-age-slider-delta="1" type="button">+</button></div><datalist id="k401YearTicks"></datalist><div class="k401-year-ticks" id="k401YearTickRow"></div><div class="k401-year-note" id="k401YearNote" style="display:none"></div></div><div id="final-summary">Final totals will appear here after the chart runs.</div><div class="k401-income-sync-note off" id="k401IncomeSyncNote">Monthly income synced from Page 02.</div><div id="controls"><div class="dropdown-row"><div class="dropdown-box income-box"><label for="income">Monthly Income<span class="tooltip-icon" title="Synced with Page 02 monthly income. The calculator still annualizes it internally where yearly income is needed.">?</span></label><input id="income" min="0" placeholder="5000" step="1000" type="number" value="0"/></div><div class="dropdown-box filing-box"><label>Filing Status</label><div class="status-radios"><label><input checked="" name="filingStatus" type="radio" value="single"/> Single</label><label><input name="filingStatus" type="radio" value="married"/> Married</label></div></div></div><div class="slider-block monthly-income-slider-block page3-card-green" id="monthly-income-slider-block"><button aria-label="Lock Income" aria-pressed="false" class="slider-lock-button" data-slider-target="income-slider" title="Lock Income" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button><div class="slider-col"><div class="slider-label">Monthly Income <span id="income-slider-value">$0</span></div><div class="slider" id="income-slider"></div><div class="stage11-range-controls" data-stage11-slider="income-slider"><input aria-label="Decrease Monthly Income range" data-stage11-action="decrease" type="button" value="Decrease"/><input aria-label="Reset Monthly Income range" data-stage11-action="reset" type="button" value="Reset"/><input aria-label="Increase Monthly Income range" data-stage11-action="increase" type="button" value="Increase"/></div></div></div><div class="slider-block page3-card-red"><button aria-label="Lock Existing 401K" aria-pressed="false" class="slider-lock-button" data-slider-target="existing-slider" title="Lock Existing 401K" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button><div class="slider-col"><div class="slider-label">Existing 401K <span id="existing-value"></span></div><div class="slider" id="existing-slider"></div><div class="stage11-range-controls" data-stage11-slider="existing-slider"><input aria-label="Decrease Existing 401K range" data-stage11-action="decrease" type="button" value="Decrease"/><input aria-label="Reset Existing 401K range" data-stage11-action="reset" type="button" value="Reset"/><input aria-label="Increase Existing 401K range" data-stage11-action="increase" type="button" value="Increase"/></div></div></div><div class="slider-block page3-card-red"><button aria-label="Lock Monthly 401K" aria-pressed="false" class="slider-lock-button" data-slider-target="contrib-slider" title="Lock Monthly 401K" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button><div style="display:flex; align-items:center; gap:10px;"><div style="flex:1; display:flex; flex-direction:column;"><div class="catchup-note k401-catchup-note">The 401K contribution limit changes with age. Move the age slider to the age you want to model, then adjust this slider up to that age's limit.</div><details class="rule-tip"><summary>Click for 401K rules</summary><div class="rule-body">Base limit: <span class="k401-under50-text">$23.5K</span>/year. Age 50+: <span class="k401-50-text">$31K</span>. Age 60–63: <span class="k401-60-text">$34.8K</span>. The slider warning appears if the monthly amount is over the annual limit.</div></details><div class="slider-label">Monthly 401K Investments <span id="contrib-value"></span></div><div class="slider" id="contrib-slider"></div><div class="inline-limit-warning k401" id="contrib-limit-warning">🔴 401K limit reached.</div></div><div style="width:70px; display:flex; flex-direction:column; align-items:center;"><label for="increase" style="font-size:12px;">Annual Increase %</label><select id="increase"><option value="0">0%</option><option value="0.5">0.5%</option><option value="1">1%</option><option value="1.5">1.5%</option><option value="2">2%</option><option value="2.5">2.5%</option><option value="3">3%</option><option value="3.5">3.5%</option><option value="4">4%</option><option value="4.5">4.5%</option><option value="5">5%</option><option value="5.5">5.5%</option><option value="6">6%</option><option value="6.5">6.5%</option><option value="7">7%</option><option value="7.5">7.5%</option><option value="8">8%</option><option value="8.5">8.5%</option><option value="9">9%</option><option value="9.5">9.5%</option><option value="10">10%</option></select></div></div></div><div class="slider-block page3-card-yellow"><button aria-label="Lock Existing Roth" aria-pressed="false" class="slider-lock-button" data-slider-target="existing-roth-slider" title="Lock Existing Roth" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button><div class="slider-col"><div class="slider-label">Existing Roth IRA <span id="existing-roth-value"></span></div><div class="slider" id="existing-roth-slider"></div><div class="page3-range-shift-row" data-range-slider="existing-roth-slider"><button aria-label="Decrease Existing Roth range" class="page3-range-shift-btn" data-dir="-1" type="button">Decrease</button><button aria-label="Increase Existing Roth range" class="page3-range-shift-btn" data-dir="1" type="button">Increase</button></div></div></div><div class="slider-block page3-card-yellow"><button aria-label="Lock Monthly Roth" aria-pressed="false" class="slider-lock-button" data-slider-target="roth-slider" title="Lock Monthly Roth" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button><div class="slider-col"><div class="catchup-note roth-catchup-note">The Roth IRA contribution limit changes at age 50. Move the age slider to the age you want to model, then adjust this slider up to that age's limit.</div><details class="rule-tip"><summary>Click for Roth IRA rules</summary><div class="rule-body">Base limit: <span class="roth-base-text">$7.5K</span>. Age 50+ catch-up: <span class="roth-catchup-text">$1.1K</span>. Income phaseout ceiling: <span class="roth-single-text">$168K</span> Single / <span class="roth-married-text">$252K</span> Married.</div></details><div class="slider-label">Roth IRA Investments <span id="roth-value"></span></div><div class="slider" id="roth-slider"></div><div class="page3-range-shift-row" data-range-slider="roth-slider"><button aria-label="Decrease Roth IRA investment range" class="page3-range-shift-btn" data-dir="-1" type="button">Decrease</button><button aria-label="Increase Roth IRA investment range" class="page3-range-shift-btn" data-dir="1" type="button">Increase</button></div><div class="inline-limit-warning roth" id="roth-limit-warning">🟡 Roth IRA limit reached.</div></div></div><div class="slider-block investment-returns-simple-block page3-card-neutral"><div class="slider-col"><div class="slider-label">Investment Returns % <span id="returns-value"></span></div><div class="investment-returns-row" id="investment-returns-row"><div class="slider" id="returns-slider"></div></div></div></div><div class="slider-max-panel" id="slider-max-panel" style="margin-top:14px;"><h3>Slider Maximum Amounts</h3><div class="slider-max-grid all-slider-maxes"><label for="max-existing-input">Existing 401K max</label><input id="max-existing-input" min="0" step="10000" type="number" value="200000"/><button id="apply-existing-max" type="button">Apply</button><label for="max-contrib-input">401K monthly max</label><input id="max-contrib-input" min="100" step="100" type="number" value="1000"/><button id="apply-contrib-max" type="button">Apply</button><label for="max-existing-roth-input">Existing Roth IRA max</label><input id="max-existing-roth-input" min="0" step="10000" type="number" value="100000"/><button id="apply-existing-roth-max" type="button">Apply</button><label for="max-roth-input">Roth IRA monthly max</label><input id="max-roth-input" min="0" step="100" type="number" value="700"/><button id="apply-roth-max" type="button">Apply</button><label for="max-return-input">Investment returns max %</label><input id="max-return-input" min="0" step="0.25" type="number" value="15"/><button id="apply-return-max" type="button">Apply</button></div><button class="slider-max-reset" id="reset-slider-maxes" type="button">Reset All Slider Maxes</button></div><div class="assumptions-wrap" id="federal-contribution-assumptions"><div class="contribution-assumption-heading"><div class="contribution-assumption-title">⚠️ Federal Contribution-Limit Assumptions</div><div class="contribution-assumption-copy">Edit the annual 401K and Roth IRA limits used by this calculator. Review these values whenever federal rules change.</div></div><div class="assumption-panel" id="k401-assumptions"><h3>401K assumptions</h3><div class="assumption-grid"><label for="ass-k401-under50">Under 50 annual limit</label><input id="ass-k401-under50" min="0" step="100" type="number"><label for="ass-k401-50">Age 50+ annual limit</label><input id="ass-k401-50" min="0" step="100" type="number"><label for="ass-k401-60">Age 60–63 annual limit</label><input id="ass-k401-60" min="0" step="100" type="number"><label for="ass-k401-64">Age 64+ annual limit</label><input id="ass-k401-64" min="0" step="100" type="number"/></input></input></input></div><div class="assumption-actions"><button class="apply" id="apply-k401-assumptions">Apply 401K Changes</button><button class="reset" id="reset-k401-assumptions">Reset 401K Defaults</button></div></div><div class="assumption-panel" id="roth-assumptions"><h3>Roth IRA assumptions</h3><div class="assumption-grid"><label for="ass-roth-base">Base contribution</label><input id="ass-roth-base" min="0" step="100" type="number"><label for="ass-roth-catchup">Age 50+ catch-up</label><input id="ass-roth-catchup" min="0" step="100" type="number"><label for="ass-roth-single">Single phaseout ceiling</label><input id="ass-roth-single" min="0" step="1000" type="number"/><label for="ass-roth-married">Married phaseout ceiling</label><input id="ass-roth-married" min="0" step="1000" type="number"/></input></input></div><div class="assumption-actions"><button class="apply" id="apply-roth-assumptions">Apply Roth Changes</button><button class="reset" id="reset-roth-assumptions">Reset Roth Defaults</button></div></div></div></div>
+<div class="nav-title">401K Calculator</div><button class="next" onclick="showTaxAcknowledgment(event)">Next →</button></div><div class="tax-mini-warning" id="taxMiniWarning">⚠ Yearly tax laws change. Review and update your federal/state tax settings every year before relying on the chart.</div><div aria-labelledby="taxAckTitle" aria-modal="true" class="tax-ack-overlay" id="taxAckOverlay" role="dialog"><div class="tax-ack-card"><h2 id="taxAckTitle">⚠️ Tax Assumptions Before You Continue</h2><p><b>This retirement chart is preloaded with default tax assumptions.</b></p><ul><li>Federal tax assumptions are set up as a starting point.</li><li>The loaded Federal brackets are designed around a <b>Married Filing Jointly</b> setup.</li><li>The loaded State tax assumptions are based on <b>California</b> state income taxes.</li></ul><p>These defaults may not match your filing status, state, deductions, retirement income rules, Social Security tax rules, or yearly tax laws. Tax laws change and need to be updated yearly.</p><p>When you get to the chart, review the tax input boxes at the bottom of the page. Look up the current-year tax brackets and deduction amounts for <b>your own filing status and your own state</b>, enter them, and click the Apply buttons so the app saves them into its memory. Update these tax settings yearly.</p><label class="tax-ack-check"><input id="taxAckCheckbox" type="checkbox"/><span>I understand these are default tax assumptions and yearly tax laws change. I am responsible for updating them yearly for my own tax situation before relying on the projection.</span></label><div class="tax-ack-actions"><button class="tax-ack-cancel" onclick="closeTaxAcknowledgment()" type="button">Cancel</button><button class="tax-ack-continue" disabled="" id="taxAckContinue" onclick="acceptTaxAcknowledgmentAndContinue()" type="button">Continue to Retirement Chart</button></div></div></div><div id="chart-container"><canvas id="myChart"></canvas></div><div id="envelopeSyncStatus" style="max-width:1100px;margin:6px auto 0;padding:7px 10px;border:1px solid #d1d5db;border-radius:8px;background:#fff;font-size:12px;font-weight:800;color:#374151">Envelope sync: checking Page 02…</div><div class="k401-year-selector"><div class="k401-year-head"><span>Selected year</span><span id="k401SelectedYearPill">YEAR 1</span></div><div class="year-top-row" style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin:2px 0 4px 0;"><div class="k401-year-live-tip" id="k401YearLiveTip" style="margin:0;padding:4px 10px;border-radius:8px;display:inline-flex;align-items:center;white-space:nowrap;">Tip: YEAR 1 selected</div><div aria-label="Age controls" class="page3-age-controls" style="margin:0;flex:0 0 auto;"><div class="page3-age-control-row"><div class="page3-age-select-wrap"><label for="startAge">Start Age</label><select id="startAge"></select></div><div class="page3-age-select-wrap"><label for="retirementAge">Retire Age</label><select id="retirementAge"></select></div></div></div></div><div class="k401-age-slider-line"><button aria-label="Decrease selected year" class="age-slider-step-btn" data-age-slider-delta="-1" type="button">−</button><input id="k401YearSlider" list="k401YearTicks" max="0" min="0" step="1" title="YEAR 1 selected" type="range" value="0"/><button aria-label="Increase selected year" class="age-slider-step-btn" data-age-slider-delta="1" type="button">+</button></div><datalist id="k401YearTicks"></datalist><div class="k401-year-ticks" id="k401YearTickRow"></div><div class="k401-year-note" id="k401YearNote" style="display:none"></div></div><div id="final-summary">Final totals will appear here after the chart runs.</div><div class="k401-income-sync-note off" id="k401IncomeSyncNote">Monthly income synced from Page 02.</div><div id="controls"><div class="dropdown-row"><div class="dropdown-box income-box"><label for="income">Monthly Income<span class="tooltip-icon" title="Synced with Page 02 monthly income. The calculator still annualizes it internally where yearly income is needed.">?</span></label><input id="income" min="0" placeholder="5000" step="1000" type="number" value="0"/></div><div class="dropdown-box filing-box"><label>Filing Status</label><div class="status-radios"><label><input checked="" name="filingStatus" type="radio" value="single"/> Single</label><label><input name="filingStatus" type="radio" value="married"/> Married</label></div></div></div><div class="slider-block monthly-income-slider-block page3-card-green" id="monthly-income-slider-block"><button aria-label="Lock Income" aria-pressed="false" class="slider-lock-button" data-slider-target="income-slider" title="Lock Income" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button><div class="slider-col"><div class="slider-label">Monthly Income <span id="income-slider-value">$0</span></div><div class="slider" id="income-slider"></div><div class="stage11-range-controls" data-stage11-slider="income-slider"><input aria-label="Decrease Monthly Income range" data-stage11-action="decrease" type="button" value="Decrease"/><input aria-label="Reset Monthly Income range" data-stage11-action="reset" type="button" value="Reset"/><input aria-label="Increase Monthly Income range" data-stage11-action="increase" type="button" value="Increase"/></div></div></div><div class="slider-block page3-card-red"><button aria-label="Lock Existing 401K" aria-pressed="false" class="slider-lock-button" data-slider-target="existing-slider" title="Lock Existing 401K" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button><div class="slider-col"><div class="slider-label">Existing 401K <span id="existing-value"></span></div><div class="slider" id="existing-slider"></div><div class="stage11-range-controls" data-stage11-slider="existing-slider"><input aria-label="Decrease Existing 401K range" data-stage11-action="decrease" type="button" value="Decrease"/><input aria-label="Reset Existing 401K range" data-stage11-action="reset" type="button" value="Reset"/><input aria-label="Increase Existing 401K range" data-stage11-action="increase" type="button" value="Increase"/></div></div></div><div class="slider-block page3-card-red"><button aria-label="Lock Monthly 401K" aria-pressed="false" class="slider-lock-button" data-slider-target="contrib-slider" title="Lock Monthly 401K" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button><div style="display:flex; align-items:center; gap:10px;"><div style="flex:1; display:flex; flex-direction:column;"><div class="catchup-note k401-catchup-note">The 401K contribution limit changes with age. Move the age slider to the age you want to model, then adjust this slider up to that age's limit.</div><details class="rule-tip"><summary>Click for 401K rules</summary><div class="rule-body">Base limit: <span class="k401-under50-text">$23.5K</span>/year. Age 50+: <span class="k401-50-text">$31K</span>. Age 60–63: <span class="k401-60-text">$34.8K</span>. The slider warning appears if the monthly amount is over the annual limit.</div></details><div class="slider-label">Monthly 401K Investments <span id="contrib-value"></span></div><div class="slider" id="contrib-slider"></div><div class="inline-limit-warning k401" id="contrib-limit-warning">🔴 401K limit reached.</div></div><div style="width:70px; display:flex; flex-direction:column; align-items:center;"><label for="increase" style="font-size:12px;">Annual Increase %</label><select id="increase"><option value="0">0%</option><option value="0.5">0.5%</option><option value="1">1%</option><option value="1.5">1.5%</option><option value="2">2%</option><option value="2.5">2.5%</option><option value="3">3%</option><option value="3.5">3.5%</option><option value="4">4%</option><option value="4.5">4.5%</option><option value="5">5%</option><option value="5.5">5.5%</option><option value="6">6%</option><option value="6.5">6.5%</option><option value="7">7%</option><option value="7.5">7.5%</option><option value="8">8%</option><option value="8.5">8.5%</option><option value="9">9%</option><option value="9.5">9.5%</option><option value="10">10%</option></select></div></div></div><div class="slider-block page3-card-yellow"><button aria-label="Lock Existing Roth" aria-pressed="false" class="slider-lock-button" data-slider-target="existing-roth-slider" title="Lock Existing Roth" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button><div class="slider-col"><div class="slider-label">Existing Roth IRA <span id="existing-roth-value"></span></div><div class="slider" id="existing-roth-slider"></div><div class="page3-range-shift-row" data-range-slider="existing-roth-slider"><button aria-label="Decrease Existing Roth range" class="page3-range-shift-btn" data-dir="-1" type="button">Decrease</button><button aria-label="Increase Existing Roth range" class="page3-range-shift-btn" data-dir="1" type="button">Increase</button></div></div></div><div class="slider-block page3-card-yellow"><button aria-label="Lock Monthly Roth" aria-pressed="false" class="slider-lock-button" data-slider-target="roth-slider" title="Lock Monthly Roth" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button><div class="slider-col"><div class="catchup-note roth-catchup-note">The Roth IRA contribution limit changes at age 50. Move the age slider to the age you want to model, then adjust this slider up to that age's limit.</div><details class="rule-tip"><summary>Click for Roth IRA rules</summary><div class="rule-body">Base limit: <span class="roth-base-text">$7.5K</span>. Age 50+ catch-up: <span class="roth-catchup-text">$1.1K</span>. Income phaseout ceiling: <span class="roth-single-text">$168K</span> Single / <span class="roth-married-text">$252K</span> Married.</div></details><div class="slider-label">Roth IRA Investments <span id="roth-value"></span></div><div class="slider" id="roth-slider"></div><div class="page3-range-shift-row" data-range-slider="roth-slider"><button aria-label="Decrease Roth IRA investment range" class="page3-range-shift-btn" data-dir="-1" type="button">Decrease</button><button aria-label="Increase Roth IRA investment range" class="page3-range-shift-btn" data-dir="1" type="button">Increase</button></div><div class="inline-limit-warning roth" id="roth-limit-warning">🟡 Roth IRA limit reached.</div></div></div><div class="slider-block investment-returns-simple-block page3-card-neutral"><div class="slider-col"><div class="slider-label">Investment Returns % <span id="returns-value"></span></div><div class="investment-returns-row" id="investment-returns-row"><div class="slider" id="returns-slider"></div></div></div></div><div class="slider-max-panel" id="slider-max-panel" style="margin-top:14px;"><h3>Slider Maximum Amounts</h3><div class="slider-max-grid all-slider-maxes"><label for="max-existing-input">Existing 401K max</label><input id="max-existing-input" min="0" step="10000" type="number" value="250000"/><button id="apply-existing-max" type="button">Apply</button><label for="max-contrib-input">401K monthly max</label><input id="max-contrib-input" min="100" step="100" type="number" value="1000"/><button id="apply-contrib-max" type="button">Apply</button><label for="max-existing-roth-input">Existing Roth IRA max</label><input id="max-existing-roth-input" min="0" step="10000" type="number" value="100000"/><button id="apply-existing-roth-max" type="button">Apply</button><label for="max-roth-input">Roth IRA monthly max</label><input id="max-roth-input" min="0" step="100" type="number" value="700"/><button id="apply-roth-max" type="button">Apply</button><label for="max-return-input">Investment returns max %</label><input id="max-return-input" min="0" step="0.25" type="number" value="15"/><button id="apply-return-max" type="button">Apply</button></div><button class="slider-max-reset" id="reset-slider-maxes" type="button">Reset All Slider Maxes</button></div><div class="assumptions-wrap" id="federal-contribution-assumptions"><div class="contribution-assumption-heading"><div class="contribution-assumption-title">⚠️ Federal Contribution-Limit Assumptions</div><div class="contribution-assumption-copy">Edit the annual 401K and Roth IRA limits used by this calculator. Review these values whenever federal rules change.</div></div><div class="assumption-panel" id="k401-assumptions"><h3>401K assumptions</h3><div class="assumption-grid"><label for="ass-k401-under50">Under 50 annual limit</label><input id="ass-k401-under50" min="0" step="100" type="number"><label for="ass-k401-50">Age 50+ annual limit</label><input id="ass-k401-50" min="0" step="100" type="number"><label for="ass-k401-60">Age 60–63 annual limit</label><input id="ass-k401-60" min="0" step="100" type="number"><label for="ass-k401-64">Age 64+ annual limit</label><input id="ass-k401-64" min="0" step="100" type="number"/></input></input></input></div><div class="assumption-actions"><button class="apply" id="apply-k401-assumptions">Apply 401K Changes</button><button class="reset" id="reset-k401-assumptions">Reset 401K Defaults</button></div></div><div class="assumption-panel" id="roth-assumptions"><h3>Roth IRA assumptions</h3><div class="assumption-grid"><label for="ass-roth-base">Base contribution</label><input id="ass-roth-base" min="0" step="100" type="number"><label for="ass-roth-catchup">Age 50+ catch-up</label><input id="ass-roth-catchup" min="0" step="100" type="number"><label for="ass-roth-single">Single phaseout ceiling</label><input id="ass-roth-single" min="0" step="1000" type="number"/><label for="ass-roth-married">Married phaseout ceiling</label><input id="ass-roth-married" min="0" step="1000" type="number"/></input></input></div><div class="assumption-actions"><button class="apply" id="apply-roth-assumptions">Apply Roth Changes</button><button class="reset" id="reset-roth-assumptions">Reset Roth Defaults</button></div></div></div></div>
 <script id="page3-envelope-url-reader-v6">
 (function(){
   'use strict';
@@ -1749,7 +1534,7 @@ table {
 })();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-<script src="vendor/nouislider-app.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.8.0/nouislider.min.js"></script>
 <script>
 try{
   const oldExistingRothMax = Number(localStorage.getItem('custom_existing_roth_slider_max') || 0);
@@ -2039,16 +1824,18 @@ window.onload = function() {
     if(page3IncomeInput) page3IncomeInput.value=String(window.__PAGE2_PAYLOAD_V23.income);
   }
 
+  const transferredRothValue = Number(window.__PAGE2_PAYLOAD_V23 && window.__PAGE2_PAYLOAD_V23.roth) || 0;
+  const exactRothSliderMax = Math.max(700, transferredRothValue, getSliderMax('roth-slider', 700));
   try{
     ['custom_roth_slider_max','sync_monthly_roth_max','monthlyRoth_max'].forEach(function(k){
-      const v = Number(localStorage.getItem(k));
-      if(!Number.isFinite(v) || v !== 700) localStorage.setItem(k, '700');
+      localStorage.setItem(k, String(exactRothSliderMax));
     });
+    localStorage.setItem('sync_monthly_roth_step', '1');
   }catch(e){}
 
-  const existingSliderMax = getSliderMax('existing-slider', 200000);
+  const existingSliderMax = getSliderMax('existing-slider', 250000);
   const contribSliderMax = 3000;
-  const rothSliderMax = 700;
+  const rothSliderMax = exactRothSliderMax;
   const existingRothSliderMax = getSliderMax('existing-roth-slider', 100000);
   const returnSliderMax = getSliderMax('returns-slider', 15);
   const maxExistingInput = document.getElementById('max-existing-input');
@@ -2247,20 +2034,11 @@ window.onload = function() {
     }
     const visible401Monthly = unifiedMonthlyAmount('contrib-slider', 'contrib', 1000);
     const visibleRothMonthly = unifiedMonthlyAmount('roth-slider', 'roth', 1000);
-    const limitsDisabled = governmentContributionLimitsDisabled();
     agePeriodState.contrib.active = 'age50plus';
     agePeriodState.roth.active = 'age50plus';
-    // When government limits are removed, the amount shown on each slider must be
-    // used for every modeled age. Previously the Roth under-50 bucket was always
-    // capped at the statutory base limit, even while the UI said limits were off.
-    // That made equal $700 sliders produce unequal balances.
-    agePeriodState.contrib.under50 = limitsDisabled
-      ? visible401Monthly
-      : Math.min(visible401Monthly, getMaxContribution(49) / 12);
+    agePeriodState.contrib.under50 = Math.min(visible401Monthly, getMaxContribution(49) / 12);
     agePeriodState.contrib.age50plus = visible401Monthly;
-    agePeriodState.roth.under50 = limitsDisabled
-      ? visibleRothMonthly
-      : Math.min(visibleRothMonthly, rothAssumptions.base / 12);
+    agePeriodState.roth.under50 = Math.min(visibleRothMonthly, rothAssumptions.base / 12);
     agePeriodState.roth.age50plus = visibleRothMonthly;
     saveAgePeriodState();
     const selectedAnnualReturn = rawSliderValue('returns-slider')/100;
@@ -2297,12 +2075,13 @@ window.onload = function() {
       // end of its current range must not be interpreted as an instruction to
       // replace the user's amount with the IRS maximum. Example: $1,000/month
       // must remain $12,000/year (subject only to the legal annual cap).
+      const limitsDisabled = governmentContributionLimitsDisabled();
       const annualContribution = limitsDisabled ? requested401kContribution : Math.min(requested401kContribution, maxContrib);
       const rothMaxContrib = getRothAnnualLimit(contributionAge, filingStatus, income);
       const requestedRothContribution = baseRothMonthly * 12 * Math.pow(1 + increase, i);
-      const annualRothContribution = limitsDisabled ? requestedRothContribution : Math.min(requestedRothContribution, rothMaxContrib);
+      const annualRothContribution = Math.min(requestedRothContribution, rothMaxContrib);
       const yearExceeded401k = !limitsDisabled && requested401kContribution > maxContrib;
-      const yearExceededRoth = !limitsDisabled && requestedRothContribution > 0 && (rothMaxContrib <= 0 || requestedRothContribution > rothMaxContrib);
+      const yearExceededRoth = requestedRothContribution > 0 && (rothMaxContrib <= 0 || requestedRothContribution > rothMaxContrib);
       if(yearExceeded401k || yearExceededRoth) exceeded = true;
       if(yearExceeded401k) exceeded401k = true;
       if(yearExceededRoth) exceededRoth = true;
@@ -2490,7 +2269,7 @@ window.onload = function() {
     const limitsDisabled = governmentContributionLimitsDisabled();
     if(k401Warning) k401Warning.classList.toggle('show', !limitsDisabled && visible401Requested > visible401Limit);
     if(rothWarning){
-      const rothShouldWarn = !limitsDisabled && visibleRothRequested > 0 && (visibleRothLimit <= 0 || visibleRothRequested > visibleRothLimit);
+      const rothShouldWarn = visibleRothRequested > 0 && (visibleRothLimit <= 0 || visibleRothRequested > visibleRothLimit);
       rothWarning.classList.toggle('show', rothShouldWarn);
       rothWarning.textContent = (visibleRothLimit <= 0 && visibleRothRequested > 0)
         ? '🟡 Roth IRA unavailable at this income.'
@@ -2960,8 +2739,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     // positive Roth amount with income phaseout = warning
     // positive Roth amount over annual limit = warning
     // otherwise no warning
-    const limitsDisabled = !!document.getElementById('disable-government-contribution-limits')?.checked;
-    const shouldShow = !limitsDisabled && annual > 0 && (allowed <= 0 || annual > allowed);
+    const shouldShow = annual > 0 && (allowed <= 0 || annual > allowed);
 
     warning.classList.toggle('show', shouldShow);
     warning.textContent = (allowed <= 0 && annual > 0)
@@ -6725,7 +6503,7 @@ html:not(.page3-yellow-controls-ready) .slider-block.page3-card-yellow .slider-r
 'use strict';
 const CFG={
  'income-slider':{base:4000,step:100,valueId:'income-slider-value',inputId:'income',key:'cg_income_range_max'},
- 'existing-slider':{base:200000,step:5000,valueId:'existing-value',inputId:null,key:'cg_existing_range_max'}
+ 'existing-slider':{base:250000,step:5000,valueId:'existing-value',inputId:null,key:'cg_existing_range_max'}
 };
 const money=v=>'$'+Math.round(Number(v)||0).toLocaleString('en-US');
 function api(id){const e=document.getElementById(id);return e&&e.noUiSlider?e.noUiSlider:null}
@@ -8371,10 +8149,10 @@ button,[role="button"],label,select,input,summary,
       status.textContent='Currently using: Your investment return percentage'+(value?' — '+value:'')+'.';
     }else if(selected==='scenario'){
       const s=document.getElementById('page3ReturnScenarioSelect');
-      status.textContent='Currently using: Historical time machine — '+s.options[s.selectedIndex].textContent+'.';
+      status.textContent='Currently using: Historical scenario — '+s.options[s.selectedIndex].textContent+'.';
     }else{
       const r=document.getElementById('page3ReturnRangeSelect');
-      status.textContent='Currently testing: Exact historical year range — '+r.options[r.selectedIndex].textContent+'.';
+      status.textContent='Currently using: Exact historical year range — '+r.options[r.selectedIndex].textContent+'.';
     }
   }
   function choose(next){
@@ -8392,13 +8170,13 @@ button,[role="button"],label,select,input,summary,
     const panel=document.createElement('section');
     panel.id='page3ThreeReturnChoices';
     panel.innerHTML=
-      '<h3>Would my retirement have survived?</h3>'+
-      '<div class="return-choice-help">Choose a return source, then travel through different markets to see how your retirement might have grown, struggled, and recovered.</div>'+
+      '<h3>Choose investment return source</h3>'+
+      '<div class="return-choice-help">Choose one. The chart uses only the selected return source.</div>'+
       '<label class="page3-three-choice" id="page3ReturnCard_custom"><input type="radio" id="page3ReturnMode_custom" name="page3-return-mode" value="custom"><span class="choice-name">Your investment return %</span><div class="choice-control" id="page3CustomReturnHost"></div></label>'+
-      '<label class="page3-three-choice" id="page3ReturnCard_scenario"><input type="radio" id="page3ReturnMode_scenario" name="page3-return-mode" value="scenario"><span class="choice-name">Historical time machine</span><select class="choice-control" id="page3ReturnScenarioSelect"></select></label>'+
+      '<label class="page3-three-choice" id="page3ReturnCard_scenario"><input type="radio" id="page3ReturnMode_scenario" name="page3-return-mode" value="scenario"><span class="choice-name">Historical scenario</span><select class="choice-control" id="page3ReturnScenarioSelect"></select></label>'+
       '<label class="page3-three-choice" id="page3ReturnCard_range"><input type="radio" id="page3ReturnMode_range" name="page3-return-mode" value="range"><span class="choice-name">Exact year range</span><select class="choice-control" id="page3ReturnRangeSelect"></select></label>'+
       '<div id="page3ReturnChoiceStatus" aria-live="polite"></div>'+
-      '<details id="page3ReturnDetails"><summary>How the historical test works</summary><div id="page3ReturnDetailsBody">Historical time machine uses ten years before and ten years after the selected event, then returns to your percentage for any remaining projection years. Exact year range uses every annual return in sequence for the displayed range.</div></details>';
+      '<details id="page3ReturnDetails"><summary>Historical return details</summary><div id="page3ReturnDetailsBody">Historical scenario uses ten years before and ten years after the selected event, then returns to your percentage for any remaining projection years. Exact year range uses every annual return in sequence for the displayed range.</div></details>';
 
     chart.insertAdjacentElement('beforebegin',panel);
     document.getElementById('page3CustomReturnHost').appendChild(investment);
@@ -9206,93 +8984,103 @@ main,section,article,form,
 </script>
 
 
-
-
-
-<!-- FINAL ONE-SHOT PAGE 2 HANDOFF RECEIVER V18 -->
-
-
-
-
-<!-- PAGE 3 SINGLE-SOURCE HANDOFF UI FIX V20 -->
-
-
-
-<!-- PAGE 3 SINGLE SLIDER AUTHORITY V21 -->
-
-
-
-
-<!-- PAGE 3 V23 CLEAN EXISTING BALANCE MAX -->
-<script id="page3-v23-existing-max-only">
+<script id="page3-exact-page2-values-v27">
 (function(){
   'use strict';
+  function n(v){v=Array.isArray(v)?v[0]:v;v=parseFloat(String(v==null?'':v).replace(/[^0-9.-]/g,''));return Number.isFinite(v)?v:0;}
+  function packet(){
+    var m=location.hash.match(/#v27=([^&]+)/);if(m){try{return JSON.parse(decodeURIComponent(m[1]));}catch(e){}}
+    try{return JSON.parse(localStorage.getItem('retirement_page2_packet_v27')||localStorage.getItem('retirement_page2_packet_v26')||'null');}catch(e){return null;}
+  }
+  function set(id,out,value,max,step){
+    var el=document.getElementById(id);if(!el||!el.noUiSlider)return false;
+    value=Math.max(0,Math.round(n(value)/step)*step);max=Math.max(value,Math.round(n(max)/step)*step,step);
+    try{el.noUiSlider.updateOptions({range:{min:0,max:max},step:step},false);el.noUiSlider.set(value);}catch(e){return false;}
+    var o=document.getElementById(out);if(o)o.textContent='$'+value.toLocaleString('en-US');
+    return true;
+  }
   function apply(){
-    var input=document.getElementById('max-existing-input');
-    if(input)input.value='200000';
-    try{localStorage.setItem('cg_existing_range_max','200000');localStorage.setItem('cg_auth_existing_max_v2','200000')}catch(e){}
-    var el=document.getElementById('existing-slider');
-    if(!el||!el.noUiSlider)return false;
-    var api=el.noUiSlider,v=Math.max(0,Number(api.get())||0),opts=api.options||{},max=Number(opts.range&&opts.range.max)||0;
-    if(max!==200000){try{api.updateOptions({range:{min:0,max:200000},step:5000,animate:false,animationDuration:0},false)}catch(e){}}
-    try{api.set(Math.min(v,200000),false,true)}catch(e){}
+    var p=packet();if(!p)return true;
+    var k=Math.max(0,Math.round(n(p.k401)/100)*100),r=Math.max(0,Math.round(n(p.roth)/25)*25);
+    var km=Math.max(k,n(p.k401Max),100),rm=Math.max(r,n(p.rothMax),25);
+    if(!set('contrib-slider','contrib-value',k,km,100)||!set('roth-slider','roth-value',r,rm,25))return false;
+    try{
+      var vals={sync_monthly_401k:k,k401_prefill_monthly_401k:k,pre_monthly_401k:k,sync_monthly_roth:r,k401_prefill_monthly_roth:r,pre_monthly_roth:r,sync_monthly_401k_max:km,custom_contrib_slider_max:km,sync_monthly_roth_max:rm,custom_roth_slider_max:rm,k401_monthly_under50:k,k401_monthly_50plus:k,roth_monthly_under50:r,roth_monthly_50plus:r,sync_monthly_401k_under50:k,sync_monthly_401k_age50plus:k,sync_monthly_roth_under50:r,sync_monthly_roth_age50plus:r};
+      Object.keys(vals).forEach(function(key){localStorage.setItem(key,String(vals[key]));});
+      localStorage.setItem('page3_age_pin_desired_401k_v1',JSON.stringify({under50:k,age50plus:k,age60to63:k,age64plus:k}));
+      localStorage.setItem('page3_age_pin_desired_roth_v1',JSON.stringify({under50:r,age50plus:r}));
+    }catch(e){}
     return true;
   }
-  function boot(){var tries=0,t=setInterval(function(){if(apply()||++tries>80)clearInterval(t)},50)}
+  function boot(){var tries=0;(function wait(){if(apply())return;if(++tries<160)setTimeout(wait,50);})();setTimeout(apply,1200);}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+  addEventListener('pageshow',function(){setTimeout(apply,100)});
 })();
 </script>
 
 
-<style id="retirement-history-fun-copy-v33">
-.retirement-history-question-v33{margin:6px 0 10px;padding:8px 10px;border-radius:10px;background:#eff6ff;border:1px solid #93c5fd;color:#1e3a8a;font-weight:900;line-height:1.3}
-.retirement-history-question-v33 strong{color:#111827}
-</style>
-<script id="retirement-history-fun-copy-v33-script">
+<script id="page3-live-contribution-consumer-v1">
 (function(){
-  function install(){
-    var heading=[].slice.call(document.querySelectorAll('h3')).find(function(h){return /Would my retirement have survived\?/i.test(h.textContent||'');});
-    if(!heading)return false;
-    var panel=heading.parentElement;
-    if(!panel||panel.querySelector('.retirement-history-question-v33'))return true;
-    var note=document.createElement('div');
-    note.className='retirement-history-question-v33';
-    note.innerHTML='<strong>Time-travel with your own money.</strong> Try a boom, recession, crash, or random stretch of history and watch how your retirement would have handled it.';
-    var help=panel.querySelector('.return-choice-help');
-    if(help&&help.nextSibling)panel.insertBefore(note,help.nextSibling);else panel.appendChild(note);
-    return true;
+ 'use strict';
+ if(window.__page3LiveContributionConsumerV1)return;window.__page3LiveContributionConsumerV1=true;
+ function num(v){v=Array.isArray(v)?v[0]:v;v=parseFloat(String(v==null?'':v).replace(/[^0-9.-]/g,''));return Number.isFinite(v)?v:0}
+ function packet(){try{return JSON.parse(localStorage.getItem('page2_live_contribution_handoff_v1')||'null')}catch(e){return null}}
+ function setSlider(id,out,value,max,step){var el=document.getElementById(id);if(!el||!el.noUiSlider)return false;value=Math.max(0,Math.round(num(value)/step)*step);max=Math.max(value,Math.round(num(max)/step)*step,step);try{el.noUiSlider.updateOptions({range:{min:0,max:max},step:step},false);el.noUiSlider.set(value)}catch(e){return false}var o=document.getElementById(out);if(o)o.textContent='$'+value.toLocaleString('en-US');return true}
+ function apply(){var p=packet();if(!p||!p.stamp)return false;var r=Math.max(0,Math.round(num(p.roth)/25)*25),k=Math.max(0,Math.round(num(p.k401)/100)*100),rm=Math.max(r,num(p.rothMax),25),km=Math.max(k,num(p.k401Max),100);if(!setSlider('roth-slider','roth-value',r,rm,25)||!setSlider('contrib-slider','contrib-value',k,km,100))return false;try{var vals={sync_monthly_roth:r,k401_prefill_monthly_roth:r,pre_monthly_roth:r,sync_monthly_401k:k,k401_prefill_monthly_401k:k,pre_monthly_401k:k,sync_monthly_roth_max:rm,custom_roth_slider_max:rm,sync_monthly_401k_max:km,custom_contrib_slider_max:km,roth_monthly_under50:r,roth_monthly_50plus:r,sync_monthly_roth_under50:r,sync_monthly_roth_age50plus:r,k401_monthly_under50:k,k401_monthly_50plus:k,sync_monthly_401k_under50:k,sync_monthly_401k_age50plus:k};Object.keys(vals).forEach(function(key){localStorage.setItem(key,String(vals[key]))});localStorage.setItem('monthly_age_period_state',JSON.stringify({contrib:{active:'under50',under50:k,age50plus:k},roth:{active:'under50',under50:r,age50plus:r}}));localStorage.setItem('page3_age_pin_desired_401k_v1',JSON.stringify({under50:k,age50plus:k,age60to63:k,age64plus:k}));localStorage.setItem('page3_age_pin_desired_roth_v1',JSON.stringify({under50:r,age50plus:r}));localStorage.setItem('page2_live_contribution_handoff_v1_consumed',String(p.stamp))}catch(e){}return true}
+ function boot(){[0,60,150,350,700,1200,2200,3500].forEach(function(ms){setTimeout(apply,ms)})}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();addEventListener('pageshow',boot);
+})();
+</script>
+
+
+<script id="authoritative-government-limit-sync-page3-v1">
+(function(){
+  'use strict';
+  var SHARED='retirement_disable_government_contribution_limits';
+  var LEGACY='page3_disable_government_contribution_limits';
+  function isOn(){try{return localStorage.getItem(SHARED)==='1'||localStorage.getItem(LEGACY)==='1';}catch(e){return false}}
+  function store(on){try{localStorage.setItem(SHARED,on?'1':'0');localStorage.setItem(LEGACY,on?'1':'0');localStorage.setItem('retirement_government_limit_updated_at',String(Date.now()));}catch(e){}}
+  function rerun(){
+    try{if(typeof updateAll==='function')updateAll();}catch(e){}
+    try{if(typeof update==='function')update(false);}catch(e){}
+    try{if(typeof updateChart==='function')updateChart();}catch(e){}
   }
-  function run(){if(install())return;var n=0,t=setInterval(function(){n++;if(install()||n>40)clearInterval(t)},150)}
-  document.readyState==='loading'?document.addEventListener('DOMContentLoaded',run,{once:true}):run();
+  function install(){
+    var box=document.getElementById('disable-government-contribution-limits');
+    if(!box)return;
+    var desired=isOn();
+    if(box.checked!==desired){box.checked=desired;try{box.dispatchEvent(new Event('change',{bubbles:true}));}catch(e){}}
+    if(box.__authoritativeLimitSync)return;
+    box.__authoritativeLimitSync=true;
+    box.addEventListener('change',function(){store(box.checked);setTimeout(rerun,0);setTimeout(rerun,120);},true);
+    store(box.checked);
+    setTimeout(rerun,80);
+  }
+  function saveLatestProjection(){
+    try{
+      if(typeof window.retirementPage3Page4Save==='function')window.retirementPage3Page4Save();
+      localStorage.setItem('retirement_government_limit_projection_updated_at',String(Date.now()));
+    }catch(e){}
+  }
+  document.addEventListener('click',function(e){var b=e.target&&e.target.closest&&e.target.closest('.app-nav .next');if(b){rerun();setTimeout(saveLatestProjection,30);}},true);
+  window.addEventListener('pagehide',saveLatestProjection);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(install,100)},{once:true});else setTimeout(install,100);
+  window.addEventListener('load',function(){setTimeout(install,250)},{once:true});
+  window.addEventListener('pageshow',function(){setTimeout(install,100)});
 })();
 </script>
 
-<style id="federal-filing-profile-v34-page3">
-.page3-tax-filing-card{margin:10px 0;padding:11px;border:1px solid #bfdbfe;border-radius:12px;background:#eff6ff}
-.page3-tax-filing-card h3{margin:0 0 5px;font-size:14px}.tax-filing-intro{margin:0 0 8px!important;font-size:12px;line-height:1.3}
-.tax-filing-profile-options{display:grid;grid-template-columns:1fr;gap:6px}.tax-filing-profile-option{display:flex;gap:8px;align-items:flex-start;padding:8px;border:1px solid #d1d5db;border-radius:10px;background:#fff;cursor:pointer}
-.tax-filing-profile-option:has(input:checked){border-color:#2563eb;background:#dbeafe;box-shadow:0 0 0 1px #2563eb inset}.tax-filing-profile-option input{width:16px;height:16px;margin-top:2px;flex:0 0 auto}.tax-filing-profile-option b{display:block;font-size:12px}.tax-filing-profile-option small{display:block;margin-top:3px;font-size:11px;line-height:1.25;color:#374151}.tax-filing-profile-status{margin-top:7px;font-size:11px;font-weight:900;color:#1e3a8a}
-</style>
-<script id="federal-filing-profile-v34-page3-script">
-(function(){
- const KEY='retirement_federal_filing_status_2026';
- const names={mfj:'Married Filing Jointly',single:'Single',hoh:'Head of Household',mfs:'Married Filing Separately',qss:'Qualifying Surviving Spouse'};
- function init(){
-  let saved='mfj';try{saved=localStorage.getItem(KEY)||'mfj'}catch(e){}
-  if(!names[saved]) saved='mfj';
-  document.querySelectorAll('input[name="page3-federal-filing"]').forEach(r=>{r.checked=r.value===saved;r.addEventListener('change',()=>{if(!r.checked)return;try{localStorage.setItem(KEY,r.value)}catch(e){};update(r.value);syncLegacy(r.value);});});
-  update(saved);syncLegacy(saved);
- }
- function update(v){const x=document.getElementById('page3TaxFilingStatus');if(x)x.textContent=names[v]+' will be loaded on Page 4.';}
- function syncLegacy(v){
-  // Page 3's existing Roth eligibility control only distinguishes joint vs. non-joint.
-  const legacy=(v==='mfj'||v==='qss')?'married':'single';
-  document.querySelectorAll('input[name="filingStatus"]').forEach(r=>{r.checked=r.value===legacy;});
-  try{localStorage.setItem('shared_filing_status',legacy);localStorage.setItem('retirement_filing_status',legacy)}catch(e){}
- }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
-})();
-</script>
+<style id="government-limit-feature-removed-css">.government-limit-bypass,#page2-government-limit-bypass,#page3-government-limit-bypass{display:none!important}</style>
+<script id="government-limit-feature-removed-final">(function(){
+  var keys=['retirement_disable_government_contribution_limits', 'page3_disable_government_contribution_limits', 'disable-government-contribution-limits', 'retirement_government_limit_updated_at'];
+  function removeFeature(){
+    try{keys.forEach(function(k){localStorage.removeItem(k);});}catch(e){}
+    document.querySelectorAll('.government-limit-bypass,#page2-government-limit-bypass,#page3-government-limit-bypass').forEach(function(n){n.remove();});
+    var box=document.getElementById('disable-government-contribution-limits');if(box){box.checked=false;box.remove();}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',removeFeature,{once:true});else removeFeature();
+  window.addEventListener('pageshow',removeFeature);
+})();</script>
 </body></html>
 <style id="page3-slider-handle-tooltip-v48-style">
 /* v48: the selected-year slider controls the tooltip; chart finger position does not. */
@@ -9586,7 +9374,7 @@ setTimeout(finish,250);setTimeout(finish,700);
 'use strict';
 var CFG={
   'income-slider':{base:4000,step:100,valueId:'income-slider-value',inputId:'income',store:'cg_auth_income_max_v2'},
-  'existing-slider':{base:200000,step:5000,valueId:'existing-value',inputId:null,store:'cg_auth_existing_max_v2'}
+  'existing-slider':{base:250000,step:5000,valueId:'existing-value',inputId:null,store:'cg_auth_existing_max_v2'}
 };
 function num(v){if(Array.isArray(v))v=v[0];if(typeof v==='string')v=v.replace(/[^0-9.-]/g,'');v=Number(v);return Number.isFinite(v)?v:0}
 function money(v){return '$'+Math.round(num(v)).toLocaleString('en-US')}
@@ -9926,7 +9714,7 @@ input[type="range"]::-moz-range-thumb{
     if(!card) return;
     const panel=document.createElement('details');
     panel.className='government-limit-bypass';
-    panel.innerHTML='<summary><input id="disable-government-contribution-limits" type="checkbox" aria-label="Remove government limitations"><span>Remove government limitations</span></summary><div class="government-limit-help">Uses the full monthly 401K and Roth amounts entered, even above the configured annual limits.</div>';
+    panel.innerHTML='<summary><input id="disable-government-contribution-limits" type="checkbox" aria-label="Remove government limitations"><span>Remove government limitations</span></summary><div class="government-limit-help">Removes the federal contribution cap for the 401K only. Roth IRA limits still apply.</div>';
     const ruleDetails=card.querySelector('.rule-tip');
     if(ruleDetails) ruleDetails.insertAdjacentElement('afterend',panel); else card.insertBefore(panel,card.firstChild);
     const box=panel.querySelector('input');
@@ -10380,7 +10168,7 @@ input[type="range"]::-moz-range-thumb{
 
   var busy=false, wired=false;
   var configs={
-    contrib:{id:'contrib-slider',step:25,valueId:'contrib-value',desiredKey:'page3_age_pin_desired_401k_v1'},
+    contrib:{id:'contrib-slider',step:100,valueId:'contrib-value',desiredKey:'page3_age_pin_desired_401k_v1'},
     roth:{id:'roth-slider',step:25,valueId:'roth-value',desiredKey:'page3_age_pin_desired_roth_v1'}
   };
   function num(v,d){v=Number(String(v==null?'':v).replace(/[^0-9.-]/g,''));return Number.isFinite(v)?v:(d||0)}
@@ -10433,8 +10221,8 @@ input[type="range"]::-moz-range-thumb{
     var ages=kind==='roth'?[49,50]:[49,50,60,64];
     var legal=Math.max.apply(null,ages.map(function(a){return monthlyCap(kind,a)}));
     var normal=Math.max(configured,legal,monthlyCap(kind,age),configs[kind].step);
-    if(!limitsDisabled()) return normal;
-    var input=document.getElementById(kind==='roth'?'max-roth-input':'max-contrib-input');
+    if(kind!=='contrib' || !limitsDisabled()) return normal;
+    var input=document.getElementById('max-contrib-input');
     var requested=num(input&&input.value,0);
     return Math.max(normal,requested,legal*4,10000);
   }
@@ -10450,9 +10238,9 @@ input[type="range"]::-moz-range-thumb{
     var stale=host.querySelector(':scope > .age-limit-pin-v1');if(stale)stale.remove();
     var pin=base.querySelector('.age-limit-pin-v1');
     var note=ensureNote(kind);
-    if(limitsDisabled()){
+    if(kind==='contrib' && limitsDisabled()){
       if(pin)pin.remove();
-      if(note)note.innerHTML='<span>Government limit removed</span><span style="color:#111827">Expanded range</span>';
+      if(note)note.innerHTML='<span>401K government limit removed</span><span style="color:#111827">Expanded range</span>';
       return;
     }
     if(!pin){pin=document.createElement('span');pin.className='age-limit-pin-v1';base.appendChild(pin)}
@@ -10462,103 +10250,32 @@ input[type="range"]::-moz-range-thumb{
   }
   function persistVisible(kind,value,age){
     value=roundStep(value,configs[kind].step);
-    /* One visible monthly amount is authoritative at every selected age. */
-    var d=readDesired(kind);
-    if(kind==='contrib'){
-      d.under50=value;d.age50plus=value;d.age60to63=value;d.age64plus=value;
-    }else{
-      d.under50=value;d.age50plus=value;
-    }
-    writeDesired(kind,d);
+    var b=band(kind,age), d=readDesired(kind); d[b]=value; writeDesired(kind,d);
     try{
       if(kind==='contrib'){
-        ['sync_monthly_401k','k401_prefill_monthly_401k','pre_monthly_401k',
-         'k401_monthly_under50','sync_monthly_401k_under50',
-         'k401_monthly_50plus','sync_monthly_401k_age50plus'].forEach(function(k){localStorage.setItem(k,String(value))});
+        localStorage.setItem('sync_monthly_401k',String(value));localStorage.setItem('k401_prefill_monthly_401k',String(value));localStorage.setItem('pre_monthly_401k',String(value));
+        if(age<50){localStorage.setItem('k401_monthly_under50',String(value));localStorage.setItem('sync_monthly_401k_under50',String(value))}
+        else{localStorage.setItem('k401_monthly_50plus',String(value));localStorage.setItem('sync_monthly_401k_age50plus',String(value))}
       }else{
-        ['sync_monthly_roth','k401_prefill_monthly_roth','pre_monthly_roth',
-         'roth_monthly_under50','sync_monthly_roth_under50',
-         'roth_monthly_50plus','sync_monthly_roth_age50plus'].forEach(function(k){localStorage.setItem(k,String(value))});
+        localStorage.setItem('sync_monthly_roth',String(value));localStorage.setItem('k401_prefill_monthly_roth',String(value));localStorage.setItem('pre_monthly_roth',String(value));
+        if(age<50){localStorage.setItem('roth_monthly_under50',String(value));localStorage.setItem('sync_monthly_roth_under50',String(value))}
+        else{localStorage.setItem('roth_monthly_50plus',String(value));localStorage.setItem('sync_monthly_roth_age50plus',String(value))}
       }
     }catch(e){}
-  }
-  function firstStored(keys){
-    try{
-      for(var i=0;i<keys.length;i++){
-        var raw=localStorage.getItem(keys[i]);
-        if(raw!==null&&raw!==''&&Number.isFinite(Number(raw))) return Number(raw);
-      }
-    }catch(e){}
-    return null;
   }
   function savedFor(kind,age){
-    /* Read the immutable Page 2 packet before any shared keys that Page 3 can
-       rewrite. Missing data must remain missing; it must never become a false 0. */
-    function finiteValue(v){
-      if(v===null||v===undefined||v==='') return null;
-      var n=Number(v);
-      return Number.isFinite(n)?n:null;
-    }
-    function fromPacket(packet){
-      if(!packet) return null;
-      var raw=kind==='contrib'?packet.monthly401k:packet.monthlyRoth;
-      var n=finiteValue(raw);
-      return n===null?null:roundStep(n,configs[kind].step);
-    }
-    try{
-      var direct=fromPacket(window.__P23_IMMUTABLE_HANDOFF_V24);
-      if(direct!==null) return direct;
-
-      var simple=JSON.parse(sessionStorage.getItem('page2_to_page3_monthly_v24')||'null');
-      direct=fromPacket(simple);
-      if(direct!==null) return direct;
-
-      var snap=JSON.parse(sessionStorage.getItem('page2_to_page3_snapshot_v17')||'null');
-      direct=fromPacket(snap&&snap.shared);
-      if(direct!==null) return direct;
-      if(snap&&snap.legacy){
-        var legacyRaw=kind==='contrib'?snap.legacy.k401:snap.legacy.roth;
-        var legacyNum=finiteValue(legacyRaw);
-        if(legacyNum!==null) return roundStep(legacyNum,configs[kind].step);
-      }
-
-      var m=(location.hash||'').match(/(?:^|[&#])p23sync=([^&]+)/);
-      if(m){
-        try{direct=fromPacket(JSON.parse(decodeURIComponent(m[1])))}catch(_e){}
-        if(direct!==null) return direct;
-      }
-      var m2=(location.hash||'').match(/(?:^|[&#])v26=([^&]+)/);
-      if(m2){
-        try{
-          var legacy=JSON.parse(decodeURIComponent(m2[1]));
-          var hashRaw=kind==='contrib'?legacy.k401:legacy.roth;
-          var hashNum=finiteValue(hashRaw);
-          if(hashNum!==null) return roundStep(hashNum,configs[kind].step);
-        }catch(_e2){}
-      }
-    }catch(e){}
-
-    var keys=kind==='contrib'
-      ? ['sync_monthly_401k','k401_prefill_monthly_401k','pre_monthly_401k','k401_monthly_under50','k401_monthly_50plus']
-      : ['sync_monthly_roth','k401_prefill_monthly_roth','pre_monthly_roth','roth_monthly_under50','roth_monthly_50plus'];
-    var stored=firstStored(keys);
-    if(stored!==null) return roundStep(stored,configs[kind].step);
-    var d=readDesired(kind), order=kind==='contrib'?['under50','age50plus','age60to63','age64plus']:['under50','age50plus'];
-    for(var i=0;i<order.length;i++) if(Number.isFinite(Number(d[order[i]]))) return roundStep(d[order[i]],configs[kind].step);
-    return current(kind);
+    var b=band(kind,age),d=readDesired(kind);
+    if(Number.isFinite(Number(d[b]))) return roundStep(d[b],configs[kind].step);
+    if(kind==='contrib') return roundStep(age<50?(localStorage.getItem('k401_monthly_under50')||localStorage.getItem('sync_monthly_401k_under50')||localStorage.getItem('sync_monthly_401k')):(localStorage.getItem('k401_monthly_50plus')||localStorage.getItem('sync_monthly_401k_age50plus')||localStorage.getItem('sync_monthly_401k')),configs[kind].step);
+    return roundStep(age<50?(localStorage.getItem('roth_monthly_under50')||localStorage.getItem('sync_monthly_roth_under50')||localStorage.getItem('sync_monthly_roth')):(localStorage.getItem('roth_monthly_50plus')||localStorage.getItem('sync_monthly_roth_age50plus')||localStorage.getItem('sync_monthly_roth')),configs[kind].step);
   }
   function applyKind(kind,restore){
     var el=slider(kind);if(!el)return false;
     var age=selectedAge(),cap=monthlyCap(kind,age),max=rangeMax(kind,age),step=configs[kind].step;
     busy=true;
-    try{
-      var opts=el.noUiSlider.options||{}, oldMax=num(opts.range&&opts.range.max,0), oldStep=num(opts.step,0);
-      if(Math.abs(oldMax-max)>0.001||Math.abs(oldStep-step)>0.001){
-        el.noUiSlider.updateOptions({step:step,range:{min:0,max:max},animate:false,animationDuration:0},false);
-      }
-    }catch(e){}
+    try{el.noUiSlider.updateOptions({step:step,range:{min:0,max:max}},false)}catch(e){}
     var wanted=restore?savedFor(kind,age):current(kind);
-    var visible=limitsDisabled()?Math.min(wanted,max):Math.min(wanted,cap);
+    var visible=Math.min(wanted,max);
     try{el.noUiSlider.set(visible)}catch(e){}
     var out=document.getElementById(configs[kind].valueId);if(out)out.textContent=money(visible);
     paintPin(kind,age,cap,max);
@@ -10573,7 +10290,7 @@ input[type="range"]::-moz-range-thumb{
     el.noUiSlider.on('slide.ageLimitPinV1',function(values){
       if(busy)return;
       var age=selectedAge(),cap=monthlyCap(kind,age),v=roundStep(values[0],configs[kind].step);
-      if(!limitsDisabled()&&v>cap){busy=true;try{el.noUiSlider.set(cap)}catch(e){}busy=false;v=cap}
+      if(false&&v>cap){busy=true;try{el.noUiSlider.set(cap)}catch(e){}busy=false;v=cap}
       persistVisible(kind,v,age);paintPin(kind,age,cap,rangeMax(kind,age));
     });
     el.noUiSlider.on('change.ageLimitPinV1',function(){if(!busy)applyKind(kind,false)});
@@ -10588,7 +10305,7 @@ input[type="range"]::-moz-range-thumb{
     var a=bindKind('contrib'),b=bindKind('roth');
     if((a||b)&&!wired){wired=true;applyAll(true)}
   }
-  function ageChanged(){setTimeout(function(){applyAll(false)},0);setTimeout(function(){applyAll(false)},80)}
+  function ageChanged(){setTimeout(function(){applyAll(true)},0);setTimeout(function(){applyAll(true)},80)}
   document.addEventListener('input',function(e){if(e.target&&e.target.id==='k401YearSlider')ageChanged()},true);
   document.addEventListener('change',function(e){
     var id=e.target&&e.target.id;
@@ -10613,51 +10330,9 @@ input[type="range"]::-moz-range-thumb{
     }
   },true);
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(wire,300)});else setTimeout(wire,300);
-  /* One initialization pass only. Repeated restore passes were fighting the handoff. */
-  window.addEventListener('load',function(){setTimeout(wire,100)},{once:true});
-  window.addEventListener('pageshow',function(){setTimeout(wire,100)},{once:true});
+  window.addEventListener('load',function(){[100,500,1200].forEach(function(ms){setTimeout(function(){wire();applyAll(true)},ms)})});
+  window.addEventListener('pageshow',function(){setTimeout(function(){wire();applyAll(true)},100)});
   setInterval(wire,800);
-})();
-</script>
-
-<!-- PAGE 3 MONTHLY HANDOFF V24: exact one-time 401K/Roth seed -->
-<script id="page3-monthly-handoff-v24">
-(function(){
-  'use strict';
-  if(window.__page3MonthlyHandoffV24)return;
-  window.__page3MonthlyHandoffV24=true;
-  function n(v){v=Number(v);return Number.isFinite(v)?v:null}
-  function packet(){
-    var p=window.__P23_IMMUTABLE_HANDOFF_V24||null;
-    try{if(!p)p=JSON.parse(sessionStorage.getItem('page2_to_page3_monthly_v24')||'null')}catch(e){}
-    return p;
-  }
-  function seed(){
-    var p=packet();if(!p)return false;
-    var k=n(p.monthly401k),r=n(p.monthlyRoth);if(k===null||r===null)return false;
-    k=Math.max(0,Math.round(k/25)*25);r=Math.max(0,Math.round(r/25)*25);
-    try{
-      localStorage.setItem('sync_monthly_401k',String(k));
-      localStorage.setItem('k401_prefill_monthly_401k',String(k));
-      localStorage.setItem('pre_monthly_401k',String(k));
-      localStorage.setItem('k401_monthly_under50',String(k));
-      localStorage.setItem('k401_monthly_50plus',String(k));
-      localStorage.setItem('sync_monthly_401k_under50',String(k));
-      localStorage.setItem('sync_monthly_401k_age50plus',String(k));
-      localStorage.setItem('page3_age_pin_desired_401k_v1',JSON.stringify({under50:k,age50plus:k,age60to63:k,age64plus:k}));
-      localStorage.setItem('sync_monthly_roth',String(r));
-      localStorage.setItem('k401_prefill_monthly_roth',String(r));
-      localStorage.setItem('pre_monthly_roth',String(r));
-      localStorage.setItem('roth_monthly_under50',String(r));
-      localStorage.setItem('roth_monthly_50plus',String(r));
-      localStorage.setItem('sync_monthly_roth_under50',String(r));
-      localStorage.setItem('sync_monthly_roth_age50plus',String(r));
-      localStorage.setItem('page3_age_pin_desired_roth_v1',JSON.stringify({under50:r,age50plus:r}));
-    }catch(e){}
-    return true;
-  }
-  seed();
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',seed,{once:true});
 })();
 </script>
 
@@ -10705,153 +10380,33 @@ input[type="range"]::-moz-range-thumb{
 })();
 </script>
 
-<!-- FINAL GOVERNMENT LIMIT OVERRIDE V13: single last authority -->
-<style id="page3-government-limit-override-v13-style">
-html.gov-limits-off .age-limit-pin-v1,
-html.gov-limits-off .government-limit-pin,
-html.gov-limits-off .limit-pin,
-html.gov-limits-off [class*="limit-pin"]{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}
-html.gov-limits-off #contrib-limit-warning,
-html.gov-limits-off #roth-limit-warning,
-html.gov-limits-off .inline-limit-warning{display:none!important;visibility:hidden!important}
-</style>
-<script id="page3-government-limit-override-v13-script">
+<!-- FINAL_401K_ONLY_GOVERNMENT_LIMIT_PAGE3 -->
+<script id="final-401k-only-government-limit-page3">
 (function(){
-  'use strict';
-  if(window.__governmentLimitOverrideV13)return;
-  window.__governmentLimitOverrideV13=true;
-
-  var KEY='page3_disable_government_contribution_limits';
-  var MAX=50000;
-  var configs={
-    'contrib-slider':{step:25,keys:['custom_contrib_slider_max','monthly401k_max','custom_monthly401k_slider_max','sync_monthly_401k_max'],input:'max-contrib-input'},
-    'roth-slider':{step:25,keys:['custom_roth_slider_max','monthlyRoth_max','custom_monthlyRoth_slider_max','sync_monthly_roth_max'],input:'max-roth-input'}
-  };
-
-  function checkbox(){return document.getElementById('disable-government-contribution-limits')}
-  function isOff(){var b=checkbox();if(b)return !!b.checked;try{return localStorage.getItem(KEY)==='1'}catch(e){return false}}
-  function number(v,d){v=Number(v);return Number.isFinite(v)?v:d}
-  function slider(id){var el=document.getElementById(id);return el&&el.noUiSlider?el:null}
-  function readMax(api){try{return number(api.options.range.max,0)}catch(e){return 0}}
-
-  function rememberNormal(){
-    Object.keys(configs).forEach(function(id){
-      var c=configs[id],api=slider(id),cur=api?readMax(api):0;
-      try{
-        var backup='page3_v13_normal_max_'+id;
-        if(!localStorage.getItem(backup))localStorage.setItem(backup,String(cur>0&&cur<MAX?cur:(id==='roth-slider'?700:2000)));
-      }catch(e){}
-    });
-  }
-
-  function writeExpandedKeys(){
-    Object.keys(configs).forEach(function(id){
-      var c=configs[id];
-      c.keys.forEach(function(k){try{localStorage.setItem(k,String(MAX))}catch(e){}});
-      var inp=document.getElementById(c.input);if(inp)inp.value=String(MAX);
-    });
-  }
-
-  function removePins(){
-    document.querySelectorAll('.age-limit-pin-v1,.government-limit-pin,.limit-pin,[class*="limit-pin"]').forEach(function(n){n.remove()});
-    document.querySelectorAll('.age-limit-pin-note-v1').forEach(function(n){n.innerHTML='<span>Government limits removed</span><span style="color:#111827">Slider expanded to $50,000/month</span>'});
-    document.querySelectorAll('.inline-limit-warning').forEach(function(n){n.classList.remove('show')});
-  }
-
-  function wrap(id){
-    var api=slider(id);if(!api||api.__v13RangeAuthority)return !!api;
-    var original=api.updateOptions.bind(api);
-    api.updateOptions=function(options,fireSetEvent){
-      options=options||{};
-      if(isOff()){
-        var requested=options.range&&number(options.range.max,0);
-        var current=number(api.get(),0);
-        options=Object.assign({},options,{step:configs[id].step,range:{min:0,max:Math.max(MAX,requested,current)}});
-      }
-      return original(options,fireSetEvent);
-    };
-    api.__v13RangeAuthority=true;
-    return true;
-  }
-
-  function expandOne(id){
-    if(!wrap(id))return false;
-    var api=slider(id),value=Math.max(0,number(api.get(),0));
-    try{api.updateOptions({step:configs[id].step,range:{min:0,max:Math.max(MAX,value)}},false)}catch(e){}
-    /* Keep the selected amount; changing the range must not reset the handle. */
-    try{api.set(value)}catch(e){}
-    return readMax(api)>=MAX;
-  }
-
-  function expand(){
-    document.documentElement.classList.add('gov-limits-off');
-    writeExpandedKeys();
-    expandOne('contrib-slider');
-    expandOne('roth-slider');
-    removePins();
-  }
-
-  function restore(){
-    document.documentElement.classList.remove('gov-limits-off');
-    /* Let the calculator's existing age-limit engine restore its normal caps. */
-    try{if(typeof window.updateAll==='function')window.updateAll()}catch(e){}
-    try{if(typeof window.updateChart==='function')window.updateChart()}catch(e){}
-    var year=document.getElementById('k401YearSlider');
-    if(year){try{year.dispatchEvent(new Event('change',{bubbles:true}))}catch(e){}}
-  }
-
-  function apply(){
-    var b=checkbox();
-    if(b){try{localStorage.setItem(KEY,b.checked?'1':'0')}catch(e){}}
-    if(isOff())expand();else restore();
-  }
-
-  function bind(){
-    var b=checkbox();
-    if(!b||b.__v13Bound)return false;
-    b.__v13Bound=true;
-    try{b.checked=localStorage.getItem(KEY)==='1'}catch(e){}
-    b.addEventListener('input',function(){if(b.checked)rememberNormal();[0,20,80,200].forEach(function(ms){setTimeout(apply,ms)})},true);
-    b.addEventListener('change',function(){if(b.checked)rememberNormal();[0,20,80,200,500].forEach(function(ms){setTimeout(apply,ms)})},true);
-    return true;
-  }
-
-  function install(){bind();wrap('contrib-slider');wrap('roth-slider');apply()}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(install,100)});else setTimeout(install,100);
-  window.addEventListener('load',function(){[0,150,500,1200].forEach(function(ms){setTimeout(install,ms)})});
-  window.addEventListener('pageshow',function(){setTimeout(install,100)});
-  new MutationObserver(function(){bind();if(isOff())expand()}).observe(document.documentElement,{childList:true,subtree:true});
-  setInterval(function(){bind();wrap('contrib-slider');wrap('roth-slider');if(isOff()){
-    var a=slider('contrib-slider'),r=slider('roth-slider');
-    if(!a||!r||readMax(a)<MAX||readMax(r)<MAX)expand();else removePins();
-  }},400);
+ 'use strict';
+ function num(v){v=Array.isArray(v)?v[0]:v;v=parseFloat(String(v==null?'':v).replace(/[^0-9.-]/g,''));return Number.isFinite(v)?v:0}
+ function snap(v,s){return Math.max(0,Math.round(num(v)/s)*s)}
+ function rothAnnual(){
+   var age=num(document.getElementById('startAge')&&document.getElementById('startAge').value);
+   var base=num(document.getElementById('ass-roth-base')&&document.getElementById('ass-roth-base').value)||7500;
+   var catchup=num(document.getElementById('ass-roth-catchup')&&document.getElementById('ass-roth-catchup').value)||1100;
+   return base+(age>=50?catchup:0);
+ }
+ function enforceRoth(){
+   var el=document.getElementById('roth-slider');if(!el||!el.noUiSlider)return;
+   var step=25, cap=Math.max(step,snap(rothAnnual()/12,step)),value=Math.min(snap(el.noUiSlider.get(),step),cap);
+   try{el.noUiSlider.updateOptions({range:{min:0,max:cap},step:step,animate:false},false);el.noUiSlider.set(value)}catch(e){}
+   var out=document.getElementById('roth-value');if(out)out.textContent='$'+value.toLocaleString('en-US');
+ }
+ function decorate(){
+   var box=document.getElementById('disable-government-contribution-limits');if(!box)return;
+   var details=box.closest('details')||box.parentElement;
+   if(details){var label=details.querySelector('summary span');if(label)label.textContent='Remove 401K government limit';var help=details.querySelector('.government-limit-help');if(help)help.textContent='Applies only to the 401K contribution. Roth IRA contribution and income limits still apply.'}
+   enforceRoth();
+ }
+ function install(){decorate();[50,250,800].forEach(function(ms){setTimeout(decorate,ms)})}
+ document.addEventListener('change',function(e){if(e.target&&(/disable-government-contribution-limits|startAge|ass-roth-/.test(e.target.id||'')))setTimeout(decorate,20)},true);
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+ addEventListener('pageshow',install);
 })();
 </script>
-
-<!-- PAGE 3 FINAL VISUAL STABILITY PATCH v15 -->
-<style id="page3-final-visual-stability-v15-style">
-#chart-container,#myChart,
-#income-slider,#contrib-slider,#roth-slider,
-#income-slider .noUi-connect,#contrib-slider .noUi-connect,#roth-slider .noUi-connect,
-#income-slider .noUi-handle,#contrib-slider .noUi-handle,#roth-slider .noUi-handle,
-#income-slider-value,#contrib-value,#roth-value{
-  animation:none!important;
-  transition:none!important;
-}
-</style>
-
-<script id="page3-v18-chart-no-flash">
-(function(){
-  'use strict';
-  function quiet(){
-    try{if(window.myChart&&window.myChart.options){window.myChart.options.animation=false;window.myChart.options.transitions={active:{animation:{duration:0}},resize:{animation:{duration:0}},show:{animations:{colors:{duration:0},visible:{duration:0}}},hide:{animations:{colors:{duration:0},visible:{duration:0}}}};}}catch(e){}
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(quiet,2100)});else setTimeout(quiet,2100);
-})();
-</script>
-
-
-
-<!-- PAGE 3 V22 SINGLE SOURCE STARTUP AUTHORITY -->
-
-

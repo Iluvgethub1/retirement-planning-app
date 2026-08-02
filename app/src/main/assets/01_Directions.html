@@ -83,7 +83,6 @@ h2{margin:0;font-size:24px;letter-spacing:-.02em}
   .top-2x2,.legend{grid-template-columns:1fr}h1{font-size:32px}h2{font-size:21px}
 }
 </style>
-
 <style id="v30-gold-readability-lock-position">
 /* v30: brighter readable gold text and a slightly farther-right paperclip lock. */
 :root{
@@ -118,8 +117,6 @@ h2{margin:0;font-size:24px;letter-spacing:-.02em}
   .slider-lock-button,.stable-lock-button{right:3px!important}
 }
 </style>
-
-
 <style id="v31-orange-gold-lock-final">
 /* v31: crisp orange-gold text with no shadow; locks slightly higher and farther right. */
 :root{
@@ -169,8 +166,6 @@ h2{margin:0;font-size:24px;letter-spacing:-.02em}
   }
 }
 </style>
-
-
 <style id="v32-readable-amber-pill-text">
 /* v32: improve readability of Roth/gold pill labels without shadows. */
 :root{
@@ -206,7 +201,6 @@ h2{margin:0;font-size:24px;letter-spacing:-.02em}
   background:#ffe6bd!important;
 }
 </style>
-
 <style id="yellow-card-black-text-final">
 /* Final readability override: all text inside yellow/gold cards is black. */
 .page3-card-yellow, .page3-card-yellow *,
@@ -222,7 +216,6 @@ h2{margin:0;font-size:24px;letter-spacing:-.02em}
   text-shadow:none !important;
 }
 </style>
-
 <style id="example-consistent-card-layout-v1">
 /* Consistent mobile card treatment based on the approved example. */
 .ctrl,.slider-block,.slider-card,.page4-slider-card,.income-slider-card,.control-card,.range-card{
@@ -287,8 +280,6 @@ h2{margin:0;font-size:24px;letter-spacing:-.02em}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
 })();
 </script>
-
-
 <style id="page-audio-placeholder-style">
 .page-audio-button{
   flex:0 0 auto;
@@ -343,219 +334,50 @@ h2{margin:0;font-size:24px;letter-spacing:-.02em}
   .page-audio-status{top:52px;font-size:11px}
 }
 </style>
-
-
-<style id="android-global-responsive-release-v2">
-/* Global phone/tablet responsiveness */
-html, body {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-  overflow-x: hidden !important;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box !important;
-  min-width: 0;
-}
-
-img, svg, video, iframe {
-  max-width: 100% !important;
-  height: auto;
-}
-
-canvas {
-  max-width: 100% !important;
-}
-
-input, select, textarea, button {
-  max-width: 100% !important;
-}
-
-input, select, textarea {
-  font-size: 16px !important;
-}
-
-table {
-  max-width: 100% !important;
-}
-
-.card, .slider-card, .summary-card, .policy-card,
-.tax-gate-card, .tax-filing-profile-card,
-.page3-tax-filing-card, .page4-tax-filing-card,
-.page4-return-source-card, .retirement-risk-card-v10,
-.intro-card, .save-card {
-  max-width: 100% !important;
-  min-width: 0 !important;
-  overflow-wrap: anywhere;
-}
-
-/* Header: Back + audio + flexible title + Next */
-.app-nav {
-  display: grid !important;
-  grid-template-columns: auto auto minmax(0, 1fr) auto !important;
-  align-items: center !important;
-  gap: 8px !important;
-  width: 100% !important;
-  max-width: 100vw !important;
-  padding-left: max(8px, env(safe-area-inset-left)) !important;
-  padding-right: max(8px, env(safe-area-inset-right)) !important;
-  overflow: hidden !important;
-}
-
-.app-nav > * {
-  min-width: 0 !important;
-}
-
-.app-nav .back,
-.app-nav .next,
-.app-nav > a.back,
-.app-nav > a.next {
-  min-width: 68px !important;
-  max-width: 86px !important;
-  padding: 10px 8px !important;
-  white-space: nowrap !important;
-  flex: none !important;
-}
-
-.app-nav .page-audio-button {
-  width: 50px !important;
-  min-width: 50px !important;
-  max-width: 50px !important;
-  padding-left: 6px !important;
-  padding-right: 6px !important;
-  flex: none !important;
-}
-
-.app-nav .nav-title,
-.app-nav .after-retirement-title,
-.app-nav .title {
-  min-width: 0 !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-  text-align: center !important;
-  font-size: clamp(14px, 4vw, 22px) !important;
-  line-height: 1.1 !important;
-}
-
-/* Flexible content and controls */
-.chart-container, .block-chart, .dual-block-chart,
-.slider, .slider-holder, .year-slider-wrap,
-.income-age-slider-line, .k401-age-slider-line {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
-}
-
-.noUi-target {
-  max-width: 100% !important;
-}
-
-.main-grid, .assumption-grid, .ct-quick-grid,
-.ss-compact-grid, .ss-simple-grid,
-.end-summary-mini-grid, .universal-slider-max-grid,
-.slider-max-grid {
-  min-width: 0 !important;
-}
-
-@media (max-width: 600px) {
-  body {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .main-grid, .assumption-grid, .ct-quick-grid,
-  .ss-compact-grid, .ss-simple-grid,
-  .end-summary-mini-grid, .universal-slider-max-grid,
-  .slider-max-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-
-  .app-nav {
-    gap: 6px !important;
-  }
-
-  .app-nav .back,
-  .app-nav .next,
-  .app-nav > a.back,
-  .app-nav > a.next {
-    min-width: 64px !important;
-    max-width: 76px !important;
-    font-size: 13px !important;
-    padding: 9px 6px !important;
-  }
-
-  .app-nav .page-audio-button {
-    width: 46px !important;
-    min-width: 46px !important;
-    max-width: 46px !important;
-  }
-
-  .app-nav .after-retirement-title .celebrate-icon {
-    display: none !important;
-  }
-
-  .footer-nav {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 8px !important;
-  }
-
-  .footer-nav > * {
-    flex: 1 1 120px !important;
-  }
-}
-
-@media (max-width: 390px) {
-  .app-nav {
-    gap: 4px !important;
-    padding-left: max(5px, env(safe-area-inset-left)) !important;
-    padding-right: max(5px, env(safe-area-inset-right)) !important;
-  }
-
-  .app-nav .back,
-  .app-nav .next,
-  .app-nav > a.back,
-  .app-nav > a.next {
-    min-width: 58px !important;
-    max-width: 66px !important;
-    padding: 8px 4px !important;
-    font-size: 12px !important;
-  }
-
-  .app-nav .page-audio-button {
-    width: 42px !important;
-    min-width: 42px !important;
-    max-width: 42px !important;
-  }
-
-  .app-nav .nav-title,
-  .app-nav .after-retirement-title,
-  .app-nav .title {
-    font-size: 14px !important;
-  }
-}
-
-@media (orientation: landscape) and (max-height: 520px) {
-  .app-nav {
-    position: sticky !important;
-    top: 0 !important;
-  }
-}
+<style id="merged-expanded-guide-v1">
+.merged-guide{margin-top:16px;border:1px solid #dbe2ea;background:#fff;border-radius:22px;padding:15px;box-shadow:0 8px 24px rgba(15,23,42,.07)}
+.merged-guide h2{margin:0;font-size:24px}
+.merged-kicker{display:inline-flex;background:#111827;color:#fff;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:1000;margin-bottom:8px}
+.merged-flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:12px 0}
+.merged-flow .flow-step{border:1px solid #dbe2ea;border-radius:14px;padding:10px;background:#f8fafc;font-size:12px;font-weight:900;text-align:center}
+.merged-flow .flow-step b{display:grid;place-items:center;width:28px;height:28px;border-radius:9px;background:#111827;color:#fff;margin:0 auto 6px}
+.merged-step{margin:18px 0 28px;border-top:1px solid #e5e7eb;padding-top:16px}
+.merged-step-head{display:grid;grid-template-columns:42px 1fr;gap:10px;align-items:start;margin-bottom:10px}
+.merged-step-num{width:40px;height:40px;border-radius:12px;background:var(--step,#2563eb);color:#fff;display:grid;place-items:center;font-size:20px;font-weight:1000}
+.merged-step h3{margin:0 0 4px;font-size:22px}.merged-step p{margin:0;color:#475569;font-size:16px;font-weight:800}
+.merged-demo{border:2px solid #cbd5e1;border-radius:18px;background:#f8fafc;padding:12px;margin-top:12px}
+.merged-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.merged-card{border:1px solid #dbe2ea;border-radius:13px;background:#fff;padding:11px}
+.merged-label{font-size:12px;font-weight:900;color:#64748b}.merged-value{font-size:21px;font-weight:1000}
+.merged-slider{border:2px solid var(--step,#2563eb);border-radius:14px;background:#fff;padding:12px}
+.merged-slider-head{display:flex;justify-content:space-between;gap:8px;font-weight:1000;margin-bottom:8px}
+.merged-slider input{width:100%;height:34px;accent-color:var(--step,#2563eb)}
+.show-top-row{display:flex;align-items:center;gap:9px;border:1px solid #cbd5e1;border-radius:12px;background:#fff;padding:10px;font-weight:900;margin-bottom:10px}
+.show-top-row input{width:21px;height:21px;accent-color:#16a34a}
+.annotated-chart{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:12px;align-items:start}
+.chart-box{border:1px solid #dbe2ea;border-radius:16px;background:#fff;padding:12px}
+.chart-title{font-size:17px;font-weight:1000;margin-bottom:10px}
+.chart-bars{height:250px;display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:end;border-left:2px solid #94a3b8;border-bottom:2px solid #94a3b8;padding:8px 8px 0 10px;background:linear-gradient(to top,rgba(148,163,184,.16) 1px,transparent 1px) 0 0/100% 20%}
+.chart-year{height:100%;display:grid;grid-template-rows:minmax(0,1fr) auto}
+.chart-group{height:100%;display:flex;align-items:flex-end;justify-content:center;gap:4px}
+.chart-bar{width:28%;min-width:9px;border-radius:6px 6px 0 0}.cb-blue{background:#3b82f6}.cb-orange{background:#f97316}.cb-green{background:#16a34a}.cb-red{background:#ef4444}.cb-yellow{background:#f2cf4a}
+.chart-year-label{text-align:center;font-size:11px;font-weight:900;margin-top:4px}
+.tip-stack{display:grid;gap:9px}.arrow-tip{position:relative;border:2px solid var(--tip,#2563eb);border-radius:13px;background:#fff;padding:10px;font-size:13px;font-weight:800;color:#334155}
+.arrow-tip strong{display:block;color:var(--tip,#2563eb);font-size:14px;margin-bottom:3px}.arrow-tip:before{content:"";position:absolute;left:-16px;top:21px;width:16px;height:3px;background:var(--tip,#2563eb)}.arrow-tip:after{content:"";position:absolute;left:-20px;top:16px;border-top:6px solid transparent;border-bottom:6px solid transparent;border-right:8px solid var(--tip,#2563eb)}
+.tip-blue{--tip:#2563eb;background:#eff6ff}.tip-orange{--tip:#f97316;background:#fff7ed}.tip-green{--tip:#16a34a;background:#f0fdf4}.tip-red{--tip:#ef4444;background:#fff1f2}.tip-yellow{--tip:#d6a500;background:#fffbeb}
+.money-transfer{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin:12px 0}.transfer-box{border:2px solid #cbd5e1;border-radius:13px;padding:10px;text-align:center;font-weight:900;background:#fff}.transfer-arrow{font-size:28px;font-weight:1000;color:#ef4444}
+.lower-bars .chart-bar{width:38%}
+.legend-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:9px;font-size:12px;font-weight:900}.legend-row i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:5px;vertical-align:-1px}
+.tax-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}.tax-box{border:1px solid #dbe2ea;border-radius:12px;background:#fff;padding:9px;font-size:12px;font-weight:800}.tax-box b{display:block;margin-bottom:2px}
+.withdrawal-choices{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.choice{border:1px solid #dbe2ea;border-radius:12px;background:#fff;padding:10px;font-size:12px;font-weight:800}.choice b{display:block;color:#7c3aed;margin-bottom:4px}
+@media(max-width:780px){.merged-flow{grid-template-columns:repeat(2,1fr)}.annotated-chart{grid-template-columns:1fr}.arrow-tip:before{left:20px;top:-14px;width:3px;height:14px}.arrow-tip:after{left:15px;top:-20px;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:8px solid var(--tip,#2563eb);border-top:0}.merged-grid,.withdrawal-choices{grid-template-columns:1fr}.money-transfer{grid-template-columns:1fr}.transfer-arrow{transform:rotate(90deg);text-align:center}}
 </style>
-
 </head>
 <body>
 <div class="app-nav">
-<a class="back" href="01_Privacy_Policy.html">← Back</a><button class="page-audio-button" type="button" aria-label="Play page audio" title="Play page audio" data-audio-file="directions.mp3">
-  <span aria-hidden="true">🔊</span>
-</button>
-<audio class="page-audio-element" preload="none" src="directions.mp3"></audio>
-<div class="page-audio-status" role="status" aria-live="polite"></div>
+<a class="back" href="01_Privacy_Policy.html">← Back</a><button aria-label="Audio recording not included" class="page-audio-button" disabled="" style="opacity:.45;cursor:not-allowed" title="Audio recording not included" type="button"><span aria-hidden="true">🔇</span></button>
+
+<div aria-live="polite" class="page-audio-status" role="status"></div>
 <div class="nav-title">Calculator Walkthrough</div><a class="next" href="02_Income_ExpenseSetup.html">Next →</a></div>
 <div class="page" id="top">
 <section class="hero">
@@ -595,6 +417,118 @@ table {
 <span class="flow-pill">401(k) / IRA / Roth</span><span class="flow-arrow">→</span>
 <span class="flow-pill">Retirement Chart + Taxes</span><span class="flow-arrow">→</span>
 <span class="flow-pill">Retirement Expenses</span>
+</div>
+</section>
+<section class="merged-guide" id="expanded-walkthrough">
+<div class="merged-kicker">EXPANDED STEP-BY-STEP GUIDE</div>
+<div class="section-head"><div class="num">1–6</div><h2>Start here and follow the calculator in order</h2></div>
+<p class="text">This section keeps the original connected-page walkthrough and adds larger controls, chart explanations, arrow tips, and tax details. Move one slider at a time and watch the related chart change.</p>
+<div class="merged-flow">
+<div class="flow-step"><b>1</b>Choose ages and year</div>
+<div class="flow-step"><b>2</b>Enter income and expenses</div>
+<div class="flow-step"><b>3</b>Set 401(k), IRA, and Roth</div>
+<div class="flow-step"><b>4</b>Review working-year savings</div>
+<div class="flow-step"><b>5</b>Model retirement income and taxes</div>
+<div class="flow-step"><b>6</b>Finish expenses and reports</div>
+</div>
+<div class="merged-step" style="--step:#16a34a">
+<div class="merged-step-head"><div class="merged-step-num">1</div><div><h3>Move the sliders and watch the page recalculate</h3><p>The selected value, summary cards, and chart update as the slider moves. Change one setting at a time so you can see which control caused the change.</p></div></div>
+<div class="merged-demo">
+<div class="merged-slider">
+<div class="merged-slider-head"><span>Example monthly contribution</span><span id="mergedSliderValue">$500</span></div>
+<input id="mergedSlider" max="2000" min="0" step="100" type="range" value="500"/>
+</div>
+<div class="merged-grid" style="margin-top:10px">
+<div class="merged-card"><div class="merged-label">Selected amount</div><div class="merged-value" id="mergedSelected">$500</div></div>
+<div class="merged-card"><div class="merged-label">Projected savings</div><div class="merged-value" id="mergedProjected">$925,000</div></div>
+<div class="merged-card"><div class="merged-label">Chart response</div><div class="merged-value" style="color:#16a34a">Updates now</div></div>
+</div>
+</div>
+</div>
+<div class="merged-step" style="--step:#2563eb">
+<div class="merged-step-head"><div class="merged-step-num">2</div><div><h3>Check “Show on Top” when the chart is too far away</h3><p>This is a checkbox, not a button. Checking it places a copy of the same chart directly below the controls. Uncheck it to hide the nearby copy.</p></div></div>
+<div class="merged-demo">
+<label class="show-top-row"><input id="mergedShowTop" type="checkbox"/><span>Show on Top</span></label>
+<div class="chart-box" hidden="" id="mergedTopChart">
+<div class="chart-title">Chart shown directly below the controls</div>
+<div style="height:150px;display:flex;align-items:flex-end;gap:10px;border-bottom:2px solid #94a3b8;padding:0 10px">
+<div style="height:82%;flex:1;background:#ef4444;border-radius:7px 7px 0 0"></div>
+<div style="height:62%;flex:1;background:#f2cf4a;border-radius:7px 7px 0 0"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="merged-step" style="--step:#2563eb">
+<div class="merged-step-head"><div class="merged-step-num">3</div><div><h3>Read the After Retirement upper chart</h3><p>The upper chart explains the money available for the paycheck, planned spending, taxes, and what remains.</p></div></div>
+<div class="merged-demo">
+<div class="annotated-chart">
+<div class="chart-box">
+<div class="chart-title">Upper chart — retirement income, spending, taxes, and remaining amount</div>
+<div class="chart-bars">
+<div class="chart-year"><div class="chart-group"><div class="chart-bar cb-blue" style="height:72%"></div><div class="chart-bar cb-orange" style="height:54%"></div><div class="chart-bar cb-green" style="height:18%"></div></div><div class="chart-year-label">1</div></div>
+<div class="chart-year"><div class="chart-group"><div class="chart-bar cb-blue" style="height:76%"></div><div class="chart-bar cb-orange" style="height:58%"></div><div class="chart-bar cb-green" style="height:18%"></div></div><div class="chart-year-label">5</div></div>
+<div class="chart-year"><div class="chart-group"><div class="chart-bar cb-blue" style="height:80%"></div><div class="chart-bar cb-orange" style="height:64%"></div><div class="chart-bar cb-green" style="height:16%"></div></div><div class="chart-year-label">10</div></div>
+<div class="chart-year"><div class="chart-group"><div class="chart-bar cb-blue" style="height:84%"></div><div class="chart-bar cb-orange" style="height:70%"></div><div class="chart-bar cb-green" style="height:14%"></div></div><div class="chart-year-label">15</div></div>
+<div class="chart-year"><div class="chart-group"><div class="chart-bar cb-blue" style="height:88%"></div><div class="chart-bar cb-orange" style="height:77%"></div><div class="chart-bar cb-green" style="height:11%"></div></div><div class="chart-year-label">20</div></div>
+<div class="chart-year"><div class="chart-group"><div class="chart-bar cb-blue" style="height:93%"></div><div class="chart-bar cb-orange" style="height:85%"></div><div class="chart-bar cb-green" style="height:8%"></div></div><div class="chart-year-label">25</div></div>
+<div class="chart-year"><div class="chart-group"><div class="chart-bar cb-blue" style="height:98%"></div><div class="chart-bar cb-orange" style="height:93%"></div><div class="chart-bar cb-green" style="height:5%"></div></div><div class="chart-year-label">30</div></div>
+</div>
+<div class="legend-row"><span><i class="cb-blue"></i>Income / paycheck</span><span><i class="cb-orange"></i>Spending</span><span><i class="cb-green"></i>Remaining</span></div>
+</div>
+<div class="tip-stack">
+<div class="arrow-tip tip-blue"><strong>Blue — income and paycheck</strong>Social Security, pension, rental income, other income, and retirement-account money used to create the paycheck.</div>
+<div class="arrow-tip tip-orange"><strong>Orange — planned spending</strong>Monthly expenses for the selected retirement year.</div>
+<div class="arrow-tip tip-red"><strong>Taxes reduce usable money</strong>Federal tax, state tax, Roth-conversion tax, and tax from traditional-account withdrawals reduce what is available.</div>
+<div class="arrow-tip tip-green"><strong>Green — amount remaining</strong>What is left after spending and taxes. A shrinking green bar means the plan is getting tighter.</div>
+</div>
+</div>
+<div class="tax-grid">
+<div class="tax-box"><b>Federal income tax</b>Based on taxable retirement income and traditional withdrawals.</div>
+<div class="tax-box"><b>State income tax</b>Added when the selected state treatment is taxable.</div>
+<div class="tax-box"><b>Roth-conversion tax</b>Created when traditional retirement money is converted to Roth.</div>
+<div class="tax-box"><b>Required-distribution effect</b>Mandatory traditional-account withdrawals can raise taxable income later.</div>
+</div>
+</div>
+</div>
+<div class="money-transfer">
+<div class="transfer-box">Upper chart<br/>Paycheck and spending need</div><div class="transfer-arrow">→</div><div class="transfer-box">Lower chart<br/>Money removed from accounts</div>
+</div>
+<div class="merged-step" style="--step:#16a34a">
+<div class="merged-step-head"><div class="merged-step-num">4</div><div><h3>Read the lower blue-and-green account chart</h3><p>The lower chart shows the retirement money removed to support the upper chart and the account balance that remains afterward.</p></div></div>
+<div class="merged-demo">
+<div class="annotated-chart">
+<div class="chart-box">
+<div class="chart-title">Lower chart — account withdrawals and remaining retirement balance</div>
+<div class="chart-bars lower-bars">
+<div class="chart-year"><div class="chart-group"><div class="chart-bar cb-blue" style="height:24%"></div><div class="chart-bar cb-green" style="height:96%"></div></div><div class="chart-year-label">1</div></div>
+<div class="chart-year"><div class="chart-group"><div class="chart-bar cb-blue" style="height:29%"></div><div class="chart-bar cb-green" style="height:88%"></div></div><div class="chart-year-label">5</div></div>
+<div class="chart-year"><div class="chart-group"><div class="chart-bar cb-blue" style="height:35%"></div><div class="chart-bar cb-green" style="height:76%"></div></div><div class="chart-year-label">10</div></div>
+<div class="chart-year"><div class="chart-group"><div class="chart-bar cb-blue" style="height:42%"></div><div class="chart-bar cb-green" style="height:62%"></div></div><div class="chart-year-label">15</div></div>
+<div class="chart-year"><div class="chart-group"><div class="chart-bar cb-blue" style="height:50%"></div><div class="chart-bar cb-green" style="height:47%"></div></div><div class="chart-year-label">20</div></div>
+<div class="chart-year"><div class="chart-group"><div class="chart-bar cb-blue" style="height:58%"></div><div class="chart-bar cb-green" style="height:31%"></div></div><div class="chart-year-label">25</div></div>
+<div class="chart-year"><div class="chart-group"><div class="chart-bar cb-blue" style="height:65%"></div><div class="chart-bar cb-green" style="height:16%"></div></div><div class="chart-year-label">30</div></div>
+</div>
+<div class="legend-row"><span><i class="cb-blue"></i>Taken from retirement accounts</span><span><i class="cb-green"></i>Remaining retirement balance</span></div>
+</div>
+<div class="tip-stack">
+<div class="arrow-tip tip-blue"><strong>Blue — removed from the accounts</strong>When other income does not cover the paycheck, expenses, and taxes, the needed amount is withdrawn from the 401(k), IRA, or Roth.</div>
+<div class="arrow-tip tip-green"><strong>Green — stays invested</strong>The account value remaining after withdrawals, taxes paid from the account, conversions, and investment growth.</div>
+<div class="arrow-tip tip-yellow"><strong>Paycheck source changes the lower chart</strong>Roth First, IRA / 401(k) First, and Proportional can produce a similar upper paycheck but different lower withdrawals and balances.</div>
+<div class="arrow-tip tip-red"><strong>Taxes can make blue larger</strong>If taxes are paid from retirement money, the lower blue amount can be higher than the paycheck because the withdrawal also includes tax.</div>
+</div>
+</div>
+<div class="withdrawal-choices">
+<div class="choice"><b>Roth First</b>Uses Roth money first, then traditional accounts. Usually lowers taxable withdrawals early.</div>
+<div class="choice"><b>IRA / 401(k) First</b>Uses traditional retirement money first, then Roth. Taxable withdrawals may be higher early.</div>
+<div class="choice"><b>Proportional</b>Splits the paycheck across account types. Taxes and balances are spread between the accounts.</div>
+</div>
+</div>
+</div>
+<div class="merged-step" style="--step:#f59e0b">
+<div class="merged-step-head"><div class="merged-step-num">5</div><div><h3>Finish each retirement-expense year</h3><p>Move the retirement-year slider, review income for that year, add expenses, and confirm that the remaining amount is positive before moving to the next year.</p></div></div>
+</div>
+<div class="merged-step" style="--step:#7c3aed">
+<div class="merged-step-head"><div class="merged-step-num">6</div><div><h3>Refresh and review the report</h3><p>Refresh after changing any earlier page. Check the yearly table for tax spikes, large withdrawals, or a negative ending balance before printing or exporting.</p></div></div>
 </div>
 </section>
 <section class="section">
@@ -705,8 +639,8 @@ table {
 <div class="demo-row">
 <div class="demo-bars"><div class="demo-bar"></div><div class="demo-bar"></div><div class="demo-bar"></div><div class="demo-bar"></div><div class="demo-bar"></div><div class="demo-bar"></div></div>
 <div class="tax-switch">
-<div class="tax-option">💵 Pay from Cash / Savings<br/><small>Taxes come from money outside retirement accounts. The full conversion can stay in Roth.</small></div>
-<div class="tax-option">🔴 Pay from Traditional IRA<br/><small>The IRA pays the tax too, so the IRA balance drops more.</small></div>
+<div class="tax-option">💵 Pay from Cash / Savings<br><small>Taxes come from money outside retirement accounts. The full conversion can stay in Roth.</small></br></div>
+<div class="tax-option">🔴 Pay from Traditional IRA<br><small>The IRA pays the tax too, so the IRA balance drops more.</small></br></div>
 <div class="tax-option">🟡 Pay from Roth<br/><small>The Roth receives the conversion, then pays the tax. This reduces Roth money.</small></div>
 <div class="small-note">This moving demo starts automatically. It shows the idea of account values changing when the tax payment method changes.</div>
 </div>
@@ -754,10 +688,6 @@ table {
 <div class="footer">Self-contained walkthrough page with cropped snippets from your actual screenshots.</div>
 </div>
 
-
-
-
-</div>
 <script id="direct-verified-save-navigation-v1">
 (function(){
   'use strict';
@@ -861,8 +791,6 @@ table {
   });
 })();
 </script>
-
-
 <style id="global-yellow-pill-solid-black-final">
 /* Final global contrast override for every yellow/gold range-control pill. */
 .slider-block.page3-card-yellow button,
@@ -976,8 +904,6 @@ table {
   else initPageAudio();
 })();
 </script>
-
-
 <!-- Retirement suite finger-friendly scrolling -->
 <style id="retirement-suite-finger-friendly-scroll-v1">
 html,body{
@@ -1039,6 +965,22 @@ button,[role="button"],label,select,input,summary,
   },true);
 })();
 </script>
-
+<script id="merged-guide-interactions-v1">
+(function(){
+  var s=document.getElementById('mergedSlider'),v=document.getElementById('mergedSliderValue'),
+      sel=document.getElementById('mergedSelected'),p=document.getElementById('mergedProjected');
+  function update(){
+    if(!s)return;
+    var n=Number(s.value)||0, projected=425000+n*1000;
+    if(v)v.textContent='$'+n.toLocaleString();
+    if(sel)sel.textContent='$'+n.toLocaleString();
+    if(p)p.textContent='$'+projected.toLocaleString();
+  }
+  if(s){s.addEventListener('input',update);update();}
+  var c=document.getElementById('mergedShowTop'),ch=document.getElementById('mergedTopChart');
+  function toggle(){if(!c||!ch)return;if(c.checked)ch.removeAttribute('hidden');else ch.setAttribute('hidden','');}
+  if(c){c.addEventListener('change',toggle);toggle();}
+})();
+</script>
 </body>
 </html>
