@@ -87,16 +87,18 @@
     var accepted=null;
     try{accepted=JSON.parse(localStorage.getItem(DISCLAIMER_KEY)||'null');}catch(e){}
     var needsAcceptance=!accepted || accepted.version!==DISCLAIMER_VERSION;
-    var shouldShowSave=false;
-    try{shouldShowSave=sessionStorage.getItem('retirement_show_save_notice')==='1';sessionStorage.removeItem('retirement_show_save_notice');}catch(e){}
-    if(!needsAcceptance && !shouldShowSave) return;
+    /*
+      The automatic-save explanation is included in the main calculator notice.
+      Show that combined notice only when its acceptance has not been recorded.
+      Do not show a separate save-progress popup on every app visit.
+    */
+    try{sessionStorage.removeItem('retirement_show_save_notice');}catch(e){}
+    if(!needsAcceptance) return;
 
     var overlay=document.createElement('div');
     overlay.id='automaticSaveNotice';
     overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-labelledby','automaticSaveNoticeTitle');
-    var warningSection=needsAcceptance
-      ? '<div class="calculator-warning"><h2 id="automaticSaveNoticeTitle">Retirement Calculator Notice</h2><p>'+disclaimerText+'</p><label class="warning-check"><input type="checkbox" id="calculatorWarningCheck"> <span>I have read and understand this notice, including that market investing is not guaranteed and I could lose money.</span></label></div>'
-      : '<h2 id="automaticSaveNoticeTitle">Your progress saves automatically</h2>';
+    var warningSection='<div class="calculator-warning"><h2 id="automaticSaveNoticeTitle">Retirement Calculator Notice</h2><p>'+disclaimerText+'</p><label class="warning-check"><input type="checkbox" id="calculatorWarningCheck"> <span>I have read and understand this notice, including that market investing is not guaranteed and I could lose money.</span></label></div>';
     overlay.innerHTML='<div class="automatic-save-card"><div class="automatic-save-icon" aria-hidden="true">!</div>'+warningSection+'<div class="save-explanation"><h3>Your entries save automatically</h3><p>This app saves entries privately in this browser on this device so you can return later.</p><p class="automatic-save-small">Nothing is uploaded by this static app. Clearing browser data, using private browsing, or switching browsers or devices can remove or hide saved entries and the acceptance record.</p></div><button type="button" id="automaticSaveNoticeContinue" '+(needsAcceptance?'disabled':'')+'>'+(needsAcceptance?'Accept and Continue':'Continue')+'</button></div>';
     var style=document.createElement('style');
     style.id='automaticSaveNoticeStyle';
