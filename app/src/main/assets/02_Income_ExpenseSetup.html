@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+
 <script id="retirement-autosave-clean-migration-v1">
 (function(){
   'use strict';
@@ -988,6 +989,7 @@ color:#111827!important;
 background:#fff!important;
 }
 </style>
+
 <style id="final-button-text-consistency-v1">
 /* Keep Increase and Decrease wording consistently black on every page. */
 button[data-action="increase"],button[data-action="decrease"],
@@ -1017,6 +1019,7 @@ button[data-dir="1"] *,button[data-dir="-1"] *,
   -webkit-text-fill-color:#111827!important;
 }
 </style>
+
 <style id="page2-square-lock-buttons-v1">
 /* Page 2 lock controls match the app's rounded-square buttons instead of circles. */
 .slider-lock-button,.stable-lock-button,
@@ -1029,6 +1032,7 @@ button[class*="lock"],button[id*="lock"],button[id*="Lock"] {
   aspect-ratio:1 / 1!important;
 }
 </style>
+
 <style id="unified-slider-card-size-v1">
 /* Slider-card sizing only: shared medium size across Pages 2, 3, and 4. */
 .slider-card{
@@ -1041,6 +1045,7 @@ button[class*="lock"],button[id*="lock"],button[id*="Lock"] {
 .slider-head{margin-bottom:7px !important;}
 .slider-holder{margin:10px 5px 8px !important;}
 </style>
+
 <style id="p2-federal-limit-panel-style-v2">
 .p2-federal-limit-panel{margin:10px 0 12px;padding:12px;border:2px solid #f59e0b;border-radius:18px;background:linear-gradient(135deg,#fff7ed,#ffffff 58%,#fffbeb);box-shadow:0 8px 24px rgba(0,0,0,.12)}
 .p2-limit-title{font-size:18px;font-weight:1000;color:#111827}.p2-limit-copy{margin:4px 0 10px;font-size:12px;font-weight:800;line-height:1.35;color:#374151}
@@ -1050,10 +1055,58 @@ button[class*="lock"],button[id*="lock"],button[id*="Lock"] {
 @media(max-width:620px){.p2-limit-columns{grid-template-columns:1fr}.p2-limit-title{font-size:17px}.p2-limit-group label{grid-template-columns:1fr 105px}}
 </style>
 
+<style id="page-audio-header-style">
+.page-audio-button{
+  flex:0 0 auto;
+  width:42px;
+  height:42px;
+  min-width:42px!important;
+  padding:0!important;
+  border:2px solid #111827!important;
+  border-radius:999px!important;
+  background:#fff!important;
+  color:#111827!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:21px!important;
+  line-height:1!important;
+  cursor:pointer!important;
+  box-shadow:0 2px 7px rgba(15,23,42,.15)!important;
+}
+.page-audio-button.is-playing{
+  background:#16a34a!important;
+  color:#fff!important;
+  border-color:#166534!important;
+}
+.page-audio-status{
+  position:fixed;
+  top:58px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:2147483647;
+  display:none;
+  max-width:min(92vw,520px);
+  padding:7px 11px;
+  border-radius:999px;
+  background:rgba(17,24,39,.96);
+  color:#fff;
+  font:900 12px/1.25 Arial,sans-serif;
+  text-align:center;
+}
+.page-audio-status.show{display:block}
+@media(max-width:520px){
+  .page-audio-button{width:40px;height:40px;min-width:40px!important;font-size:20px!important}
+}
+</style>
+
 </head><body><div class="app-nav">
 <button class="back" onclick="saveValues(); window.location.href='01_Directions.html'">← Back</button>
-
-
+<button class="page-audio-button" type="button"
+  aria-label="Play Income and Expense Setup audio"
+  title="Play Income and Expense Setup audio">🔊</button>
+<audio class="page-audio-element" preload="none" src="income.mp3"></audio>
+<div class="page-audio-status" role="status" aria-live="polite"></div>
 <div class="nav-title">Income &amp; Expense Setup</div><button class="next" id="page2BridgeNext" onclick="return page2SaveAndGoToPage3(event)" type="button">Next →</button></div><div class="page"><div class="income-year-selector"><div class="income-year-head compact-year-head"><div class="year-title-wrap"><span>Selected year</span></div><div class="income-year-note year-head-note" id="incomeYearNote">This slider matches the selected year on the 401K calculator.</div></div><div aria-label="Age controls" class="page2-age-controls"><div class="page2-age-top-row"><div class="page2-age-control-row"><div class="page2-age-select-wrap"><label for="page2StartAge">Start Age</label><select id="page2StartAge"></select></div><div class="page2-age-select-wrap"><label for="page2RetirementAge">Retire Age</label><select id="page2RetirementAge"></select></div></div><div class="page2-age-tip" id="page2YearLiveTip">Tip: YEAR 1 / AGE 25 selected</div></div></div><div class="income-age-slider-line"><button aria-label="Decrease selected year" class="income-age-step-btn" data-income-age-delta="-1" type="button">−</button><input id="incomeYearSlider" list="incomeYearTicks" max="0" min="0" step="1" type="range" value="0"/><button aria-label="Increase selected year" class="income-age-step-btn" data-income-age-delta="1" type="button">+</button></div><datalist id="incomeYearTicks"></datalist><div class="income-year-ticks" id="incomeYearTickRow"></div></div><section class="top-summary"><div class="summary-card"><div class="label">Monthly income</div><div class="value green" id="sumMonthlyIncome">$0</div></div><div class="summary-card"><div class="label">Yearly income to 401K</div><div class="value green" id="sumYearlyIncome">$0</div></div><div class="summary-card"><div class="label">Monthly 401K investment</div><div class="value red" id="sum401k">$0</div></div><div class="summary-card"><div class="label">Monthly Roth IRA investment</div><div class="value yellow" id="sumRoth">$0</div></div><div class="summary-card"><div class="label" id="remainingLabel">Remaining after expenses</div><div class="value green" id="budgetRemaining">$0</div></div></section><div aria-label="Filing status" class="page2-filing-status-panel" id="page2FilingStatusPanel">
 <div class="page2-filing-title">Filing Status</div>
 <div class="page2-filing-radios">
@@ -1062,25 +1115,25 @@ button[class*="lock"],button[id*="lock"],button[id*="Lock"] {
 </div>
 <div class="page2-filing-note">Shared with Page 3 and used for Roth IRA income eligibility.</div>
 </div><section class="main-grid"><div class="panel"><h2>Monthly Income &amp; Investing</h2><div class="slider-card page2-income-card"><div class="slider-head"><div><div class="slider-title">Monthly Income</div><div class="slider-value" id="monthlyIncomeValue">$5,000</div></div><button aria-label="Lock Monthly income" aria-pressed="false" class="slider-lock-button" data-slider-target="monthlyIncomeSlider" title="Lock Monthly income" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button></div><div class="monthly-income-sync-note off" id="monthlyIncomeSyncNote">Inflation OFF — Page 03 income uses today\'s monthly income.</div><div class="slider-holder" id="monthlyIncomeSlider"></div><input id="monthlyIncome" type="hidden" value="5000"/></div><div class="slider-card page2-other-income-card"><div class="slider-head"><div><div class="slider-title">Other Income / Rent</div><div class="slider-value" id="otherIncomeValue">$0</div></div><button aria-label="Lock Other income" aria-pressed="false" class="slider-lock-button" data-slider-target="otherIncomeSlider" title="Lock Other income" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button></div><div class="slider-holder" id="otherIncomeSlider"></div><input id="otherIncome" type="hidden" value="0"/></div><div class="slider-card page2-k401-card"><div class="slider-head"><div><div class="catchup-note k401-catchup-note">The 401K contribution limit changes with age. Move the age slider to the age you want to model, then adjust this slider up to that age's limit.</div><details class="rule-tip"><summary>Click for 401K rules</summary><div class="rule-body">Base limit: <span class="k401-under50-text">$24.5K</span>/year. Age 50+: <span class="k401-50-text">$32.5K</span>. Age 60–63: <span class="k401-60-text">$35.8K</span>. The slider warning appears if the monthly amount is over the annual limit.</div></details><div class="slider-title">Monthly 401K Investment</div><div class="slider-value" id="monthly401kValue">$0</div></div><button aria-label="Lock 401K investment" aria-pressed="false" class="slider-lock-button" data-slider-target="monthly401kSlider" title="Lock 401K investment" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button></div><div class="slider-holder" id="monthly401kSlider"></div><input id="monthly401k" type="hidden" value="0"/><div class="inline-limit-warning k401" id="k401LimitWarning">🔴 401K limit reached.</div></div><div class="slider-card page2-roth-card"><div class="slider-head"><div><div class="catchup-note roth-catchup-note">The Roth IRA contribution limit changes at age 50. Move the age slider to the age you want to model, then adjust this slider up to that age's limit.</div><div class="slider-title">Monthly Roth IRA Investment</div><div class="slider-value" id="monthlyRothValue">$0</div></div><button aria-label="Lock Roth investment" aria-pressed="false" class="slider-lock-button" data-slider-target="monthlyRothSlider" title="Lock Roth investment" type="button"><span aria-hidden="true" class="slider-lock-icon">🔓</span></button></div><div class="slider-holder" id="monthlyRothSlider"></div><input id="monthlyRoth" type="hidden" value="0"/><div class="inline-limit-warning roth" id="rothLimitWarning">🟡 Roth IRA limit reached.</div></div><h2>Monthly Expenses</h2><div class="controls-row"><select id="presetSelect"><option value="">Add preset category...</option><option value="Housing|2000|#ef4444">Housing</option><option value="Groceries|500|#f97316">Groceries</option><option value="Utilities|250|#3b82f6">Utilities</option><option value="Transportation|450|#22c55e">Transportation</option><option value="Insurance|350|#8b5cf6">Insurance</option><option value="Medical|300|#ec4899">Medical</option><option value="Credit Cards|250|#111827">Credit Cards</option><option value="Savings|500|#16a34a">Savings</option><option value="Entertainment|250|#facc15">Entertainment</option><option value="Miscellaneous|200|#6366f1">Miscellaneous</option><option value="Phone / Internet|150|#06b6d4">Phone / Internet</option><option value="Medical / Healthcare|250|#ec4899">Medical / Healthcare</option><option value="Childcare|500|#0ea5e9">Childcare</option><option value="Education|250|#a855f7">Education</option><option value="Personal / Household|200|#14b8a6">Personal / Household</option><option value="Dining Out|200|#fb7185">Dining Out</option><option value="Subscriptions|100|#84cc16">Subscriptions</option><option value="Taxes|300|#c026d3">Taxes</option></select><button class="green-btn" id="addExpense">Add Blank</button><button class="red-btn" id="resetExpenses">Reset</button></div><div class="expense-list" id="expenseList"></div></div><div class="panel"><h2>Income &amp; Expense Block Chart</h2><div id="chartContainer"><div class="block-chart" id="blockChart"></div></div><div class="budget-note" id="budgetNote">Set income, investments, and expenses. Click Next to send yearly income and monthly investments to the 401K calculator.</div></div></section><section class="p2-federal-limit-panel" id="p2FederalLimitPanel">
-<div class="p2-limit-title">⚠️ Federal Contribution-Limit Assumptions</div>
-<div class="p2-limit-copy">These annual limits control the 401K and Roth IRA warnings and caps on this page and the 401K calculator. Update them when federal rules change.</div>
-<div class="p2-limit-columns">
-<div class="p2-limit-group"><h3>401K annual limits</h3>
-<label>Under age 50 <input id="p2AssK401Under50" min="0" step="100" type="number"/></label>
-<label>Age 50–59 <input id="p2AssK401Age50" min="0" step="100" type="number"/></label>
-<label>Age 60–63 <input id="p2AssK401Age60" min="0" step="100" type="number"/></label>
-<label>Age 64+ <input id="p2AssK401Age64" min="0" step="100" type="number"/></label>
-<div class="p2-limit-actions"><button id="p2ApplyK401Limits" type="button">Apply 401K Limits</button><button class="reset" id="p2ResetK401Limits" type="button">Reset</button></div>
-</div>
-<div class="p2-limit-group"><h3>Roth IRA annual limits</h3>
-<label>Base contribution <input id="p2AssRothBase" min="0" step="100" type="number"/></label>
-<label>Age 50+ catch-up <input id="p2AssRothCatchup" min="0" step="100" type="number"/></label>
-<label>Single income ceiling <input id="p2AssRothSingle" min="0" step="1000" type="number"/></label>
-<label>Married income ceiling <input id="p2AssRothMarried" min="0" step="1000" type="number"/></label>
-<div class="p2-limit-actions"><button id="p2ApplyRothLimits" type="button">Apply Roth Limits</button><button class="reset" id="p2ResetRothLimits" type="button">Reset</button></div>
-</div>
-</div>
-<div class="p2-limit-status" id="p2LimitStatus">Saved values are shared with the 401K Calculator.</div>
+  <div class="p2-limit-title">⚠️ Federal Contribution-Limit Assumptions</div>
+  <div class="p2-limit-copy">These annual limits control the 401K and Roth IRA warnings and caps on this page and the 401K calculator. Update them when federal rules change.</div>
+  <div class="p2-limit-columns">
+    <div class="p2-limit-group"><h3>401K annual limits</h3>
+      <label>Under age 50 <input id="p2AssK401Under50" type="number" min="0" step="100"></label>
+      <label>Age 50–59 <input id="p2AssK401Age50" type="number" min="0" step="100"></label>
+      <label>Age 60–63 <input id="p2AssK401Age60" type="number" min="0" step="100"></label>
+      <label>Age 64+ <input id="p2AssK401Age64" type="number" min="0" step="100"></label>
+      <div class="p2-limit-actions"><button id="p2ApplyK401Limits" type="button">Apply 401K Limits</button><button class="reset" id="p2ResetK401Limits" type="button">Reset</button></div>
+    </div>
+    <div class="p2-limit-group"><h3>Roth IRA annual limits</h3>
+      <label>Base contribution <input id="p2AssRothBase" type="number" min="0" step="100"></label>
+      <label>Age 50+ catch-up <input id="p2AssRothCatchup" type="number" min="0" step="100"></label>
+      <label>Single income ceiling <input id="p2AssRothSingle" type="number" min="0" step="1000"></label>
+      <label>Married income ceiling <input id="p2AssRothMarried" type="number" min="0" step="1000"></label>
+      <div class="p2-limit-actions"><button id="p2ApplyRothLimits" type="button">Apply Roth Limits</button><button class="reset" id="p2ResetRothLimits" type="button">Reset</button></div>
+    </div>
+  </div>
+  <div class="p2-limit-status" id="p2LimitStatus">Saved values are shared with the 401K Calculator.</div>
 </section></div><script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.8.0/nouislider.min.js"></script>
 <script>
 let expenses=[];let selectedIncomeYearIndex=0;const defaultExpenses=[{name:'Rent/Mortgage',amount:2000,color:'#ef4444'},{name:'Groceries',amount:400,color:'#f97316'},{name:'Credit Card',amount:150,color:'#111827'},{name:'Utilities',amount:200,color:'#3b82f6'},{name:'Car / Transportation',amount:250,color:'#22c55e'},{name:'Cash Savings',amount:300,color:'#16a34a'},{name:'Insurance',amount:350,color:'#8b5cf6'},{name:'Medical / Healthcare',amount:250,color:'#ec4899'},{name:'Entertainment',amount:200,color:'#eab308'},{name:'Phone / Internet',amount:150,color:'#06b6d4'},{name:'Personal / Household',amount:200,color:'#14b8a6'},{name:'Miscellaneous',amount:150,color:'#6366f1'}];
@@ -2640,6 +2693,7 @@ html,body{overflow-x:hidden!important}
   window.addEventListener('pageshow',function(){setTimeout(repaintFrames,120);});
 })();
 </script>
+
 <script>window.__RETIREMENT_AUTOSAVE_PAGE__="page2";</script>
 <script id="page2-inflation-radio-initializer">document.addEventListener('DOMContentLoaded',()=>{initializeIncomeInflationRadios()});</script><script src="app-auto-save.js"></script>
 <!-- V50 TOP SAVE PILL: PAGE 2 TO PAGE 3 -->
@@ -2678,6 +2732,8 @@ html,body{overflow-x:hidden!important}
   };
 })();
 </script>
+
+
 <style id="page2-government-limit-bypass-style">
 .rule-tip{margin:5px 0 7px;border:1px solid #d1d5db;border-radius:8px;background:#f9fafb;font-size:11px;overflow:hidden}
 .rule-tip summary{cursor:pointer;padding:6px 8px;font-weight:900;user-select:none}
@@ -2724,6 +2780,7 @@ html,body{overflow-x:hidden!important}
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',install,{once:true}); else install();
 })();
 </script>
+
 <style id="page2-show-first-style">
 .page2-show-first-enabled{position:relative!important;padding-top:12px!important}
 .page2-show-first-row{display:flex;align-items:center;justify-content:flex-start;width:100%;min-height:38px;margin:0 0 8px;padding:0 10px;box-sizing:border-box}
@@ -2804,6 +2861,8 @@ html,body{overflow-x:hidden!important}
   window.addEventListener('pageshow',function(){setTimeout(install,0)});
 })();
 </script>
+
+
 <script id="p2-federal-limit-panel-script-v2">
 (function(){
 'use strict';
@@ -2822,6 +2881,10 @@ document.getElementById('p2ResetRothLimits').onclick=function(){localStorage.rem
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wire,{once:true});else wire();
 })();
 </script>
+
+
+
+
 <style id="age-pin-readout-fixed-css">
 .age-limit-pin-v3{position:absolute!important;top:-11px!important;width:3px!important;height:32px!important;background:#111827!important;border-radius:3px!important;transform:translateX(-1.5px)!important;z-index:30!important;pointer-events:none!important}.age-limit-pin-v3:before{content:"";position:absolute;left:-2px;top:-2px;width:7px;height:7px;border-radius:50%;background:#111827}.age-limit-readout-v3{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:8px!important;margin:5px 0 3px!important;font-size:12px!important;font-weight:900!important;color:#374151!important}.age-limit-readout-v3 .age-cap{color:#111827!important}.age-limit-managed .final-range-readout,.age-limit-managed .page3-final-range-readout,.age-limit-managed .clean-range-readout,.age-limit-managed .slider-range-display-final,.age-limit-managed .page3-matched-range-display,.age-limit-managed .cg-stable-range-readout,.age-limit-managed .cg-one-range-readout{display:none!important}.age-limit-managed .noUi-base{position:relative!important;overflow:visible!important}.age-limit-managed{overflow:visible!important;pointer-events:auto!important;opacity:1!important}.age-limit-managed .noUi-handle{pointer-events:auto!important;cursor:grab!important}
 </style><script id="age-pin-readout-fixed-v3">
@@ -2839,6 +2902,7 @@ function decorate(s,cap,full,a,label){s.classList.add('age-limit-managed');let b
 function setup(id,isK,load){let s=el(id);if(!s||!s.noUiSlider)return;let api=s.noUiSlider,L=limits(),cap=isK?L.kCap:L.rCap,full=isK?L.kFull:L.rFull,bucket=isK?L.kBucket:L.rBucket,key=isK?'k':'r',oid=isK?cfg.ko:cfg.ro,label=isK?'401(k)':'Roth IRA';s.classList.remove('locked','mode-locked','slider-actually-locked');let st=read();st[key]=st[key]||{};let old=api.__v3bucket;if(old&&old!==bucket)st[key][old]=Math.min(num(api.get(),0),num(api.__v3cap,Infinity));if(!api.__v3origUpdate){api.__v3origUpdate=api.updateOptions.bind(api);api.__v3origSet=api.set.bind(api)}let cm=num(api.options?.range?.max,0);if(Math.abs(cm-full)>.01){busy=true;api.__v3origUpdate({range:{min:0,max:full},step:1},false);busy=false}let v=num(api.get(),0);if(load||old!==bucket){let sv=num(st[key][bucket],NaN);if(Number.isFinite(sv))v=sv}v=Math.max(0,Math.min(v,cap));api.__v3bucket=bucket;api.__v3cap=cap;api.__v3full=full;busy=true;api.__v3origSet(v,false,true);busy=false;st[key][bucket]=v;write(st);out(oid,v);decorate(s,cap,full,L.age,label);if(!api.__v3events){api.__v3events=true;let enforce=function(values){if(busy)return;let vv=num(values,0),cc=num(api.__v3cap,Infinity);if(vv>cc){busy=true;api.__v3origSet(cc,false,true);busy=false;vv=cc}out(oid,vv)};api.on('slide.agePinV3',enforce);api.on('update.agePinV3',enforce);api.on('set.agePinV3',function(values){enforce(values);let q=read();q[key]=q[key]||{};q[key][api.__v3bucket]=Math.min(num(values,0),api.__v3cap);write(q)})}}
 function sync(load){setup(cfg.k,true,load);setup(cfg.r,false,load)}function bind(){[cfg.yr,...cfg.start,...cfg.kf,...cfg.rf].forEach(id=>{let x=el(id);if(x&&!x.__v3){x.__v3=true;x.addEventListener('input',()=>setTimeout(()=>sync(true),0));x.addEventListener('change',()=>setTimeout(()=>sync(true),0))}});document.addEventListener('click',e=>{if(e.target.closest('[id*="apply"],[id*="Apply"],[id*="reset"],[id*="Reset"]'))setTimeout(()=>sync(false),30)},true)}function boot(){sync(true);bind();setTimeout(()=>sync(false),400)}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();window.addEventListener('pageshow',()=>setTimeout(()=>sync(true),80));})();
 </script>
+
 <style id="shared-compact-slider-cards-v1">
 /* Compact slider-card option shared by Pages 2 and 4. */
 .page2-show-first-row,.ctrl-header{flex-wrap:wrap!important}
@@ -2890,6 +2954,8 @@ function sync(load){setup(cfg.k,true,load);setup(cfg.r,false,load)}function bind
 .ctrl.is-slider-compact .page4-card-lock,.ctrl.is-slider-compact .slider-lock-button,.ctrl.is-slider-compact .stable-lock-button{display:none!important}
 @media(max-width:520px){.slider-compact-description{font-size:11px}.slider-compact-label{font-size:11px}}
 </style>
+
+
 <script id="shared-compact-slider-cards-script-v1">
 (function(){
   'use strict';
@@ -2949,6 +3015,8 @@ function sync(load){setup(cfg.k,true,load);setup(cfg.r,false,load)}function bind
   if(window.MutationObserver)new MutationObserver(function(){install();}).observe(document.documentElement,{childList:true,subtree:true});
 })();
 </script>
+
+
 <style id="compact-slider-normal-rail-thickness-v2">
 /* Compact mode reduces card height without changing the slider rail thickness. */
 .slider-card.is-slider-compact .slider-holder.noUi-target,
@@ -2965,6 +3033,7 @@ function sync(load){setup(cfg.k,true,load);setup(cfg.r,false,load)}function bind
   min-height:8px!important;
 }
 </style>
+
 <style id="page2-compact-and-pin-final-v4">
 /* Match Page 3 compact behavior: preserve only controls, description, amount and slider. */
 .slider-card.is-slider-compact .slider-head > div:first-child > *:not(.slider-value){display:none!important}
@@ -3036,7 +3105,6 @@ function sync(load){setup(cfg.k,true,load);setup(cfg.r,false,load)}function bind
   new MutationObserver(function(){bind();repaint()}).observe(document.documentElement,{childList:true,subtree:true});
 })();
 </script>
-
 <!-- Retirement suite finger-friendly scrolling -->
 <style id="retirement-suite-finger-friendly-scroll-v1">
 html,body{
@@ -3098,6 +3166,8 @@ button,[role="button"],label,select,input,summary,
   },true);
 })();
 </script>
+
+
 <!-- FINAL FIX: Page 2 age handoff to Page 3 -->
 <script id="final-page2-age-handoff-20260730">
 (function(){
@@ -3151,6 +3221,7 @@ button,[role="button"],label,select,input,summary,
   window.addEventListener('beforeunload',savePage2Ages);
 })();
 </script>
+
 <!-- AUTHORITATIVE PAGE 2 WELCOME + ROTH SYNC V26 -->
 <style id="page2-welcome-v26-style">
 #page2WelcomeV26{position:fixed!important;inset:0!important;z-index:2147483647!important;display:none!important;align-items:center!important;justify-content:center!important;padding:14px!important;background:rgba(15,23,42,.84)!important;font-family:Arial,sans-serif!important;overflow:auto!important}
@@ -3251,6 +3322,7 @@ body.page2-welcome-v26-locked{overflow:hidden!important}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
 </script>
+
 <script id="page2-exact-contribution-handoff-v27">
 (function(){
   'use strict';
@@ -3293,6 +3365,8 @@ body.page2-welcome-v26-locked{overflow:hidden!important}
   };
 })();
 </script>
+
+
 <script id="page2-live-contribution-handoff-v1">
 (function(){
   'use strict';
@@ -3327,6 +3401,8 @@ body.page2-welcome-v26-locked{overflow:hidden!important}
   addEventListener('pagehide',save,true);addEventListener('beforeunload',save,true);
 })();
 </script>
+
+
 <script id="authoritative-government-limit-sync-page2-v1">
 (function(){
   'use strict';
@@ -3355,6 +3431,7 @@ body.page2-welcome-v26-locked{overflow:hidden!important}
   window.addEventListener('pageshow',install);
 })();
 </script>
+
 <style id="government-limit-feature-removed-css">.government-limit-bypass,#page2-government-limit-bypass,#page3-government-limit-bypass{display:none!important}</style>
 <script id="government-limit-feature-removed-final">(function(){
   var keys=['retirement_disable_government_contribution_limits', 'page3_disable_government_contribution_limits', 'disable-government-contribution-limits', 'retirement_government_limit_updated_at'];
@@ -3366,6 +3443,56 @@ body.page2-welcome-v26-locked{overflow:hidden!important}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',removeFeature,{once:true});else removeFeature();
   window.addEventListener('pageshow',removeFeature);
 })();</script>
+
+<script id="page-audio-header-script">
+(function(){
+  'use strict';
+  function init(){
+    var button=document.querySelector('.page-audio-button');
+    var audio=document.querySelector('.page-audio-element');
+    var status=document.querySelector('.page-audio-status');
+    if(!button||!audio||!status)return;
+    var timer=0;
+    function say(message){
+      status.textContent=message;
+      status.classList.add('show');
+      clearTimeout(timer);
+      timer=setTimeout(function(){status.classList.remove('show');},2200);
+    }
+    function idle(){
+      button.classList.remove('is-playing');
+      button.setAttribute('aria-label','Play Income and Expense Setup audio');
+      button.title='Play Income and Expense Setup audio';
+      button.textContent='🔊';
+    }
+    button.addEventListener('click',function(){
+      if(!audio.paused){
+        audio.pause();
+        idle();
+        say('Audio paused.');
+        return;
+      }
+      var playResult;
+      try{playResult=audio.play();}catch(e){playResult=Promise.reject(e);}
+      Promise.resolve(playResult).then(function(){
+        button.classList.add('is-playing');
+        button.setAttribute('aria-label','Pause Income and Expense Setup audio');
+        button.title='Pause Income and Expense Setup audio';
+        button.textContent='⏸';
+        say('Playing Income and Expense Setup audio.');
+      }).catch(function(){
+        idle();
+        say('Income audio could not be played.');
+      });
+    });
+    audio.addEventListener('ended',idle);
+    audio.addEventListener('pause',function(){if(!audio.ended)idle();});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+  else init();
+})();
+</script>
+
 </body></html>
 \n<!-- AUTHORITATIVE_CROSS_PAGE_RETIREMENT_SYNC_V3 -->
 <!-- Fixed authoritative Increase / Reset behavior for Monthly Income, 401K, and Roth IRA -->
@@ -3490,8 +3617,15 @@ body.page2-welcome-v26-locked{overflow:hidden!important}
 })();
 </script>
 <!-- Authoritative expense block colors + matching input rows -->
+
+
 <!-- Final unique persistent expense colors -->
+
+
 <!-- Fix duplicate "New Expense" color rendering: match by expense index, not repeated name -->
+
+
+
 <!-- Final authoritative Page 2 slider defaults and 100% range controls -->
 <script id="chatgpt-final-four-slider-range-controller">
 (function(){
@@ -3610,6 +3744,7 @@ body.page2-welcome-v26-locked{overflow:hidden!important}
 })();
 </script>
 <script src="page2-page3-sync.js?v=firstload7"></script>
+
 <!-- SAVED PAGE VISUAL V49 — CSS ONLY; DOES NOT TOUCH NAVIGATION -->
 <style id="saved-page-visual-v49">
 #verifiedSaveOverlay{position:fixed!important;inset:auto!important;top:76px!important;left:50%!important;transform:translateX(-50%)!important;z-index:2147483647!important;width:auto!important;height:auto!important;padding:0!important;margin:0!important;background:transparent!important;align-items:initial!important;justify-content:initial!important;pointer-events:none!important;}
@@ -3621,6 +3756,7 @@ body.page2-welcome-v26-locked{overflow:hidden!important}
 #verifiedSaveOverlay .save-sub{color:#166534!important;font:700 12px/1.2 Arial,sans-serif!important;margin:3px 0 0!important;}
 @media(max-width:520px){#verifiedSaveOverlay{top:64px!important;}#verifiedSaveOverlay .save-card{min-width:0!important;padding:10px 14px!important;gap:9px!important;}#verifiedSaveOverlay .save-title{font-size:15px!important;}#verifiedSaveOverlay .save-sub{font-size:11px!important;}}
 </style>
+
 <style id="page2-contribution-limit-ack-style">
 .contribution-limit-mini-warning{display:none;position:sticky;top:48px;z-index:99997;background:#fef3c7;border-bottom:1px solid #f59e0b;color:#111827;text-align:center;padding:6px 10px;font-size:12px;font-weight:900}
 .contribution-limit-mini-warning.show{display:block}
@@ -3703,6 +3839,12 @@ body.page2-welcome-v26-locked{overflow:hidden!important}
   else setTimeout(install,0);
 })();
 </script>
+
+
+
+
+
+
 <!-- AUTHORITATIVE AGE HANDOFF FIX V3 -->
 <script id="authoritative-page2-age-handoff-v3">
 (function(){
@@ -3763,6 +3905,7 @@ body.page2-welcome-v26-locked{overflow:hidden!important}
   window.addEventListener('pageshow',bind);
 })();
 </script>
+
 <!-- FINAL_SHARED_GOVERNMENT_LIMIT_CONTROL_PAGE2_V2 -->
 <style id="final-shared-government-limit-control-page2-v2-style">
 #page2-government-limit-bypass.is-active{border-color:#16a34a!important;box-shadow:0 0 0 2px rgba(22,163,74,.12)!important}
@@ -3824,6 +3967,7 @@ body.page2-welcome-v26-locked{overflow:hidden!important}
   addEventListener('pageshow',boot);
 })();
 </script>
+
 <!-- FINAL_401K_ONLY_GOVERNMENT_LIMIT_PAGE2 -->
 <style id="final-401k-only-government-limit-page2-style">
 #page2-government-limit-bypass .government-limit-help{line-height:1.35}
